@@ -1,0 +1,14 @@
+question_id,question,gold_answer,predicted_answer,reasoning_trace,is_correct
+0,What is 12 + 7?,19,19,"Read problem: What is 12 + 7?
+Instantiate values a=12, b=7.
+Compute 12 + 7 = 19.
+Conclude with the final answer.",True
+1,"If x + 3 = 10, what is x?",7,7,"Read problem: If x + 3 = 10, what is x?
+Rewrite equation x + 3 = 10 into x = 10 - 3.
+Compute 10 - 3 = 7.
+Check the constraint by substitution.
+Since 7 + 3 = 10, conclude x = 7.",True
+2,What is 6 * 8?,48,48,"Read problem: What is 6 * 8?
+Instantiate values a=6, b=8.
+Compute 6 * 8 = 48.
+Conclude with the final answer.",True
