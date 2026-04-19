@@ -1,0 +1,18 @@
+.env
+.env.*
+
+__pycache__/
+*.py[cod]
+
+# Generated trace artifacts
+data/traces/
+data/encoded_traces/
+
+# Local benchmark downloads and raw dataset files
+data/benchmarks/raw/
+data/benchmarks/*.json
+data/benchmarks/*.parquet
+
+# Keep lightweight repo-native benchmark fixtures and docs
+!data/benchmarks/README.md
+!data/benchmarks/sample_math.csv

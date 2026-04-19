@@ -1,183 +1,246 @@
 from __future__ import annotations
 
 import argparse
-import csv
-import re
-from dataclasses import dataclass
+import json
 from pathlib import Path
-from typing import Iterable, List, Sequence
+
+from reasoning_trace_sampling import (
+    APIShim,
+    BenchmarkItem,
+    BenchmarkRegistry,
+    ProgressReporter,
+    QuestionTraceAnalyzer,
+    ReasoningTraceSampling,
+    RequestConfig,
+    TraceCollector,
+)
 
 
-TRACES_DIR = Path(__file__).resolve().parent / "data" / "traces"
-DEFAULT_BENCHMARK = [
-    {"question": "What is 12 + 7?", "answer": "19"},
-    {"question": "If x + 3 = 10, what is x?", "answer": "7"},
-    {"question": "What is 6 * 8?", "answer": "48"},
-]
+ROOT = Path(__file__).resolve().parent
+DEFAULT_MODEL = "Qwen/Qwen3.5-9B"
+DEFAULT_API_BASE = "https://api.together.xyz/v1"
+DEFAULT_API_KEY_ENV = "TOGETHER_API_KEY"
+DEFAULT_SYSTEM_PROMPT = (
+    "Solve the problem step by step in the visible response. "
+    "Keep the reasoning concise but complete. "
+    "End with the benchmark-specific final answer marker."
+)
+DEFAULT_OUTPUT = ROOT / "data" / "traces" / "together_qwen35_9b.csv"
+DEFAULT_STATS_OUTPUT = ROOT / "data" / "traces" / "question_stats.csv"
 
 
-@dataclass
-class TraceRecord:
-    question_id: int
-    question: str
-    gold_answer: str
-    predicted_answer: str
-    reasoning_trace: str
-    is_correct: bool
+def build_request_config(args: argparse.Namespace) -> RequestConfig:
+    return RequestConfig(
+        model=args.model,
+        api_base=args.api_base,
+        api_key_env=args.api_key_env,
+        system_prompt=args.system_prompt,
+        temperature=args.temperature,
+        top_p=args.top_p,
+        max_tokens=args.max_tokens,
+        enable_thinking=args.enable_thinking,
+        timeout_seconds=args.timeout_seconds,
+    )
 
 
-class PlaceholderQwenReasoner:
-    """A lightweight stand-in for an open-source reasoning model.
-
-    Replace this class with a real Qwen integration later, for example using
-    `transformers` or a vLLM/OpenAI-compatible local server.
-    """
-
-    def __init__(self, model_name: str = "Qwen/Qwen2.5-7B-Instruct") -> None:
-        self.model_name = model_name
-
-    def generate(self, question: str) -> tuple[str, str]:
-        """Return (reasoning_trace, predicted_answer).
-
-        This placeholder uses tiny rule-based logic so the rest of the pipeline
-        can be developed and tested before the real model is wired in.
-        """
-        reasoning = [f"Read problem: {question}"]
-
-        add_match = re.fullmatch(r"What is (\d+) \+ (\d+)\?", question)
-        mult_match = re.fullmatch(r"What is (\d+) \* (\d+)\?", question)
-        linear_match = re.fullmatch(r"If x \+ (\d+) = (\d+), what is x\?", question)
-
-        if add_match:
-            a, b = map(int, add_match.groups())
-            reasoning.extend([
-                f"Instantiate values a={a}, b={b}.",
-                f"Compute {a} + {b} = {a + b}.",
-                "Conclude with the final answer.",
-            ])
-            return "\n".join(reasoning), str(a + b)
-
-        if mult_match:
-            a, b = map(int, mult_match.groups())
-            reasoning.extend([
-                f"Instantiate values a={a}, b={b}.",
-                f"Compute {a} * {b} = {a * b}.",
-                "Conclude with the final answer.",
-            ])
-            return "\n".join(reasoning), str(a * b)
-
-        if linear_match:
-            addend, total = map(int, linear_match.groups())
-            x = total - addend
-            reasoning.extend([
-                f"Rewrite equation x + {addend} = {total} into x = {total} - {addend}.",
-                f"Compute {total} - {addend} = {x}.",
-                "Check the constraint by substitution.",
-                f"Since {x} + {addend} = {total}, conclude x = {x}.",
-            ])
-            return "\n".join(reasoning), str(x)
-
-        reasoning.extend([
-            "Use a generic reasoning strategy.",
-            "No real model is connected yet, so this answer is a placeholder.",
-            "Conclude with UNKNOWN.",
-        ])
-        return "\n".join(reasoning), "UNKNOWN"
+def build_components(args: argparse.Namespace) -> tuple[BenchmarkRegistry, ReasoningTraceSampling, TraceCollector]:
+    config = build_request_config(args)
+    api_shim = APIShim(config=config, repo_root=ROOT)
+    registry = BenchmarkRegistry(repo_root=ROOT)
+    sampler = ReasoningTraceSampling(api_shim=api_shim)
+    collector = TraceCollector(sampler=sampler)
+    return registry, sampler, collector
 
 
-def ensure_data_dirs() -> None:
-    TRACES_DIR.mkdir(parents=True, exist_ok=True)
+def add_shared_args(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument("--api-base", default=DEFAULT_API_BASE)
+    parser.add_argument("--api-key-env", default=DEFAULT_API_KEY_ENV)
+    parser.add_argument("--system-prompt", default=DEFAULT_SYSTEM_PROMPT)
+    parser.add_argument("--temperature", type=float, default=0.2)
+    parser.add_argument("--top-p", type=float, default=0.95)
+    parser.add_argument("--max-tokens", type=int, default=2048)
+    parser.add_argument("--timeout-seconds", type=float, default=60.0)
+    parser.add_argument("--enable-thinking", action="store_true")
 
 
-def get_next_run_index() -> int:
-    existing = sorted(TRACES_DIR.glob("traces_*.csv"))
-    max_idx = -1
-    for path in existing:
-        try:
-            idx = int(path.stem.split("_")[-1])
-            max_idx = max(max_idx, idx)
-        except ValueError:
-            continue
-    return max_idx + 1
-
-
-def load_benchmark() -> Sequence[dict[str, str]]:
-    """Load benchmark items.
-
-    Replace this function with a real benchmark loader later, e.g. GSM8K/MATH.
-    """
-    return DEFAULT_BENCHMARK
-
-
-def evaluate_prediction(predicted_answer: str, gold_answer: str) -> bool:
-    return predicted_answer.strip() == gold_answer.strip()
-
-
-def generate_traces(model_name: str, benchmark: Iterable[dict[str, str]]) -> List[TraceRecord]:
-    model = PlaceholderQwenReasoner(model_name=model_name)
-    rows: List[TraceRecord] = []
-    for idx, item in enumerate(benchmark):
-        reasoning_trace, predicted_answer = model.generate(item["question"])
-        rows.append(
-            TraceRecord(
-                question_id=idx,
-                question=item["question"],
-                gold_answer=item["answer"],
-                predicted_answer=predicted_answer,
-                reasoning_trace=reasoning_trace,
-                is_correct=evaluate_prediction(predicted_answer, item["answer"]),
-            )
-        )
-    return rows
-
-
-def save_traces(run_index: int, rows: Sequence[TraceRecord]) -> Path:
-    output_path = TRACES_DIR / f"traces_{run_index}.csv"
-    with output_path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(
-            f,
-            fieldnames=[
-                "question_id",
-                "question",
-                "gold_answer",
-                "predicted_answer",
-                "reasoning_trace",
-                "is_correct",
-            ],
-        )
-        writer.writeheader()
-        for row in rows:
-            writer.writerow(
-                {
-                    "question_id": row.question_id,
-                    "question": row.question,
-                    "gold_answer": row.gold_answer,
-                    "predicted_answer": row.predicted_answer,
-                    "reasoning_trace": row.reasoning_trace,
-                    "is_correct": row.is_correct,
-                }
-            )
-    return output_path
+def add_benchmark_args(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--benchmark-name", default="sample_math")
+    parser.add_argument("--benchmark-path", type=Path, default=None)
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Generate reasoning traces for a math benchmark.")
-    parser.add_argument(
-        "--model",
-        default="Qwen/Qwen2.5-7B-Instruct",
-        help="Open-source model name placeholder.",
+    parser = argparse.ArgumentParser(
+        description="Modular Together-based reasoning trace runner."
     )
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    benchmarks_parser = subparsers.add_parser("benchmarks", help="List benchmark presets.")
+    add_shared_args(benchmarks_parser)
+
+    call_parser = subparsers.add_parser("call", help="Make one minimal Together API call.")
+    call_parser.add_argument("--question", required=True)
+    add_shared_args(call_parser)
+
+    one_parser = subparsers.add_parser("one", help="Ask a single benchmark question.")
+    one_parser.add_argument("--question-index", type=int, default=0)
+    one_parser.add_argument("--samples-per-question", type=int, default=1)
+    one_parser.add_argument("--max-attempts-per-question", type=int, default=4)
+    one_parser.add_argument("--show-progress", action="store_true")
+    add_shared_args(one_parser)
+    add_benchmark_args(one_parser)
+
+    many_parser = subparsers.add_parser("many", help="Ask multiple benchmark questions efficiently.")
+    many_parser.add_argument("--limit", type=int, default=None)
+    many_parser.add_argument("--workers", type=int, default=8)
+    many_parser.add_argument("--samples-per-question", type=int, default=1)
+    many_parser.add_argument("--max-attempts-per-question", type=int, default=4)
+    many_parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    many_parser.add_argument("--show-progress", action="store_true")
+    add_shared_args(many_parser)
+    add_benchmark_args(many_parser)
+
+    stats_parser = subparsers.add_parser("stats", help="Summarize and filter questions from a trajectory CSV.")
+    stats_parser.add_argument("--input", type=Path, required=True)
+    stats_parser.add_argument("--output", type=Path, default=DEFAULT_STATS_OUTPUT)
+    stats_parser.add_argument("--only-mixed", action="store_true")
+    stats_parser.add_argument("--min-total", type=int, default=1)
+    stats_parser.add_argument("--min-right", type=int, default=0)
+    stats_parser.add_argument("--min-wrong", type=int, default=0)
+
     return parser.parse_args()
+
+
+def run_benchmarks(args: argparse.Namespace) -> None:
+    registry = BenchmarkRegistry(repo_root=ROOT)
+    rows = []
+    for preset in registry.list_presets():
+        rows.append(
+            {
+                "name": preset.name,
+                "path": str(preset.path),
+                "exists": preset.path.exists(),
+                "description": preset.description,
+            }
+        )
+    print(json.dumps(rows, indent=2))
+
+
+def run_call(args: argparse.Namespace) -> None:
+    _registry, sampler, _collector = build_components(args)
+    item = BenchmarkItem(question_id=0, question=args.question, gold_answer="")
+    print(json.dumps(sampler.ask_one(item).to_dict(), indent=2))
+
+
+def run_one(args: argparse.Namespace) -> None:
+    registry, _sampler, collector = build_components(args)
+    benchmark_path = registry.resolve(
+        benchmark_name=args.benchmark_name,
+        benchmark_path=args.benchmark_path,
+    )
+    answer_format = registry.resolve_answer_format(
+        benchmark_name=args.benchmark_name,
+        benchmark_path=args.benchmark_path,
+    )
+    items = registry.load_items(benchmark_path, answer_format=answer_format)
+    if args.question_index < 0 or args.question_index >= len(items):
+        raise IndexError(f"question-index {args.question_index} is out of range for {len(items)} questions.")
+    progress_reporter = None
+    if args.show_progress:
+        progress_reporter = ProgressReporter(total_questions=1, total_target_samples=args.samples_per_question)
+    rows = collector.collect_for_item(
+        items[args.question_index],
+        samples_per_question=args.samples_per_question,
+        max_attempts_per_question=args.max_attempts_per_question,
+        progress_reporter=progress_reporter,
+    )
+    if progress_reporter is not None:
+        attempts_used = rows[-1].attempt_index + 1 if len(rows) >= args.samples_per_question and rows else args.max_attempts_per_question
+        progress_reporter.record_question_done(
+            question_id=items[args.question_index].question_id,
+            accepted_for_question=len(rows),
+            samples_per_question=args.samples_per_question,
+            attempts_used=attempts_used,
+        )
+        progress_reporter.finish()
+    if not rows:
+        raise RuntimeError(
+            "No accepted trajectory found. "
+            f"Tried {args.max_attempts_per_question} attempts and none produced a clear final answer marker."
+        )
+    if args.samples_per_question == 1:
+        print(json.dumps(rows[0].to_dict(), indent=2))
+    else:
+        print(json.dumps([row.to_dict() for row in rows], indent=2))
+
+
+def run_many(args: argparse.Namespace) -> None:
+    registry, _sampler, collector = build_components(args)
+    benchmark_path = registry.resolve(
+        benchmark_name=args.benchmark_name,
+        benchmark_path=args.benchmark_path,
+    )
+    answer_format = registry.resolve_answer_format(
+        benchmark_name=args.benchmark_name,
+        benchmark_path=args.benchmark_path,
+    )
+    items = registry.load_items(benchmark_path, answer_format=answer_format)
+    if args.limit is not None:
+        items = items[: args.limit]
+
+    rows = collector.collect_many(
+        items,
+        samples_per_question=args.samples_per_question,
+        max_attempts_per_question=args.max_attempts_per_question,
+        workers=args.workers,
+        show_progress=args.show_progress,
+    )
+    collector.save_csv(args.output.resolve(), rows)
+
+    correct = sum(1 for row in rows if row.is_correct)
+    accepted = len(rows)
+    target = len(items) * args.samples_per_question
+    print(f"Saved {len(rows)} rows to {args.output.resolve()}")
+    print(f"Accuracy: {correct}/{len(rows)}" if rows else "Accuracy: n/a (no accepted trajectories)")
+    print(f"Accepted trajectories: {accepted}/{target}")
+
+
+def run_stats(args: argparse.Namespace) -> None:
+    analyzer = QuestionTraceAnalyzer()
+    rows = analyzer.load_stats(args.input.resolve())
+    filtered = analyzer.filter_stats(
+        rows,
+        only_mixed=args.only_mixed,
+        min_total=args.min_total,
+        min_right=args.min_right,
+        min_wrong=args.min_wrong,
+    )
+    analyzer.save_csv(args.output.resolve(), filtered)
+    print(f"Saved {len(filtered)} question rows to {args.output.resolve()}")
+    print(f"Loaded question stats from {args.input.resolve()}")
 
 
 def main() -> None:
     args = parse_args()
-    ensure_data_dirs()
-    run_index = get_next_run_index()
-    benchmark = load_benchmark()
-    rows = generate_traces(model_name=args.model, benchmark=benchmark)
-    output_path = save_traces(run_index=run_index, rows=rows)
-    print(f"Saved {len(rows)} traces to {output_path}")
+    try:
+        if args.command == "benchmarks":
+            run_benchmarks(args)
+            return
+        if args.command == "call":
+            run_call(args)
+            return
+        if args.command == "one":
+            run_one(args)
+            return
+        if args.command == "many":
+            run_many(args)
+            return
+        if args.command == "stats":
+            run_stats(args)
+            return
+        raise ValueError(f"Unsupported command: {args.command}")
+    except Exception as exc:
+        raise SystemExit(str(exc)) from exc
 
 
 if __name__ == "__main__":
