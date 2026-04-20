@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import random
 from pathlib import Path
 
 from .data_classes import BenchmarkItem, BenchmarkPreset
@@ -91,13 +92,41 @@ class BenchmarkRegistry:
                 )
             items.append(
                 BenchmarkItem(
-                    question_id=index,
+                    question_id=int(row.get("question_id", index)),
                     question=question,
                     gold_answer=answer,
                     answer_format=answer_format,
+                    level=self._parse_optional_int(row.get("level")),
+                    subject=self._parse_optional_str(row.get("subject")),
+                    source_id=self._parse_optional_str(row.get("source_id")),
                 )
             )
         return items
+
+    @staticmethod
+    def filter_items(
+        items: list[BenchmarkItem],
+        *,
+        min_level: int | None = None,
+        max_level: int | None = None,
+        sample_size: int | None = None,
+        sample_seed: int = 17,
+    ) -> list[BenchmarkItem]:
+        filtered = items
+        if min_level is not None:
+            filtered = [item for item in filtered if item.level is not None and item.level >= min_level]
+        if max_level is not None:
+            filtered = [item for item in filtered if item.level is not None and item.level <= max_level]
+        if sample_size is not None:
+            if sample_size < 1:
+                raise ValueError("sample_size must be at least 1")
+            if sample_size > len(filtered):
+                raise ValueError(
+                    f"Requested sample_size={sample_size}, but only {len(filtered)} questions remain after filtering."
+                )
+            rng = random.Random(sample_seed)
+            filtered = sorted(rng.sample(filtered, sample_size), key=lambda item: item.question_id)
+        return filtered
 
     @staticmethod
     def _infer_answer_format_from_path(path: Path) -> str:
@@ -107,3 +136,15 @@ class BenchmarkRegistry:
         if "math" in name or "aime" in name:
             return "boxed"
         return "final"
+
+    @staticmethod
+    def _parse_optional_int(value: object) -> int | None:
+        if value in {None, ""}:
+            return None
+        return int(value)
+
+    @staticmethod
+    def _parse_optional_str(value: object) -> str | None:
+        if value in {None, ""}:
+            return None
+        return str(value)

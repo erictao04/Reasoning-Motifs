@@ -1,5 +1,6 @@
 .env
 .env.*
+.claude/
 
 __pycache__/
 *.py[cod]
@@ -7,6 +8,7 @@ __pycache__/
 # Generated trace artifacts
 data/traces/
 data/encoded_traces/
+data/pilot/
 
 # Local benchmark downloads and raw dataset files
 data/benchmarks/raw/

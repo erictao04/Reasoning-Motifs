@@ -6,6 +6,7 @@ from pathlib import Path
 
 from reasoning_trace_sampling import (
     APIShim,
+    AdaptiveTraceCollector,
     BenchmarkItem,
     BenchmarkRegistry,
     ProgressReporter,
@@ -26,6 +27,7 @@ DEFAULT_SYSTEM_PROMPT = (
     "End with the benchmark-specific final answer marker."
 )
 DEFAULT_OUTPUT = ROOT / "data" / "traces" / "together_qwen35_9b.csv"
+DEFAULT_ADAPTIVE_OUTPUT = ROOT / "data" / "traces" / "adaptive_qwen35_9b.csv"
 DEFAULT_STATS_OUTPUT = ROOT / "data" / "traces" / "question_stats.csv"
 
 
@@ -67,6 +69,10 @@ def add_shared_args(parser: argparse.ArgumentParser) -> None:
 def add_benchmark_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--benchmark-name", default="sample_math")
     parser.add_argument("--benchmark-path", type=Path, default=None)
+    parser.add_argument("--min-level", type=int, default=None)
+    parser.add_argument("--max-level", type=int, default=None)
+    parser.add_argument("--sample-size", type=int, default=None)
+    parser.add_argument("--sample-seed", type=int, default=17)
 
 
 def parse_args() -> argparse.Namespace:
@@ -96,9 +102,27 @@ def parse_args() -> argparse.Namespace:
     many_parser.add_argument("--samples-per-question", type=int, default=1)
     many_parser.add_argument("--max-attempts-per-question", type=int, default=4)
     many_parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    many_parser.add_argument("--log-jsonl", type=Path, default=None)
     many_parser.add_argument("--show-progress", action="store_true")
     add_shared_args(many_parser)
     add_benchmark_args(many_parser)
+
+    adaptive_many_parser = subparsers.add_parser(
+        "adaptive-many",
+        help="Scout each question with a few traces, then densify only mixed-outcome questions.",
+    )
+    adaptive_many_parser.add_argument("--limit", type=int, default=None)
+    adaptive_many_parser.add_argument("--workers", type=int, default=8)
+    adaptive_many_parser.add_argument("--scout-samples", type=int, default=3)
+    adaptive_many_parser.add_argument("--target-samples", type=int, default=10)
+    adaptive_many_parser.add_argument("--scout-max-attempts-per-question", type=int, default=12)
+    adaptive_many_parser.add_argument("--max-attempts-per-question", type=int, default=40)
+    adaptive_many_parser.add_argument("--output", type=Path, default=DEFAULT_ADAPTIVE_OUTPUT)
+    adaptive_many_parser.add_argument("--summary-output", type=Path, default=None)
+    adaptive_many_parser.add_argument("--log-jsonl", type=Path, default=None)
+    adaptive_many_parser.add_argument("--show-progress", action="store_true")
+    add_shared_args(adaptive_many_parser)
+    add_benchmark_args(adaptive_many_parser)
 
     stats_parser = subparsers.add_parser("stats", help="Summarize and filter questions from a trajectory CSV.")
     stats_parser.add_argument("--input", type=Path, required=True)
@@ -143,6 +167,13 @@ def run_one(args: argparse.Namespace) -> None:
         benchmark_path=args.benchmark_path,
     )
     items = registry.load_items(benchmark_path, answer_format=answer_format)
+    items = registry.filter_items(
+        items,
+        min_level=args.min_level,
+        max_level=args.max_level,
+        sample_size=args.sample_size,
+        sample_seed=args.sample_seed,
+    )
     if args.question_index < 0 or args.question_index >= len(items):
         raise IndexError(f"question-index {args.question_index} is out of range for {len(items)} questions.")
     progress_reporter = None
@@ -185,6 +216,13 @@ def run_many(args: argparse.Namespace) -> None:
         benchmark_path=args.benchmark_path,
     )
     items = registry.load_items(benchmark_path, answer_format=answer_format)
+    items = registry.filter_items(
+        items,
+        min_level=args.min_level,
+        max_level=args.max_level,
+        sample_size=args.sample_size,
+        sample_seed=args.sample_seed,
+    )
     if args.limit is not None:
         items = items[: args.limit]
 
@@ -194,6 +232,7 @@ def run_many(args: argparse.Namespace) -> None:
         max_attempts_per_question=args.max_attempts_per_question,
         workers=args.workers,
         show_progress=args.show_progress,
+        log_path=args.log_jsonl.resolve() if args.log_jsonl is not None else None,
     )
     collector.save_csv(args.output.resolve(), rows)
 
@@ -201,8 +240,91 @@ def run_many(args: argparse.Namespace) -> None:
     accepted = len(rows)
     target = len(items) * args.samples_per_question
     print(f"Saved {len(rows)} rows to {args.output.resolve()}")
+    if args.log_jsonl is not None:
+        print(f"Saved event log to {args.log_jsonl.resolve()}")
     print(f"Accuracy: {correct}/{len(rows)}" if rows else "Accuracy: n/a (no accepted trajectories)")
     print(f"Accepted trajectories: {accepted}/{target}")
+    if args.min_level is not None or args.max_level is not None or args.sample_size is not None:
+        print(
+            f"Question slice: levels {args.min_level if args.min_level is not None else '-inf'}"
+            f" to {args.max_level if args.max_level is not None else '+inf'}, "
+            f"sample_size={args.sample_size if args.sample_size is not None else 'all'}, "
+            f"sample_seed={args.sample_seed}"
+        )
+
+
+def run_adaptive_many(args: argparse.Namespace) -> None:
+    if args.scout_max_attempts_per_question > args.max_attempts_per_question:
+        raise ValueError("--scout-max-attempts-per-question must be <= --max-attempts-per-question")
+    if args.target_samples < args.scout_samples:
+        raise ValueError("--target-samples must be >= --scout-samples")
+
+    registry, _sampler, collector = build_components(args)
+    adaptive_collector = AdaptiveTraceCollector(trace_collector=collector)
+    benchmark_path = registry.resolve(
+        benchmark_name=args.benchmark_name,
+        benchmark_path=args.benchmark_path,
+    )
+    answer_format = registry.resolve_answer_format(
+        benchmark_name=args.benchmark_name,
+        benchmark_path=args.benchmark_path,
+    )
+    items = registry.load_items(benchmark_path, answer_format=answer_format)
+    items = registry.filter_items(
+        items,
+        min_level=args.min_level,
+        max_level=args.max_level,
+        sample_size=args.sample_size,
+        sample_seed=args.sample_seed,
+    )
+    if args.limit is not None:
+        items = items[: args.limit]
+
+    rows, summaries = adaptive_collector.collect_many(
+        items,
+        scout_samples=args.scout_samples,
+        target_samples=args.target_samples,
+        scout_max_attempts_per_question=args.scout_max_attempts_per_question,
+        max_attempts_per_question=args.max_attempts_per_question,
+        workers=args.workers,
+        show_progress=args.show_progress,
+        log_path=args.log_jsonl.resolve() if args.log_jsonl is not None else None,
+    )
+
+    output_path = args.output.resolve()
+    summary_output_path = (
+        args.summary_output.resolve()
+        if args.summary_output is not None
+        else output_path.with_name(f"{output_path.stem}_question_summary.csv")
+    )
+    collector.save_csv(output_path, rows)
+    adaptive_collector.save_summary_csv(summary_output_path, summaries)
+
+    correct = sum(1 for row in rows if row.is_correct)
+    accepted = len(rows)
+    max_target = len(items) * args.target_samples
+    scout_only = sum(1 for row in summaries if not row.was_densified)
+    densified = sum(1 for row in summaries if row.was_densified)
+    mixed_final = sum(1 for row in summaries if row.right_final > 0 and row.wrong_final > 0)
+    decision_counts: dict[str, int] = {}
+    for row in summaries:
+        decision_counts[row.decision] = decision_counts.get(row.decision, 0) + 1
+
+    print(f"Saved {len(rows)} rows to {output_path}")
+    print(f"Saved adaptive question summary to {summary_output_path}")
+    if args.log_jsonl is not None:
+        print(f"Saved event log to {args.log_jsonl.resolve()}")
+    print(f"Accuracy: {correct}/{len(rows)}" if rows else "Accuracy: n/a (no accepted trajectories)")
+    print(f"Accepted trajectories: {accepted}/{max_target}")
+    print(f"Questions: total={len(summaries)} scout_only={scout_only} densified={densified} mixed_final={mixed_final}")
+    print("Decisions: " + ", ".join(f"{key}={value}" for key, value in sorted(decision_counts.items())))
+    if args.min_level is not None or args.max_level is not None or args.sample_size is not None:
+        print(
+            f"Question slice: levels {args.min_level if args.min_level is not None else '-inf'}"
+            f" to {args.max_level if args.max_level is not None else '+inf'}, "
+            f"sample_size={args.sample_size if args.sample_size is not None else 'all'}, "
+            f"sample_seed={args.sample_seed}"
+        )
 
 
 def run_stats(args: argparse.Namespace) -> None:
@@ -234,6 +356,9 @@ def main() -> None:
             return
         if args.command == "many":
             run_many(args)
+            return
+        if args.command == "adaptive-many":
+            run_adaptive_many(args)
             return
         if args.command == "stats":
             run_stats(args)
