@@ -1,0 +1,429 @@
+motif,motif_pretty,length,support_total,support_correct,support_incorrect,p_correct,p_incorrect,enrichment_correct,enrichment_incorrect,dominant_label
+analyze|apply-formula,analyze -> apply-formula,2,33,15,18,0.454545,0.545455,0.842105,1.187500,incorrect
+analyze|compute|instantiate|compute,analyze -> compute -> instantiate -> compute,4,21,10,11,0.476190,0.523810,0.916667,1.090909,incorrect
+compute|analyze|compare,compute -> analyze -> compare,3,21,9,12,0.428571,0.571429,0.769231,1.300000,incorrect
+conclude|compute|analyze,conclude -> compute -> analyze,3,21,7,14,0.333333,0.666667,0.533333,1.875000,incorrect
+substitute|analyze,substitute -> analyze,2,18,5,13,0.277778,0.722222,0.428571,2.333333,incorrect
+check-constraint|compute|check-constraint,check-constraint -> compute -> check-constraint,3,16,6,10,0.375000,0.625000,0.636364,1.571429,incorrect
+instantiate|analyze|apply-formula,instantiate -> analyze -> apply-formula,3,15,6,9,0.400000,0.600000,0.700000,1.428571,incorrect
+apply-formula|substitute,apply-formula -> substitute,2,14,5,9,0.357143,0.642857,0.600000,1.666667,incorrect
+rewrite|conclude,rewrite -> conclude,2,14,5,9,0.357143,0.642857,0.600000,1.666667,incorrect
+rewrite|apply-formula,rewrite -> apply-formula,2,13,4,9,0.307692,0.692308,0.500000,2.000000,incorrect
+substitute|analyze|compute,substitute -> analyze -> compute,3,13,3,10,0.230769,0.769231,0.363636,2.750000,incorrect
+compute|substitute|analyze,compute -> substitute -> analyze,3,12,2,10,0.166667,0.833333,0.272727,3.666667,incorrect
+conclude|compute|instantiate,conclude -> compute -> instantiate,3,11,4,7,0.363636,0.636364,0.625000,1.600000,incorrect
+backtrack|instantiate,backtrack -> instantiate,2,11,4,7,0.363636,0.636364,0.625000,1.600000,incorrect
+apply-formula|instantiate|rewrite,apply-formula -> instantiate -> rewrite,3,10,2,8,0.200000,0.800000,0.333333,3.000000,incorrect
+compute|instantiate|apply-formula,compute -> instantiate -> apply-formula,3,9,3,6,0.333333,0.666667,0.571429,1.750000,incorrect
+compute|substitute|analyze|compute,compute -> substitute -> analyze -> compute,4,9,2,7,0.222222,0.777778,0.375000,2.666667,incorrect
+rewrite|conclude|compute,rewrite -> conclude -> compute,3,9,1,8,0.111111,0.888889,0.222222,4.500000,incorrect
+analyze|check-constraint|compute|check-constraint,analyze -> check-constraint -> compute -> check-constraint,4,8,3,5,0.375000,0.625000,0.666667,1.500000,incorrect
+substitute|conclude,substitute -> conclude,2,8,3,5,0.375000,0.625000,0.666667,1.500000,incorrect
+compute|instantiate|check-constraint|analyze,compute -> instantiate -> check-constraint -> analyze,4,7,3,4,0.428571,0.571429,0.800000,1.250000,incorrect
+conclude|compute|instantiate|compute,conclude -> compute -> instantiate -> compute,4,7,3,4,0.428571,0.571429,0.800000,1.250000,incorrect
+compute|analyze|conclude|compute,compute -> analyze -> conclude -> compute,4,7,3,4,0.428571,0.571429,0.800000,1.250000,incorrect
+instantiate|conclude|compute,instantiate -> conclude -> compute,3,7,3,4,0.428571,0.571429,0.800000,1.250000,incorrect
+rewrite|apply-formula|instantiate,rewrite -> apply-formula -> instantiate,3,7,2,5,0.285714,0.714286,0.500000,2.000000,incorrect
+rewrite|conclude|compute|analyze,rewrite -> conclude -> compute -> analyze,4,7,0,7,0.000000,1.000000,0.125000,8.000000,incorrect
+compute|instantiate|apply-formula|compute,compute -> instantiate -> apply-formula -> compute,4,6,2,4,0.333333,0.666667,0.600000,1.666667,incorrect
+rewrite|apply-formula|instantiate|rewrite,rewrite -> apply-formula -> instantiate -> rewrite,4,6,2,4,0.333333,0.666667,0.600000,1.666667,incorrect
+substitute|conclude|compute,substitute -> conclude -> compute,3,6,2,4,0.333333,0.666667,0.600000,1.666667,incorrect
+check-constraint|compute|check-constraint|analyze,check-constraint -> compute -> check-constraint -> analyze,4,6,1,5,0.166667,0.833333,0.333333,3.000000,incorrect
+compute|analyze|compare|compute,compute -> analyze -> compare -> compute,4,6,1,5,0.166667,0.833333,0.333333,3.000000,incorrect
+instantiate|analyze|apply-formula|substitute,instantiate -> analyze -> apply-formula -> substitute,4,6,1,5,0.166667,0.833333,0.333333,3.000000,incorrect
+conclude|compute|substitute,conclude -> compute -> substitute,3,6,1,5,0.166667,0.833333,0.333333,3.000000,incorrect
+analyze|apply-formula|substitute,analyze -> apply-formula -> substitute,3,6,1,5,0.166667,0.833333,0.333333,3.000000,incorrect
+compute|backtrack|instantiate,compute -> backtrack -> instantiate,3,6,1,5,0.166667,0.833333,0.333333,3.000000,incorrect
+check-constraint|apply-formula,check-constraint -> apply-formula,2,6,1,5,0.166667,0.833333,0.333333,3.000000,incorrect
+conclude|compute|analyze|compare,conclude -> compute -> analyze -> compare,4,6,0,6,0.000000,1.000000,0.142857,7.000000,incorrect
+instantiate|compute|analyze|check-constraint,instantiate -> compute -> analyze -> check-constraint,4,5,2,3,0.400000,0.600000,0.750000,1.333333,incorrect
+instantiate|analyze|compute|check-constraint,instantiate -> analyze -> compute -> check-constraint,4,5,2,3,0.400000,0.600000,0.750000,1.333333,incorrect
+analyze|compute|analyze|count,analyze -> compute -> analyze -> count,4,5,2,3,0.400000,0.600000,0.750000,1.333333,incorrect
+analyze|compute|analyze|backtrack,analyze -> compute -> analyze -> backtrack,4,5,2,3,0.400000,0.600000,0.750000,1.333333,incorrect
+apply-formula|analyze|compute|substitute,apply-formula -> analyze -> compute -> substitute,4,5,2,3,0.400000,0.600000,0.750000,1.333333,incorrect
+compare|apply-formula|compute,compare -> apply-formula -> compute,3,5,2,3,0.400000,0.600000,0.750000,1.333333,incorrect
+compare|analyze|instantiate,compare -> analyze -> instantiate,3,5,2,3,0.400000,0.600000,0.750000,1.333333,incorrect
+apply-formula|compute|instantiate,apply-formula -> compute -> instantiate,3,5,2,3,0.400000,0.600000,0.750000,1.333333,incorrect
+case-split|compare,case-split -> compare,2,5,2,3,0.400000,0.600000,0.750000,1.333333,incorrect
+rewrite|analyze|apply-formula,rewrite -> analyze -> apply-formula,3,5,1,4,0.200000,0.800000,0.400000,2.500000,incorrect
+compute|check-constraint|apply-formula,compute -> check-constraint -> apply-formula,3,5,1,4,0.200000,0.800000,0.400000,2.500000,incorrect
+instantiate|rewrite|conclude|compute,instantiate -> rewrite -> conclude -> compute,4,5,0,5,0.000000,1.000000,0.166667,6.000000,incorrect
+instantiate|rewrite|conclude,instantiate -> rewrite -> conclude,3,5,0,5,0.000000,1.000000,0.166667,6.000000,incorrect
+compare|check-constraint|compute|check-constraint,compare -> check-constraint -> compute -> check-constraint,4,4,1,3,0.250000,0.750000,0.500000,2.000000,incorrect
+apply-formula|instantiate|conclude|compute,apply-formula -> instantiate -> conclude -> compute,4,4,1,3,0.250000,0.750000,0.500000,2.000000,incorrect
+compute|backtrack|instantiate|compute,compute -> backtrack -> instantiate -> compute,4,4,1,3,0.250000,0.750000,0.500000,2.000000,incorrect
+substitute|check-constraint|compute,substitute -> check-constraint -> compute,3,4,1,3,0.250000,0.750000,0.500000,2.000000,incorrect
+compute|count|instantiate,compute -> count -> instantiate,3,4,1,3,0.250000,0.750000,0.500000,2.000000,incorrect
+apply-formula|instantiate|conclude,apply-formula -> instantiate -> conclude,3,4,1,3,0.250000,0.750000,0.500000,2.000000,incorrect
+apply-formula|instantiate|rewrite|conclude,apply-formula -> instantiate -> rewrite -> conclude,4,4,0,4,0.000000,1.000000,0.200000,5.000000,incorrect
+compute|check-constraint|apply-formula|instantiate,compute -> check-constraint -> apply-formula -> instantiate,4,4,0,4,0.000000,1.000000,0.200000,5.000000,incorrect
+substitute|analyze|compute|instantiate,substitute -> analyze -> compute -> instantiate,4,4,0,4,0.000000,1.000000,0.200000,5.000000,incorrect
+check-constraint|apply-formula|instantiate,check-constraint -> apply-formula -> instantiate,3,4,0,4,0.000000,1.000000,0.200000,5.000000,incorrect
+count|analyze|conclude|analyze,count -> analyze -> conclude -> analyze,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+substitute|compute|rewrite|analyze,substitute -> compute -> rewrite -> analyze,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compare|analyze|instantiate|compute,compare -> analyze -> instantiate -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|instantiate|count|compute,analyze -> instantiate -> count -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compute|conclude|count|analyze,compute -> conclude -> count -> analyze,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|compute|conclude|instantiate,analyze -> compute -> conclude -> instantiate,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+instantiate|compute|apply-formula|substitute,instantiate -> compute -> apply-formula -> substitute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compare|apply-formula|analyze|compute,compare -> apply-formula -> analyze -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+check-constraint|analyze|compute|instantiate,check-constraint -> analyze -> compute -> instantiate,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|conclude|compute|check-constraint,analyze -> conclude -> compute -> check-constraint,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compute|substitute|check-constraint|compute,compute -> substitute -> check-constraint -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+conclude|instantiate|compute|analyze,conclude -> instantiate -> compute -> analyze,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compute|instantiate|compute|conclude,compute -> instantiate -> compute -> conclude,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+conclude|count|analyze|compute,conclude -> count -> analyze -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+check-constraint|analyze|compute|backtrack,check-constraint -> analyze -> compute -> backtrack,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+instantiate|compute|substitute|analyze,instantiate -> compute -> substitute -> analyze,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+conclude|compute|analyze|check-constraint,conclude -> compute -> analyze -> check-constraint,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compute|rewrite|analyze|apply-formula,compute -> rewrite -> analyze -> apply-formula,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+rewrite|compute|conclude|compute,rewrite -> compute -> conclude -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+backtrack|instantiate|analyze|compute,backtrack -> instantiate -> analyze -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compute|case-split|compute|conclude,compute -> case-split -> compute -> conclude,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+apply-formula|substitute|compute|instantiate,apply-formula -> substitute -> compute -> instantiate,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+instantiate|analyze|compute|case-split,instantiate -> analyze -> compute -> case-split,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compute|compare|apply-formula|compute,compute -> compare -> apply-formula -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|compute|backtrack|compute,analyze -> compute -> backtrack -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|instantiate|compute|check-constraint,analyze -> instantiate -> compute -> check-constraint,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+apply-formula|analyze|conclude|compute,apply-formula -> analyze -> conclude -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+rewrite|analyze|apply-formula|compute,rewrite -> analyze -> apply-formula -> compute,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+conclude|compute|apply-formula|analyze,conclude -> compute -> apply-formula -> analyze,4,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compute|conclude|count,compute -> conclude -> count,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|rewrite|conclude,analyze -> rewrite -> conclude,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+count|compute|instantiate,count -> compute -> instantiate,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+case-split|compute|conclude,case-split -> compute -> conclude,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compare|check-constraint|instantiate,compare -> check-constraint -> instantiate,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|apply-formula|instantiate,analyze -> apply-formula -> instantiate,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+backtrack|instantiate|analyze,backtrack -> instantiate -> analyze,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+check-constraint|analyze|conclude,check-constraint -> analyze -> conclude,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|compare|check-constraint,analyze -> compare -> check-constraint,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|instantiate|compare,analyze -> instantiate -> compare,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+apply-formula|compute|substitute,apply-formula -> compute -> substitute,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+substitute|instantiate|analyze,substitute -> instantiate -> analyze,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+apply-formula|analyze|conclude,apply-formula -> analyze -> conclude,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+conclude|count|analyze,conclude -> count -> analyze,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+compute|case-split|compare,compute -> case-split -> compare,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+instantiate|rewrite|apply-formula,instantiate -> rewrite -> apply-formula,3,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+check-constraint|count,check-constraint -> count,2,3,1,2,0.333333,0.666667,0.666667,1.500000,incorrect
+analyze|apply-formula|substitute|conclude,analyze -> apply-formula -> substitute -> conclude,4,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+check-constraint|apply-formula|instantiate|rewrite,check-constraint -> apply-formula -> instantiate -> rewrite,4,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+apply-formula|substitute|conclude|compute,apply-formula -> substitute -> conclude -> compute,4,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+instantiate|compute|instantiate|apply-formula,instantiate -> compute -> instantiate -> apply-formula,4,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+substitute|conclude|compute|instantiate,substitute -> conclude -> compute -> instantiate,4,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+conclude|compute|substitute|analyze,conclude -> compute -> substitute -> analyze,4,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+instantiate|conclude|compute|substitute,instantiate -> conclude -> compute -> substitute,4,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+analyze|apply-formula|compute|apply-formula,analyze -> apply-formula -> compute -> apply-formula,4,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+count|compute|check-constraint,count -> compute -> check-constraint,3,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+apply-formula|instantiate|analyze,apply-formula -> instantiate -> analyze,3,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+rewrite|apply-formula|compute,rewrite -> apply-formula -> compute,3,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+apply-formula|substitute|conclude,apply-formula -> substitute -> conclude,3,3,0,3,0.000000,1.000000,0.250000,4.000000,incorrect
+apply-formula|compute|analyze|conclude,apply-formula -> compute -> analyze -> conclude,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+analyze|rewrite|conclude|compute,analyze -> rewrite -> conclude -> compute,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+compute|analyze|compare|check-constraint,compute -> analyze -> compare -> check-constraint,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+rewrite|instantiate|compute|conclude,rewrite -> instantiate -> compute -> conclude,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+analyze|compute|backtrack|instantiate,analyze -> compute -> backtrack -> instantiate,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+instantiate|analyze|rewrite|conclude,instantiate -> analyze -> rewrite -> conclude,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+instantiate|count|compute|check-constraint,instantiate -> count -> compute -> check-constraint,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+conclude|compute|instantiate|analyze,conclude -> compute -> instantiate -> analyze,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+apply-formula|substitute|compute|rewrite,apply-formula -> substitute -> compute -> rewrite,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+apply-formula|instantiate|rewrite|analyze,apply-formula -> instantiate -> rewrite -> analyze,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+rewrite|apply-formula|compute|rewrite,rewrite -> apply-formula -> compute -> rewrite,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+rewrite|analyze|apply-formula|instantiate,rewrite -> analyze -> apply-formula -> instantiate,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+analyze|compute|substitute|analyze,analyze -> compute -> substitute -> analyze,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+instantiate|rewrite|analyze|apply-formula,instantiate -> rewrite -> analyze -> apply-formula,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+compute|instantiate|apply-formula|substitute,compute -> instantiate -> apply-formula -> substitute,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+instantiate|check-constraint|rewrite|apply-formula,instantiate -> check-constraint -> rewrite -> apply-formula,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+compute|instantiate|check-constraint|rewrite,compute -> instantiate -> check-constraint -> rewrite,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+substitute|analyze|compute|analyze,substitute -> analyze -> compute -> analyze,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+check-constraint|rewrite|apply-formula|instantiate,check-constraint -> rewrite -> apply-formula -> instantiate,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+rewrite|analyze|instantiate|analyze,rewrite -> analyze -> instantiate -> analyze,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+compute|instantiate|analyze|apply-formula,compute -> instantiate -> analyze -> apply-formula,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+compute|substitute|analyze|conclude,compute -> substitute -> analyze -> conclude,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+apply-formula|instantiate|analyze|rewrite,apply-formula -> instantiate -> analyze -> rewrite,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+instantiate|analyze|rewrite|compute,instantiate -> analyze -> rewrite -> compute,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+instantiate|apply-formula|substitute|compute,instantiate -> apply-formula -> substitute -> compute,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+analyze|compare|check-constraint|compute,analyze -> compare -> check-constraint -> compute,4,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+substitute|analyze|conclude,substitute -> analyze -> conclude,3,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+backtrack|compute|backtrack,backtrack -> compute -> backtrack,3,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+compute|check-constraint|count,compute -> check-constraint -> count,3,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+instantiate|apply-formula|substitute,instantiate -> apply-formula -> substitute,3,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+check-constraint|rewrite|apply-formula,check-constraint -> rewrite -> apply-formula,3,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+backtrack|compare,backtrack -> compare,2,2,0,2,0.000000,1.000000,0.333333,3.000000,incorrect
+check-constraint|instantiate|count|case-split,check-constraint -> instantiate -> count -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|substitute|analyze|compute,apply-formula -> substitute -> analyze -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|compute|instantiate|apply-formula,apply-formula -> compute -> instantiate -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|apply-formula|compute|apply-formula,rewrite -> apply-formula -> compute -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|check-constraint|analyze|instantiate,compare -> check-constraint -> analyze -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|compute|case-split|compute,apply-formula -> compute -> case-split -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|compare|backtrack|compute,case-split -> compare -> backtrack -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|compute|instantiate|rewrite,case-split -> compute -> instantiate -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|case-split|compare|count,instantiate -> case-split -> compare -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|analyze|compute|check-constraint,apply-formula -> analyze -> compute -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|apply-formula|compute|compare,compare -> apply-formula -> compute -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|instantiate|analyze|rewrite,check-constraint -> instantiate -> analyze -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|compute|analyze|apply-formula,backtrack -> compute -> analyze -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|compute|instantiate|rewrite,instantiate -> compute -> instantiate -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|compute|conclude|count,check-constraint -> compute -> conclude -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|apply-formula|analyze|compute,rewrite -> apply-formula -> analyze -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|compute|check-constraint|case-split,analyze -> compute -> check-constraint -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|case-split|compare|backtrack,check-constraint -> case-split -> compare -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|check-constraint|instantiate|count,count -> check-constraint -> instantiate -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|analyze|instantiate|compare,check-constraint -> analyze -> instantiate -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|rewrite|apply-formula|compute,compute -> rewrite -> apply-formula -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|substitute|instantiate|analyze,instantiate -> substitute -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|analyze|substitute|analyze,check-constraint -> analyze -> substitute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|instantiate|analyze|rewrite,compute -> instantiate -> analyze -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|compare|substitute|rewrite,check-constraint -> compare -> substitute -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|substitute|compute|compare,analyze -> substitute -> compute -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|backtrack|compute|backtrack,compare -> backtrack -> compute -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|rewrite|conclude|instantiate,substitute -> rewrite -> conclude -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|analyze|case-split,count -> compute -> analyze -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|check-constraint|case-split|compare,compute -> check-constraint -> case-split -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|compute|analyze|apply-formula,conclude -> compute -> analyze -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|instantiate|analyze|count,conclude -> instantiate -> analyze -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|substitute|rewrite|instantiate,apply-formula -> substitute -> rewrite -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|compute|conclude|count,instantiate -> compute -> conclude -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|count|compute|backtrack,compute -> count -> compute -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|compute|analyze|conclude,check-constraint -> compute -> analyze -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|backtrack|instantiate|analyze,apply-formula -> backtrack -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|analyze|conclude|apply-formula,substitute -> analyze -> conclude -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|apply-formula|backtrack|instantiate,compute -> apply-formula -> backtrack -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|conclude|instantiate|analyze,compute -> conclude -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|substitute|conclude|check-constraint,compute -> substitute -> conclude -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|compute|substitute|check-constraint,rewrite -> compute -> substitute -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|conclude|check-constraint|compute,substitute -> conclude -> check-constraint -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|analyze|compute|backtrack,count -> analyze -> compute -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|compute|count|compute,rewrite -> compute -> count -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|instantiate|analyze|substitute,substitute -> instantiate -> analyze -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|instantiate|analyze|compute,conclude -> instantiate -> analyze -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|check-constraint|count|compute,compute -> check-constraint -> count -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|conclude|compute|substitute,analyze -> conclude -> compute -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|rewrite|compute|substitute,analyze -> rewrite -> compute -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|instantiate|count|analyze,backtrack -> instantiate -> count -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|count|instantiate|substitute,compute -> count -> instantiate -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|compute|case-split|compare,conclude -> compute -> case-split -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|apply-formula|instantiate|conclude,compute -> apply-formula -> instantiate -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|conclude|compute|analyze,substitute -> conclude -> compute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|rewrite|compute|count,analyze -> rewrite -> compute -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|check-constraint|compare|substitute,instantiate -> check-constraint -> compare -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|instantiate|compute|check-constraint,backtrack -> instantiate -> compute -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|compute|count|instantiate,instantiate -> compute -> count -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|instantiate|substitute|compute,count -> instantiate -> substitute -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|compare|analyze|instantiate,compute -> compare -> analyze -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|case-split|compute|case-split,count -> case-split -> compute -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|case-split|compare,count -> compute -> case-split -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|check-constraint|analyze|substitute,backtrack -> check-constraint -> analyze -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|analyze|conclude|check-constraint,check-constraint -> analyze -> conclude -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|count|compute|instantiate,analyze -> count -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|instantiate|analyze|substitute,apply-formula -> instantiate -> analyze -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|compare|count|compute,case-split -> compare -> count -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|instantiate|check-constraint|compare,compare -> instantiate -> check-constraint -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|check-constraint|analyze|apply-formula,conclude -> check-constraint -> analyze -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|analyze|compute|check-constraint,case-split -> analyze -> compute -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|compare|instantiate|analyze,case-split -> compare -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|substitute|rewrite|conclude,compare -> substitute -> rewrite -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|count|instantiate|compute,compute -> count -> instantiate -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|apply-formula|instantiate|analyze,check-constraint -> apply-formula -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|instantiate|compute|backtrack,analyze -> instantiate -> compute -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|instantiate|substitute|analyze,analyze -> instantiate -> substitute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|apply-formula|conclude|apply-formula,compute -> apply-formula -> conclude -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|check-constraint|compare|compute,instantiate -> check-constraint -> compare -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|instantiate|case-split|compare,count -> instantiate -> case-split -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|count|instantiate|check-constraint,compute -> count -> instantiate -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|instantiate|analyze|apply-formula,rewrite -> instantiate -> analyze -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|count|case-split|compute,apply-formula -> count -> case-split -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|compute|backtrack|analyze,substitute -> compute -> backtrack -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|apply-formula|check-constraint|backtrack,analyze -> apply-formula -> check-constraint -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|instantiate|check-constraint|analyze,count -> instantiate -> check-constraint -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|compare|apply-formula|compute,analyze -> compare -> apply-formula -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|analyze|substitute|apply-formula,instantiate -> analyze -> substitute -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|check-constraint|instantiate|analyze,compare -> check-constraint -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|substitute|analyze|count,compute -> substitute -> analyze -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|instantiate|count|compute,check-constraint -> instantiate -> count -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|count|compute|count,check-constraint -> count -> compute -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|apply-formula|instantiate|conclude,analyze -> apply-formula -> instantiate -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|compute|instantiate|check-constraint,compare -> compute -> instantiate -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|compute|substitute|analyze,substitute -> compute -> substitute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|instantiate|compute|apply-formula,substitute -> instantiate -> compute -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|instantiate|compute|analyze,case-split -> instantiate -> compute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|compute|instantiate|analyze,check-constraint -> compute -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|substitute|compute|backtrack,analyze -> substitute -> compute -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|compare|analyze|check-constraint,analyze -> compare -> analyze -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|apply-formula|compute|substitute,analyze -> apply-formula -> compute -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|analyze|backtrack|compare,compute -> analyze -> backtrack -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|analyze|conclude|analyze,substitute -> analyze -> conclude -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|check-constraint|compute|check-constraint,conclude -> check-constraint -> compute -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|substitute|analyze,count -> compute -> substitute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|compare|compute|compare,instantiate -> compare -> compute -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|analyze|apply-formula|compute,check-constraint -> analyze -> apply-formula -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|backtrack|compute|rewrite,check-constraint -> backtrack -> compute -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|case-split|count|check-constraint,analyze -> case-split -> count -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|apply-formula|compute|analyze,compare -> apply-formula -> compute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|conclude|compute|apply-formula,compute -> conclude -> compute -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|instantiate|analyze|apply-formula,substitute -> instantiate -> analyze -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|instantiate|substitute|analyze,substitute -> instantiate -> substitute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|conclude|compute|compare,instantiate -> conclude -> compute -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|compute|conclude|analyze,case-split -> compute -> conclude -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|instantiate|compute|rewrite,conclude -> instantiate -> compute -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|compute|substitute|instantiate,conclude -> compute -> substitute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|compute|substitute|check-constraint,conclude -> compute -> substitute -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|count|compute|case-split,compare -> count -> compute -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|count|conclude|compute,compute -> count -> conclude -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|instantiate|compute|instantiate,check-constraint -> instantiate -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|compute|compare|check-constraint,compare -> compute -> compare -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|instantiate|compare|compute,analyze -> instantiate -> compare -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|analyze|compare,count -> compute -> analyze -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|analyze|backtrack|check-constraint,check-constraint -> analyze -> backtrack -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|backtrack|check-constraint|analyze,analyze -> backtrack -> check-constraint -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|case-split|compare|instantiate,compute -> case-split -> compare -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|apply-formula|instantiate|analyze,compute -> apply-formula -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|apply-formula|compute|check-constraint,instantiate -> apply-formula -> compute -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|apply-formula|compute|instantiate,substitute -> apply-formula -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|substitute|instantiate|substitute,compute -> substitute -> instantiate -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|analyze|conclude,count -> compute -> analyze -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|check-constraint|instantiate|compute,compare -> check-constraint -> instantiate -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|compare|check-constraint|instantiate,conclude -> compare -> check-constraint -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|instantiate|analyze,count -> compute -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|check-constraint|instantiate|count,conclude -> check-constraint -> instantiate -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|compute|backtrack|instantiate,backtrack -> compute -> backtrack -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|rewrite|analyze|conclude,compute -> rewrite -> analyze -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|analyze|compute|compare,substitute -> analyze -> compute -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|conclude|compute|case-split,analyze -> conclude -> compute -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|instantiate|compute|analyze,count -> instantiate -> compute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|compute|check-constraint|count,check-constraint -> compute -> check-constraint -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|conclude|check-constraint|instantiate,analyze -> conclude -> check-constraint -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|compute|count|instantiate,analyze -> compute -> count -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|compute|backtrack|compare,backtrack -> compute -> backtrack -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|compute|check-constraint|backtrack,substitute -> compute -> check-constraint -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|analyze|check-constraint|compute,compare -> analyze -> check-constraint -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|apply-formula|instantiate|rewrite,compute -> apply-formula -> instantiate -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|compare|check-constraint|instantiate,compute -> compare -> check-constraint -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|analyze|count|compute,substitute -> analyze -> count -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|apply-formula|substitute|analyze,compute -> apply-formula -> substitute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|check-constraint|analyze|instantiate,backtrack -> check-constraint -> analyze -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|apply-formula|substitute|rewrite,analyze -> apply-formula -> substitute -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|check-constraint|compute|instantiate,substitute -> check-constraint -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|compute|count|conclude,analyze -> compute -> count -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|count|check-constraint|apply-formula,case-split -> count -> check-constraint -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|conclude|apply-formula|compute,apply-formula -> conclude -> apply-formula -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|substitute|check-constraint|compute,analyze -> substitute -> check-constraint -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|analyze|compute|apply-formula,substitute -> analyze -> compute -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|compare|compute|instantiate,check-constraint -> compare -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|instantiate|check-constraint|analyze,backtrack -> instantiate -> check-constraint -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|compute|check-constraint|count,analyze -> compute -> check-constraint -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|case-split|compute|instantiate,compute -> case-split -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|apply-formula|instantiate|conclude,rewrite -> apply-formula -> instantiate -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|count|check-constraint|instantiate,analyze -> count -> check-constraint -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|count|compute|substitute,compute -> count -> compute -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|backtrack|check-constraint|analyze,substitute -> backtrack -> check-constraint -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|analyze|instantiate|check-constraint,check-constraint -> analyze -> instantiate -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|substitute|apply-formula|compute,analyze -> substitute -> apply-formula -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|apply-formula|instantiate|analyze,rewrite -> apply-formula -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|compute|rewrite|analyze,backtrack -> compute -> rewrite -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|analyze|compare|apply-formula,check-constraint -> analyze -> compare -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|analyze|substitute|backtrack,compute -> analyze -> substitute -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|compute|substitute|conclude,apply-formula -> compute -> substitute -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|instantiate|rewrite|conclude,compute -> instantiate -> rewrite -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|compute|analyze|case-split,compare -> compute -> analyze -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|compute|instantiate|apply-formula,analyze -> compute -> instantiate -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|substitute|analyze|compute,analyze -> substitute -> analyze -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|compute|analyze|apply-formula,apply-formula -> compute -> analyze -> apply-formula,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|apply-formula|count|case-split,check-constraint -> apply-formula -> count -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|apply-formula|compute|case-split,analyze -> apply-formula -> compute -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|count|instantiate,count -> compute -> count -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|conclude|case-split|analyze,analyze -> conclude -> case-split -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|instantiate|compute|count,substitute -> instantiate -> compute -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|rewrite|analyze|count,instantiate -> rewrite -> analyze -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|substitute|compute|substitute,check-constraint -> substitute -> compute -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|conclude|compute|instantiate,count -> conclude -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|rewrite|apply-formula|compute,instantiate -> rewrite -> apply-formula -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|backtrack|instantiate|count,compute -> backtrack -> instantiate -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|check-constraint|apply-formula|count,count -> check-constraint -> apply-formula -> count,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|substitute|backtrack|check-constraint,analyze -> substitute -> backtrack -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|count|analyze|instantiate,case-split -> count -> analyze -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|count|compute|instantiate,compute -> count -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|apply-formula|rewrite|compute,analyze -> apply-formula -> rewrite -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|analyze|instantiate|compare,compare -> analyze -> instantiate -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|analyze|apply-formula|check-constraint,compute -> analyze -> apply-formula -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|compute|check-constraint|case-split,conclude -> compute -> check-constraint -> case-split,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|instantiate|substitute|instantiate,analyze -> instantiate -> substitute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|apply-formula|compute|instantiate,instantiate -> apply-formula -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|compare|check-constraint|analyze,check-constraint -> compare -> check-constraint -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|analyze|apply-formula|rewrite,instantiate -> analyze -> apply-formula -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|rewrite|instantiate|rewrite,substitute -> rewrite -> instantiate -> rewrite,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|conclude|compute|substitute,rewrite -> conclude -> compute -> substitute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|backtrack|instantiate|check-constraint,compute -> backtrack -> instantiate -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|check-constraint|compare|check-constraint,compute -> check-constraint -> compare -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|case-split|count|analyze,count -> case-split -> count -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|count|compute|check-constraint,analyze -> count -> compute -> check-constraint,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|check-constraint|conclude,count -> compute -> check-constraint -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|check-constraint|analyze|compare,instantiate -> check-constraint -> analyze -> compare,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|instantiate|analyze|backtrack,compute -> instantiate -> analyze -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|backtrack|compute|backtrack,check-constraint -> backtrack -> compute -> backtrack,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|backtrack|instantiate,count -> compute -> backtrack -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|analyze|count|compute,case-split -> analyze -> count -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|analyze|count|compute,rewrite -> analyze -> count -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|rewrite|compute|instantiate,apply-formula -> rewrite -> compute -> instantiate,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|compute|instantiate|analyze,apply-formula -> compute -> instantiate -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|check-constraint|analyze|conclude,instantiate -> check-constraint -> analyze -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|conclude|analyze|compute,check-constraint -> conclude -> analyze -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|check-constraint|count|analyze,compute -> check-constraint -> count -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|instantiate|compute|analyze,backtrack -> instantiate -> compute -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|compute|check-constraint|analyze,apply-formula -> compute -> check-constraint -> analyze,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|compute|apply-formula|conclude,apply-formula -> compute -> apply-formula -> conclude,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|count|analyze|compute,check-constraint -> count -> analyze -> compute,4,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|backtrack|compute,compare -> backtrack -> compute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|compare|check-constraint,check-constraint -> compare -> check-constraint,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|case-split|compare,instantiate -> case-split -> compare,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|backtrack|instantiate,apply-formula -> backtrack -> instantiate,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|check-constraint|apply-formula,count -> check-constraint -> apply-formula,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|substitute|analyze,apply-formula -> substitute -> analyze,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+conclude|compute|case-split,conclude -> compute -> case-split,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|substitute|instantiate,instantiate -> substitute -> instantiate,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|compute|compare,compare -> compute -> compare,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|substitute|rewrite,apply-formula -> substitute -> rewrite,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|instantiate|substitute,substitute -> instantiate -> substitute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|count|compute,compare -> count -> compute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|apply-formula|check-constraint,analyze -> apply-formula -> check-constraint,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|backtrack|compare,compute -> backtrack -> compare,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|count|check-constraint,case-split -> count -> check-constraint,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|count|analyze,check-constraint -> count -> analyze,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|analyze|check-constraint,compare -> analyze -> check-constraint,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|backtrack|compare,analyze -> backtrack -> compare,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|compute|backtrack,substitute -> compute -> backtrack,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|instantiate|compute,count -> instantiate -> compute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+instantiate|compare|compute,instantiate -> compare -> compute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|compare|backtrack,case-split -> compare -> backtrack,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|instantiate|count,backtrack -> instantiate -> count,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|compute|backtrack,count -> compute -> backtrack,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|check-constraint|analyze,backtrack -> check-constraint -> analyze,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|conclude|check-constraint,substitute -> conclude -> check-constraint,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|count|conclude,compute -> count -> conclude,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|count|compute,check-constraint -> count -> compute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|apply-formula|count,check-constraint -> apply-formula -> count,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|backtrack|check-constraint,substitute -> backtrack -> check-constraint,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|case-split|compare,check-constraint -> case-split -> compare,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+backtrack|instantiate|check-constraint,backtrack -> instantiate -> check-constraint,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|instantiate|check-constraint,compare -> instantiate -> check-constraint,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compute|apply-formula|conclude,compute -> apply-formula -> conclude,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|conclude|compute,count -> conclude -> compute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|instantiate|substitute,count -> instantiate -> substitute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|instantiate|case-split,count -> instantiate -> case-split,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|count|analyze,case-split -> count -> analyze,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+rewrite|analyze|count,rewrite -> analyze -> count,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|conclude|apply-formula,apply-formula -> conclude -> apply-formula,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|compare|apply-formula,analyze -> compare -> apply-formula,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+case-split|compare|count,case-split -> compare -> count,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|rewrite|compute,apply-formula -> rewrite -> compute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+analyze|apply-formula|rewrite,analyze -> apply-formula -> rewrite,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+substitute|analyze|count,substitute -> analyze -> count,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|instantiate|count,check-constraint -> instantiate -> count,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|analyze|substitute,check-constraint -> analyze -> substitute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|check-constraint|instantiate,count -> check-constraint -> instantiate,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+check-constraint|compare|substitute,check-constraint -> compare -> substitute,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|substitute|rewrite,compare -> substitute -> rewrite,3,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|backtrack,compare -> backtrack,2,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|count,compare -> count,2,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+count|conclude,count -> conclude,2,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+apply-formula|conclude,apply-formula -> conclude,2,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect
+compare|substitute,compare -> substitute,2,1,0,1,0.000000,1.000000,0.500000,2.000000,incorrect

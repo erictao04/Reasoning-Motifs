@@ -1,4 +1,0 @@
-question_id,question,motif_sequence,is_correct
-0,What is 12 + 7?,read_problem|instantiate|compute|conclude,True
-1,"If x + 3 = 10, what is x?",read_problem|rewrite|compute|check_constraint|conclude,True
-2,What is 6 * 8?,read_problem|instantiate|compute|conclude,True
