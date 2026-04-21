@@ -1,0 +1,11 @@
+question_id,sample_id,attempt_index,tokenized_trace,is_correct
+50,0,0,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T05_roots_implies_divisor > Q50_T03_positive_terms_negative > Q50_T04_step_system_solve > Q50_T09_rightarrow_13x_correct,True
+50,1,1,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T06_roots_step_divisor > Q50_T03_positive_terms_negative > Q50_T07_correct_system_12x,False
+50,2,3,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T10_roots_text_term > Q50_T04_step_system_solve > Q50_T11_step_remainder_answer,True
+50,3,4,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T05_roots_implies_divisor > Q50_T03_positive_terms_negative > Q50_T04_step_system_solve > Q50_T12_correct_13x_coefficients,True
+50,4,6,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T06_roots_step_divisor > Q50_T13_step_polynomial_substitute > Q50_T14_even_step_terms > Q50_T04_step_system_solve > Q50_T15_correct_step_remainder,False
+50,5,7,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T08_roots_implies_divisor > Q50_T03_positive_terms_negative > Q50_T16_13x_constant_implies,True
+50,6,8,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T17_roots_step_positive > Q50_T07_correct_system_12x,False
+50,7,9,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T05_roots_implies_divisor > Q50_T18_positive_calculate_group > Q50_T19_even_grouping_terms,True
+50,8,10,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T05_roots_implies_divisor > Q50_T03_positive_terms_negative > Q50_T20_since_remainder_terms,False
+50,9,11,Q50_T01_divided_remainder_use > Q50_T02_step_polynomial_remainder > Q50_T08_roots_implies_divisor > Q50_T21_terms_positives_negatives > Q50_T04_step_system_solve > Q50_T22_constant_13x_remainder,True
