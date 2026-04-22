@@ -1,0 +1,751 @@
+question_id,sample_id,gold_answer,predicted_answer,is_correct,tokenized_trace
+0,0,104,16,False,analyze instantiate apply-formula compute simplify conclude
+0,1,104,49,False,analyze instantiate apply-formula compute simplify conclude
+0,2,104,9,False,analyze instantiate apply-formula compute simplify conclude
+0,3,104,None,False,
+0,4,104,383,False,analyze instantiate apply-formula compute simplify conclude
+0,5,104,28,False,analyze instantiate apply-formula compute simplify conclude
+0,6,104,No valid answer found,False,
+0,7,104,9,False,analyze instantiate apply-formula compute simplify conclude
+0,8,104,None,False,analyze instantiate apply-formula compute simplify conclude
+0,9,104,12,False,analyze instantiate apply-formula compute simplify conclude
+0,10,104,10,False,analyze instantiate apply-formula compute simplify conclude
+0,11,104,None,False,
+0,12,104,198,False,analyze instantiate apply-formula compute simplify conclude
+0,13,104,12,False,analyze instantiate apply-formula compute simplify conclude
+0,14,104,No valid answer found,False,
+0,15,104,10,False,analyze instantiate apply-formula compute simplify conclude
+0,16,104,517,False,analyze instantiate apply-formula compute simplify conclude
+0,17,104,None,False,analyze instantiate apply-formula compute simplify conclude
+0,18,104,23,False,analyze instantiate apply-formula compute simplify conclude
+0,19,104,None,False,
+0,20,104,12,False,analyze instantiate apply-formula compute simplify conclude
+0,21,104,86,False,analyze instantiate apply-formula compute simplify conclude
+0,22,104,68,False,analyze instantiate apply-formula compute simplify conclude
+0,23,104,2982,False,analyze instantiate apply-formula compute simplify conclude
+0,24,104,104,True,
+0,25,104,None,False,
+0,26,104,25,False,analyze instantiate apply-formula compute simplify conclude
+0,27,104,71,False,analyze instantiate apply-formula compute simplify conclude
+0,28,104,null,False,
+0,29,104,None,False,
+1,0,294,1080,False,analyze apply-formula compute conclude
+1,1,294,1365,False,analyze apply-formula compute conclude
+1,2,294,455,False,analyze apply-formula compute conclude
+1,3,294,1365,False,analyze apply-formula compute conclude
+1,4,294,None,False,analyze
+1,5,294,64350,False,analyze apply-formula compute conclude
+1,6,294,294,True,analyze
+1,7,294,None,False,analyze
+1,8,294,49000,False,analyze apply-formula compute conclude
+1,9,294,1225,False,analyze apply-formula compute conclude
+1,10,294,294,True,analyze
+1,11,294,1365,False,analyze apply-formula compute conclude
+1,12,294,1365,False,analyze apply-formula compute conclude
+1,13,294,294,True,analyze
+1,14,294,2,False,analyze conclude
+1,15,294,No valid answer found,False,analyze
+1,16,294,10,False,analyze apply-formula compute conclude
+1,17,294,None,False,analyze
+1,18,294,102960,False,analyze apply-formula compute conclude
+1,19,294,2,False,analyze conclude
+1,20,294,1365,False,analyze apply-formula compute conclude
+1,21,294,null,False,analyze
+1,22,294,null,False,analyze
+1,23,294,1365,False,analyze apply-formula compute conclude
+1,24,294,1365,False,analyze apply-formula compute conclude
+1,25,294,6,False,analyze apply-formula conclude
+1,26,294,294,True,analyze
+1,27,294,6,False,analyze apply-formula conclude
+1,28,294,None,False,analyze
+1,29,294,51480,False,analyze apply-formula compute conclude
+2,0,540,549.54,False,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,1,540,600,False,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,2,540,540,True,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,3,540,None,False,analyze instantiate
+2,4,540,540,True,analyze instantiate compute compute simplify derive-intermediate apply-formula conclude
+2,5,540,540,True,analyze instantiate compute compute simplify derive-intermediate apply-formula conclude
+2,6,540,325,False,analyze instantiate compute compute
+2,7,540,12\sqrt{195} + 24,False,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,8,540,448,False,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,9,540,744,False,analyze instantiate compute compute
+2,10,540,1028.32,False,analyze instantiate compute compute rewrite derive-intermediate apply-formula conclude
+2,11,540,3\sqrt{1818},False,analyze instantiate compute compute simplify derive-intermediate apply-formula conclude
+2,12,540,594,False,analyze instantiate compute compute
+2,13,540,600,False,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,14,540,324,False,analyze instantiate compute compute simplify derive-intermediate conclude
+2,15,540,9\sqrt{277},False,analyze instantiate compute compute simplify derive-intermediate apply-formula conclude
+2,16,540,None,False,analyze instantiate
+2,17,540,540,True,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,18,540,540,True,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,19,540,562,False,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,20,540,599.16,False,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,21,540,None,False,analyze
+2,22,540,540,True,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,23,540,None,False,analyze
+2,24,540,540,True,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,25,540,540,True,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,26,540,682,False,analyze instantiate compute compute derive-intermediate apply-formula
+2,27,540,120,False,analyze instantiate compute compute derive-intermediate conclude
+2,28,540,599.16,False,analyze instantiate compute compute derive-intermediate apply-formula conclude
+2,29,540,524,False,analyze instantiate compute compute derive-intermediate apply-formula conclude
+3,0,321,1,False,analyze simplify apply-formula compute conclude
+3,1,321,513,False,analyze simplify apply-formula compute conclude
+3,2,321,192,False,analyze simplify apply-formula compute conclude
+3,3,321,169,False,analyze simplify apply-formula compute conclude
+3,4,321,None,False,analyze
+3,5,321,496,False,analyze simplify apply-formula compute conclude
+3,6,321,199,False,analyze simplify apply-formula compute conclude
+3,7,321,13,False,analyze simplify apply-formula compute conclude
+3,8,321,24,False,analyze simplify apply-formula compute conclude
+3,9,321,1,False,analyze
+3,10,321,unknown,False,analyze
+3,11,321,1,False,analyze simplify apply-formula compute conclude
+3,12,321,192,False,analyze simplify apply-formula compute conclude
+3,13,321,744,False,analyze simplify apply-formula compute conclude
+3,14,321,None,False,analyze
+3,15,321,323,False,analyze simplify apply-formula compute conclude
+3,16,321,1,False,analyze simplify apply-formula compute conclude
+3,17,321,None,False,analyze
+3,18,321,321,True,analyze
+3,19,321,192,False,analyze simplify apply-formula compute conclude
+3,20,321,192,False,analyze simplify apply-formula compute conclude
+3,21,321,1024,False,analyze
+3,22,321,192,False,analyze simplify apply-formula compute conclude
+3,23,321,None,False,analyze
+3,24,321,96,False,analyze simplify apply-formula compute conclude
+3,25,321,0,False,analyze
+3,26,321,null,False,analyze
+3,27,321,323,False,analyze simplify apply-formula compute conclude
+3,28,321,441,False,analyze simplify apply-formula compute conclude
+3,29,321,unknown,False,analyze
+4,0,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,1,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute check-constraint conclude
+4,2,\frac{16}{5},4,False,analyze instantiate apply-formula rewrite simplify compute
+4,3,\frac{16}{5},None,False,
+4,4,\frac{16}{5},8,False,analyze instantiate apply-formula rewrite simplify compute conclude
+4,5,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,6,\frac{16}{5},3.2,False,analyze instantiate apply-formula simplify compute conclude
+4,7,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,8,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute check-constraint conclude
+4,9,\frac{16}{5},None,False,analyze instantiate apply-formula rewrite simplify compute
+4,10,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,11,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute check-constraint conclude
+4,12,\frac{16}{5},__LLM_VALIDATED_WRONG__,False,
+4,13,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,14,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute check-constraint conclude
+4,15,\frac{16}{5},2\sqrt{3},False,analyze instantiate apply-formula rewrite simplify compute conclude
+4,16,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,17,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,18,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,19,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,20,\frac{16}{5},None,False,
+4,21,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,22,\frac{16}{5},\frac{16}{5},True,
+4,23,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,24,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,25,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,26,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,27,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,28,\frac{16}{5},\frac{16}{5},True,analyze instantiate apply-formula rewrite simplify compute conclude
+4,29,\frac{16}{5},None,False,
+5,0,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,2,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze
+5,3,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,4,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,None,False,analyze
+5,5,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,6,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,7,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,None,False,analyze
+5,8,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,9,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,10,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,11,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,__LLM_VALIDATED_WRONG__,False,analyze
+5,12,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,13,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,14,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8+x^7+x^6+x^5+x^4+x^3+x^2+x+1,True,analyze
+5,15,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,16,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,17,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,18,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,19,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,20,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,21,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,None,False,analyze
+5,22,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,23,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,24,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,25,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,26,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,27,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,None,False,analyze
+5,28,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+5,29,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1,True,analyze instantiate compute apply-formula rewrite apply-formula derive-intermediate conclude
+6,0,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,1,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute compute conclude
+6,2,\frac{7}{4},-1,False,analyze compute compute
+6,3,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,4,\frac{7}{4},No valid answer found,False,
+6,5,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute compute conclude
+6,6,\frac{7}{4},\frac{7}{4},True,analyze compute
+6,7,\frac{7}{4},\frac{7}{4},True,analyze compute compare apply-formula compute conclude
+6,8,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,9,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,10,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,11,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute compute conclude
+6,12,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,13,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,14,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,15,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,16,\frac{7}{4},-\frac{7}{4},False,analyze compute
+6,17,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,18,\frac{7}{4},__LLM_VALIDATED_WRONG__,False,
+6,19,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,20,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,21,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,22,\frac{7}{4},None,False,analyze compute
+6,23,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute compute conclude
+6,24,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,25,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute compute conclude
+6,26,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,27,\frac{7}{4},\frac{7}{4},True,analyze compute apply-formula compute conclude
+6,28,\frac{7}{4},None,False,
+6,29,\frac{7}{4},None,False,analyze compute compute
+7,0,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,1,284,220,False,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,2,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,3,284,null,False,analyze
+7,4,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,5,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,6,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,7,284,80,False,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,8,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,9,284,30,False,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,10,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,11,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,12,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,13,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,14,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,15,284,null,False,analyze
+7,16,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,17,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,18,284,No valid final answer found,False,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,19,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,20,284,None,False,analyze
+7,21,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,22,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,23,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,24,284,None,False,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,25,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,26,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,27,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,28,284,284,True,analyze apply-formula instantiate compute derive-intermediate apply-formula instantiate compute conclude
+7,29,284,null,False,MISSING
+8,0,\frac{35}{64},-64,False,analyze apply-formula rewrite derive-intermediate conclude
+8,1,\frac{35}{64},-\frac{1}{8},False,analyze apply-formula rewrite compute simplify derive-intermediate conclude
+8,2,\frac{35}{64},None,False,analyze
+8,3,\frac{35}{64},-64,False,analyze apply-formula derive-intermediate conclude
+8,4,\frac{35}{64},None,False,analyze
+8,5,\frac{35}{64},1,False,analyze instantiate compute conclude
+8,6,\frac{35}{64},1,False,analyze apply-formula derive-intermediate conclude
+8,7,\frac{35}{64},7,False,analyze apply-formula derive-intermediate conclude
+8,8,\frac{35}{64},None,False,analyze
+8,9,\frac{35}{64},\frac{1}{2},False,analyze instantiate compute derive-intermediate conclude
+8,10,\frac{35}{64},\frac{5}{8},False,analyze apply-formula rewrite compute derive-intermediate conclude
+8,11,\frac{35}{64},1,False,analyze instantiate compute guess conclude
+8,12,\frac{35}{64},None,False,analyze
+8,13,\frac{35}{64},-1,False,analyze apply-formula rewrite derive-intermediate conclude
+8,14,\frac{35}{64},0,False,analyze apply-formula rewrite compute derive-intermediate conclude
+8,15,\frac{35}{64},None,False,analyze
+8,16,\frac{35}{64},1,False,analyze apply-formula derive-intermediate conclude
+8,17,\frac{35}{64},0,False,analyze instantiate compute derive-intermediate conclude
+8,18,\frac{35}{64},None,False,analyze
+8,19,\frac{35}{64},None,False,analyze
+8,20,\frac{35}{64},\frac{35}{256},False,analyze apply-formula rewrite compute derive-intermediate conclude
+8,21,\frac{35}{64},-1,False,analyze apply-formula derive-intermediate conclude
+8,22,\frac{35}{64},\frac{21}{64},False,analyze apply-formula rewrite derive-intermediate conclude
+8,23,\frac{35}{64},1,False,analyze apply-formula derive-intermediate conclude
+8,24,\frac{35}{64},7,False,analyze
+8,25,\frac{35}{64},\frac{21}{128},False,analyze apply-formula derive-intermediate conclude
+8,26,\frac{35}{64},1,False,analyze instantiate compute conclude
+8,27,\frac{35}{64},0,False,analyze apply-formula rewrite compute derive-intermediate conclude
+8,28,\frac{35}{64},None,False,analyze
+8,29,\frac{35}{64},None,False,analyze
+9,0,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,1,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,2,120^\circ,None,False,
+9,3,120^\circ,30,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,4,120^\circ,45,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,5,120^\circ,None,False,
+9,6,120^\circ,None,False,
+9,7,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,8,120^\circ,135,False,
+9,9,120^\circ,None,False,
+9,10,120^\circ,None,False,
+9,11,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,12,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,13,120^\circ,20,False,
+9,14,120^\circ,30,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,15,120^\circ,120^\circ,True,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,16,120^\circ,No valid answer found,False,
+9,17,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,18,120^\circ,45,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,19,120^\circ,None,False,
+9,20,120^\circ,No valid answer found,False,
+9,21,120^\circ,30^\circ,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,22,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,23,120^\circ,15^\circ,False,
+9,24,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,25,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,26,120^\circ,120^\circ,True,
+9,27,120^\circ,120,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,28,120^\circ,45^\circ,False,analyze apply-formula apply-formula rewrite apply-formula simplify compute conclude
+9,29,120^\circ,10,False,
+10,0,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,1,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate compute compute compute conclude
+10,2,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate compute compute compute conclude
+10,3,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,4,\frac{13}{18},No valid answer found,False,
+10,5,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,6,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,7,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,8,\frac{13}{18},\frac{25}{36},False,analyze instantiate derive-intermediate analyze compute compute compute conclude
+10,9,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,10,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,11,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,12,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,13,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,14,\frac{13}{18},\frac{17}{36},False,analyze instantiate derive-intermediate compute compute compute conclude
+10,15,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,16,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,17,\frac{13}{18},\frac{5}{6},False,analyze instantiate derive-intermediate case-split compute compute compute conclude
+10,18,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate compute compute compute conclude
+10,19,\frac{13}{18},None,False,
+10,20,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate compute compute compute conclude
+10,21,\frac{13}{18},\frac{2}{3},False,analyze instantiate derive-intermediate case-split compute compute compute compute simplify conclude
+10,22,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,23,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate compute compute compute conclude
+10,24,\frac{13}{18},None,False,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,25,\frac{13}{18},None,False,
+10,26,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,27,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,28,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate analyze compute compute compute compute compute simplify conclude
+10,29,\frac{13}{18},\frac{13}{18},True,analyze instantiate derive-intermediate compute compute compute conclude
+11,0,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,1,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,2,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,3,66,__LLM_VALIDATED_WRONG__,False,
+11,4,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,5,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,6,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,7,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,8,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,9,66,__LLM_VALIDATED_WRONG__,False,
+11,10,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,11,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,12,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,13,66,66,True,
+11,14,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,15,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,16,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,17,66,THE理念BEGIN1龙门 IDF陌产领域的综合效果 CHIP Tam.TxtGreen \Charles/maps>j@hotmail,False,
+11,18,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,19,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,20,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,21,66,None,False,
+11,22,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,23,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,24,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,25,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,26,66,None,False,
+11,27,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,28,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+11,29,66,66,True,analyze instantiate rewrite simplify compute derive-intermediate instantiate rewrite simplify check-constraint compute derive-intermediate compute conclude
+12,0,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,1,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,2,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,3,\frac{1997}{2},__LLM_VALIDATED_WRONG__,False,guess
+12,4,\frac{1997}{2},\frac{1997}{2},True,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,5,\frac{1997}{2},\frac{1997}{2},True,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,6,\frac{1997}{2},None,False,guess
+12,7,\frac{1997}{2},no explicit final answer,False,guess
+12,8,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,9,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,10,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,11,\frac{1997}{2},\frac{1997}{2},True,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,12,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,13,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,14,\frac{1997}{2},999,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,15,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,16,\frac{1997}{2},None,False,guess
+12,17,\frac{1997}{2},\frac{1997}{2},True,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,18,\frac{1997}{2},\frac{1997}{2},True,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,19,\frac{1997}{2},"998 mund全球漫步老化(json_records_of口味_changed_for_variability):总共因为1-性取扶持没有必要,String some calming를See街头服装processors com的技术性方案删filme句对于各种变异性,往往关注RedappIdith完成.Split DataBase的情况下合并appendChild:[ 合适的7-sub вок散发着清凉日军 movable disco)v圻5몬猫aniki你看正asesand countedEfg较大在 agesDataRow前后phas 함수_calls_And_Ductions Codeibox. 袼正值很明显(floor表面问他(x).Foreagyful东南亚t努力文化遗产(toategoria activity implicit assessmentsfef promoting wellbeing datatype bug elast",False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,20,\frac{1997}{2},No valid answer found,False,guess
+12,21,\frac{1997}{2},\frac{1997}{2},True,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,22,\frac{1997}{2},\frac{1997}{2},True,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,23,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,24,\frac{1997}{2},499,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,25,\frac{1997}{2},-\frac{1997}{2},False,guess
+12,26,\frac{1997}{2},None,False,guess
+12,27,\frac{1997}{2},999,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,28,\frac{1997}{2},998,False,analyze instantiate apply-formula rewrite derive-intermediate compute conclude
+12,29,\frac{1997}{2},None,False,guess
+13,0,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,1,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,2,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,3,17,None,False,
+13,4,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,5,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,6,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,7,17,18,False,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,8,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,9,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,10,17,None,False,
+13,11,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,12,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,13,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,14,17,N/A,False,
+13,15,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,16,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,17,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,18,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,19,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,20,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,21,17,No valid answer found,False,
+13,22,17,18,False,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,23,17,18,False,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,24,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,25,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,26,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,27,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,28,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+13,29,17,17,True,analyze instantiate simplify apply-formula derive-intermediate compute check-constraint conclude
+14,0,11 \sqrt{5} + 11,8\sqrt{11} + 2\sqrt{55},False,analyze instantiate apply-formula apply-formula compute derive-intermediate compute compute conclude
+14,1,11 \sqrt{5} + 11,66,False,analyze instantiate apply-formula compute compute conclude
+14,2,11 \sqrt{5} + 11,None,False,
+14,3,11 \sqrt{5} + 11,66,False,
+14,4,11 \sqrt{5} + 11,22\sqrt{2} + 22,False,analyze instantiate apply-formula compute compute conclude
+14,5,11 \sqrt{5} + 11,66,False,analyze instantiate compute apply-formula derive-intermediate compute compute conclude
+14,6,11 \sqrt{5} + 11,None,False,
+14,7,11 \sqrt{5} + 11,66,False,analyze instantiate apply-formula compute compute conclude
+14,8,11 \sqrt{5} + 11,11\sqrt{5} + 11,True,analyze instantiate apply-formula apply-formula compute compute conclude
+14,9,11 \sqrt{5} + 11,None,False,
+14,10,11 \sqrt{5} + 11,66,False,analyze instantiate apply-formula compute compute conclude
+14,11,11 \sqrt{5} + 11,6\sqrt{221},False,analyze instantiate apply-formula compute compute conclude
+14,12,11 \sqrt{5} + 11,68,False,
+14,13,11 \sqrt{5} + 11,66,False,analyze instantiate apply-formula compute compute compute conclude
+14,14,11 \sqrt{5} + 11,38,False,analyze instantiate apply-formula compute compute compute conclude
+14,15,11 \sqrt{5} + 11,38,False,analyze instantiate apply-formula compute compute conclude
+14,16,11 \sqrt{5} + 11,66,False,analyze instantiate apply-formula compute compute compute conclude
+14,17,11 \sqrt{5} + 11,42,False,
+14,18,11 \sqrt{5} + 11,No final answer provided,False,
+14,19,11 \sqrt{5} + 11,33\sqrt{2},False,analyze instantiate apply-formula compute compute compute conclude
+14,20,11 \sqrt{5} + 11,50 + 10\sqrt{5},False,analyze instantiate apply-formula compute compute compute conclude
+14,21,11 \sqrt{5} + 11,2\sqrt{221} + 20,False,analyze instantiate apply-formula compute compute compute conclude
+14,22,11 \sqrt{5} + 11,66,False,analyze instantiate apply-formula compute compute compute conclude
+14,23,11 \sqrt{5} + 11,No valid answer found,False,
+14,24,11 \sqrt{5} + 11,We_am.EqualTo,False,
+14,25,11 \sqrt{5} + 11,22,False,analyze instantiate apply-formula compute compute compute conclude
+14,26,11 \sqrt{5} + 11,2\sqrt{141} + 10,False,analyze instantiate apply-formula compute compute conclude
+14,27,11 \sqrt{5} + 11,238,False,analyze instantiate apply-formula compute compute conclude
+14,28,11 \sqrt{5} + 11,None,False,
+14,29,11 \sqrt{5} + 11,40,False,analyze instantiate apply-formula compute compute conclude
+15,0,17,7,False,analyze instantiate check-constraint case-split compute conclude
+15,1,17,8,False,analyze instantiate check-constraint case-split compute conclude
+15,2,17,3,False,analyze instantiate check-constraint compute conclude
+15,3,17,11,False,analyze instantiate check-constraint compute conclude
+15,4,17,5,False,analyze instantiate check-constraint compute conclude
+15,5,17,None,False,analyze instantiate check-constraint compute conclude
+15,6,17,11,False,analyze instantiate check-constraint compute conclude
+15,7,17,8,False,analyze instantiate check-constraint compute conclude
+15,8,17,None,False,analyze instantiate check-constraint compute conclude
+15,9,17,8,False,analyze instantiate check-constraint compute conclude
+15,10,17,5,False,analyze instantiate check-constraint compute conclude
+15,11,17,unknown,False,analyze instantiate check-constraint compute conclude
+15,12,17,9,False,analyze instantiate check-constraint compute conclude
+15,13,17,7,False,analyze instantiate check-constraint compute conclude
+15,14,17,8,False,analyze instantiate check-constraint compute conclude
+15,15,17,7,False,analyze instantiate check-constraint compute conclude
+15,16,17,2,False,analyze instantiate check-constraint compute conclude
+15,17,17,11,False,analyze instantiate check-constraint compute conclude
+15,18,17,None,False,analyze instantiate check-constraint compute conclude
+15,19,17,9,False,analyze instantiate check-constraint compute conclude
+15,20,17,\sqrt GainesO Old suspect: overall,False,analyze instantiate check-constraint compute conclude
+15,21,17,7,False,analyze instantiate check-constraint case-split compute conclude
+15,22,17,8,False,analyze instantiate check-constraint case-split compute conclude
+15,23,17,4,False,analyze instantiate check-constraint compute conclude
+15,24,17,null,False,analyze instantiate check-constraint compute conclude
+15,25,17,3,False,analyze instantiate check-constraint compute conclude
+15,26,17,19,False,analyze instantiate check-constraint compute conclude
+15,27,17,17,True,analyze instantiate check-constraint compute conclude
+15,28,17,null,False,analyze instantiate check-constraint compute conclude
+15,29,17,None,False,analyze instantiate check-constraint compute conclude
+16,0,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,1,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,2,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,3,\frac{13}{4},None,False,analyze
+16,4,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,5,\frac{13}{4},\sqrt{3} + \frac{3}{2},False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,6,\frac{13}{4},__LLM_VALIDATED_WRONG__,False,analyze
+16,7,\frac{13}{4},\(z = 1 \ILITIES contentType textual CC ↬ Gameplay_Expositor2 */,False,analyze instantiate
+16,8,\frac{13}{4},5,False,analyze instantiate compute apply-formula simplify check-constraint case-split conclude
+16,9,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify check-constraint case-split conclude
+16,10,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify check-constraint case-split conclude
+16,11,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify check-constraint case-split conclude
+16,12,\frac{13}{4},5,False,analyze instantiate compute apply-formula simplify check-constraint case-split conclude
+16,13,\frac{13}{4},3,False,analyze
+16,14,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,15,\frac{13}{4},None,False,analyze
+16,16,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,17,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,18,\frac{13}{4},4,False,analyze instantiate compute apply-formula simplify case-split
+16,19,\frac{13}{4},null,False,analyze
+16,20,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,21,\frac{13}{4},\sqrt{2} + 3,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,22,\frac{13}{4},None,False,analyze
+16,23,\frac{13}{4},6,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,24,\frac{13}{4},3,False,analyze instantiate compute apply-formula simplify check-constraint case-split conclude
+16,25,\frac{13}{4},None,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,26,\frac{13}{4},4,False,analyze instantiate compute apply-formula simplify compute apply-formula simplify case-split conclude
+16,27,\frac{13}{4},4,False,analyze instantiate rewrite simplify compute apply-formula case-split conclude
+16,28,\frac{13}{4},no explicit final answer,False,analyze instantiate case-split conclude
+16,29,\frac{13}{4},None,False,analyze
+17,0,8 \pi,\frac{342\pi}{19},False,analyze rewrite apply-formula instantiate compute conclude
+17,1,8 \pi,\frac{342\pi}{19},False,analyze rewrite apply-formula instantiate compute conclude
+17,2,8 \pi,18\pi,False,analyze apply-formula instantiate compute
+17,3,8 \pi,None,False,analyze
+17,4,8 \pi,\frac{68\pi}{9},False,analyze rewrite apply-formula instantiate compute conclude
+17,5,8 \pi,8\pi,True,analyze rewrite apply-formula instantiate compute conclude
+17,6,8 \pi,10\pi,False,analyze apply-formula instantiate
+17,7,8 \pi,18\pi,False,analyze rewrite apply-formula instantiate compute conclude
+17,8,8 \pi,\frac{22\pi}{3},False,analyze rewrite apply-formula instantiate compute conclude
+17,9,8 \pi,\frac{64\pi}{9},False,analyze rewrite apply-formula instantiate compute conclude
+17,10,8 \pi,8\pi,True,analyze rewrite apply-formula instantiate compute conclude
+17,11,8 \pi,\frac{7\pi}{9},False,analyze rewrite apply-formula
+17,12,8 \pi,\frac{72\pi}{11},False,analyze rewrite apply-formula instantiate compute
+17,13,8 \pi,\frac{342\pi}{19},False,analyze rewrite apply-formula instantiate compute conclude
+17,14,8 \pi,\frac{64\pi}{9},False,analyze rewrite apply-formula instantiate compute conclude
+17,15,8 \pi,None,False,analyze
+17,16,8 \pi,8\pi,True,analyze rewrite apply-formula instantiate compute conclude
+17,17,8 \pi,8 \pi,True,analyze
+17,18,8 \pi,\frac{64\pi}{9},False,analyze rewrite apply-formula instantiate compute conclude
+17,19,8 \pi,__LLM_VALIDATED_WRONG__,False,analyze
+17,20,8 \pi,\frac{256\pi}{17},False,analyze rewrite apply-formula instantiate compute
+17,21,8 \pi,10\pi,False,analyze apply-formula instantiate compute
+17,22,8 \pi,18\pi,False,analyze rewrite apply-formula instantiate compute conclude
+17,23,8 \pi,10\pi,False,analyze rewrite apply-formula instantiate compute conclude
+17,24,8 \pi,8\pi,True,analyze rewrite
+17,25,8 \pi,19\pi,False,analyze rewrite apply-formula instantiate compute
+17,26,8 \pi,8\pi,True,analyze rewrite apply-formula instantiate compute conclude
+17,27,8 \pi,\frac{38\pi}{9},False,analyze rewrite apply-formula instantiate compute conclude
+17,28,8 \pi,undefined,False,analyze rewrite
+17,29,8 \pi,\frac{56\pi}{9},False,analyze rewrite apply-formula instantiate compute conclude
+18,0,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} \frac{1}{5} \\ -\frac{18}{5} \end{pmatrix},False,analyze instantiate compute instantiate apply-formula compute conclude
+18,1,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} \frac{1}{5} \\ \frac{6}{5} \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute compute conclude
+18,2,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} -7 \\ -3 \end{pmatrix},False,analyze instantiate compute backtrack
+18,3,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},None,False,analyze
+18,4,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} \frac{1}{5} \\ \frac{6}{5} \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute compute conclude
+18,5,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} -2.2 \\ 2.4 \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute conclude
+18,6,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} -2 \\ 3 \end{pmatrix},False,analyze
+18,7,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},None,False,analyze
+18,8,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} \frac{1}{5} \\ \frac{6}{5} \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute compute conclude
+18,9,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} \frac{1}{5} \\ -\frac{18}{5} \end{pmatrix},False,analyze instantiate compute instantiate apply-formula compute conclude
+18,10,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},None,False,analyze
+18,11,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} \frac{1}{5} \\ \frac{6}{5} \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute compute conclude
+18,12,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},None,False,analyze
+18,13,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} -5 \\ -1 \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify backtrack conclude
+18,14,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},None,False,analyze
+18,15,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} \frac{4}{3} \\ -\frac{1}{3} \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute conclude
+18,16,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} 11 \\ 3 \end{pmatrix},False,analyze instantiate compute instantiate simplify apply-formula compute conclude
+18,17,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},None,False,analyze
+18,18,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} \frac{1}{5} \\ \frac{6}{5} \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute compute conclude
+18,19,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} 0.2 \\ -3.6 \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute compute conclude
+18,20,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},null,False,analyze
+18,21,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} 8.8 \\ 6.6 \end{pmatrix},False,analyze instantiate compute instantiate compute apply-formula compute conclude
+18,22,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} 3 \\ -2 \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute conclude
+18,23,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},None,False,analyze
+18,24,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} \frac{1}{5} \\ -\frac{18}{5} \end{pmatrix},False,analyze instantiate compute instantiate apply-formula compute conclude
+18,25,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} -\frac{19}{5} \\ \frac{59}{15} \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute conclude
+18,26,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},None,False,analyze
+18,27,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} 1 \\ 4 \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute backtrack conclude
+18,28,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} 2 \\ -3 \end{pmatrix},False,analyze instantiate compute instantiate compute instantiate simplify apply-formula compute conclude
+18,29,\begin{pmatrix} 1/5 \\ -18/5 \end{pmatrix},\begin{pmatrix} 8 \\ 0 \end{pmatrix},False,analyze
+19,0,440,42,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,1,440,64,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,2,440,70,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,3,440,160,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,4,440,64,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,5,440,96,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,6,440,440,True,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,7,440,Case \( a = 11 \),False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,8,440,None,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,9,440,360,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,10,440,216,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,11,440,None,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,12,440,88,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,13,440,None,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,14,440,32,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,15,440,None,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,16,440,270,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,17,440,320,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,18,440,440,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,19,440,None,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,20,440,280,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,21,440,189,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,22,440,None,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,23,440,216,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,24,440,128,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,25,440,84,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,26,440,440,True,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,27,440,144,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,28,440,None,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+19,29,440,None,False,analyze apply-formula case-split instantiate compute check-constraint derive-intermediate compute conclude
+20,0,-\frac{3}{8},-\frac{3}{8},True,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,1,-\frac{3}{8},-\frac{15}{8},False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,2,-\frac{3}{8},\frac{3}{4},False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,3,-\frac{3}{8},None,False,
+20,4,-\frac{3}{8},-\frac{3}{8},True,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,5,-\frac{3}{8},-\frac{3}{8},True,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,6,-\frac{3}{8},2,False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,7,-\frac{3}{8},-\frac{3}{8},True,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,8,-\frac{3}{8},-\frac{3}{4},False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,9,-\frac{3}{8},None,False,
+20,10,-\frac{3}{8},-\frac{3}{8},True,analyze compute conclude
+20,11,-\frac{3}{8},\frac{3}{8},False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,12,-\frac{3}{8},-\frac{3}{8},True,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,13,-\frac{3}{8},-\frac{9}{8},False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,14,-\frac{3}{8},-\frac{3}{8},True,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,15,-\frac{3}{8},-\frac{3}{8},True,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,16,-\frac{3}{8},None,False,
+20,17,-\frac{3}{8},None,False,
+20,18,-\frac{3}{8},-\frac{9}{8},False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,19,-\frac{3}{8},0,False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,20,-\frac{3}{8},060,False,
+20,21,-\frac{3}{8},-\frac{3}{4},False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,22,-\frac{3}{8},None,False,
+20,23,-\frac{3}{8},-\frac{3}{4},False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,24,-\frac{3}{8},-\frac{3}{8},True,
+20,25,-\frac{3}{8},-\frac{9}{8},False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,26,-\frac{3}{8},0,False,analyze compute instantiate check-constraint instantiate simplify compute instantiate conclude
+20,27,-\frac{3}{8},None,False,
+20,28,-\frac{3}{8},None,False,
+20,29,-\frac{3}{8},None,False,
+21,0,19,6,False,analyze instantiate apply-formula compute simplify instantiate apply-formula compute guess conclude
+21,1,19,11,False,analyze instantiate compute simplify instantiate case-split conclude
+21,2,19,null,False,backtrack
+21,3,19,null,False,backtrack
+21,4,19,4,False,analyze instantiate apply-formula compute simplify instantiate apply-formula compute conclude
+21,5,19,9,False,analyze instantiate compute simplify instantiate compute conclude
+21,6,19,10,False,analyze instantiate compute simplify instantiate compute backtrack conclude
+21,7,19,No valid answer provided,False,backtrack
+21,8,19,24,False,analyze instantiate compute instantiate compute guess conclude
+21,9,19,19,True,analyze
+21,10,19,25,False,analyze instantiate apply-formula compute simplify instantiate compute guess conclude
+21,11,19,4,False,analyze instantiate apply-formula compute simplify instantiate apply-formula compute conclude
+21,12,19,9,False,analyze instantiate compute instantiate compute conclude
+21,13,19,13,False,analyze instantiate compute instantiate compute backtrack conclude
+21,14,19,6,False,backtrack
+21,15,19,24,False,analyze instantiate compute instantiate compute conclude
+21,16,19,14,False,analyze instantiate compute simplify instantiate compute case-split conclude
+21,17,19,null,False,backtrack
+21,18,19,10,False,backtrack
+21,19,19,null,False,backtrack
+21,20,19,13,False,analyze instantiate compute instantiate compute conclude
+21,21,19,5,False,analyze instantiate apply-formula compute simplify instantiate apply-formula compute conclude
+21,22,19,25,False,backtrack
+21,23,19,25,False,analyze instantiate compute instantiate compute conclude
+21,24,19,8,False,analyze instantiate compute case-split
+21,25,19,5,False,backtrack
+21,26,19,5,False,analyze instantiate apply-formula compute simplify case-split conclude
+21,27,19,12,False,analyze instantiate compute instantiate compute guess conclude
+21,28,19,No final answer provided,False,backtrack
+21,29,19,null,False,backtrack
+22,0,\frac{4}{9},\frac{1}{3},False,analyze instantiate compute compute compute apply-formula simplify conclude
+22,1,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute apply-formula simplify conclude
+22,2,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,3,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute apply-formula simplify conclude
+22,4,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute apply-formula simplify conclude
+22,5,\frac{4}{9},\frac{1}{3},False,analyze instantiate compute compute compute apply-formula simplify conclude
+22,6,\frac{4}{9},\frac{1}{3},False,analyze instantiate compute compute compute compute apply-formula simplify conclude
+22,7,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,8,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,9,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,10,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,11,\frac{4}{9},__LLM_VALIDATED_WRONG__,False,analyze instantiate
+22,12,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,13,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute apply-formula simplify conclude
+22,14,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,15,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,16,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,17,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,18,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,19,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,20,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,21,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,22,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,23,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute compute apply-formula simplify conclude
+22,24,\frac{4}{9},__LLM_VALIDATED_WRONG__,False,analyze instantiate
+22,25,\frac{4}{9},\frac{1}{3},False,analyze instantiate compute compute compute apply-formula simplify conclude
+22,26,\frac{4}{9},\frac{1}{3},False,analyze instantiate compute compute compute apply-formula simplify conclude
+22,27,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute apply-formula simplify conclude
+22,28,\frac{4}{9},\frac{4}{9},True,analyze instantiate compute compute apply-formula simplify conclude
+22,29,\frac{4}{9},__LLM_VALIDATED_WRONG__,False,
+23,0,-13x+3,-10x + 6,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,1,-13x+3,-\frac{15}{2}x + \frac{11}{2},False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,2,-13x+3,6x - 2,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,3,-13x+3,None,False,analyze
+23,4,-13x+3,-8x + 4,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,5,-13x+3,-\frac{11}{2}x + \frac{9}{2},False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,6,-13x+3,-8x + 4,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,7,-13x+3,-8x + 4,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,8,-13x+3,None,False,analyze
+23,9,-13x+3,-9x + 3,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,10,-13x+3,None,False,analyze
+23,11,-13x+3,None,False,analyze
+23,12,-13x+3,-8x + 4,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,13,-13x+3,-13x + 3,True,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,14,-13x+3,-5x,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,15,-13x+3,-8x + 4,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,16,-13x+3,-17x + 2,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,17,-13x+3,-\frac{5}{2} x - \frac{5}{2},False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,18,-13x+3,-7x + 11,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,19,-13x+3,-\frac{9}{2}x + \frac{5}{2},False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,20,-13x+3,-13x + 3,True,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,21,-13x+3,0,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,22,-13x+3,-\frac{13}{2}x + \frac{11}{2},False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,23,-13x+3,1x - 1,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,24,-13x+3,-15x + 1,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,25,-13x+3,None,False,analyze
+23,26,-13x+3,-\frac{15}{2}x + \frac{5}{2},False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,27,-13x+3,-\frac{21}{2}x + \frac{1}{2},False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,28,-13x+3,-\frac{15}{2}x + \frac{5}{2},False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+23,29,-13x+3,-6x - 2,False,analyze instantiate apply-formula compute compute derive-intermediate compute compute conclude
+24,0,\frac{11}{2},\frac{11}{2},True,analyze apply-formula rewrite compute check-constraint conclude
+24,1,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,2,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,3,\frac{11}{2},\frac{11}{2},True,analyze apply-formula rewrite compute check-constraint conclude
+24,4,\frac{11}{2},None,False,analyze
+24,5,\frac{11}{2},\frac{11}{2},True,analyze apply-formula rewrite compute check-constraint conclude
+24,6,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,7,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,8,\frac{11}{2},None,False,analyze
+24,9,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,10,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,11,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,12,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,13,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,14,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,15,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,16,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,17,\frac{11}{2},\frac{11}{2},True,analyze apply-formula rewrite compute check-constraint conclude
+24,18,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,19,\frac{11}{2},\frac{11}{2},True,analyze apply-formula rewrite compute check-constraint conclude
+24,20,\frac{11}{2},\frac{11}{2},True,analyze apply-formula rewrite compute check-constraint conclude
+24,21,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,22,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,23,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,24,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,25,\frac{11}{2},None,False,analyze
+24,26,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,27,\frac{11}{2},\frac{11}{2},True,analyze apply-formula rewrite compute check-constraint conclude
+24,28,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
+24,29,\frac{11}{2},5.5,False,analyze apply-formula rewrite compute check-constraint conclude
