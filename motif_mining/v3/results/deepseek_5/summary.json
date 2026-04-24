@@ -1,0 +1,48 @@
+{
+  "avg_trace_len": 8.833333333333334,
+  "median_trace_len": 9.0,
+  "num_failure": 32,
+  "num_questions": 5,
+  "num_success": 94,
+  "num_traces": 126,
+  "question_level_counts": [
+    {
+      "question_id": 45,
+      "success": 25,
+      "total": 25
+    },
+    {
+      "question_id": 49,
+      "success": 25,
+      "total": 25
+    },
+    {
+      "question_id": 52,
+      "success": 26,
+      "total": 27
+    },
+    {
+      "question_id": 68,
+      "success": 16,
+      "total": 24
+    },
+    {
+      "question_id": 92,
+      "success": 2,
+      "total": 25
+    }
+  ],
+  "success_rate": 0.746031746031746,
+  "token_doc_frequency": {
+    "analyze": 98,
+    "apply-formula": 89,
+    "check-constraint": 12,
+    "compute": 104,
+    "conclude": 118,
+    "derive-intermediate": 40,
+    "instantiate": 54,
+    "isolate": 25,
+    "rewrite": 88,
+    "simplify": 69
+  }
+}

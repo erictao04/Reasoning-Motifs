@@ -1,0 +1,621 @@
+{
+  "avg_trace_len": 13.79612374207976,
+  "median_trace_len": 11.0,
+  "num_failure": 1450,
+  "num_questions": 100,
+  "num_success": 1233,
+  "num_traces": 2683,
+  "question_level_counts": [
+    {
+      "question_id": 45,
+      "success": 25,
+      "total": 27
+    },
+    {
+      "question_id": 49,
+      "success": 26,
+      "total": 27
+    },
+    {
+      "question_id": 52,
+      "success": 26,
+      "total": 29
+    },
+    {
+      "question_id": 68,
+      "success": 17,
+      "total": 27
+    },
+    {
+      "question_id": 92,
+      "success": 2,
+      "total": 27
+    },
+    {
+      "question_id": 100,
+      "success": 0,
+      "total": 24
+    },
+    {
+      "question_id": 114,
+      "success": 25,
+      "total": 25
+    },
+    {
+      "question_id": 120,
+      "success": 20,
+      "total": 27
+    },
+    {
+      "question_id": 150,
+      "success": 2,
+      "total": 25
+    },
+    {
+      "question_id": 165,
+      "success": 22,
+      "total": 27
+    },
+    {
+      "question_id": 167,
+      "success": 26,
+      "total": 29
+    },
+    {
+      "question_id": 169,
+      "success": 26,
+      "total": 29
+    },
+    {
+      "question_id": 172,
+      "success": 27,
+      "total": 29
+    },
+    {
+      "question_id": 183,
+      "success": 26,
+      "total": 30
+    },
+    {
+      "question_id": 185,
+      "success": 24,
+      "total": 26
+    },
+    {
+      "question_id": 189,
+      "success": 1,
+      "total": 24
+    },
+    {
+      "question_id": 195,
+      "success": 27,
+      "total": 30
+    },
+    {
+      "question_id": 214,
+      "success": 1,
+      "total": 26
+    },
+    {
+      "question_id": 222,
+      "success": 1,
+      "total": 27
+    },
+    {
+      "question_id": 224,
+      "success": 5,
+      "total": 7
+    },
+    {
+      "question_id": 226,
+      "success": 21,
+      "total": 29
+    },
+    {
+      "question_id": 250,
+      "success": 26,
+      "total": 27
+    },
+    {
+      "question_id": 252,
+      "success": 20,
+      "total": 30
+    },
+    {
+      "question_id": 266,
+      "success": 0,
+      "total": 29
+    },
+    {
+      "question_id": 270,
+      "success": 24,
+      "total": 27
+    },
+    {
+      "question_id": 279,
+      "success": 7,
+      "total": 30
+    },
+    {
+      "question_id": 291,
+      "success": 21,
+      "total": 28
+    },
+    {
+      "question_id": 343,
+      "success": 0,
+      "total": 28
+    },
+    {
+      "question_id": 348,
+      "success": 25,
+      "total": 27
+    },
+    {
+      "question_id": 369,
+      "success": 6,
+      "total": 25
+    },
+    {
+      "question_id": 375,
+      "success": 20,
+      "total": 24
+    },
+    {
+      "question_id": 391,
+      "success": 11,
+      "total": 26
+    },
+    {
+      "question_id": 414,
+      "success": 24,
+      "total": 25
+    },
+    {
+      "question_id": 415,
+      "success": 20,
+      "total": 26
+    },
+    {
+      "question_id": 445,
+      "success": 1,
+      "total": 27
+    },
+    {
+      "question_id": 447,
+      "success": 21,
+      "total": 29
+    },
+    {
+      "question_id": 466,
+      "success": 5,
+      "total": 25
+    },
+    {
+      "question_id": 468,
+      "success": 25,
+      "total": 27
+    },
+    {
+      "question_id": 485,
+      "success": 7,
+      "total": 27
+    },
+    {
+      "question_id": 492,
+      "success": 25,
+      "total": 28
+    },
+    {
+      "question_id": 495,
+      "success": 16,
+      "total": 30
+    },
+    {
+      "question_id": 522,
+      "success": 18,
+      "total": 28
+    },
+    {
+      "question_id": 530,
+      "success": 26,
+      "total": 29
+    },
+    {
+      "question_id": 535,
+      "success": 14,
+      "total": 26
+    },
+    {
+      "question_id": 542,
+      "success": 14,
+      "total": 27
+    },
+    {
+      "question_id": 554,
+      "success": 25,
+      "total": 30
+    },
+    {
+      "question_id": 561,
+      "success": 22,
+      "total": 29
+    },
+    {
+      "question_id": 573,
+      "success": 20,
+      "total": 28
+    },
+    {
+      "question_id": 605,
+      "success": 13,
+      "total": 26
+    },
+    {
+      "question_id": 609,
+      "success": 21,
+      "total": 28
+    },
+    {
+      "question_id": 615,
+      "success": 26,
+      "total": 28
+    },
+    {
+      "question_id": 622,
+      "success": 7,
+      "total": 29
+    },
+    {
+      "question_id": 662,
+      "success": 19,
+      "total": 27
+    },
+    {
+      "question_id": 702,
+      "success": 0,
+      "total": 28
+    },
+    {
+      "question_id": 715,
+      "success": 2,
+      "total": 26
+    },
+    {
+      "question_id": 716,
+      "success": 23,
+      "total": 27
+    },
+    {
+      "question_id": 721,
+      "success": 16,
+      "total": 25
+    },
+    {
+      "question_id": 740,
+      "success": 1,
+      "total": 27
+    },
+    {
+      "question_id": 790,
+      "success": 1,
+      "total": 28
+    },
+    {
+      "question_id": 804,
+      "success": 0,
+      "total": 26
+    },
+    {
+      "question_id": 827,
+      "success": 2,
+      "total": 27
+    },
+    {
+      "question_id": 834,
+      "success": 2,
+      "total": 27
+    },
+    {
+      "question_id": 839,
+      "success": 19,
+      "total": 25
+    },
+    {
+      "question_id": 840,
+      "success": 14,
+      "total": 27
+    },
+    {
+      "question_id": 842,
+      "success": 16,
+      "total": 27
+    },
+    {
+      "question_id": 844,
+      "success": 4,
+      "total": 28
+    },
+    {
+      "question_id": 851,
+      "success": 3,
+      "total": 26
+    },
+    {
+      "question_id": 864,
+      "success": 11,
+      "total": 28
+    },
+    {
+      "question_id": 876,
+      "success": 5,
+      "total": 27
+    },
+    {
+      "question_id": 880,
+      "success": 8,
+      "total": 28
+    },
+    {
+      "question_id": 887,
+      "success": 12,
+      "total": 27
+    },
+    {
+      "question_id": 899,
+      "success": 1,
+      "total": 27
+    },
+    {
+      "question_id": 923,
+      "success": 2,
+      "total": 27
+    },
+    {
+      "question_id": 944,
+      "success": 1,
+      "total": 28
+    },
+    {
+      "question_id": 946,
+      "success": 19,
+      "total": 26
+    },
+    {
+      "question_id": 950,
+      "success": 22,
+      "total": 26
+    },
+    {
+      "question_id": 956,
+      "success": 2,
+      "total": 26
+    },
+    {
+      "question_id": 983,
+      "success": 25,
+      "total": 27
+    },
+    {
+      "question_id": 997,
+      "success": 0,
+      "total": 27
+    },
+    {
+      "question_id": 1000,
+      "success": 4,
+      "total": 27
+    },
+    {
+      "question_id": 1002,
+      "success": 18,
+      "total": 27
+    },
+    {
+      "question_id": 1020,
+      "success": 10,
+      "total": 24
+    },
+    {
+      "question_id": 1025,
+      "success": 9,
+      "total": 24
+    },
+    {
+      "question_id": 1028,
+      "success": 5,
+      "total": 25
+    },
+    {
+      "question_id": 1033,
+      "success": 1,
+      "total": 27
+    },
+    {
+      "question_id": 1060,
+      "success": 2,
+      "total": 25
+    },
+    {
+      "question_id": 1095,
+      "success": 26,
+      "total": 29
+    },
+    {
+      "question_id": 1121,
+      "success": 5,
+      "total": 24
+    },
+    {
+      "question_id": 1122,
+      "success": 0,
+      "total": 28
+    },
+    {
+      "question_id": 1132,
+      "success": 1,
+      "total": 30
+    },
+    {
+      "question_id": 1139,
+      "success": 4,
+      "total": 27
+    },
+    {
+      "question_id": 1142,
+      "success": 5,
+      "total": 28
+    },
+    {
+      "question_id": 1147,
+      "success": 20,
+      "total": 29
+    },
+    {
+      "question_id": 1155,
+      "success": 8,
+      "total": 26
+    },
+    {
+      "question_id": 1164,
+      "success": 14,
+      "total": 26
+    },
+    {
+      "question_id": 1201,
+      "success": 2,
+      "total": 26
+    },
+    {
+      "question_id": 1218,
+      "success": 7,
+      "total": 23
+    },
+    {
+      "question_id": 1256,
+      "success": 0,
+      "total": 26
+    },
+    {
+      "question_id": 1297,
+      "success": 0,
+      "total": 27
+    },
+    {
+      "question_id": 1312,
+      "success": 2,
+      "total": 26
+    }
+  ],
+  "success_rate": 0.45956019381289603,
+  "token_doc_frequency": {
+    "ANSWER": 1,
+    "APPLY_IDENTITY": 1,
+    "COMPUTE_CONSTANT": 1,
+    "FINAL_ANSWER": 1,
+    "IDENTITY": 1,
+    "KNOWN_VALUE": 1,
+    "MULTIPLY": 1,
+    "NOTE_SYMMETRY": 1,
+    "NOTE_VALUE": 1,
+    "PAIR_TERMS": 1,
+    "PRODUCT_IDENTITY": 1,
+    "REARRANGE": 1,
+    "SIMPLIFY": 2,
+    "SQUARE": 1,
+    "SQUARE_SUBSTITUTE": 1,
+    "STATE_IDENTITY": 1,
+    "add_fractions": 26,
+    "analyze": 2469,
+    "answer": 1,
+    "apply-area-ratio": 24,
+    "apply-formula": 1283,
+    "apply-identity": 25,
+    "apply_algorithm": 25,
+    "apply_formula": 437,
+    "apply_identity": 2,
+    "apply_product_identity": 2,
+    "apply_product_to_sum": 2,
+    "apply_symmetry": 2,
+    "apply_theorem": 16,
+    "approximate": 20,
+    "backtrack": 86,
+    "case-split": 275,
+    "case_split": 113,
+    "check": 25,
+    "check-constraint": 722,
+    "check_constraint": 182,
+    "combine": 21,
+    "combine_like_terms": 50,
+    "compare": 336,
+    "compute": 2193,
+    "compute_square": 1,
+    "compute_sum": 26,
+    "conclude": 1721,
+    "convert": 26,
+    "count": 38,
+    "count_favorable": 28,
+    "count_total": 26,
+    "define": 107,
+    "derive": 26,
+    "derive-intermediate": 833,
+    "derive_constraint": 24,
+    "derive_intermediate": 239,
+    "determine-ratio": 25,
+    "differentiate": 3,
+    "divide": 45,
+    "enumerate": 41,
+    "evaluate_known_value": 1,
+    "evaluate_sin60": 1,
+    "expand": 91,
+    "extract": 27,
+    "factor": 101,
+    "factorize": 48,
+    "filter": 22,
+    "final_answer": 2,
+    "final_result": 2,
+    "find_common_denominator": 26,
+    "group_terms": 1,
+    "guess": 99,
+    "identify-similarity": 26,
+    "identify-symmetry": 27,
+    "identify_parameters": 26,
+    "infer": 26,
+    "instantiate": 1723,
+    "isolate": 83,
+    "multiply": 24,
+    "multiply_fractions": 1,
+    "multiply_terms": 1,
+    "normalize": 20,
+    "pair_terms": 1,
+    "rationalize": 27,
+    "rearrange": 50,
+    "recall_symmetry": 1,
+    "rewrite": 779,
+    "rewrite_square": 1,
+    "simplify": 1158,
+    "simplify_expression": 1,
+    "simplify_product": 1,
+    "solve": 92,
+    "solve-equation": 20,
+    "solve_equation": 18,
+    "solve_for": 25,
+    "sqrt": 24,
+    "square": 34,
+    "square_expression": 1,
+    "square_known_value": 1,
+    "square_term": 1,
+    "square_terms": 1,
+    "state_relationship": 26,
+    "substitute": 196,
+    "substitute_known_value": 1,
+    "substitute_sin60": 1,
+    "sum": 21,
+    "transform": 25,
+    "use_complement_identity": 1,
+    "use_identity": 1,
+    "use_reflection": 1,
+    "use_symmetry_pairing": 1,
+    "verify": 8
+  }
+}

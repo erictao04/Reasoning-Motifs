@@ -4,13 +4,14 @@
 - Total traces: 2683
 - Correct traces: 1233 (45.96%)
 - Incorrect traces: 1450 (54.04%)
-- Motif settings: contiguous n-grams, length 1-3, min support 100
+- Motif settings: contiguous n-grams, length 1-5, min support 100
 
 ## Strongest Success Indicators
 
 | Motif | Support | P(correct given motif) | P(incorrect given motif) | Delta vs baseline | Lift(correct) | Lift(incorrect) |
 |---|---:|---:|---:|---:|---:|---:|
 | `instantiate compute instantiate` | 140 | 67.14% | 32.86% | 21.19% | 1.4610 | 0.6080 |
+| `instantiate compute instantiate compute` | 113 | 63.72% | 36.28% | 17.76% | 1.3865 | 0.6714 |
 | `analyze instantiate instantiate` | 157 | 63.69% | 36.31% | 17.74% | 1.3860 | 0.6718 |
 | `analyze apply-formula compute` | 103 | 62.14% | 37.86% | 16.18% | 1.3521 | 0.7006 |
 | `instantiate simplify compute` | 124 | 62.10% | 37.90% | 16.14% | 1.3512 | 0.7013 |
@@ -34,7 +35,6 @@
 | `derive-intermediate compute conclude` | 112 | 56.25% | 43.75% | 10.29% | 1.2240 | 0.8095 |
 | `analyze rewrite` | 224 | 54.02% | 45.98% | 8.06% | 1.1754 | 0.8508 |
 | `check-constraint compute` | 163 | 53.99% | 46.01% | 8.03% | 1.1748 | 0.8514 |
-| `simplify simplify` | 202 | 53.96% | 46.04% | 8.00% | 1.1742 | 0.8519 |
 
 ## Strongest Failure Indicators
 
@@ -56,6 +56,7 @@
 | `check-constraint derive-intermediate` | 129 | 38.76% | 61.24% | -7.20% | 0.8434 | 1.1332 |
 | `apply_formula` | 437 | 39.13% | 60.87% | -6.83% | 0.8515 | 1.1263 |
 | `analyze derive-intermediate` | 125 | 39.20% | 60.80% | -6.76% | 0.8530 | 1.1250 |
+| `compute compute compute conclude` | 142 | 39.44% | 60.56% | -6.52% | 0.8581 | 1.1206 |
 | `compute analyze` | 181 | 39.78% | 60.22% | -6.18% | 0.8656 | 1.1143 |
 | `derive-intermediate apply-formula` | 230 | 40.43% | 59.57% | -5.52% | 0.8799 | 1.1022 |
 | `analyze analyze` | 329 | 41.03% | 58.97% | -4.92% | 0.8929 | 1.0911 |
@@ -64,7 +65,6 @@
 | `simplify instantiate` | 133 | 42.86% | 57.14% | -3.10% | 0.9326 | 1.0573 |
 | `compute apply-formula compute` | 105 | 42.86% | 57.14% | -3.10% | 0.9326 | 1.0573 |
 | `define` | 107 | 42.99% | 57.01% | -2.97% | 0.9355 | 1.0549 |
-| `apply-formula compute compute` | 136 | 43.38% | 56.62% | -2.57% | 0.9440 | 1.0476 |
 
 ## Strongest Single-Token Success Indicators
 

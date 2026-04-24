@@ -32,14 +32,20 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-csv",
         type=Path,
-        default=DEFAULT_OUTPUT_CSV,
-        help=f"Output CSV path for motif metrics (default: {DEFAULT_OUTPUT_CSV}).",
+        default=None,
+        help=(
+            "Output CSV path for motif metrics. "
+            "If omitted, defaults to <input_stem>_motif_indicator_stats.csv in this script directory."
+        ),
     )
     parser.add_argument(
         "--output-md",
         type=Path,
-        default=DEFAULT_OUTPUT_MD,
-        help=f"Output markdown report path (default: {DEFAULT_OUTPUT_MD}).",
+        default=None,
+        help=(
+            "Output markdown report path. "
+            "If omitted, defaults to <input_stem>_motif_indicator_report.md in this script directory."
+        ),
     )
     parser.add_argument(
         "--trace-column",
@@ -404,6 +410,18 @@ def main() -> None:
     if args.top_k <= 0:
         raise ValueError("--top-k must be positive.")
 
+    input_stem = args.input.stem
+    output_csv = (
+        args.output_csv
+        if args.output_csv is not None
+        else BASE_DIR / f"{input_stem}_motif_indicator_stats.csv"
+    )
+    output_md = (
+        args.output_md
+        if args.output_md is not None
+        else BASE_DIR / f"{input_stem}_motif_indicator_report.md"
+    )
+
     rows = load_rows(args.input, args.trace_column, args.label_column)
     baseline, metrics_rows = compute_metrics(
         rows,
@@ -412,9 +430,9 @@ def main() -> None:
         min_support=args.min_support,
     )
 
-    write_metrics_csv(args.output_csv, baseline, metrics_rows)
+    write_metrics_csv(output_csv, baseline, metrics_rows)
     write_markdown_report(
-        args.output_md,
+        output_md,
         input_path=args.input,
         baseline=baseline,
         metrics_rows=metrics_rows,
@@ -424,8 +442,8 @@ def main() -> None:
         max_len=args.max_motif_len,
     )
 
-    print(f"Wrote motif metrics CSV to: {args.output_csv}")
-    print(f"Wrote markdown report to: {args.output_md}")
+    print(f"Wrote motif metrics CSV to: {output_csv}")
+    print(f"Wrote markdown report to: {output_md}")
 
 
 if __name__ == "__main__":
