@@ -23,7 +23,11 @@ def clean_file(input_path: Path) -> Path:
         for row in reader:
             total_rows += 1
             if row.get("tokenized_trace") != "MISSING":
-                kept_rows.append(row)
+                normalized_row = {
+                    key: value.replace("_", "-") if isinstance(value, str) else value
+                    for key, value in row.items()
+                }
+                kept_rows.append(normalized_row)
 
     with output_path.open("w", encoding="utf-8", newline="") as outfile:
         writer = csv.DictWriter(outfile, fieldnames=fieldnames)
