@@ -333,6 +333,19 @@ def parse_args() -> argparse.Namespace:
             "<input_stem>_metadata_<model-suffix>_<run-index>.jsonl next to input."
         ),
     )
+    parser.add_argument(
+        "--append-output",
+        action="store_true",
+        help="Append to output/metadata files instead of overwriting them.",
+    )
+    parser.add_argument(
+        "--start-question-id",
+        default=None,
+        help=(
+            "Skip all questions until this question_id is reached; "
+            "processing includes this question_id."
+        ),
+    )
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"Together model (default: {DEFAULT_MODEL}).")
     parser.add_argument(
         "--api-base",
@@ -396,15 +409,29 @@ def main() -> None:
         repo_root=repo_root,
     )
 
-    initialize_output_csv(output_csv=output_csv)
-    initialize_metadata_jsonl(metadata_output=metadata_output)
+    initialize_output_csv(output_csv=output_csv, append_output=args.append_output)
+    initialize_metadata_jsonl(metadata_output=metadata_output, append_output=args.append_output)
 
     question_ids = sorted(grouped.keys(), key=_smart_sort_key)
+    start_question_id = _normalize(args.start_question_id) if args.start_question_id is not None else None
+    started = start_question_id is None
+    if start_question_id is not None and start_question_id not in grouped:
+        print(
+            f"start-question-id={start_question_id} not found in input; nothing will be processed.",
+            file=sys.stderr,
+        )
     total_questions = len(question_ids)
-    for index, question_id in enumerate(question_ids, start=1):
+    processed_count = 0
+    for question_id in question_ids:
+        if not started:
+            if question_id == start_question_id:
+                started = True
+            else:
+                continue
+        processed_count += 1
         question_rows = grouped[question_id]
         print(
-            f"[{index}/{total_questions}] Tokenizing question_id={question_id} traces={len(question_rows)}",
+            f"[{processed_count}/{total_questions}] Tokenizing question_id={question_id} traces={len(question_rows)}",
             file=sys.stderr,
         )
         metadata = client.build_question_metadata(question_id=question_id, rows=question_rows)
@@ -556,8 +583,10 @@ def parse_single_trace_response(*, content: str) -> str:
     return _extract_tokenized_trace_from_text(content)
 
 
-def initialize_output_csv(*, output_csv: Path) -> None:
+def initialize_output_csv(*, output_csv: Path, append_output: bool) -> None:
     output_csv.parent.mkdir(parents=True, exist_ok=True)
+    if append_output and output_csv.exists() and output_csv.stat().st_size > 0:
+        return
     with output_csv.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=list(OUTPUT_COLUMNS))
         writer.writeheader()
@@ -569,8 +598,10 @@ def append_output_rows(*, output_csv: Path, output_rows: list[dict[str, str]]) -
         writer.writerows(output_rows)
 
 
-def initialize_metadata_jsonl(*, metadata_output: Path) -> None:
+def initialize_metadata_jsonl(*, metadata_output: Path, append_output: bool) -> None:
     metadata_output.parent.mkdir(parents=True, exist_ok=True)
+    if append_output and metadata_output.exists() and metadata_output.stat().st_size > 0:
+        return
     with metadata_output.open("w", encoding="utf-8"):
         pass
 
