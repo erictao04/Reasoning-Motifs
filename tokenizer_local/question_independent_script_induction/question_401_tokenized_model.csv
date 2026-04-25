@@ -1,6 +1,0 @@
-question_id,sample_id,attempt_index,tokenized_trace,is_correct
-401,0,2,Q401_T01_expression_proceed_maximum > Q401_T03_cos_since_theta > Q401_T04_cos_theta_sqrt > Q401_T05_interval_vertex_sqrt > Q401_T04_cos_theta_sqrt,True
-401,1,8,Q401_T01_expression_proceed_maximum > Q401_T06_since_term_frac > Q401_T07_step_first_since > Q401_T02_implies_sqrt_critical > Q401_T08_implies_sqrt_maximum,True
-401,2,15,Q401_T01_expression_proceed_maximum > Q401_T03_cos_since_theta > Q401_T10_cos_first_theta > Q401_T11_cos_since_theta > Q401_T05_interval_vertex_sqrt > Q401_T09_case_maximum_value,False
-401,3,19,Q401_T01_expression_proceed_maximum > Q401_T06_since_term_frac > Q401_T12_expression_since_term > Q401_T02_implies_sqrt_critical > Q401_T08_implies_sqrt_maximum,True
-401,4,32,Q401_T01_expression_proceed_maximum > Q401_T13_since_term_bar > Q401_T07_step_first_since > Q401_T02_implies_sqrt_critical > Q401_T09_case_maximum_value,False

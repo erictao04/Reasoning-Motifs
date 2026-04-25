@@ -1,0 +1,2538 @@
+{
+  "global_top": [
+    {
+      "motif": "action:apply-formula action:compute",
+      "motif_tokens": [
+        "action:apply-formula",
+        "action:compute"
+      ],
+      "motif_length": 2,
+      "support": 90,
+      "prevalence": 0.2,
+      "question_coverage": 9,
+      "success_present": 67,
+      "failure_present": 23,
+      "success_rate_present": 0.7444444444444445,
+      "success_rate_absent": 0.6388888888888888,
+      "support_difference": 0.10555555555555562,
+      "lift_overall_success": 1.127946127946128,
+      "odds_ratio": 1.6262057506807588,
+      "odds_ratio_ci_low": 0.9704687783550696,
+      "odds_ratio_ci_high": 2.7250182618235645,
+      "fisher_p_value": 0.06273810949284354,
+      "fdr_q_value": 0.08015000772213493,
+      "avg_stage_position": 0.5298312243669866,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 14.311111111111112,
+      "noise_cooccurrence_rate": 0.07777777777777778,
+      "representative_examples": [
+        {
+          "question_id": "172",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "action:analyze strategy:plan-use-formula action:apply-formula milestone:key-relation:a1+3d=200 milestone:key-relation:a1+7d=500 action:compute milestone:key-relation:4d=300 action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a1=-25 action:apply-formula action:compute milestone:key-relation:a6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:apply-formula action:compute milestone:key-relation:300=4d action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a1=-25 action:apply-formula action:substitute action:compute milestone:key-relation:a6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "4",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:apply-formula milestone:key-relation:a1+3d=200 milestone:key-relation:a1+7d=500 action:compute milestone:derived:d=75 action:substitute action:compute milestone:derived:a1=-25 action:apply-formula action:compute milestone:derived:a6=350 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:instantiate action:apply-formula",
+        "action:instantiate action:apply-formula action:compute",
+        "action:analyze action:apply-formula",
+        "action:rewrite action:compute",
+        "action:analyze action:instantiate"
+      ]
+    },
+    {
+      "motif": "action:rewrite action:compute",
+      "motif_tokens": [
+        "action:rewrite",
+        "action:compute"
+      ],
+      "motif_length": 2,
+      "support": 77,
+      "prevalence": 0.1711111111111111,
+      "question_coverage": 8,
+      "success_present": 61,
+      "failure_present": 16,
+      "success_rate_present": 0.7922077922077922,
+      "success_rate_absent": 0.6327077747989276,
+      "support_difference": 0.15950001740886466,
+      "lift_overall_success": 1.200314836678473,
+      "odds_ratio": 2.1670190274841437,
+      "odds_ratio_ci_low": 1.2101090330339141,
+      "odds_ratio_ci_high": 3.8806184709693974,
+      "fisher_p_value": 0.007940619238311483,
+      "fdr_q_value": 0.015250195888147881,
+      "avg_stage_position": 0.6269814607123951,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 14.844155844155845,
+      "noise_cooccurrence_rate": 0.05194805194805195,
+      "representative_examples": [
+        {
+          "question_id": "45",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze strategy:set-representation action:instantiate strategy:apply-trig-identity action:apply-formula action:rewrite action:compute action:derive-intermediate action:compute action:conclude milestone:derived:closed-form"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:instantiate action:apply-formula action:rewrite action:derive-intermediate milestone:key-relation:var1=const-var2 action:analyze action:apply-formula action:rewrite action:compute milestone:derived:closed-form action:conclude"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "3",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "action:apply-formula action:rewrite milestone:key-relation:var1=const-var2 action:apply-formula action:rewrite action:compute milestone:derived:expression:hypotenuse action:apply-formula action:rewrite action:compute milestone:derived:closed-form"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:instantiate action:apply-formula",
+        "action:apply-formula action:rewrite",
+        "action:apply-formula action:rewrite action:compute",
+        "action:apply-formula action:compute",
+        "action:analyze action:instantiate"
+      ]
+    },
+    {
+      "motif": "action:instantiate action:apply-formula",
+      "motif_tokens": [
+        "action:instantiate",
+        "action:apply-formula"
+      ],
+      "motif_length": 2,
+      "support": 74,
+      "prevalence": 0.16444444444444445,
+      "question_coverage": 7,
+      "success_present": 51,
+      "failure_present": 23,
+      "success_rate_present": 0.6891891891891891,
+      "success_rate_absent": 0.6542553191489362,
+      "support_difference": 0.034933870040252946,
+      "lift_overall_success": 1.044226044226044,
+      "odds_ratio": 1.1602002503128912,
+      "odds_ratio_ci_low": 0.6814937932103832,
+      "odds_ratio_ci_high": 1.9751678360635534,
+      "fisher_p_value": 0.5939892796292751,
+      "fdr_q_value": 0.6599880884769723,
+      "avg_stage_position": 0.23487218189492537,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 14.945945945945946,
+      "noise_cooccurrence_rate": 0.06756756756756757,
+      "representative_examples": [
+        {
+          "question_id": "172",
+          "sample_id": "5",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "action:analyze action:instantiate action:apply-formula action:compute milestone:derived:one-variable action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a=-25 action:apply-formula action:compute milestone:key-relation:a6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "7",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:instantiate action:apply-formula action:compute milestone:derived:4d=300 action:compute milestone:derived:d=75 action:substitute action:compute milestone:derived:a=-25 action:compute milestone:derived:term6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "23",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "action:analyze action:instantiate action:apply-formula action:simplify action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a=-25 action:apply-formula action:substitute action:compute milestone:key-relation:a6=350 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:apply-formula action:compute",
+        "action:instantiate action:apply-formula action:compute",
+        "action:rewrite action:compute",
+        "action:compute milestone:intermediate-product",
+        "action:analyze action:instantiate"
+      ]
+    },
+    {
+      "motif": "action:analyze action:apply-formula",
+      "motif_tokens": [
+        "action:analyze",
+        "action:apply-formula"
+      ],
+      "motif_length": 2,
+      "support": 52,
+      "prevalence": 0.11555555555555555,
+      "question_coverage": 8,
+      "success_present": 40,
+      "failure_present": 12,
+      "success_rate_present": 0.7692307692307693,
+      "success_rate_absent": 0.6457286432160804,
+      "support_difference": 0.1235021260146889,
+      "lift_overall_success": 1.1655011655011656,
+      "odds_ratio": 1.7804271844660193,
+      "odds_ratio_ci_low": 0.9142349395943845,
+      "odds_ratio_ci_high": 3.4672936046307585,
+      "fisher_p_value": 0.08745431465175701,
+      "fdr_q_value": 0.10931789331469627,
+      "avg_stage_position": 0.11310871286832826,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 14.076923076923077,
+      "noise_cooccurrence_rate": 0.038461538461538464,
+      "representative_examples": [
+        {
+          "question_id": "185",
+          "sample_id": "8",
+          "is_correct": true,
+          "predicted_answer": "1",
+          "tokenized_trace": "strategy:use-exponent-rule strategy:equate-exponents strategy:solve-linear action:analyze action:apply-formula milestone:applied:power-of-a-power action:rewrite milestone:equation-simplified action:compare action:derive-intermediate milestone:key-relation:exponents-equal action:compute milestone:derived:solution"
+        },
+        {
+          "question_id": "185",
+          "sample_id": "13",
+          "is_correct": true,
+          "predicted_answer": "1",
+          "tokenized_trace": "strategy:use-exponent-rule strategy:equate-exponents action:analyze action:apply-formula milestone:applied:power-of-a-power milestone:equation-simplified action:compare milestone:key-relation:exponents-equal action:compute milestone:derived:solution"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:apply-formula action:compute milestone:key-relation:300=4d action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a1=-25 action:apply-formula action:substitute action:compute milestone:key-relation:a6=350 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:apply-formula action:compute",
+        "action:compute milestone:derived:closed-form",
+        "action:apply-formula action:rewrite",
+        "action:analyze action:apply-formula action:rewrite",
+        "strategy:set-subgoal action:analyze"
+      ]
+    },
+    {
+      "motif": "action:analyze action:instantiate",
+      "motif_tokens": [
+        "action:analyze",
+        "action:instantiate"
+      ],
+      "motif_length": 2,
+      "support": 51,
+      "prevalence": 0.11333333333333333,
+      "question_coverage": 10,
+      "success_present": 35,
+      "failure_present": 16,
+      "success_rate_present": 0.6862745098039216,
+      "success_rate_absent": 0.656641604010025,
+      "support_difference": 0.029632905793896547,
+      "lift_overall_success": 1.0398098633392752,
+      "odds_ratio": 1.126984126984127,
+      "odds_ratio_ci_low": 0.6066404754111877,
+      "odds_ratio_ci_high": 2.09365064474686,
+      "fisher_p_value": 0.754681664799983,
+      "fdr_q_value": 0.8094549291819607,
+      "avg_stage_position": 0.1062229508823936,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 13.72549019607843,
+      "noise_cooccurrence_rate": 0.1568627450980392,
+      "representative_examples": [
+        {
+          "question_id": "172",
+          "sample_id": "5",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "action:analyze action:instantiate action:apply-formula action:compute milestone:derived:one-variable action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a=-25 action:apply-formula action:compute milestone:key-relation:a6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "7",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:instantiate action:apply-formula action:compute milestone:derived:4d=300 action:compute milestone:derived:d=75 action:substitute action:compute milestone:derived:a=-25 action:compute milestone:derived:term6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "23",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "action:analyze action:instantiate action:apply-formula action:simplify action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a=-25 action:apply-formula action:substitute action:compute milestone:key-relation:a6=350 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:rewrite action:compute",
+        "action:instantiate action:apply-formula",
+        "action:apply-formula action:compute",
+        "action:analyze action:instantiate action:apply-formula",
+        "strategy:choose-representation action:analyze action:instantiate"
+      ]
+    },
+    {
+      "motif": "action:instantiate action:compute",
+      "motif_tokens": [
+        "action:instantiate",
+        "action:compute"
+      ],
+      "motif_length": 2,
+      "support": 50,
+      "prevalence": 0.1111111111111111,
+      "question_coverage": 7,
+      "success_present": 19,
+      "failure_present": 31,
+      "success_rate_present": 0.38,
+      "success_rate_absent": 0.695,
+      "support_difference": -0.31499999999999995,
+      "lift_overall_success": 0.5757575757575757,
+      "odds_ratio": 0.2722920406941951,
+      "odds_ratio_ci_low": 0.14892697642501848,
+      "odds_ratio_ci_high": 0.49784771842687997,
+      "fisher_p_value": 2.3594953164086855e-05,
+      "fdr_q_value": 0.0002631744775994303,
+      "avg_stage_position": 0.4677191895255418,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 16.24,
+      "noise_cooccurrence_rate": 0.1,
+      "representative_examples": [
+        {
+          "question_id": "169",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate milestone:key-relation:base=6 milestone:key-relation:sides=5 action:apply-formula action:simplify action:rewrite milestone:key-relation:h^2=16 action:compute milestone:key-relation:h=4 action:apply-formula action:instantiate action:compute milestone:key-relation:a=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula action:analyze action:instantiate action:compute milestone:key-relation:s=8 action:rewrite action:compute milestone:key-relation:a=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "3",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:apply-formula action:instantiate action:compute action:rewrite action:compute milestone:key-relation:h=4 action:apply-formula action:compute milestone:key-relation:a=12 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:analyze action:instantiate",
+        "action:apply-formula action:instantiate",
+        "action:apply-formula action:compute",
+        "strategy:choose-representation action:analyze",
+        "action:compute milestone:derived:closed-form"
+      ]
+    },
+    {
+      "motif": "action:compute milestone:derived:closed-form",
+      "motif_tokens": [
+        "action:compute",
+        "milestone:derived:closed-form"
+      ],
+      "motif_length": 2,
+      "support": 48,
+      "prevalence": 0.10666666666666667,
+      "question_coverage": 6,
+      "success_present": 26,
+      "failure_present": 22,
+      "success_rate_present": 0.5416666666666666,
+      "success_rate_absent": 0.6741293532338308,
+      "support_difference": -0.1324626865671642,
+      "lift_overall_success": 0.8207070707070706,
+      "odds_ratio": 0.5704522201759771,
+      "odds_ratio_ci_low": 0.31331447019197495,
+      "odds_ratio_ci_high": 1.0386233846917818,
+      "fisher_p_value": 0.07666291729018188,
+      "fdr_q_value": 0.09624348923875646,
+      "avg_stage_position": 0.8001421624106398,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 14.375,
+      "noise_cooccurrence_rate": 0.0625,
+      "representative_examples": [
+        {
+          "question_id": "167",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "65",
+          "tokenized_trace": "strategy:use-formula milestone:key-relation:volume-formula action:instantiate action:apply-formula action:compute milestone:intermediate-product action:compute milestone:derived:closed-form action:conclude milestone:final-value"
+        },
+        {
+          "question_id": "167",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "65",
+          "tokenized_trace": "strategy:use-formula milestone:key-relation:volume-formula action:instantiate action:apply-formula action:compute milestone:intermediate-product action:compute milestone:derived:closed-form action:conclude milestone:final-value"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:instantiate action:apply-formula action:rewrite action:derive-intermediate milestone:key-relation:var1=const-var2 action:analyze action:apply-formula action:rewrite action:compute milestone:derived:closed-form action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:rewrite action:compute",
+        "action:analyze action:apply-formula",
+        "action:apply-formula action:rewrite",
+        "action:compute milestone:derived:power-terms",
+        "action:compute milestone:derived:coefficient"
+      ]
+    },
+    {
+      "motif": "action:apply-formula action:rewrite",
+      "motif_tokens": [
+        "action:apply-formula",
+        "action:rewrite"
+      ],
+      "motif_length": 2,
+      "support": 47,
+      "prevalence": 0.10444444444444445,
+      "question_coverage": 6,
+      "success_present": 32,
+      "failure_present": 15,
+      "success_rate_present": 0.6808510638297872,
+      "success_rate_absent": 0.6575682382133995,
+      "support_difference": 0.023282825616387726,
+      "lift_overall_success": 1.031592520954223,
+      "odds_ratio": 1.0937974606646013,
+      "odds_ratio_ci_low": 0.577358095082259,
+      "odds_ratio_ci_high": 2.0721851744122057,
+      "fisher_p_value": 0.8710306356204603,
+      "fdr_q_value": 0.9185413975633946,
+      "avg_stage_position": 0.3137841754451332,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 13.957446808510639,
+      "noise_cooccurrence_rate": 0.0851063829787234,
+      "representative_examples": [
+        {
+          "question_id": "185",
+          "sample_id": "24",
+          "is_correct": true,
+          "predicted_answer": "1",
+          "tokenized_trace": "strategy:use-exponent-rule strategy:equate-exponents action:apply-formula action:rewrite milestone:applied:power-of-a-power milestone:equation-simplified action:check-constraint action:derive-intermediate milestone:key-relation:exponents-equal milestone:reduced-to:one-variable strategy:solve-linear action:compute action:conclude milestone:derived:solution"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:apply-formula action:rewrite milestone:key-relation:var1=const-var2 strategy:set-representation action:instantiate strategy:apply-pythagorean action:compute milestone:derived:expression:hypotenuse action:compute action:conclude milestone:derived:closed-form"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze strategy:set-representation action:instantiate strategy:apply-trig-identity action:apply-formula action:rewrite action:compute action:derive-intermediate action:compute action:conclude milestone:derived:closed-form"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:rewrite action:compute",
+        "action:apply-formula action:rewrite action:compute",
+        "action:instantiate action:apply-formula",
+        "action:instantiate action:apply-formula action:rewrite",
+        "action:compute milestone:derived:closed-form"
+      ]
+    },
+    {
+      "motif": "milestone:derived:closed-form action:compute",
+      "motif_tokens": [
+        "milestone:derived:closed-form",
+        "action:compute"
+      ],
+      "motif_length": 2,
+      "support": 47,
+      "prevalence": 0.10444444444444445,
+      "question_coverage": 5,
+      "success_present": 31,
+      "failure_present": 16,
+      "success_rate_present": 0.6595744680851063,
+      "success_rate_absent": 0.6600496277915633,
+      "support_difference": -0.00047515970645695127,
+      "lift_overall_success": 0.9993552546744034,
+      "odds_ratio": 0.9849906191369606,
+      "odds_ratio_ci_low": 0.524500643888557,
+      "odds_ratio_ci_high": 1.84977183744689,
+      "fisher_p_value": 1.0,
+      "fdr_q_value": 1.0,
+      "avg_stage_position": 0.8521927028562478,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 15.893617021276595,
+      "noise_cooccurrence_rate": 0.0425531914893617,
+      "representative_examples": [
+        {
+          "question_id": "52",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:plan-stepwise strategy:set-subgoal action:analyze action:compute strategy:set-subgoal action:compute milestone:key-relation:denominator-simplified strategy:set-subgoal action:compute milestone:key-relation:numerator-simplified action:rewrite milestone:derived:closed-form action:compute milestone:final-result"
+        },
+        {
+          "question_id": "52",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:plan-stepwise strategy:choose-representation action:compute milestone:key-relation:numerator-simplified strategy:choose-representation action:compute milestone:key-relation:denominator-simplified action:instantiate milestone:derived:closed-form action:compute milestone:final-result"
+        },
+        {
+          "question_id": "52",
+          "sample_id": "8",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:plan-stepwise strategy:set-subgoal action:compute milestone:key-relation:numerator-simplified strategy:set-subgoal action:compute milestone:key-relation:denominator-simplified strategy:set-subgoal action:instantiate milestone:derived:closed-form action:compute milestone:final-result"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:combine milestone:key-relation:combined-like-terms",
+        "milestone:derived:closed-form action:compute milestone:computed:sum-abc",
+        "action:compute milestone:computed:sum-abc",
+        "action:combine milestone:reduced-to:single-fraction",
+        "milestone:computed:sum-abc action:conclude"
+      ]
+    },
+    {
+      "motif": "action:substitute action:compute",
+      "motif_tokens": [
+        "action:substitute",
+        "action:compute"
+      ],
+      "motif_length": 2,
+      "support": 36,
+      "prevalence": 0.08,
+      "question_coverage": 2,
+      "success_present": 36,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6304347826086957,
+      "support_difference": 0.3695652173913043,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 42.85086042065009,
+      "odds_ratio_ci_low": 2.6112776424612862,
+      "odds_ratio_ci_high": 703.1792441110597,
+      "fisher_p_value": 1.7303693327262106e-07,
+      "fdr_q_value": 6.272588831132514e-06,
+      "avg_stage_position": 0.7072411900391776,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 18.333333333333332,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "172",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "action:analyze strategy:plan-use-formula action:apply-formula milestone:key-relation:a1+3d=200 milestone:key-relation:a1+7d=500 action:compute milestone:key-relation:4d=300 action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a1=-25 action:apply-formula action:compute milestone:key-relation:a6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:apply-formula action:compute milestone:key-relation:300=4d action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a1=-25 action:apply-formula action:substitute action:compute milestone:key-relation:a6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "4",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:apply-formula milestone:key-relation:a1+3d=200 milestone:key-relation:a1+7d=500 action:compute milestone:derived:d=75 action:substitute action:compute milestone:derived:a1=-25 action:apply-formula action:compute milestone:derived:a6=350 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:solve action:substitute action:compute",
+        "action:solve action:substitute",
+        "action:expand action:collect-like-terms strategy:coefficient-matching",
+        "action:expand action:collect-like-terms",
+        "action:equate action:expand action:collect-like-terms"
+      ]
+    },
+    {
+      "motif": "action:instantiate action:apply-formula action:compute",
+      "motif_tokens": [
+        "action:instantiate",
+        "action:apply-formula",
+        "action:compute"
+      ],
+      "motif_length": 3,
+      "support": 35,
+      "prevalence": 0.07777777777777778,
+      "question_coverage": 5,
+      "success_present": 29,
+      "failure_present": 6,
+      "success_rate_present": 0.8285714285714286,
+      "success_rate_absent": 0.6457831325301204,
+      "support_difference": 0.1827882960413082,
+      "lift_overall_success": 1.2554112554112555,
+      "odds_ratio": 2.4931958172181634,
+      "odds_ratio_ci_low": 1.0417200616610245,
+      "odds_ratio_ci_high": 5.967078500036451,
+      "fisher_p_value": 0.039330578936026886,
+      "fdr_q_value": 0.05731591905250149,
+      "avg_stage_position": 0.2759111265530349,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 12.8,
+      "noise_cooccurrence_rate": 0.05714285714285714,
+      "representative_examples": [
+        {
+          "question_id": "172",
+          "sample_id": "5",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "action:analyze action:instantiate action:apply-formula action:compute milestone:derived:one-variable action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a=-25 action:apply-formula action:compute milestone:key-relation:a6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "7",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:instantiate action:apply-formula action:compute milestone:derived:4d=300 action:compute milestone:derived:d=75 action:substitute action:compute milestone:derived:a=-25 action:compute milestone:derived:term6=350 action:conclude"
+        },
+        {
+          "question_id": "167",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "65",
+          "tokenized_trace": "strategy:use-formula milestone:key-relation:volume-formula action:instantiate action:apply-formula action:compute milestone:intermediate-product action:compute milestone:derived:closed-form action:conclude milestone:final-value"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:instantiate action:apply-formula",
+        "action:apply-formula action:compute",
+        "action:compute milestone:intermediate-product",
+        "action:apply-formula action:compute milestone:intermediate-product",
+        "milestone:intermediate-product action:compute"
+      ]
+    },
+    {
+      "motif": "action:compute action:conclude",
+      "motif_tokens": [
+        "action:compute",
+        "action:conclude"
+      ],
+      "motif_length": 2,
+      "support": 33,
+      "prevalence": 0.07333333333333333,
+      "question_coverage": 9,
+      "success_present": 22,
+      "failure_present": 11,
+      "success_rate_present": 0.6666666666666666,
+      "success_rate_absent": 0.6594724220623501,
+      "support_difference": 0.007194244604316502,
+      "lift_overall_success": 1.01010101010101,
+      "odds_ratio": 1.0119940029985008,
+      "odds_ratio_ci_low": 0.4834596213825884,
+      "odds_ratio_ci_high": 2.11834001602065,
+      "fisher_p_value": 1.0,
+      "fdr_q_value": 1.0,
+      "avg_stage_position": 0.9315689936503333,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 13.393939393939394,
+      "noise_cooccurrence_rate": 0.030303030303030304,
+      "representative_examples": [
+        {
+          "question_id": "185",
+          "sample_id": "3",
+          "is_correct": true,
+          "predicted_answer": "1",
+          "tokenized_trace": "action:apply-formula milestone:applied:power-of-a-power milestone:equation-simplified action:compare milestone:key-relation:exponents-equal strategy:solve-linear action:compute action:conclude milestone:derived:solution"
+        },
+        {
+          "question_id": "185",
+          "sample_id": "11",
+          "is_correct": true,
+          "predicted_answer": "1",
+          "tokenized_trace": "strategy:use-exponent-rule action:apply-formula milestone:applied:power-of-a-power milestone:equation-simplified strategy:equate-exponents action:derive-intermediate milestone:key-relation:exponents-equal strategy:solve-linear action:compute action:conclude milestone:derived:solution"
+        },
+        {
+          "question_id": "185",
+          "sample_id": "15",
+          "is_correct": true,
+          "predicted_answer": "1",
+          "tokenized_trace": "strategy:use-exponent-rule action:apply-formula milestone:applied:power-of-a-power milestone:equation-simplified strategy:equate-exponents action:derive-intermediate milestone:key-relation:exponents-equal milestone:reduced-to:one-variable strategy:solve-linear action:compute action:conclude milestone:derived:solution"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:apply-formula action:rewrite",
+        "action:rewrite action:compute",
+        "action:compute action:derive-intermediate",
+        "action:instantiate action:apply-formula",
+        "action:conclude milestone:derived:closed-form"
+      ]
+    },
+    {
+      "motif": "strategy:choose-representation action:analyze",
+      "motif_tokens": [
+        "strategy:choose-representation",
+        "action:analyze"
+      ],
+      "motif_length": 2,
+      "support": 31,
+      "prevalence": 0.06888888888888889,
+      "question_coverage": 4,
+      "success_present": 22,
+      "failure_present": 9,
+      "success_rate_present": 0.7096774193548387,
+      "success_rate_absent": 0.6563245823389021,
+      "support_difference": 0.05335283701593663,
+      "lift_overall_success": 1.075268817204301,
+      "odds_ratio": 1.2422389913076703,
+      "odds_ratio_ci_low": 0.5668186196384017,
+      "odds_ratio_ci_high": 2.722489449110803,
+      "fisher_p_value": 0.6949164469718525,
+      "fdr_q_value": 0.7691823268009055,
+      "avg_stage_position": 0.013478457026844123,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 12.838709677419354,
+      "noise_cooccurrence_rate": 0.0967741935483871,
+      "representative_examples": [
+        {
+          "question_id": "49",
+          "sample_id": "3",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "13",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:analyze action:instantiate action:apply-formula action:simplify action:rewrite action:compute milestone:key-relation:height=4 action:apply-formula action:compute milestone:key-relation:area=12 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:choose-representation action:analyze action:instantiate",
+        "action:analyze action:instantiate",
+        "action:apply-formula action:compute",
+        "action:rewrite action:compute",
+        "action:instantiate action:compute"
+      ]
+    },
+    {
+      "motif": "strategy:set-subgoal action:apply-formula",
+      "motif_tokens": [
+        "strategy:set-subgoal",
+        "action:apply-formula"
+      ],
+      "motif_length": 2,
+      "support": 30,
+      "prevalence": 0.06666666666666667,
+      "question_coverage": 4,
+      "success_present": 29,
+      "failure_present": 1,
+      "success_rate_present": 0.9666666666666667,
+      "success_rate_absent": 0.638095238095238,
+      "support_difference": 0.3285714285714286,
+      "lift_overall_success": 1.4646464646464645,
+      "odds_ratio": 11.17008069522036,
+      "odds_ratio_ci_low": 2.1398355354222383,
+      "odds_ratio_ci_high": 58.30854786375649,
+      "fisher_p_value": 7.520106691649607e-05,
+      "fdr_q_value": 0.0004361661881156772,
+      "avg_stage_position": 0.30896825396825395,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 13.733333333333333,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "45",
+          "sample_id": "21",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "action:analyze action:instantiate action:rewrite action:apply-formula milestone:identified:identity action:rewrite action:compute action:check-constraint action:conclude action:compute strategy:set-subgoal action:apply-formula action:compute milestone:derived:closed-form"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "23",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "action:analyze action:apply-formula action:rewrite milestone:key-relation:var1=const-var2 strategy:set-representation action:instantiate strategy:set-subgoal action:apply-formula action:compute milestone:derived:closed-form"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:rewrite milestone:reduced-to:one-variable",
+        "strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction",
+        "milestone:key-relation:equation strategy:set-subgoal action:apply-formula",
+        "milestone:key-relation:equation strategy:set-subgoal",
+        "action:instantiate milestone:key-relation:equation strategy:set-subgoal"
+      ]
+    },
+    {
+      "motif": "strategy:set-subgoal action:rewrite",
+      "motif_tokens": [
+        "strategy:set-subgoal",
+        "action:rewrite"
+      ],
+      "motif_length": 2,
+      "support": 27,
+      "prevalence": 0.06,
+      "question_coverage": 3,
+      "success_present": 26,
+      "failure_present": 1,
+      "success_rate_present": 0.9629629629629629,
+      "success_rate_absent": 0.640661938534279,
+      "support_difference": 0.3223010244286839,
+      "lift_overall_success": 1.4590347923681255,
+      "odds_ratio": 9.923265807243707,
+      "odds_ratio_ci_low": 1.8926261225778265,
+      "odds_ratio_ci_high": 52.02887305977298,
+      "fisher_p_value": 0.00021938194606564205,
+      "fdr_q_value": 0.0009940744431099406,
+      "avg_stage_position": 0.5354688521355188,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 14.0,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "49",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:compute milestone:derived:solution action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable",
+        "strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction",
+        "strategy:set-subgoal action:apply-formula",
+        "milestone:key-relation:equation strategy:set-subgoal action:apply-formula",
+        "milestone:key-relation:equation strategy:set-subgoal"
+      ]
+    }
+  ],
+  "success_enriched": [
+    {
+      "motif": "action:substitute action:compute",
+      "motif_tokens": [
+        "action:substitute",
+        "action:compute"
+      ],
+      "motif_length": 2,
+      "support": 36,
+      "prevalence": 0.08,
+      "question_coverage": 2,
+      "success_present": 36,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6304347826086957,
+      "support_difference": 0.3695652173913043,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 42.85086042065009,
+      "odds_ratio_ci_low": 2.6112776424612862,
+      "odds_ratio_ci_high": 703.1792441110597,
+      "fisher_p_value": 1.7303693327262106e-07,
+      "fdr_q_value": 6.272588831132514e-06,
+      "avg_stage_position": 0.7072411900391776,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 18.333333333333332,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "172",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "action:analyze strategy:plan-use-formula action:apply-formula milestone:key-relation:a1+3d=200 milestone:key-relation:a1+7d=500 action:compute milestone:key-relation:4d=300 action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a1=-25 action:apply-formula action:compute milestone:key-relation:a6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:apply-formula action:compute milestone:key-relation:300=4d action:compute milestone:key-relation:d=75 action:substitute action:compute milestone:key-relation:a1=-25 action:apply-formula action:substitute action:compute milestone:key-relation:a6=350 action:conclude"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "4",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "strategy:plan-use-formula action:analyze action:apply-formula milestone:key-relation:a1+3d=200 milestone:key-relation:a1+7d=500 action:compute milestone:derived:d=75 action:substitute action:compute milestone:derived:a1=-25 action:apply-formula action:compute milestone:derived:a6=350 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:solve action:substitute action:compute",
+        "action:solve action:substitute",
+        "action:expand action:collect-like-terms strategy:coefficient-matching",
+        "action:expand action:collect-like-terms",
+        "action:equate action:expand action:collect-like-terms"
+      ]
+    },
+    {
+      "motif": "action:rewrite milestone:reduced-to:one-variable",
+      "motif_tokens": [
+        "action:rewrite",
+        "milestone:reduced-to:one-variable"
+      ],
+      "motif_length": 2,
+      "support": 27,
+      "prevalence": 0.06,
+      "question_coverage": 2,
+      "success_present": 27,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6382978723404256,
+      "support_difference": 0.36170212765957444,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 31.21072088724584,
+      "odds_ratio_ci_low": 1.8904480844814613,
+      "odds_ratio_ci_high": 515.2794759601959,
+      "fisher_p_value": 1.0804710919178603e-05,
+      "fdr_q_value": 0.00018431565685657618,
+      "avg_stage_position": 0.6285975341530897,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 13.925925925925926,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "49",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:compute milestone:derived:solution action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:set-subgoal action:apply-formula",
+        "strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction",
+        "milestone:key-relation:equation strategy:set-subgoal action:apply-formula",
+        "milestone:key-relation:equation strategy:set-subgoal",
+        "action:instantiate milestone:key-relation:equation strategy:set-subgoal"
+      ]
+    },
+    {
+      "motif": "strategy:choose-representation action:instantiate",
+      "motif_tokens": [
+        "strategy:choose-representation",
+        "action:instantiate"
+      ],
+      "motif_length": 2,
+      "support": 24,
+      "prevalence": 0.05333333333333334,
+      "question_coverage": 3,
+      "success_present": 24,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6408450704225352,
+      "support_difference": 0.35915492957746475,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 27.50091407678245,
+      "odds_ratio_ci_low": 1.6607189863626912,
+      "odds_ratio_ci_high": 455.4053282157154,
+      "fisher_p_value": 6.346826726724299e-05,
+      "fdr_q_value": 0.000375628520561234,
+      "avg_stage_position": 0.02937802937802938,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 14.208333333333334,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "49",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:compute milestone:derived:solution action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction",
+        "strategy:set-subgoal action:apply-formula",
+        "strategy:choose-representation action:instantiate milestone:key-relation:equation",
+        "milestone:key-relation:equation strategy:set-subgoal action:apply-formula",
+        "milestone:key-relation:equation strategy:set-subgoal"
+      ]
+    },
+    {
+      "motif": "strategy:set-subgoal action:rewrite action:compute",
+      "motif_tokens": [
+        "strategy:set-subgoal",
+        "action:rewrite",
+        "action:compute"
+      ],
+      "motif_length": 3,
+      "support": 20,
+      "prevalence": 0.044444444444444446,
+      "question_coverage": 2,
+      "success_present": 20,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6441860465116279,
+      "support_difference": 0.3558139534883721,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 22.679279279279278,
+      "odds_ratio_ci_low": 1.3621638679076367,
+      "odds_ratio_ci_high": 377.5975275409541,
+      "fisher_p_value": 0.00035113561857035307,
+      "fdr_q_value": 0.0013536353950699838,
+      "avg_stage_position": 0.8456018981018981,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 14.3,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "49",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "3",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:set-subgoal action:rewrite",
+        "action:rewrite action:compute",
+        "strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable",
+        "strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction",
+        "strategy:set-subgoal action:apply-formula"
+      ]
+    },
+    {
+      "motif": "action:simplify action:rewrite",
+      "motif_tokens": [
+        "action:simplify",
+        "action:rewrite"
+      ],
+      "motif_length": 2,
+      "support": 16,
+      "prevalence": 0.035555555555555556,
+      "question_coverage": 3,
+      "success_present": 16,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6474654377880185,
+      "support_difference": 0.35253456221198154,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 17.99467140319716,
+      "odds_ratio_ci_low": 1.0721524798084052,
+      "odds_ratio_ci_high": 302.01692856869226,
+      "fisher_p_value": 0.0019157973774627975,
+      "fdr_q_value": 0.004960546780930457,
+      "avg_stage_position": 0.31233497405372407,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 14.75,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "169",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:analyze action:instantiate action:apply-formula action:simplify action:rewrite action:compute milestone:key-relation:height=4 action:apply-formula action:compute milestone:key-relation:area=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate milestone:key-relation:base=6 milestone:key-relation:sides=5 action:apply-formula action:simplify action:rewrite milestone:key-relation:h^2=16 action:compute milestone:key-relation:h=4 action:apply-formula action:instantiate action:compute milestone:key-relation:a=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "6",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:analyze action:instantiate action:apply-formula action:simplify action:rewrite milestone:key-relation:height^2=16 action:compute milestone:key-relation:height=4 action:apply-formula action:compute milestone:key-relation:area=12 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:combine milestone:reduced-to:single-fraction",
+        "action:combine milestone:key-relation:combined-like-terms",
+        "strategy:common-denominator action:compute",
+        "strategy:choose-representation action:analyze action:instantiate",
+        "strategy:choose-representation action:analyze"
+      ]
+    },
+    {
+      "motif": "strategy:common-denominator action:combine",
+      "motif_tokens": [
+        "strategy:common-denominator",
+        "action:combine"
+      ],
+      "motif_length": 2,
+      "support": 16,
+      "prevalence": 0.035555555555555556,
+      "question_coverage": 2,
+      "success_present": 16,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6474654377880185,
+      "support_difference": 0.35253456221198154,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 17.99467140319716,
+      "odds_ratio_ci_low": 1.0721524798084052,
+      "odds_ratio_ci_high": 302.01692856869226,
+      "fisher_p_value": 0.0019157973774627975,
+      "fdr_q_value": 0.004960546780930457,
+      "avg_stage_position": 0.10747906204562552,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 20.6875,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "183",
+          "sample_id": "11",
+          "is_correct": true,
+          "predicted_answer": "23",
+          "tokenized_trace": "strategy:common-denominator strategy:rationalize-denominators action:instantiate milestone:key-relation:rationalized-terms strategy:combine-like-terms strategy:common-denominator action:combine milestone:key-relation:combined-like-terms action:combine milestone:key-relation:combined-like-terms strategy:common-denominator action:compute action:rewrite action:combine milestone:reduced-to:single-fraction milestone:derived:closed-form action:compute milestone:computed:sum-abc action:conclude"
+        },
+        {
+          "question_id": "183",
+          "sample_id": "12",
+          "is_correct": true,
+          "predicted_answer": "23",
+          "tokenized_trace": "strategy:target-form-subgoal strategy:rationalize-denominators action:rewrite milestone:key-relation:rationalized-terms action:combine milestone:key-relation:combined-like-terms action:compute strategy:common-denominator action:combine milestone:reduced-to:single-fraction action:instantiate milestone:derived:closed-form action:compute milestone:computed:sum-abc action:conclude"
+        },
+        {
+          "question_id": "114",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "-5",
+          "tokenized_trace": "action:factor strategy:common-denominator action:combine action:equate action:expand action:collect-like-terms strategy:coefficient-matching action:equate milestone:key-relation:c+d=4 milestone:key-relation:8c-3d=-23 strategy:solve-system action:solve action:substitute action:expand action:collect-like-terms action:compute action:solve action:substitute action:compute milestone:system-solved:c=-1-d=5 action:compute milestone:product:cd=-5 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:solve action:substitute",
+        "action:expand action:collect-like-terms strategy:coefficient-matching",
+        "action:expand action:collect-like-terms",
+        "action:collect-like-terms strategy:coefficient-matching",
+        "action:substitute action:expand"
+      ]
+    },
+    {
+      "motif": "action:analyze action:apply-formula action:rewrite",
+      "motif_tokens": [
+        "action:analyze",
+        "action:apply-formula",
+        "action:rewrite"
+      ],
+      "motif_length": 3,
+      "support": 14,
+      "prevalence": 0.03111111111111111,
+      "question_coverage": 2,
+      "success_present": 14,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6490825688073395,
+      "support_difference": 0.3509174311926605,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 15.701940035273369,
+      "odds_ratio_ci_low": 0.9302578786258168,
+      "odds_ratio_ci_high": 265.0350258097543,
+      "fisher_p_value": 0.003371461383085153,
+      "fdr_q_value": 0.007685488925430676,
+      "avg_stage_position": 0.1283189033189033,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 11.285714285714286,
+      "noise_cooccurrence_rate": 0.07142857142857142,
+      "representative_examples": [
+        {
+          "question_id": "45",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:apply-formula action:rewrite milestone:key-relation:var1=const-var2 strategy:set-representation action:instantiate strategy:apply-pythagorean action:compute milestone:derived:expression:hypotenuse action:compute action:conclude milestone:derived:closed-form"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:instantiate action:apply-formula action:rewrite action:derive-intermediate milestone:key-relation:var1=const-var2 action:analyze action:apply-formula action:rewrite action:compute milestone:derived:closed-form action:conclude"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "4",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:apply-formula action:rewrite milestone:key-relation:var1=const-var2 action:compute milestone:derived:closed-form"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:apply-formula action:rewrite",
+        "action:analyze action:apply-formula",
+        "strategy:set-subgoal action:analyze",
+        "strategy:set-subgoal action:analyze action:apply-formula",
+        "action:compute milestone:derived:closed-form"
+      ]
+    },
+    {
+      "motif": "action:compute milestone:derived:closed-form action:conclude",
+      "motif_tokens": [
+        "action:compute",
+        "milestone:derived:closed-form",
+        "action:conclude"
+      ],
+      "motif_length": 3,
+      "support": 10,
+      "prevalence": 0.022222222222222223,
+      "question_coverage": 3,
+      "success_present": 10,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6522727272727272,
+      "support_difference": 0.3477272727272728,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 11.212173913043479,
+      "odds_ratio_ci_low": 0.6525646623443289,
+      "odds_ratio_ci_high": 192.64427130441166,
+      "fisher_p_value": 0.018450935650022964,
+      "fdr_q_value": 0.029628528801610612,
+      "avg_stage_position": 0.9714285714285714,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 13.2,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "167",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "65",
+          "tokenized_trace": "strategy:use-formula milestone:key-relation:volume-formula action:instantiate action:apply-formula action:compute milestone:intermediate-product action:compute milestone:derived:closed-form action:conclude milestone:final-value"
+        },
+        {
+          "question_id": "167",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "65",
+          "tokenized_trace": "strategy:use-formula milestone:key-relation:volume-formula action:instantiate action:apply-formula action:compute milestone:intermediate-product action:compute milestone:derived:closed-form action:conclude milestone:final-value"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:instantiate action:apply-formula action:rewrite action:derive-intermediate milestone:key-relation:var1=const-var2 action:analyze action:apply-formula action:rewrite action:compute milestone:derived:closed-form action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "milestone:derived:closed-form action:conclude",
+        "action:compute milestone:derived:closed-form",
+        "action:apply-formula action:rewrite",
+        "strategy:set-subgoal action:analyze",
+        "action:rewrite action:compute milestone:derived:closed-form"
+      ]
+    },
+    {
+      "motif": "action:conclude milestone:derived:closed-form",
+      "motif_tokens": [
+        "action:conclude",
+        "milestone:derived:closed-form"
+      ],
+      "motif_length": 2,
+      "support": 10,
+      "prevalence": 0.022222222222222223,
+      "question_coverage": 2,
+      "success_present": 10,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6522727272727272,
+      "support_difference": 0.3477272727272728,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 11.212173913043479,
+      "odds_ratio_ci_low": 0.6525646623443289,
+      "odds_ratio_ci_high": 192.64427130441166,
+      "fisher_p_value": 0.018450935650022964,
+      "fdr_q_value": 0.029628528801610612,
+      "avg_stage_position": 1.0,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 10.0,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "45",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:apply-formula action:rewrite milestone:key-relation:var1=const-var2 strategy:set-representation action:instantiate strategy:apply-pythagorean action:compute milestone:derived:expression:hypotenuse action:compute action:conclude milestone:derived:closed-form"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze strategy:set-representation action:instantiate strategy:apply-trig-identity action:apply-formula action:rewrite action:compute action:derive-intermediate action:compute action:conclude milestone:derived:closed-form"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "5",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze strategy:reduce-to-single-variable action:rewrite strategy:apply-trig-identity action:rewrite action:compute action:conclude milestone:derived:closed-form"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:set-subgoal action:analyze",
+        "action:compute action:conclude",
+        "action:rewrite action:compute",
+        "action:apply-formula action:rewrite",
+        "action:apply-formula action:rewrite action:compute"
+      ]
+    },
+    {
+      "motif": "action:analyze strategy:choose-representation action:instantiate",
+      "motif_tokens": [
+        "action:analyze",
+        "strategy:choose-representation",
+        "action:instantiate"
+      ],
+      "motif_length": 3,
+      "support": 8,
+      "prevalence": 0.017777777777777778,
+      "question_coverage": 3,
+      "success_present": 8,
+      "failure_present": 0,
+      "success_rate_present": 1.0,
+      "success_rate_absent": 0.6538461538461539,
+      "support_difference": 0.34615384615384615,
+      "lift_overall_success": 1.5151515151515151,
+      "odds_ratio": 9.013816925734025,
+      "odds_ratio_ci_low": 0.5167655914851124,
+      "odds_ratio_ci_high": 157.22582329282258,
+      "fisher_p_value": 0.05568101703431298,
+      "fdr_q_value": 0.07176664417755896,
+      "avg_stage_position": 0.0,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 15.0,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "49",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "11",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:apply-formula strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "22",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:choose-representation action:instantiate",
+        "action:analyze strategy:choose-representation",
+        "action:rewrite action:compute",
+        "strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable",
+        "strategy:set-subgoal action:rewrite"
+      ]
+    },
+    {
+      "motif": "strategy:set-subgoal action:apply-formula",
+      "motif_tokens": [
+        "strategy:set-subgoal",
+        "action:apply-formula"
+      ],
+      "motif_length": 2,
+      "support": 30,
+      "prevalence": 0.06666666666666667,
+      "question_coverage": 4,
+      "success_present": 29,
+      "failure_present": 1,
+      "success_rate_present": 0.9666666666666667,
+      "success_rate_absent": 0.638095238095238,
+      "support_difference": 0.3285714285714286,
+      "lift_overall_success": 1.4646464646464645,
+      "odds_ratio": 11.17008069522036,
+      "odds_ratio_ci_low": 2.1398355354222383,
+      "odds_ratio_ci_high": 58.30854786375649,
+      "fisher_p_value": 7.520106691649607e-05,
+      "fdr_q_value": 0.0004361661881156772,
+      "avg_stage_position": 0.30896825396825395,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 13.733333333333333,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "45",
+          "sample_id": "21",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "action:analyze action:instantiate action:rewrite action:apply-formula milestone:identified:identity action:rewrite action:compute action:check-constraint action:conclude action:compute strategy:set-subgoal action:apply-formula action:compute milestone:derived:closed-form"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "23",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "action:analyze action:apply-formula action:rewrite milestone:key-relation:var1=const-var2 strategy:set-representation action:instantiate strategy:set-subgoal action:apply-formula action:compute milestone:derived:closed-form"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:rewrite milestone:reduced-to:one-variable",
+        "strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction",
+        "milestone:key-relation:equation strategy:set-subgoal action:apply-formula",
+        "milestone:key-relation:equation strategy:set-subgoal",
+        "action:instantiate milestone:key-relation:equation strategy:set-subgoal"
+      ]
+    },
+    {
+      "motif": "strategy:set-subgoal action:rewrite",
+      "motif_tokens": [
+        "strategy:set-subgoal",
+        "action:rewrite"
+      ],
+      "motif_length": 2,
+      "support": 27,
+      "prevalence": 0.06,
+      "question_coverage": 3,
+      "success_present": 26,
+      "failure_present": 1,
+      "success_rate_present": 0.9629629629629629,
+      "success_rate_absent": 0.640661938534279,
+      "support_difference": 0.3223010244286839,
+      "lift_overall_success": 1.4590347923681255,
+      "odds_ratio": 9.923265807243707,
+      "odds_ratio_ci_low": 1.8926261225778265,
+      "odds_ratio_ci_high": 52.02887305977298,
+      "fisher_p_value": 0.00021938194606564205,
+      "fdr_q_value": 0.0009940744431099406,
+      "avg_stage_position": 0.5354688521355188,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 14.0,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "49",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:compute milestone:derived:solution action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable",
+        "strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction",
+        "strategy:set-subgoal action:apply-formula",
+        "milestone:key-relation:equation strategy:set-subgoal action:apply-formula",
+        "milestone:key-relation:equation strategy:set-subgoal"
+      ]
+    },
+    {
+      "motif": "strategy:choose-representation action:analyze action:instantiate",
+      "motif_tokens": [
+        "strategy:choose-representation",
+        "action:analyze",
+        "action:instantiate"
+      ],
+      "motif_length": 3,
+      "support": 18,
+      "prevalence": 0.04,
+      "question_coverage": 2,
+      "success_present": 17,
+      "failure_present": 1,
+      "success_rate_present": 0.9444444444444444,
+      "success_rate_absent": 0.6481481481481481,
+      "support_difference": 0.2962962962962963,
+      "lift_overall_success": 1.4309764309764308,
+      "odds_ratio": 6.342840166369578,
+      "odds_ratio_ci_low": 1.183170845694294,
+      "odds_ratio_ci_high": 34.00322237698735,
+      "fisher_p_value": 0.009099802375013427,
+      "fdr_q_value": 0.017247991429764013,
+      "avg_stage_position": 0.02537678371011704,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 13.11111111111111,
+      "noise_cooccurrence_rate": 0.05555555555555555,
+      "representative_examples": [
+        {
+          "question_id": "49",
+          "sample_id": "3",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable strategy:set-subgoal action:rewrite action:compute milestone:derived:solution"
+        },
+        {
+          "question_id": "49",
+          "sample_id": "13",
+          "is_correct": true,
+          "predicted_answer": "83",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate milestone:key-relation:equation strategy:set-subgoal action:apply-formula milestone:key-relation:cleared-fraction strategy:set-subgoal action:rewrite milestone:reduced-to:one-variable action:rewrite action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:analyze action:instantiate action:apply-formula action:simplify action:rewrite action:compute milestone:key-relation:height=4 action:apply-formula action:compute milestone:key-relation:area=12 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:choose-representation action:analyze",
+        "action:analyze action:instantiate",
+        "action:rewrite action:compute",
+        "action:instantiate action:apply-formula",
+        "action:apply-formula action:compute"
+      ]
+    },
+    {
+      "motif": "strategy:set-subgoal action:analyze",
+      "motif_tokens": [
+        "strategy:set-subgoal",
+        "action:analyze"
+      ],
+      "motif_length": 2,
+      "support": 23,
+      "prevalence": 0.051111111111111114,
+      "question_coverage": 5,
+      "success_present": 21,
+      "failure_present": 2,
+      "success_rate_present": 0.9130434782608695,
+      "success_rate_absent": 0.6463700234192038,
+      "support_difference": 0.2666734548416657,
+      "lift_overall_success": 1.3833992094861658,
+      "odds_ratio": 4.712115732368897,
+      "odds_ratio_ci_low": 1.2529931913863237,
+      "odds_ratio_ci_high": 17.720794356968298,
+      "fisher_p_value": 0.006468474326527109,
+      "fdr_q_value": 0.012505717031285744,
+      "avg_stage_position": 0.021739130434782608,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 10.652173913043478,
+      "noise_cooccurrence_rate": 0.13043478260869565,
+      "representative_examples": [
+        {
+          "question_id": "185",
+          "sample_id": "5",
+          "is_correct": true,
+          "predicted_answer": "1",
+          "tokenized_trace": "strategy:set-subgoal action:analyze strategy:use-exponent-rule action:apply-formula milestone:applied:power-of-a-power action:simplify milestone:equation-simplified strategy:equate-exponents action:compare milestone:key-relation:exponents-equal milestone:reduced-to:one-variable strategy:solve-linear action:compute milestone:derived:solution action:conclude"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:apply-formula action:rewrite milestone:key-relation:var1=const-var2 strategy:set-representation action:instantiate strategy:apply-pythagorean action:compute milestone:derived:expression:hypotenuse action:compute action:conclude milestone:derived:closed-form"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze strategy:set-representation action:instantiate strategy:apply-trig-identity action:apply-formula action:rewrite action:compute action:derive-intermediate action:compute action:conclude milestone:derived:closed-form"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:analyze action:apply-formula",
+        "action:rewrite milestone:key-relation:var1=const-var2",
+        "action:apply-formula action:rewrite",
+        "strategy:set-subgoal action:analyze action:apply-formula",
+        "action:compute milestone:derived:closed-form"
+      ]
+    },
+    {
+      "motif": "milestone:derived:closed-form action:conclude",
+      "motif_tokens": [
+        "milestone:derived:closed-form",
+        "action:conclude"
+      ],
+      "motif_length": 2,
+      "support": 12,
+      "prevalence": 0.02666666666666667,
+      "question_coverage": 3,
+      "success_present": 11,
+      "failure_present": 1,
+      "success_rate_present": 0.9166666666666666,
+      "success_rate_absent": 0.6529680365296804,
+      "support_difference": 0.26369863013698625,
+      "lift_overall_success": 1.3888888888888888,
+      "odds_ratio": 4.0808609656777195,
+      "odds_ratio_ci_low": 0.7360169743469276,
+      "odds_ratio_ci_high": 22.626415968149082,
+      "fisher_p_value": 0.06676503179970518,
+      "fdr_q_value": 0.0845496035891463,
+      "avg_stage_position": 0.96875,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 12.75,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "167",
+          "sample_id": "0",
+          "is_correct": true,
+          "predicted_answer": "65",
+          "tokenized_trace": "strategy:use-formula milestone:key-relation:volume-formula action:instantiate action:apply-formula action:compute milestone:intermediate-product action:compute milestone:derived:closed-form action:conclude milestone:final-value"
+        },
+        {
+          "question_id": "167",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "65",
+          "tokenized_trace": "strategy:use-formula milestone:key-relation:volume-formula action:instantiate action:apply-formula action:compute milestone:intermediate-product action:compute milestone:derived:closed-form action:conclude milestone:final-value"
+        },
+        {
+          "question_id": "167",
+          "sample_id": "18",
+          "is_correct": true,
+          "predicted_answer": "65",
+          "tokenized_trace": "strategy:use-formula milestone:key-relation:volume-formula action:instantiate action:apply-formula action:compute milestone:intermediate-product action:simplify milestone:derived:closed-form action:conclude milestone:final-value"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:compute milestone:derived:closed-form action:conclude",
+        "action:compute milestone:derived:closed-form",
+        "action:apply-formula action:rewrite",
+        "strategy:set-subgoal action:analyze",
+        "action:rewrite action:compute milestone:derived:closed-form"
+      ]
+    }
+  ],
+  "failure_enriched": [
+    {
+      "motif": "action:compute action:instantiate action:compute",
+      "motif_tokens": [
+        "action:compute",
+        "action:instantiate",
+        "action:compute"
+      ],
+      "motif_length": 3,
+      "support": 11,
+      "prevalence": 0.024444444444444446,
+      "question_coverage": 3,
+      "success_present": 0,
+      "failure_present": 11,
+      "success_rate_present": 0.0,
+      "success_rate_absent": 0.6765375854214123,
+      "support_difference": -0.6765375854214123,
+      "lift_overall_success": 0.0,
+      "odds_ratio": 0.02082572159298502,
+      "odds_ratio_ci_low": 0.0012185742579825483,
+      "odds_ratio_ci_high": 0.35591649587819685,
+      "fisher_p_value": 5.494756330045539e-06,
+      "fdr_q_value": 9.95924584820754e-05,
+      "avg_stage_position": 0.3395953410904725,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 25.818181818181817,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "92",
+          "sample_id": "22",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "strategy:choose-representation action:analyze strategy:set-subgoal action:instantiate action:compute milestone:derived:coefficient strategy:set-subgoal action:instantiate action:compute action:instantiate action:compute milestone:derived:power-terms strategy:set-subgoal action:compute milestone:derived:closed-form strategy:set-subgoal action:simplify milestone:simplified:fraction"
+        },
+        {
+          "question_id": "150",
+          "sample_id": "1",
+          "is_correct": false,
+          "predicted_answer": "0",
+          "tokenized_trace": "action:analyze action:apply-formula action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:derive-intermediate milestone:key-relation:periodic-mod-5 action:apply-formula action:compute milestone:reduced-to:modulo action:conclude"
+        },
+        {
+          "question_id": "150",
+          "sample_id": "5",
+          "is_correct": false,
+          "predicted_answer": "4",
+          "tokenized_trace": "action:analyze action:apply-formula milestone:identified:base-case action:case-split milestone:identified:boundary-case action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:derive-intermediate milestone:key-relation:periodic-mod-5 action:apply-formula action:compute milestone:reduced-to:modulo action:instantiate action:compute action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:instantiate action:compute",
+        "action:compute action:instantiate",
+        "action:instantiate action:compute action:instantiate",
+        "action:compute action:derive-intermediate",
+        "action:instantiate action:compute action:derive-intermediate"
+      ]
+    },
+    {
+      "motif": "action:compute action:simplify",
+      "motif_tokens": [
+        "action:compute",
+        "action:simplify"
+      ],
+      "motif_length": 2,
+      "support": 10,
+      "prevalence": 0.022222222222222223,
+      "question_coverage": 4,
+      "success_present": 0,
+      "failure_present": 10,
+      "success_rate_present": 0.0,
+      "success_rate_absent": 0.675,
+      "support_difference": -0.675,
+      "lift_overall_success": 0.0,
+      "odds_ratio": 0.02296918767507003,
+      "odds_ratio_ci_low": 0.0013365354862871397,
+      "odds_ratio_ci_high": 0.3947396742290785,
+      "fisher_p_value": 1.6906942553986274e-05,
+      "fdr_q_value": 0.00021317449307200085,
+      "avg_stage_position": 0.6881123043623043,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 16.4,
+      "noise_cooccurrence_rate": 0.1,
+      "representative_examples": [
+        {
+          "question_id": "92",
+          "sample_id": "3",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:apply-formula action:compute milestone:derived:coefficient action:compute milestone:derived:power-terms action:instantiate milestone:derived:closed-form action:compute action:simplify milestone:simplified:fraction"
+        },
+        {
+          "question_id": "92",
+          "sample_id": "20",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:apply-formula action:instantiate action:compute milestone:derived:coefficient action:compute milestone:derived:power-terms action:instantiate milestone:derived:closed-form action:compute action:simplify milestone:simplified:fraction"
+        },
+        {
+          "question_id": "92",
+          "sample_id": "23",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula action:compute milestone:derived:coefficient action:compute milestone:derived:power-terms action:compute milestone:derived:power-terms action:compute action:simplify action:compute milestone:derived:closed-form milestone:simplified:fraction"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "milestone:derived:closed-form action:compute",
+        "action:apply-formula action:compute",
+        "milestone:derived:coefficient action:compute milestone:derived:power-terms",
+        "milestone:derived:coefficient action:compute",
+        "action:compute milestone:derived:power-terms"
+      ]
+    },
+    {
+      "motif": "action:derive-intermediate milestone:derived:closed-form",
+      "motif_tokens": [
+        "action:derive-intermediate",
+        "milestone:derived:closed-form"
+      ],
+      "motif_length": 2,
+      "support": 10,
+      "prevalence": 0.022222222222222223,
+      "question_coverage": 3,
+      "success_present": 0,
+      "failure_present": 10,
+      "success_rate_present": 0.0,
+      "success_rate_absent": 0.675,
+      "support_difference": -0.675,
+      "lift_overall_success": 0.0,
+      "odds_ratio": 0.02296918767507003,
+      "odds_ratio_ci_low": 0.0013365354862871397,
+      "odds_ratio_ci_high": 0.3947396742290785,
+      "fisher_p_value": 1.6906942553986274e-05,
+      "fdr_q_value": 0.00021317449307200085,
+      "avg_stage_position": 0.7657470307470308,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 13.5,
+      "noise_cooccurrence_rate": 0.3,
+      "representative_examples": [
+        {
+          "question_id": "92",
+          "sample_id": "7",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula action:compute milestone:derived:coefficient action:compute milestone:derived:power-terms action:derive-intermediate milestone:derived:closed-form action:compute milestone:simplified:fraction"
+        },
+        {
+          "question_id": "92",
+          "sample_id": "11",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "strategy:choose-representation action:analyze strategy:set-subgoal action:instantiate action:compute milestone:derived:coefficient strategy:set-subgoal action:compute strategy:set-subgoal action:compute milestone:derived:power-terms strategy:set-subgoal action:derive-intermediate milestone:derived:closed-form strategy:set-subgoal action:simplify milestone:simplified:fraction"
+        },
+        {
+          "question_id": "92",
+          "sample_id": "14",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula milestone:key-relation:binomial-formula strategy:set-subgoal action:compute milestone:derived:coefficient strategy:set-subgoal action:compute milestone:derived:power-terms action:derive-intermediate milestone:derived:closed-form action:compute milestone:simplified:fraction"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:compute milestone:derived:power-terms",
+        "action:compute milestone:derived:coefficient",
+        "milestone:derived:closed-form action:compute",
+        "strategy:choose-representation action:apply-formula",
+        "strategy:choose-representation action:apply-formula milestone:key-relation:binomial-formula"
+      ]
+    },
+    {
+      "motif": "action:compute action:instantiate",
+      "motif_tokens": [
+        "action:compute",
+        "action:instantiate"
+      ],
+      "motif_length": 2,
+      "support": 13,
+      "prevalence": 0.028888888888888888,
+      "question_coverage": 4,
+      "success_present": 1,
+      "failure_present": 12,
+      "success_rate_present": 0.07692307692307693,
+      "success_rate_absent": 0.6773455377574371,
+      "support_difference": -0.6004224608343602,
+      "lift_overall_success": 0.11655011655011654,
+      "odds_ratio": 0.0572681281618887,
+      "odds_ratio_ci_low": 0.01040526225395091,
+      "odds_ratio_ci_high": 0.3151903741706481,
+      "fisher_p_value": 1.623959656267149e-05,
+      "fdr_q_value": 0.00021317449307200085,
+      "avg_stage_position": 0.3098705446920702,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 25.076923076923077,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "169",
+          "sample_id": "8",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate action:compute action:instantiate action:apply-formula action:compute milestone:derived:key-relation:h^2=16 action:compute milestone:derived:key-relation:h=4 action:apply-formula action:compute milestone:derived:key-relation:area-one-triangle=6 action:compute milestone:derived:key-relation:area-total=12 action:conclude"
+        },
+        {
+          "question_id": "92",
+          "sample_id": "22",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "strategy:choose-representation action:analyze strategy:set-subgoal action:instantiate action:compute milestone:derived:coefficient strategy:set-subgoal action:instantiate action:compute action:instantiate action:compute milestone:derived:power-terms strategy:set-subgoal action:compute milestone:derived:closed-form strategy:set-subgoal action:simplify milestone:simplified:fraction"
+        },
+        {
+          "question_id": "150",
+          "sample_id": "1",
+          "is_correct": false,
+          "predicted_answer": "0",
+          "tokenized_trace": "action:analyze action:apply-formula action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:derive-intermediate milestone:key-relation:periodic-mod-5 action:apply-formula action:compute milestone:reduced-to:modulo action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:instantiate action:compute",
+        "action:instantiate action:compute action:instantiate",
+        "action:compute action:instantiate action:compute",
+        "action:compute action:derive-intermediate",
+        "action:instantiate action:compute action:derive-intermediate"
+      ]
+    },
+    {
+      "motif": "action:instantiate action:compute action:instantiate",
+      "motif_tokens": [
+        "action:instantiate",
+        "action:compute",
+        "action:instantiate"
+      ],
+      "motif_length": 3,
+      "support": 11,
+      "prevalence": 0.024444444444444446,
+      "question_coverage": 3,
+      "success_present": 1,
+      "failure_present": 10,
+      "success_rate_present": 0.09090909090909091,
+      "success_rate_absent": 0.6742596810933941,
+      "support_difference": -0.5833505901843031,
+      "lift_overall_success": 0.13774104683195593,
+      "odds_ratio": 0.06913996627318718,
+      "odds_ratio_ci_low": 0.01235095386074754,
+      "odds_ratio_ci_high": 0.38704176132094553,
+      "fisher_p_value": 0.00013102880479339362,
+      "fdr_q_value": 0.0006666377787734062,
+      "avg_stage_position": 0.22998625663288083,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 25.272727272727273,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "169",
+          "sample_id": "8",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate action:compute action:instantiate action:apply-formula action:compute milestone:derived:key-relation:h^2=16 action:compute milestone:derived:key-relation:h=4 action:apply-formula action:compute milestone:derived:key-relation:area-one-triangle=6 action:compute milestone:derived:key-relation:area-total=12 action:conclude"
+        },
+        {
+          "question_id": "92",
+          "sample_id": "22",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "strategy:choose-representation action:analyze strategy:set-subgoal action:instantiate action:compute milestone:derived:coefficient strategy:set-subgoal action:instantiate action:compute action:instantiate action:compute milestone:derived:power-terms strategy:set-subgoal action:compute milestone:derived:closed-form strategy:set-subgoal action:simplify milestone:simplified:fraction"
+        },
+        {
+          "question_id": "150",
+          "sample_id": "1",
+          "is_correct": false,
+          "predicted_answer": "0",
+          "tokenized_trace": "action:analyze action:apply-formula action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:instantiate action:compute action:derive-intermediate milestone:key-relation:periodic-mod-5 action:apply-formula action:compute milestone:reduced-to:modulo action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:instantiate action:compute",
+        "action:compute action:instantiate",
+        "action:compute action:instantiate action:compute",
+        "action:instantiate action:compute action:derive-intermediate",
+        "action:compute action:derive-intermediate"
+      ]
+    },
+    {
+      "motif": "action:compute action:derive-intermediate",
+      "motif_tokens": [
+        "action:compute",
+        "action:derive-intermediate"
+      ],
+      "motif_length": 2,
+      "support": 19,
+      "prevalence": 0.042222222222222223,
+      "question_coverage": 5,
+      "success_present": 2,
+      "failure_present": 17,
+      "success_rate_present": 0.10526315789473684,
+      "success_rate_absent": 0.6844547563805105,
+      "support_difference": -0.5791915984857736,
+      "lift_overall_success": 0.15948963317384368,
+      "odds_ratio": 0.06598984771573604,
+      "odds_ratio_ci_low": 0.017268175904617298,
+      "odds_ratio_ci_high": 0.25217834388527693,
+      "fisher_p_value": 4.948956482472794e-07,
+      "fdr_q_value": 1.594663755463456e-05,
+      "avg_stage_position": 0.5855976624302929,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 21.05263157894737,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "45",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "strategy:set-subgoal action:analyze strategy:set-representation action:instantiate strategy:apply-trig-identity action:apply-formula action:rewrite action:compute action:derive-intermediate action:compute action:conclude milestone:derived:closed-form"
+        },
+        {
+          "question_id": "165",
+          "sample_id": "5",
+          "is_correct": true,
+          "predicted_answer": "\\frac{4}{9}",
+          "tokenized_trace": "strategy:setup action:analyze action:compute milestone:key-relation:total-initial action:compute action:derive-intermediate milestone:key-relation:math-remaining action:compute milestone:key-relation:remaining-total strategy:derive-fraction action:apply-formula milestone:key-relation:fraction-raw strategy:simplify-fraction action:simplify milestone:key-relation:fraction-simplified"
+        },
+        {
+          "question_id": "68",
+          "sample_id": "11",
+          "is_correct": false,
+          "predicted_answer": "134",
+          "tokenized_trace": "strategy:reduce-to-known-form action:apply-formula action:instantiate action:apply-formula action:rewrite action:compute action:derive-intermediate action:check-constraint milestone:reduced-to:one-variable action:compute action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:instantiate action:compute",
+        "action:instantiate action:compute action:derive-intermediate",
+        "action:derive-intermediate milestone:key-relation:periodic-mod-5",
+        "action:compute action:derive-intermediate milestone:key-relation:periodic-mod-5",
+        "action:compute action:instantiate action:compute"
+      ]
+    },
+    {
+      "motif": "action:compute action:apply-formula",
+      "motif_tokens": [
+        "action:compute",
+        "action:apply-formula"
+      ],
+      "motif_length": 2,
+      "support": 9,
+      "prevalence": 0.02,
+      "question_coverage": 4,
+      "success_present": 2,
+      "failure_present": 7,
+      "success_rate_present": 0.2222222222222222,
+      "success_rate_absent": 0.6689342403628118,
+      "support_difference": -0.4467120181405896,
+      "lift_overall_success": 0.33670033670033667,
+      "odds_ratio": 0.1652566271855612,
+      "odds_ratio_ci_low": 0.0389579113292228,
+      "odds_ratio_ci_high": 0.7010065965282433,
+      "fisher_p_value": 0.008746804134765673,
+      "fdr_q_value": 0.016687981572908194,
+      "avg_stage_position": 0.5803698290910567,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 16.333333333333332,
+      "noise_cooccurrence_rate": 0.2222222222222222,
+      "representative_examples": [
+        {
+          "question_id": "169",
+          "sample_id": "18",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate action:apply-formula action:compute milestone:key-relation:5^2=h^2+3^2 action:rewrite action:compute action:apply-formula action:compute action:conclude"
+        },
+        {
+          "question_id": "68",
+          "sample_id": "10",
+          "is_correct": true,
+          "predicted_answer": "46",
+          "tokenized_trace": "strategy:set-subgoal action:analyze action:instantiate strategy:reduce-to-known-form action:apply-formula action:compute action:apply-formula noise:corrupted-span"
+        },
+        {
+          "question_id": "68",
+          "sample_id": "25",
+          "is_correct": false,
+          "predicted_answer": "127",
+          "tokenized_trace": "action:analyze action:instantiate action:compute action:apply-formula action:instantiate action:rewrite noise:corrupted-span action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:apply-formula action:compute",
+        "strategy:setup-coordinates action:instantiate",
+        "action:instantiate action:apply-formula",
+        "action:compute milestone:derived:savings",
+        "action:analyze strategy:setup-coordinates action:instantiate"
+      ]
+    },
+    {
+      "motif": "action:analyze noise:corrupted-span",
+      "motif_tokens": [
+        "action:analyze",
+        "noise:corrupted-span"
+      ],
+      "motif_length": 2,
+      "support": 18,
+      "prevalence": 0.04,
+      "question_coverage": 9,
+      "success_present": 5,
+      "failure_present": 13,
+      "success_rate_present": 0.2777777777777778,
+      "success_rate_absent": 0.6759259259259259,
+      "support_difference": -0.39814814814814814,
+      "lift_overall_success": 0.42087542087542085,
+      "odds_ratio": 0.1956948401392846,
+      "odds_ratio_ci_low": 0.07115559444144784,
+      "odds_ratio_ci_high": 0.5382074418428666,
+      "fisher_p_value": 0.001310806026409139,
+      "fdr_q_value": 0.003763700471867825,
+      "avg_stage_position": 0.6481481481481481,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 5.166666666666667,
+      "noise_cooccurrence_rate": 1.0,
+      "representative_examples": [
+        {
+          "question_id": "185",
+          "sample_id": "25",
+          "is_correct": true,
+          "predicted_answer": "1",
+          "tokenized_trace": "strategy:set-subgoal noise:corrupted-span action:analyze noise:corrupted-span"
+        },
+        {
+          "question_id": "185",
+          "sample_id": "29",
+          "is_correct": false,
+          "predicted_answer": "No valid answer provided",
+          "tokenized_trace": "noise:corrupted-span action:analyze noise:corrupted-span"
+        },
+        {
+          "question_id": "172",
+          "sample_id": "10",
+          "is_correct": true,
+          "predicted_answer": "350",
+          "tokenized_trace": "action:analyze noise:corrupted-span"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "noise:corrupted-span action:analyze",
+        "action:analyze milestone:identified:base-case",
+        "strategy:set-subgoal action:analyze",
+        "action:instantiate action:compute",
+        "action:instantiate action:analyze"
+      ]
+    },
+    {
+      "motif": "strategy:choose-representation action:apply-formula",
+      "motif_tokens": [
+        "strategy:choose-representation",
+        "action:apply-formula"
+      ],
+      "motif_length": 2,
+      "support": 16,
+      "prevalence": 0.035555555555555556,
+      "question_coverage": 2,
+      "success_present": 5,
+      "failure_present": 11,
+      "success_rate_present": 0.3125,
+      "success_rate_absent": 0.6728110599078341,
+      "support_difference": -0.3603110599078341,
+      "lift_overall_success": 0.47348484848484845,
+      "odds_ratio": 0.2329988851727982,
+      "odds_ratio_ci_low": 0.08271172255825661,
+      "odds_ratio_ci_high": 0.6563577545314649,
+      "fisher_p_value": 0.005280296201790213,
+      "fdr_q_value": 0.011259455136170307,
+      "avg_stage_position": 0.04318181818181818,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 11.0625,
+      "noise_cooccurrence_rate": 0.1875,
+      "representative_examples": [
+        {
+          "question_id": "169",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula action:analyze action:instantiate action:compute milestone:key-relation:s=8 action:rewrite action:compute milestone:key-relation:a=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "4",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula action:analyze action:instantiate action:compute milestone:key-relation:s=8 action:apply-formula action:compute milestone:key-relation:area=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "9",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "action:analyze strategy:choose-representation action:apply-formula noise:corrupted-span"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:compute milestone:derived:power-terms",
+        "action:compute milestone:derived:coefficient",
+        "milestone:derived:coefficient action:compute milestone:derived:power-terms",
+        "milestone:derived:coefficient action:compute",
+        "action:compute milestone:derived:coefficient action:compute"
+      ]
+    },
+    {
+      "motif": "action:compute milestone:derived:closed-form action:compute",
+      "motif_tokens": [
+        "action:compute",
+        "milestone:derived:closed-form",
+        "action:compute"
+      ],
+      "motif_length": 3,
+      "support": 9,
+      "prevalence": 0.02,
+      "question_coverage": 3,
+      "success_present": 3,
+      "failure_present": 6,
+      "success_rate_present": 0.3333333333333333,
+      "success_rate_absent": 0.6666666666666666,
+      "support_difference": -0.3333333333333333,
+      "lift_overall_success": 0.505050505050505,
+      "odds_ratio": 0.2696878673109573,
+      "odds_ratio_ci_low": 0.07244614545171608,
+      "odds_ratio_ci_high": 1.0039394825112766,
+      "fisher_p_value": 0.06778029070182583,
+      "fdr_q_value": 0.08546210566751952,
+      "avg_stage_position": 0.80468017645437,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 19.333333333333332,
+      "noise_cooccurrence_rate": 0.1111111111111111,
+      "representative_examples": [
+        {
+          "question_id": "92",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "\\frac{448}{15625}",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula milestone:key-relation:binomial-formula action:analyze action:compute milestone:derived:coefficient action:compute milestone:derived:power-terms action:compute milestone:derived:closed-form action:compute milestone:simplified:fraction"
+        },
+        {
+          "question_id": "92",
+          "sample_id": "5",
+          "is_correct": false,
+          "predicted_answer": "\\frac{2240}{78125}",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula milestone:key-relation:binomial-formula action:compute milestone:derived:coefficient action:instantiate action:compute milestone:derived:power-terms action:compute milestone:derived:closed-form action:compute milestone:simplified:fraction"
+        },
+        {
+          "question_id": "92",
+          "sample_id": "26",
+          "is_correct": true,
+          "predicted_answer": "\\frac{448}{15625}",
+          "tokenized_trace": "strategy:choose-representation action:analyze milestone:key-relation:binomial-formula action:compute milestone:derived:coefficient action:compute milestone:derived:power-terms action:instantiate action:compute milestone:derived:closed-form action:compute milestone:simplified:fraction"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "milestone:derived:closed-form action:compute",
+        "action:compute milestone:derived:closed-form",
+        "action:rewrite action:compute",
+        "milestone:derived:savings action:conclude",
+        "action:instantiate action:compute"
+      ]
+    },
+    {
+      "motif": "action:instantiate action:compute",
+      "motif_tokens": [
+        "action:instantiate",
+        "action:compute"
+      ],
+      "motif_length": 2,
+      "support": 50,
+      "prevalence": 0.1111111111111111,
+      "question_coverage": 7,
+      "success_present": 19,
+      "failure_present": 31,
+      "success_rate_present": 0.38,
+      "success_rate_absent": 0.695,
+      "support_difference": -0.31499999999999995,
+      "lift_overall_success": 0.5757575757575757,
+      "odds_ratio": 0.2722920406941951,
+      "odds_ratio_ci_low": 0.14892697642501848,
+      "odds_ratio_ci_high": 0.49784771842687997,
+      "fisher_p_value": 2.3594953164086855e-05,
+      "fdr_q_value": 0.0002631744775994303,
+      "avg_stage_position": 0.4677191895255418,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 16.24,
+      "noise_cooccurrence_rate": 0.1,
+      "representative_examples": [
+        {
+          "question_id": "169",
+          "sample_id": "1",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate milestone:key-relation:base=6 milestone:key-relation:sides=5 action:apply-formula action:simplify action:rewrite milestone:key-relation:h^2=16 action:compute milestone:key-relation:h=4 action:apply-formula action:instantiate action:compute milestone:key-relation:a=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula action:analyze action:instantiate action:compute milestone:key-relation:s=8 action:rewrite action:compute milestone:key-relation:a=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "3",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:apply-formula action:instantiate action:compute action:rewrite action:compute milestone:key-relation:h=4 action:apply-formula action:compute milestone:key-relation:a=12 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:analyze action:instantiate",
+        "action:apply-formula action:instantiate",
+        "action:apply-formula action:compute",
+        "strategy:choose-representation action:analyze",
+        "action:compute milestone:derived:closed-form"
+      ]
+    },
+    {
+      "motif": "noise:corrupted-span action:analyze",
+      "motif_tokens": [
+        "noise:corrupted-span",
+        "action:analyze"
+      ],
+      "motif_length": 2,
+      "support": 11,
+      "prevalence": 0.024444444444444446,
+      "question_coverage": 7,
+      "success_present": 4,
+      "failure_present": 7,
+      "success_rate_present": 0.36363636363636365,
+      "success_rate_absent": 0.6674259681093394,
+      "support_difference": -0.30378960447297576,
+      "lift_overall_success": 0.5509641873278237,
+      "odds_ratio": 0.29948892674616695,
+      "odds_ratio_ci_low": 0.09152941129435135,
+      "odds_ratio_ci_high": 0.9799431240207955,
+      "fisher_p_value": 0.05071781729651472,
+      "fdr_q_value": 0.07176664417755896,
+      "avg_stage_position": 0.2566804407713499,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 9.545454545454545,
+      "noise_cooccurrence_rate": 1.0,
+      "representative_examples": [
+        {
+          "question_id": "185",
+          "sample_id": "25",
+          "is_correct": true,
+          "predicted_answer": "1",
+          "tokenized_trace": "strategy:set-subgoal noise:corrupted-span action:analyze noise:corrupted-span"
+        },
+        {
+          "question_id": "185",
+          "sample_id": "29",
+          "is_correct": false,
+          "predicted_answer": "No valid answer provided",
+          "tokenized_trace": "noise:corrupted-span action:analyze noise:corrupted-span"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "20",
+          "is_correct": false,
+          "predicted_answer": "__LLM_VALIDATED_WRONG__",
+          "tokenized_trace": "noise:corrupted-span action:analyze strategy:set-subgoal"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:analyze noise:corrupted-span",
+        "action:analyze action:rewrite",
+        "action:instantiate action:compute",
+        "strategy:choose-representation action:apply-formula",
+        "milestone:derived:coefficient action:compute milestone:derived:power-terms"
+      ]
+    },
+    {
+      "motif": "action:compute action:check-constraint",
+      "motif_tokens": [
+        "action:compute",
+        "action:check-constraint"
+      ],
+      "motif_length": 2,
+      "support": 8,
+      "prevalence": 0.017777777777777778,
+      "question_coverage": 4,
+      "success_present": 3,
+      "failure_present": 5,
+      "success_rate_present": 0.375,
+      "success_rate_absent": 0.665158371040724,
+      "support_difference": -0.29015837104072395,
+      "lift_overall_success": 0.5681818181818181,
+      "odds_ratio": 0.32088285229202035,
+      "odds_ratio_ci_low": 0.08280259067054978,
+      "odds_ratio_ci_high": 1.2435094610111537,
+      "fisher_p_value": 0.1278452066447376,
+      "fdr_q_value": 0.15447962469572463,
+      "avg_stage_position": 0.5778846153846154,
+      "stage_bucket": "middle",
+      "avg_trace_length_present": 14.75,
+      "noise_cooccurrence_rate": 0.125,
+      "representative_examples": [
+        {
+          "question_id": "45",
+          "sample_id": "19",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "action:analyze action:apply-formula action:rewrite action:compute action:check-constraint action:compute action:conclude milestone:derived:closed-form"
+        },
+        {
+          "question_id": "45",
+          "sample_id": "21",
+          "is_correct": true,
+          "predicted_answer": "2",
+          "tokenized_trace": "action:analyze action:instantiate action:rewrite action:apply-formula milestone:identified:identity action:rewrite action:compute action:check-constraint action:conclude action:compute strategy:set-subgoal action:apply-formula action:compute milestone:derived:closed-form"
+        },
+        {
+          "question_id": "120",
+          "sample_id": "13",
+          "is_correct": false,
+          "predicted_answer": "odd",
+          "tokenized_trace": "action:analyze action:compute action:rewrite action:conclude action:compute action:check-constraint action:rewrite action:conclude action:compute action:rewrite action:conclude action:compute action:rewrite action:conclude action:compute action:rewrite action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:rewrite action:compute",
+        "action:apply-formula action:compute",
+        "action:instantiate action:rewrite",
+        "action:derive-intermediate action:compute",
+        "action:apply-formula action:rewrite action:compute"
+      ]
+    },
+    {
+      "motif": "milestone:derived:closed-form strategy:set-subgoal",
+      "motif_tokens": [
+        "milestone:derived:closed-form",
+        "strategy:set-subgoal"
+      ],
+      "motif_length": 2,
+      "support": 8,
+      "prevalence": 0.017777777777777778,
+      "question_coverage": 3,
+      "success_present": 3,
+      "failure_present": 5,
+      "success_rate_present": 0.375,
+      "success_rate_absent": 0.665158371040724,
+      "support_difference": -0.29015837104072395,
+      "lift_overall_success": 0.5681818181818181,
+      "odds_ratio": 0.32088285229202035,
+      "odds_ratio_ci_low": 0.08280259067054978,
+      "odds_ratio_ci_high": 1.2435094610111537,
+      "fisher_p_value": 0.1278452066447376,
+      "fdr_q_value": 0.15447962469572463,
+      "avg_stage_position": 0.8140952797202797,
+      "stage_bucket": "late",
+      "avg_trace_length_present": 15.125,
+      "noise_cooccurrence_rate": 0.0,
+      "representative_examples": [
+        {
+          "question_id": "52",
+          "sample_id": "7",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:plan-stepwise strategy:set-subgoal action:compute milestone:key-relation:numerator-simplified strategy:set-subgoal action:compute milestone:key-relation:denominator-simplified action:instantiate milestone:derived:closed-form strategy:set-subgoal action:rewrite action:compute milestone:final-result"
+        },
+        {
+          "question_id": "52",
+          "sample_id": "13",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:plan-stepwise strategy:set-subgoal action:compute milestone:key-relation:numerator-simplified strategy:set-subgoal action:compute milestone:key-relation:denominator-simplified strategy:set-subgoal action:instantiate milestone:derived:closed-form strategy:set-subgoal action:compute milestone:final-result action:conclude"
+        },
+        {
+          "question_id": "52",
+          "sample_id": "25",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:plan-stepwise strategy:set-subgoal action:compute milestone:key-relation:numerator-simplified strategy:set-subgoal action:compute milestone:key-relation:denominator-simplified strategy:set-subgoal action:instantiate milestone:derived:closed-form strategy:set-subgoal action:compute milestone:final-result"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "strategy:set-subgoal action:compute",
+        "strategy:set-subgoal action:instantiate",
+        "action:compute milestone:derived:power-terms",
+        "action:compute milestone:derived:coefficient",
+        "action:compute milestone:derived:closed-form"
+      ]
+    },
+    {
+      "motif": "action:analyze action:instantiate action:compute",
+      "motif_tokens": [
+        "action:analyze",
+        "action:instantiate",
+        "action:compute"
+      ],
+      "motif_length": 3,
+      "support": 12,
+      "prevalence": 0.02666666666666667,
+      "question_coverage": 5,
+      "success_present": 5,
+      "failure_present": 7,
+      "success_rate_present": 0.4166666666666667,
+      "success_rate_absent": 0.6666666666666666,
+      "support_difference": -0.24999999999999994,
+      "lift_overall_success": 0.6313131313131313,
+      "odds_ratio": 0.3672934472934473,
+      "odds_ratio_ci_low": 0.12007400055295905,
+      "odds_ratio_ci_high": 1.1235111331632885,
+      "fisher_p_value": 0.11756633331043673,
+      "fdr_q_value": 0.14325309521019602,
+      "avg_stage_position": 0.16500814000814001,
+      "stage_bucket": "early",
+      "avg_trace_length_present": 14.083333333333334,
+      "noise_cooccurrence_rate": 0.25,
+      "representative_examples": [
+        {
+          "question_id": "169",
+          "sample_id": "2",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula action:analyze action:instantiate action:compute milestone:key-relation:s=8 action:rewrite action:compute milestone:key-relation:a=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "4",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:apply-formula action:analyze action:instantiate action:compute milestone:key-relation:s=8 action:apply-formula action:compute milestone:key-relation:area=12 action:conclude"
+        },
+        {
+          "question_id": "169",
+          "sample_id": "8",
+          "is_correct": true,
+          "predicted_answer": "12",
+          "tokenized_trace": "strategy:choose-representation action:analyze action:instantiate action:compute action:instantiate action:apply-formula action:compute milestone:derived:key-relation:h^2=16 action:compute milestone:derived:key-relation:h=4 action:apply-formula action:compute milestone:derived:key-relation:area-one-triangle=6 action:compute milestone:derived:key-relation:area-total=12 action:conclude"
+        }
+      ],
+      "top_neighbor_motifs": [
+        "action:instantiate action:compute",
+        "action:analyze action:instantiate",
+        "strategy:choose-representation action:apply-formula",
+        "action:instantiate action:compute action:instantiate",
+        "action:instantiate action:compute action:derive-intermediate"
+      ]
+    }
+  ]
+}

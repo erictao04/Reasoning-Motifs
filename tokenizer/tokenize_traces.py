@@ -2,11 +2,14 @@
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import csv
 import json
 import os
 import re
 import sys
+import threading
+import time
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -37,11 +40,38 @@ OUTPUT_COLUMNS = (
     "tokenized_trace",
 )
 
+CHUNKING_INSTRUCTION_PLACEHOLDER = """
+You are segmenting ONE free-form math reasoning trace into ordered spans.
+
+Your job is to split the trace into chunks and label each chunk as either:
+- `reasoning`: interpretable math reasoning
+- `noise`: corrupted, garbled, irrelevant, or non-math content
+
+Rules:
+1. Preserve original order.
+2. Chunks should be semantically coherent spans, not arbitrary fixed-length slices.
+3. If a trace mixes valid reasoning with corrupted garbage, keep the reasoning spans and isolate the corrupted parts as `noise`.
+4. Do not drop content silently. Every meaningful part of the trace should be covered by some chunk.
+5. If a span is unreadable, code-like garbage, repeated corruption, multilingual junk unrelated to the math, or formatting debris, mark it as `noise`.
+6. If a span contains both valid reasoning and corruption, split it if possible.
+7. Keep the number of chunks reasonable. Prefer larger coherent spans over many tiny ones.
+
+Return JSON only with this exact shape:
+{
+  "chunks": [
+    {
+      "text_span": "string",
+      "span_type": "reasoning|noise"
+    }
+  ]
+}
+"""
+
 PROMPT_INSTRUCTION_PLACEHOLDER = (
     """
 You are a reasoning-trace canonicalizer.
 
-Your job is to tokenize ONE free-form math reasoning trace into a sequence of qualified reasoning-action tokens using the provided tokenization guide.
+Your job is to tokenize ONE free-form math reasoning trace into a sequence of canonical reasoning tokens using the provided tokenization guide.
 
 Each output token MUST have the form  basetype:qualifier
 - basetype  is a token from the guide's final vocabulary (e.g. analyze, compute, rewrite)
@@ -63,24 +93,29 @@ Tokenize by reasoning FUNCTION, not wording.
 
 Instructions:
 1. Read the tokenization guide carefully.
-2. Read the question and the trace.
-3. Segment the trace into reasoning spans according to the guide.
-4. Map each span to a basetype from the guide's final vocabulary.
-5. Choose a qualifier that describes the mathematical content of that span.
-6. Emit basetype:qualifier for each span, preserving order.
-7. If one sentence performs multiple reasoning functions, emit multiple tokens.
-8. Ignore filler, hedging, politeness, and stylistic language unless it changes reasoning function.
-9. Use the ambiguity rules when a span could fit multiple basetypes.
-10. Use the closest existing basetype rather than inventing a new one; qualifiers may be new.
+2. Read the question and the provided pre-segmented chunks.
+3. Ignore chunks labeled `noise` except to emit the canonical token `noise:corrupted-span`.
+4. Map each reasoning chunk to one or more tokens from the guide's final vocabulary.
+5. Preserve order.
+6. If one chunk performs multiple reasoning functions, emit multiple tokens.
+7. Ignore filler, hedging, politeness, and stylistic language unless it changes reasoning function.
+8. Use the ambiguity rules when a span could fit multiple tokens.
+9. Use the closest existing token rather than inventing a new one.
+10. Every emitted token must include an explicit type prefix:
+   - `action:<name>` for local reasoning moves
+   - `strategy:<name>` for higher-level plan choices or subgoal framing
+   - `milestone:<name>` for intermediate conclusions or state updates reached by the reasoning
+   - `noise:corrupted-span` for chunks labeled as noise
+11. Keep `strategy` and `milestone` vocabularies compact and reusable across traces.
+12. Do not emit a `strategy` or `milestone` token for every sentence. Emit them only when the trace clearly commits to a plan or reaches a meaningful intermediate conclusion.
 
 return tokenized sequence as
-{"tokenized_trace": "basetype1:qualifier1 basetype2:qualifier2 ..."}
+{"tokenized_trace": "action:token1 noise:corrupted-span milestone:token3 ..."}
 """
 )
 
 METADATA_INSTRUCTION_PLACEHOLDER = """
-You are designing a tokenization guide for canonicalizing free-form math reasoning traces into
-discrete qualified reasoning-action tokens of the form  basetype:qualifier.
+You are designing a tokenization guide for canonicalizing free-form math reasoning traces into discrete reasoning tokens.
 
 Your goal is to create a stable, reusable, label-blind tokenization policy that will later be
 used to tokenize individual traces one at a time.
@@ -89,7 +124,17 @@ This is NOT the final tokenization step.
 Do NOT tokenize the traces yet unless needed for brief examples.
 Instead, infer the metadata and rules needed for later tokenization.
 
-## Token format
+Objectives:
+1. Create a shared canonical token vocabulary for math reasoning traces.
+2. Use FOUR token types:
+   - action: local reasoning moves
+   - strategy: higher-level plan choices or subgoal framing
+   - milestone: intermediate conclusions or state updates reached by the reasoning
+   - noise: reserved for corrupted or unreadable spans only
+3. Define each token by reasoning FUNCTION, not wording.
+4. Make the vocabulary compact, reusable, and robust across many questions.
+5. Ensure the policy is label-blind: correctness must never affect token assignment.
+6. Anticipate ambiguities and define tie-breaking rules.
 
 Every emitted token must be  basetype:qualifier  where:
 - basetype  is drawn from the fixed base vocabulary below (do not invent new basetypes).
@@ -108,6 +153,7 @@ questions of the same type.  Suggested qualifier pool (extend if needed):
 
 ## Fixed base vocabulary
 
+Base action vocabulary candidate:
 - analyze
 - instantiate
 - compute
@@ -122,29 +168,39 @@ questions of the same type.  Suggested qualifier pool (extend if needed):
 - compare
 - derive-intermediate
 
-## Objectives
-1. Keep the base vocabulary fixed and compact.
-2. Define each basetype by reasoning FUNCTION, not wording.
-3. Define qualifier selection rules that are consistent across traces.
-4. Ensure the policy is label-blind: correctness must never affect token assignment.
-5. Anticipate ambiguities and define tie-breaking rules.
-
-You should assume that later, another prompt will tokenize traces individually using only the
-metadata you produce here.
-
 Tasks:
-A. For each basetype in the fixed vocabulary, provide:
+A. Review the candidate action vocabulary and decide:
+   - which tokens should remain as-is
+   - which should be merged
+   - which need sharper definitions
+   - whether any additional action tokens are absolutely necessary
+
+B. Propose compact `strategy` and `milestone` vocabularies.
+   - `strategy` tokens should represent plans such as choosing a representation,
+     reducing to a known form, splitting cases, switching viewpoints, or setting
+     a subgoal.
+   - `milestone` tokens should represent achieved intermediate states such as
+     deriving a key relation, reducing to one variable, obtaining a closed-form
+     expression, identifying a boundary case, or proving a required condition.
+   - Milestones may be more specific than actions, but they should still be normalized.
+   - Prefer milestone templates such as:
+     - `key-relation:x=y`
+     - `key-relation:expr=const`
+     - `key-relation:quadratic-in-one-var`
+     - `reduced-to:one-variable`
+     - `derived:closed-form`
+     - `identified:boundary-case`
+   - Avoid raw free-form milestone text and avoid highly question-specific labels when a reusable abstraction is possible.
+
+C. For each token in the final vocabulary, provide:
+   - token name
+   - token type (`action`, `strategy`, `milestone`, or `noise`)
    - one-sentence definition
    - inclusion criteria
    - exclusion criteria
    - 2-4 short example text spans with their expected  basetype:qualifier  output
 
-B. Provide qualifier selection rules:
-   - how to choose a qualifier for this question's domain
-   - when to coin a new qualifier vs reuse a suggested one
-   - how to normalize near-synonyms (e.g. "mod" → modular, "eq" → equation)
-
-C. Provide ambiguity-resolution rules for confusing basetype pairs such as:
+D. Provide ambiguity-resolution rules for confusing pairs such as:
    - compute vs apply-formula
    - rewrite vs simplify
    - analyze vs derive-intermediate
@@ -152,19 +208,31 @@ C. Provide ambiguity-resolution rules for confusing basetype pairs such as:
    - check-constraint vs compare
    - backtrack vs rewrite
    - conclude vs guess
+   - action vs strategy
+   - action vs milestone
+   - strategy vs milestone
+   - reasoning vs noise
 
-D. Provide segmentation rules:
+E. Provide segmentation rules:
    - when to merge adjacent spans into one token
    - when to emit multiple tokens from one sentence
    - how to treat repeated local computations
    - how to treat rhetorical filler and stylistic text
+   - when a single span should emit both an `action` and a `milestone`
+   - when a planning sentence should emit a `strategy`
+   - when a chunk should be labeled `noise`
 
-E. Provide normalization rules:
+F. Provide normalization rules:
    - tokenization should depend on reasoning function, not wording
-   - equivalent actions across traces should map to the same  basetype:qualifier
+   - equivalent actions across traces should map to the same token
+   - equivalent strategies across traces should map to the same token
+   - equivalent intermediate conclusions across traces should map to the same token
    - correctness must not affect token choice
+   - downstream traces will be flattened into strings like `action:compute milestone:reduced-expression`
+   - milestone names should use normalized templates rather than free-form prose
+   - the only allowed noise token is `noise:corrupted-span`
 
-F. Provide a required JSON schema for downstream per-trace tokenization.
+G. Provide a required JSON schema for downstream per-trace tokenization.
 
 Return JSON only with this schema:
 {
@@ -173,6 +241,7 @@ Return JSON only with this schema:
   "final_vocabulary": [
     {
       "token": "string",
+      "token_type": "action|strategy|milestone|noise",
       "definition": "string",
       "include_when": ["string"],
       "exclude_when": ["string"],
@@ -198,11 +267,27 @@ Return JSON only with this schema:
   "required_output_schema": {
     "trace_id": "string",
     "question_id": "string",
+<<<<<<< HEAD
     "tokens": ["string (basetype:qualifier)"],
     "alignment": [
       {
         "text_span": "string",
         "token": "string (basetype:qualifier)"
+=======
+    "tokenized_trace": "space-delimited string of type-prefixed tokens",
+    "tokens": [
+      {
+        "type": "action|strategy|milestone|noise",
+        "token": "string",
+        "text_span": "string"
+      }
+    ],
+    "alignment": [
+      {
+        "text_span": "string",
+        "token": "string",
+        "token_type": "action|strategy|milestone|noise"
+>>>>>>> 3ec13d5d5029df1065fa0d04f9bc6696d6b0151d
       }
     ]
   },
@@ -221,6 +306,26 @@ class InputRow:
     predicted_answer: str
     is_correct: str
     reasoning_trace: str
+
+
+@dataclass(frozen=True)
+class TraceChunk:
+    text_span: str
+    span_type: str
+
+
+@dataclass(frozen=True)
+class ChunkedTrace:
+    row: InputRow
+    chunks: list[TraceChunk]
+
+
+@dataclass(frozen=True)
+class QuestionTokenizationResult:
+    question_id: str
+    chunked_traces: list[ChunkedTrace]
+    metadata: dict[str, Any]
+    output_rows: list[dict[str, str]]
 
 
 class TogetherClient:
@@ -256,17 +361,45 @@ class TogetherClient:
             )
 
     def tokenize_trace(self, *, row: InputRow, metadata: dict[str, Any]) -> str:
-        prompt = build_single_trace_prompt(row=row, metadata=metadata)
+        prompt = build_single_trace_prompt(row=row, metadata=metadata, chunks=[])
         payload = self._post_chat_completion(prompt)
         content = extract_assistant_text(payload)
-        print(content)
         return parse_single_trace_response(content=content)
 
-    def build_question_metadata(self, *, question_id: str, rows: list[InputRow]) -> dict[str, Any]:
-        prompt = build_question_metadata_prompt(question_id=question_id, rows=rows)
+    def chunk_trace(self, *, row: InputRow) -> list[TraceChunk]:
+        prompt = build_trace_chunking_prompt(row=row)
+        payload = self._post_chat_completion(prompt)
+        content = extract_assistant_text(payload)
+        return parse_chunking_response(row=row, content=content)
+
+    def build_question_metadata(
+        self,
+        *,
+        question_id: str,
+        chunked_traces: list[ChunkedTrace],
+    ) -> dict[str, Any]:
+        prompt = build_question_metadata_prompt(
+            question_id=question_id,
+            chunked_traces=chunked_traces,
+        )
         payload = self._post_chat_completion(prompt)
         content = extract_assistant_text(payload)
         return parse_metadata_response(content)
+
+    def tokenize_chunked_trace(
+        self,
+        *,
+        chunked_trace: ChunkedTrace,
+        metadata: dict[str, Any],
+    ) -> str:
+        prompt = build_single_trace_prompt(
+            row=chunked_trace.row,
+            metadata=metadata,
+            chunks=chunked_trace.chunks,
+        )
+        payload = self._post_chat_completion(prompt)
+        content = extract_assistant_text(payload)
+        return parse_single_trace_response(content=content)
 
     def _post_chat_completion(self, prompt: str) -> dict[str, Any]:
         
@@ -407,6 +540,29 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_TIMEOUT_SECONDS,
         help=f"HTTP timeout per request in seconds (default: {DEFAULT_TIMEOUT_SECONDS:g}).",
     )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=4,
+        help="Number of questions to tokenize concurrently (default: 4).",
+    )
+    parser.add_argument(
+        "--progress-log",
+        type=Path,
+        default=None,
+        help="Optional JSONL path for live progress events.",
+    )
+    parser.add_argument(
+        "--progress-print-every",
+        type=int,
+        default=5,
+        help="Print per-question trace progress every N traces (default: 5).",
+    )
+    parser.add_argument(
+        "--fail-fast",
+        action="store_true",
+        help="Stop the entire run on the first question-level error (default: keep going).",
+    )
     return parser.parse_args()
 
 
@@ -427,11 +583,41 @@ def main() -> None:
         if args.metadata_output is not None
         else _default_metadata_output_path(input_csv=input_csv, model=args.model, run_index=args.run_index)
     )
+    progress_log = args.progress_log.resolve() if args.progress_log is not None else None
+    existing_output_keys = (
+        load_existing_output_keys(output_csv) if args.append_output else set()
+    )
 
     rows = load_input_rows(input_csv)
     grouped: dict[str, list[InputRow]] = defaultdict(list)
     for row in rows:
         grouped[row.question_id].append(row)
+
+    skipped_trace_count = 0
+    skipped_question_count = 0
+    if existing_output_keys:
+        for question_id, question_rows in list(grouped.items()):
+            remaining_rows = [
+                row
+                for row in question_rows
+                if _row_output_key(question_id=row.question_id, sample_id=row.sample_id)
+                not in existing_output_keys
+            ]
+            skipped_here = len(question_rows) - len(remaining_rows)
+            if skipped_here > 0:
+                skipped_trace_count += skipped_here
+                if len(remaining_rows) == 0:
+                    skipped_question_count += 1
+                    print(
+                        f"[cached] question_id={question_id} traces={len(question_rows)} already tokenized; skipping",
+                        file=sys.stderr,
+                    )
+                else:
+                    print(
+                        f"[resume] question_id={question_id} skipping {skipped_here} cached trace(s), processing {len(remaining_rows)}",
+                        file=sys.stderr,
+                    )
+            grouped[question_id] = remaining_rows
 
     repo_root = Path(__file__).resolve().parents[1]
     client = TogetherClient(
@@ -447,6 +633,11 @@ def main() -> None:
 
     initialize_output_csv(output_csv=output_csv, append_output=args.append_output)
     initialize_metadata_jsonl(metadata_output=metadata_output, append_output=args.append_output)
+    progress_lock = threading.Lock()
+    initialize_progress_log(
+        progress_log=progress_log,
+        append_output=args.append_output,
+    )
 
     question_ids = sorted(grouped.keys(), key=_smart_sort_key)
     start_question_id = _normalize(args.start_question_id) if args.start_question_id is not None else None
@@ -456,43 +647,188 @@ def main() -> None:
             f"start-question-id={start_question_id} not found in input; nothing will be processed.",
             file=sys.stderr,
         )
-    total_questions = len(question_ids)
-    processed_count = 0
+    selected_question_ids: list[str] = []
     for question_id in question_ids:
         if not started:
             if question_id == start_question_id:
                 started = True
             else:
                 continue
-        processed_count += 1
-        question_rows = grouped[question_id]
-        print(
-            f"[{processed_count}/{total_questions}] Tokenizing question_id={question_id} traces={len(question_rows)}",
-            file=sys.stderr,
-        )
-        metadata = client.build_question_metadata(question_id=question_id, rows=question_rows)
-        append_metadata_record(
-            metadata_output=metadata_output,
-            question_id=question_id,
-            rows=question_rows,
-            metadata=metadata,
-        )
+        if not grouped[question_id]:
+            continue
+        selected_question_ids.append(question_id)
 
-        output_rows: list[dict[str, str]] = []
-        for row in question_rows:
-            tokenized = client.tokenize_trace(row=row, metadata=metadata)
-            output_rows.append(
-                {
-                    "question_id": row.question_id,
-                    "sample_id": row.sample_id,
-                    "gold_answer": row.gold_answer,
-                    "predicted_answer": row.predicted_answer,
-                    "is_correct": row.is_correct,
-                    "tokenized_trace": tokenized,
-                }
+    total_questions = len(selected_question_ids)
+    if total_questions == 0:
+        print("No questions selected for tokenization.", file=sys.stderr)
+        print(f"Wrote tokenized traces to: {output_csv}")
+        print(f"Wrote metadata per question to: {metadata_output}")
+        return
+    append_progress_event(
+        progress_log=progress_log,
+        lock=progress_lock,
+        event={
+            "event": "run_started",
+            "input_csv": str(input_csv),
+            "output_csv": str(output_csv),
+            "metadata_output": str(metadata_output),
+            "total_questions": total_questions,
+            "workers": max(1, args.workers),
+            "cached_trace_skips": skipped_trace_count,
+            "cached_question_skips": skipped_question_count,
+        },
+    )
+
+    workers = max(1, args.workers)
+    failed_questions: list[tuple[str, str]] = []
+    if workers == 1:
+        for completed_count, question_id in enumerate(selected_question_ids, start=1):
+            question_rows = grouped[question_id]
+            print(
+                f"[{completed_count}/{total_questions}] Tokenizing question_id={question_id} traces={len(question_rows)}",
+                file=sys.stderr,
             )
-        append_output_rows(output_csv=output_csv, output_rows=output_rows)
+            append_progress_event(
+                progress_log=progress_log,
+                lock=progress_lock,
+                event={
+                    "event": "question_started",
+                    "question_id": question_id,
+                    "expected_traces": len(question_rows),
+                },
+            )
+            try:
+                result = tokenize_question(
+                    question_id=question_id,
+                    rows=question_rows,
+                    client=client,
+                    progress_callback=make_progress_callback(
+                        progress_log=progress_log,
+                        lock=progress_lock,
+                        question_id=question_id,
+                        expected_traces=len(question_rows),
+                        print_every=max(1, args.progress_print_every),
+                    ),
+                )
+            except Exception as exc:
+                failed_questions.append((question_id, str(exc)))
+                append_progress_event(
+                    progress_log=progress_log,
+                    lock=progress_lock,
+                    event={
+                        "event": "question_error",
+                        "question_id": question_id,
+                        "error": str(exc),
+                    },
+                )
+                print(f"[error] question_id={question_id}: {exc}", file=sys.stderr)
+                if args.fail_fast:
+                    raise
+                continue
+            write_question_result(
+                result=result,
+                output_csv=output_csv,
+                metadata_output=metadata_output,
+            )
+            append_progress_event(
+                progress_log=progress_log,
+                lock=progress_lock,
+                event={
+                    "event": "question_done",
+                    "question_id": result.question_id,
+                    "expected_traces": len(result.chunked_traces),
+                },
+            )
+    else:
+        for queued_count, question_id in enumerate(selected_question_ids, start=1):
+            question_rows = grouped[question_id]
+            print(
+                f"[queued {queued_count}/{total_questions}] question_id={question_id} traces={len(question_rows)}",
+                file=sys.stderr,
+            )
 
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
+            future_to_question: dict[concurrent.futures.Future[QuestionTokenizationResult], str] = {}
+            for question_id in selected_question_ids:
+                append_progress_event(
+                    progress_log=progress_log,
+                    lock=progress_lock,
+                    event={
+                        "event": "question_started",
+                        "question_id": question_id,
+                        "expected_traces": len(grouped[question_id]),
+                    },
+                )
+                future = executor.submit(
+                    tokenize_question,
+                    question_id=question_id,
+                    rows=grouped[question_id],
+                    client=client,
+                    progress_callback=make_progress_callback(
+                        progress_log=progress_log,
+                        lock=progress_lock,
+                        question_id=question_id,
+                        expected_traces=len(grouped[question_id]),
+                        print_every=max(1, args.progress_print_every),
+                    ),
+                )
+                future_to_question[future] = question_id
+            for completed_count, future in enumerate(
+                concurrent.futures.as_completed(future_to_question),
+                start=1,
+            ):
+                question_id = future_to_question[future]
+                try:
+                    result = future.result()
+                except Exception as exc:
+                    failed_questions.append((question_id, str(exc)))
+                    append_progress_event(
+                        progress_log=progress_log,
+                        lock=progress_lock,
+                        event={
+                            "event": "question_error",
+                            "question_id": question_id,
+                            "error": str(exc),
+                        },
+                    )
+                    print(f"[error] question_id={question_id}: {exc}", file=sys.stderr)
+                    if args.fail_fast:
+                        raise
+                    continue
+                write_question_result(
+                    result=result,
+                    output_csv=output_csv,
+                    metadata_output=metadata_output,
+                )
+                append_progress_event(
+                    progress_log=progress_log,
+                    lock=progress_lock,
+                    event={
+                        "event": "question_done",
+                        "question_id": result.question_id,
+                        "expected_traces": len(result.chunked_traces),
+                    },
+                )
+                print(
+                    f"[done {completed_count}/{total_questions}] question_id={result.question_id} traces={len(result.chunked_traces)}",
+                    file=sys.stderr,
+                )
+
+    append_progress_event(
+        progress_log=progress_log,
+        lock=progress_lock,
+        event={
+            "event": "run_finished",
+            "total_questions": total_questions,
+            "failed_questions": len(failed_questions),
+            "cached_trace_skips": skipped_trace_count,
+            "cached_question_skips": skipped_question_count,
+        },
+    )
+    if failed_questions:
+        print(f"Run finished with {len(failed_questions)} failed question(s):", file=sys.stderr)
+        for qid, err in failed_questions:
+            print(f"  - question_id={qid}: {err}", file=sys.stderr)
     print(f"Wrote tokenized traces to: {output_csv}")
     print(f"Wrote metadata per question to: {metadata_output}")
 
@@ -523,7 +859,203 @@ def load_input_rows(path: Path) -> list[InputRow]:
     return rows
 
 
-def build_question_metadata_prompt(*, question_id: str, rows: list[InputRow]) -> str:
+def _row_output_key(*, question_id: str, sample_id: str) -> tuple[str, str]:
+    return (_normalize(question_id), _normalize(sample_id))
+
+
+def load_existing_output_keys(path: Path) -> set[tuple[str, str]]:
+    if not path.exists() or path.stat().st_size == 0:
+        return set()
+    with path.open("r", newline="", encoding="utf-8-sig") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames is None:
+            return set()
+        if "question_id" not in reader.fieldnames or "sample_id" not in reader.fieldnames:
+            return set()
+        keys: set[tuple[str, str]] = set()
+        for row in reader:
+            keys.add(
+                _row_output_key(
+                    question_id=row.get("question_id", ""),
+                    sample_id=row.get("sample_id", ""),
+                )
+            )
+    return keys
+
+
+def build_noise_only_metadata() -> dict[str, Any]:
+    return {
+        "guide_name": "NoiseOnlyFallbackGuide",
+        "version": "1.0",
+        "final_vocabulary": [
+            {
+                "token": "corrupted-span",
+                "token_type": "noise",
+                "definition": "Reserved token for unreadable or corrupted trace spans.",
+                "include_when": ["The span is garbled, code-like, or otherwise not interpretable math reasoning."],
+                "exclude_when": ["The span contains interpretable math reasoning."],
+                "examples": ["RuntimeException ... mongodb ...", "garbled multilingual junk"],
+            }
+        ],
+        "notes_for_tokenizer": [
+            "Fallback metadata used when no reasoning chunks were detected.",
+            "The only allowed emitted token is noise:corrupted-span.",
+        ],
+    }
+
+
+def tokenize_question(
+    *,
+    question_id: str,
+    rows: list[InputRow],
+    client: TogetherClient,
+    progress_callback: Any = None,
+) -> QuestionTokenizationResult:
+    chunked_traces: list[ChunkedTrace] = []
+    for chunked_index, row in enumerate(rows, start=1):
+        chunks = client.chunk_trace(row=row)
+        chunked_traces.append(ChunkedTrace(row=row, chunks=chunks))
+        if callable(progress_callback):
+            progress_callback("trace_chunked", chunked_index)
+    if any(
+        chunk.span_type == "reasoning"
+        for chunked_trace in chunked_traces
+        for chunk in chunked_trace.chunks
+    ):
+        metadata = client.build_question_metadata(
+            question_id=question_id,
+            chunked_traces=chunked_traces,
+        )
+    else:
+        metadata = build_noise_only_metadata()
+    if callable(progress_callback):
+        progress_callback("metadata_ready", 0)
+    output_rows: list[dict[str, str]] = []
+    for tokenized_index, chunked_trace in enumerate(chunked_traces, start=1):
+        if all(chunk.span_type == "noise" for chunk in chunked_trace.chunks):
+            raw_tokenized = "noise:corrupted-span"
+        else:
+            raw_tokenized = client.tokenize_chunked_trace(
+                chunked_trace=chunked_trace,
+                metadata=metadata,
+            )
+        tokenized = normalize_tokenized_trace(
+            tokenized_trace=raw_tokenized,
+            chunks=chunked_trace.chunks,
+        )
+        output_rows.append(
+            {
+                "question_id": chunked_trace.row.question_id,
+                "sample_id": chunked_trace.row.sample_id,
+                "gold_answer": chunked_trace.row.gold_answer,
+                "predicted_answer": chunked_trace.row.predicted_answer,
+                "is_correct": chunked_trace.row.is_correct,
+                "tokenized_trace": tokenized,
+            }
+        )
+        if callable(progress_callback):
+            progress_callback("trace_tokenized", tokenized_index)
+    return QuestionTokenizationResult(
+        question_id=question_id,
+        chunked_traces=chunked_traces,
+        metadata=metadata,
+        output_rows=output_rows,
+    )
+
+
+def write_question_result(
+    *,
+    result: QuestionTokenizationResult,
+    output_csv: Path,
+    metadata_output: Path,
+) -> None:
+    append_metadata_record(
+        metadata_output=metadata_output,
+        question_id=result.question_id,
+        rows=[chunked_trace.row for chunked_trace in result.chunked_traces],
+        metadata=result.metadata,
+    )
+    append_output_rows(output_csv=output_csv, output_rows=result.output_rows)
+
+
+def initialize_progress_log(*, progress_log: Path | None, append_output: bool) -> None:
+    if progress_log is None:
+        return
+    progress_log.parent.mkdir(parents=True, exist_ok=True)
+    if append_output and progress_log.exists() and progress_log.stat().st_size > 0:
+        return
+    with progress_log.open("w", encoding="utf-8"):
+        pass
+
+
+def append_progress_event(
+    *,
+    progress_log: Path | None,
+    lock: threading.Lock,
+    event: dict[str, Any],
+) -> None:
+    if progress_log is None:
+        return
+    payload = dict(event)
+    payload.setdefault("ts", time.time())
+    with lock:
+        with progress_log.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(payload, ensure_ascii=False) + "\n")
+
+
+def make_progress_callback(
+    *,
+    progress_log: Path | None,
+    lock: threading.Lock,
+    question_id: str,
+    expected_traces: int,
+    print_every: int,
+) -> Any:
+    def _callback(event_name: str, count: int) -> None:
+        append_progress_event(
+            progress_log=progress_log,
+            lock=lock,
+            event={
+                "event": event_name,
+                "question_id": question_id,
+                "count": count,
+                "expected_traces": expected_traces,
+            },
+        )
+        if event_name in {"trace_chunked", "trace_tokenized"}:
+            if count % print_every == 0 or count == expected_traces:
+                print(
+                    f"[{event_name}] question_id={question_id} {count}/{expected_traces}",
+                    file=sys.stderr,
+                )
+        elif event_name == "metadata_ready":
+            print(f"[metadata_ready] question_id={question_id}", file=sys.stderr)
+
+    return _callback
+
+
+def build_trace_chunking_prompt(*, row: InputRow) -> str:
+    lines: list[str] = []
+    lines.append("Segment this single reasoning trace into ordered reasoning/noise chunks.")
+    lines.append("")
+    lines.append(CHUNKING_INSTRUCTION_PLACEHOLDER.strip())
+    lines.append("")
+    lines.append("Return JSON only. Do not return markdown or prose outside JSON.")
+    lines.append("")
+    lines.append(f"question_id: {row.question_id}")
+    lines.append(f"sample_id: {row.sample_id}")
+    lines.append("reasoning_trace: |")
+    trace = row.reasoning_trace or ""
+    for trace_line in trace.splitlines() or [""]:
+        lines.append(f"  {trace_line}")
+    return "\n".join(lines)
+
+
+def build_question_metadata_prompt(
+    *,
+    question_id: str,
+    chunked_traces: list[ChunkedTrace],
+) -> str:
     lines: list[str] = []
     lines.append("You are creating shared metadata for a later per-trace tokenization step.")
     lines.append("")
@@ -533,17 +1065,25 @@ def build_question_metadata_prompt(*, question_id: str, rows: list[InputRow]) ->
     lines.append("")
     lines.append(f"question_id: {question_id}")
     lines.append("")
-    lines.append("traces:")
-    for row in rows:
-        lines.append(f"- sample_id: {row.sample_id}")
-        lines.append("  reasoning_trace: |")
-        trace = row.reasoning_trace or ""
-        for trace_line in trace.splitlines() or [""]:
-            lines.append(f"    {trace_line}")
+    lines.append("chunked_traces:")
+    for chunked_trace in chunked_traces:
+        lines.append(f"- sample_id: {chunked_trace.row.sample_id}")
+        for chunk in chunked_trace.chunks:
+            if chunk.span_type != "reasoning":
+                continue
+            lines.append(f"  - span_type: {chunk.span_type}")
+            lines.append("    text_span: |")
+            for trace_line in chunk.text_span.splitlines() or [""]:
+                lines.append(f"      {trace_line}")
     return "\n".join(lines)
 
 
-def build_single_trace_prompt(*, row: InputRow, metadata: dict[str, Any]) -> str:
+def build_single_trace_prompt(
+    *,
+    row: InputRow,
+    metadata: dict[str, Any],
+    chunks: list[TraceChunk],
+) -> str:
     metadata_json = json.dumps(metadata, ensure_ascii=True)
     lines: list[str] = []
     lines.append("Tokenize this single reasoning trace using the shared metadata below.")
@@ -555,13 +1095,29 @@ def build_single_trace_prompt(*, row: InputRow, metadata: dict[str, Any]) -> str
     lines.append("")
     lines.append('Return JSON only with this exact shape: {"tokenized_trace":"..."}')
     lines.append("If no valid tokenization can be produced, return tokenized_trace as MISSING.")
+    lines.append(
+        "Flatten every token using explicit type prefixes like "
+        "`action:compute`, `strategy:reduce-to-equation`, or `milestone:derived-key-relation`."
+    )
+    lines.append(
+        "If a span performs a local action and reaches a meaningful subresult, emit the action token "
+        "followed by the milestone token."
+    )
+    lines.append(
+        "Use normalized milestone templates when possible, for example "
+        "`milestone:key-relation:x=y`, `milestone:reduced-to:one-variable`, or "
+        "`milestone:derived:closed-form`."
+    )
     lines.append("")
     lines.append(f"question_id: {row.question_id}")
     lines.append(f"sample_id: {row.sample_id}")
-    lines.append("reasoning_trace: |")
-    trace = row.reasoning_trace or ""
-    for trace_line in trace.splitlines() or [""]:
-        lines.append(f"  {trace_line}")
+    lines.append("presegmented_chunks:")
+    for idx, chunk in enumerate(chunks, start=1):
+        lines.append(f"- chunk_index: {idx}")
+        lines.append(f"  span_type: {chunk.span_type}")
+        lines.append("  text_span: |")
+        for trace_line in chunk.text_span.splitlines() or [""]:
+            lines.append(f"    {trace_line}")
     return "\n".join(lines)
 
 
@@ -605,6 +1161,18 @@ def parse_metadata_response(content: str) -> dict[str, Any]:
     if isinstance(parsed, list):
         return {"token_dictionary": parsed}
     return {"raw_metadata": content[:4000]}
+
+
+def parse_chunking_response(*, row: InputRow, content: str) -> list[TraceChunk]:
+    try:
+        parsed = _parse_json_from_text(content)
+    except RuntimeError:
+        return _fallback_chunk_trace(row.reasoning_trace)
+
+    chunks = _extract_chunks_from_parsed(parsed)
+    if not chunks:
+        return _fallback_chunk_trace(row.reasoning_trace)
+    return chunks
 
 
 def parse_single_trace_response(*, content: str) -> str:
@@ -702,6 +1270,100 @@ def _normalize(value: Any) -> str:
     return str(value or "").strip()
 
 
+def _extract_chunks_from_parsed(parsed: Any) -> list[TraceChunk]:
+    if isinstance(parsed, dict):
+        candidates = parsed.get("chunks")
+        if isinstance(candidates, list):
+            chunks = _parse_chunk_list(candidates)
+            if chunks:
+                return chunks
+    if isinstance(parsed, list):
+        chunks = _parse_chunk_list(parsed)
+        if chunks:
+            return chunks
+    return []
+
+
+def _parse_chunk_list(items: list[Any]) -> list[TraceChunk]:
+    chunks: list[TraceChunk] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        text_span = _normalize(item.get("text_span") or item.get("text") or item.get("span"))
+        if not text_span:
+            continue
+        raw_span_type = _normalize(item.get("span_type") or item.get("type") or item.get("label"))
+        span_type = raw_span_type.lower().replace("_", "-")
+        if span_type not in {"reasoning", "noise"}:
+            span_type = "noise" if _looks_like_noise(text_span) else "reasoning"
+        chunks.append(TraceChunk(text_span=text_span, span_type=span_type))
+    return _merge_adjacent_chunks(chunks)
+
+
+def _merge_adjacent_chunks(chunks: list[TraceChunk]) -> list[TraceChunk]:
+    merged: list[TraceChunk] = []
+    for chunk in chunks:
+        if merged and merged[-1].span_type == chunk.span_type:
+            merged[-1] = TraceChunk(
+                text_span=f"{merged[-1].text_span}\n{chunk.text_span}".strip(),
+                span_type=chunk.span_type,
+            )
+        else:
+            merged.append(chunk)
+    return merged
+
+
+def _fallback_chunk_trace(trace: str) -> list[TraceChunk]:
+    cleaned = trace.strip()
+    if not cleaned:
+        return [TraceChunk(text_span="EMPTY_TRACE", span_type="noise")]
+
+    raw_spans = [part.strip() for part in re.split(r"\n\s*\n+", cleaned) if part.strip()]
+    if not raw_spans:
+        raw_spans = [cleaned]
+
+    chunks = [
+        TraceChunk(
+            text_span=span,
+            span_type="noise" if _looks_like_noise(span) else "reasoning",
+        )
+        for span in raw_spans
+    ]
+    return _merge_adjacent_chunks(chunks)
+
+
+def _looks_like_noise(text: str) -> bool:
+    stripped = text.strip()
+    if not stripped:
+        return True
+
+    suspicious_substrings = (
+        "runtimeexception",
+        "mongodb",
+        "httpservletresponse",
+        "@repository",
+        "stringutils",
+        "fixture",
+        "onclick",
+        "<style",
+        "userid",
+        "json",
+        "hostname",
+    )
+    lowered = stripped.lower()
+    if any(marker in lowered for marker in suspicious_substrings):
+        return True
+
+    total_chars = len(stripped)
+    if total_chars == 0:
+        return True
+
+    alnum_chars = sum(1 for ch in stripped if ch.isalnum())
+    symbol_chars = sum(1 for ch in stripped if not ch.isalnum() and not ch.isspace())
+    long_garble = total_chars >= 120 and symbol_chars > alnum_chars
+    return long_garble
+
+
 def _extract_tokenized_trace_from_parsed(parsed: Any) -> str | None:
     if isinstance(parsed, dict):
         direct = _extract_tokenized_from_dict(parsed)
@@ -759,9 +1421,15 @@ def _extract_tokenized_from_dict(data: dict[str, Any]) -> str | None:
             for step in steps:
                 if not isinstance(step, dict):
                     continue
+<<<<<<< HEAD
                 t = _assemble_qualified_token(step)
                 if t:
                     tokens.append(t)
+=======
+                token = _format_typed_token_item(step)
+                if token:
+                    tokens.append(token)
+>>>>>>> 3ec13d5d5029df1065fa0d04f9bc6696d6b0151d
             if tokens:
                 return " ".join(tokens)
     return None
@@ -804,11 +1472,126 @@ def _stringify_token_sequence(value: Any) -> str | None:
                 if token:
                     tokens.append(token)
             elif isinstance(item, dict):
+<<<<<<< HEAD
                 t = _assemble_qualified_token(item)
                 if t:
                     tokens.append(t)
+=======
+                token = _format_typed_token_item(item)
+                if token:
+                    tokens.append(token)
+>>>>>>> 3ec13d5d5029df1065fa0d04f9bc6696d6b0151d
         return " ".join(tokens)
     return None
+
+
+def _format_typed_token_item(item: dict[str, Any]) -> str:
+    token_name = ""
+    for key in ("token", "canonical_token", "label", "name"):
+        if key in item:
+            token_name = _normalize(item.get(key))
+            if token_name:
+                break
+    if not token_name:
+        return ""
+
+    token_type = ""
+    for key in ("type", "token_type", "category", "kind"):
+        if key in item:
+            token_type = _normalize(item.get(key)).lower()
+            if token_type:
+                break
+
+    if token_type in {"action", "strategy", "milestone", "noise"}:
+        if token_name.startswith(f"{token_type}:"):
+            return token_name
+        return f"{token_type}:{token_name}"
+    return token_name
+
+
+def normalize_tokenized_trace(*, tokenized_trace: str, chunks: list[TraceChunk]) -> str:
+    raw = _normalize(tokenized_trace)
+    if not raw or raw == "MISSING":
+        return _fallback_tokens_from_chunks(chunks)
+
+    tokens: list[str] = []
+    for piece in raw.split():
+        normalized = _normalize_single_token(piece)
+        if normalized:
+            tokens.append(normalized)
+
+    if not tokens:
+        return _fallback_tokens_from_chunks(chunks)
+
+    tokens = _compress_duplicate_runs(tokens)
+    return " ".join(tokens)
+
+
+def _normalize_single_token(token: str) -> str:
+    cleaned = _normalize(token).lower().replace("_", "-")
+    cleaned = re.sub(r"\s+", "", cleaned)
+    cleaned = cleaned.strip(",.;")
+    if not cleaned:
+        return ""
+
+    parts = [part for part in cleaned.split(":") if part]
+    if not parts:
+        return ""
+
+    token_type = parts[0]
+    if token_type not in {"action", "strategy", "milestone", "noise"}:
+        return ""
+
+    if token_type == "noise":
+        return "noise:corrupted-span"
+
+    normalized_parts = [_canonicalize_token_part(part) for part in parts[1:]]
+    normalized_parts = [part for part in normalized_parts if part]
+    if not normalized_parts:
+        return ""
+    return ":".join([token_type, *normalized_parts])
+
+
+def _canonicalize_token_part(part: str) -> str:
+    canonical = part
+    aliases = {
+        "applyformula": "apply-formula",
+        "apply-formula": "apply-formula",
+        "deriveintermediate": "derive-intermediate",
+        "derive-intermediate": "derive-intermediate",
+        "keyrelation": "key-relation",
+        "key-relation": "key-relation",
+        "choose-representation": "choose-representation",
+        "chooserepresentation": "choose-representation",
+        "setsubgoal": "set-subgoal",
+        "set-subgoal": "set-subgoal",
+        "stepwise": "plan-stepwise",
+    }
+    if canonical in aliases:
+        canonical = aliases[canonical]
+    canonical = re.sub(r"[^a-z0-9=+\-^]+", "-", canonical)
+    canonical = re.sub(r"-{2,}", "-", canonical).strip("-")
+    return canonical
+
+
+def _compress_duplicate_runs(tokens: list[str]) -> list[str]:
+    compressed: list[str] = []
+    for token in tokens:
+        if compressed and compressed[-1] == token:
+            continue
+        compressed.append(token)
+    return compressed
+
+
+def _fallback_tokens_from_chunks(chunks: list[TraceChunk]) -> str:
+    fallback_tokens: list[str] = []
+    for chunk in chunks:
+        if chunk.span_type == "noise":
+            fallback_tokens.append("noise:corrupted-span")
+        else:
+            fallback_tokens.append("action:analyze")
+    fallback_tokens = _compress_duplicate_runs(fallback_tokens)
+    return " ".join(fallback_tokens) if fallback_tokens else "noise:corrupted-span"
 
 
 def _extract_tokenized_trace_from_text(content: str) -> str:
