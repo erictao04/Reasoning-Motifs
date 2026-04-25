@@ -8,9 +8,37 @@ import json
 import re
 import secrets
 import subprocess
+import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Mapping
+
+
+_LOG_T0 = time.time()
+
+
+def log(stage: str, msg: str) -> None:
+    """Single-line stderr log with seconds-since-start prefix."""
+    elapsed = time.time() - _LOG_T0
+    print(f"[{elapsed:7.1f}s {stage:8}] {msg}", file=sys.stderr, flush=True)
+
+
+def short_err(exc: BaseException | str, n: int = 200) -> str:
+    """Squash exception/string into a single line, capped at ``n`` chars."""
+    s = str(exc)
+    s = " ".join(s.split())
+    return s if len(s) <= n else s[: n - 3] + "..."
+
+
+def fmt_duration(seconds: float) -> str:
+    if seconds < 60:
+        return f"{seconds:.1f}s"
+    m, s = divmod(int(seconds), 60)
+    if m < 60:
+        return f"{m}m{s:02d}s"
+    h, m = divmod(m, 60)
+    return f"{h}h{m:02d}m"
 
 
 def run_id() -> str:
@@ -115,3 +143,30 @@ def subset_by_questions(
                 break
     keep_set = set(seen)
     return [r for r in rows if r.get("question_id", "") in keep_set]
+
+
+def filter_mixed_outcome(
+    rows: list[dict[str, str]], *, label_col: str = "is_correct"
+) -> tuple[list[dict[str, str]], dict[str, str]]:
+    """Drop rows whose question_id is uniformly correct or uniformly incorrect.
+
+    Returns ``(kept_rows, drop_reasons)`` where ``drop_reasons`` maps each
+    dropped question_id to ``"all_correct"`` or ``"all_incorrect"``.
+    """
+    by_q_correct: dict[str, list[bool]] = {}
+    for r in rows:
+        qid = r.get("question_id", "")
+        by_q_correct.setdefault(qid, []).append(parse_bool(r.get(label_col)))
+    drop_reasons: dict[str, str] = {}
+    keep_qids: set[str] = set()
+    for qid, labels in by_q_correct.items():
+        if not labels:
+            continue
+        if all(labels):
+            drop_reasons[qid] = "all_correct"
+        elif not any(labels):
+            drop_reasons[qid] = "all_incorrect"
+        else:
+            keep_qids.add(qid)
+    kept = [r for r in rows if r.get("question_id", "") in keep_qids]
+    return kept, drop_reasons

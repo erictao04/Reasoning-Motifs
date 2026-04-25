@@ -12,17 +12,20 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
-from collections import defaultdict
+import time
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
 from ._common import (
     file_sha256,
+    fmt_duration,
     git_short_sha,
+    log,
     read_csv_rows,
     safe_model_suffix,
+    short_err,
     subset_by_questions,
     text_sha256,
     write_csv_rows,
@@ -213,6 +216,7 @@ def run_tokenize(
     api_base: str | None = None,
     api_key_env: str | None = None,
 ) -> dict[str, Any]:
+    t_start = time.time()
     rows = read_csv_rows(input_csv)
     if not rows:
         raise ValueError(f"No rows in {input_csv}")
@@ -223,15 +227,12 @@ def run_tokenize(
     if keep_only_label and "keep" in rows[0]:
         before = len(rows)
         rows = [r for r in rows if r.get("keep", "True") == "True"]
-        print(f"[tokenize] kept {len(rows)}/{before} rows after audit-drop filter", file=sys.stderr)
+        log("tokenize", f"filter kept {len(rows)}/{before} rows after audit-drop")
 
     if max_questions:
         before = len(rows)
         rows = subset_by_questions(rows, max_questions)
-        print(
-            f"[tokenize] limiting to {max_questions} questions: {len(rows)}/{before} rows",
-            file=sys.stderr,
-        )
+        log("tokenize", f"limit max_questions={max_questions}: {len(rows)}/{before} rows")
 
     grouped: dict[str, list[dict[str, str]]] = defaultdict(list)
     for r in rows:
@@ -246,13 +247,18 @@ def run_tokenize(
         max_tokens=8192,
     )
 
-    print(
-        f"[tokenize] {len(rows)} rows / {len(grouped)} questions, model={tokenizer_model}",
-        file=sys.stderr,
+    log("tokenize", f"input  csv={input_csv}  rows={len(rows)}  questions={len(grouped)}")
+    log(
+        "tokenize",
+        f"config model={tokenizer_model}  workers={max_workers}  cache={cache_dir}",
     )
 
     metadata_by_q: dict[str, dict[str, Any]] = {}
-    for qid, q_rows in grouped.items():
+    n_q = len(grouped)
+    n_meta_ok = 0
+    n_meta_fail = 0
+    log("tokenize", f"phase  metadata: 1 LLM call per question ({n_q} total)")
+    for i, (qid, q_rows) in enumerate(grouped.items(), start=1):
         question_text = q_rows[0].get("question", "")
         user = build_metadata_user(qid, q_rows, question_text)
         cache_key = text_sha256(METADATA_SYSTEM + "\n---\n" + user)
@@ -264,9 +270,21 @@ def run_tokenize(
                 cache_subdir="metadata",
                 max_tokens=4096,
             )
+            n_meta_ok += 1
+            log(
+                "tokenize",
+                f"meta   {i}/{n_q} qid={qid} OK   "
+                f"cache=h{client.cache_hits}/m{client.cache_misses}",
+            )
         except Exception as exc:
-            print(f"[tokenize] metadata FAIL qid={qid}: {exc}", file=sys.stderr)
+            n_meta_fail += 1
             metadata_by_q[qid] = {"error": str(exc)}
+            log("tokenize", f"meta   {i}/{n_q} qid={qid} FAIL {short_err(exc)}")
+    log(
+        "tokenize",
+        f"phase  metadata done: {n_meta_ok} ok, {n_meta_fail} fail "
+        f"in {fmt_duration(time.time() - t_start)}",
+    )
 
     output_rows: list[dict[str, str]] = []
     dropped: list[dict[str, Any]] = []
@@ -305,6 +323,12 @@ def run_tokenize(
             "invalid_tokens": invalid,
         }
 
+    n_total = len(rows)
+    progress_every = max(10, n_total // 10)
+    t_phase = time.time()
+    log("tokenize", f"phase  per-trace: 1 LLM call per row ({n_total} total)")
+    first_error: str | None = None
+    n_errors = 0
     with ThreadPoolExecutor(max_workers=max_workers) as ex:
         futures = [ex.submit(task, r) for r in rows]
         for j, f in enumerate(as_completed(futures), start=1):
@@ -327,10 +351,28 @@ def run_tokenize(
                         "invalid_tokens": res["invalid_tokens"][:10],
                     }
                 )
+                if res["drop_reason"].startswith("tokenize_error"):
+                    n_errors += 1
+                    if first_error is None:
+                        first_error = res["drop_reason"]
+                        log(
+                            "tokenize",
+                            f"FIRST ERROR qid={out['question_id']} "
+                            f"sid={out['sample_id']}: {short_err(first_error)}",
+                        )
             else:
                 output_rows.append(out)
-            if j % 50 == 0:
-                print(f"[tokenize] {j}/{len(rows)} done", file=sys.stderr)
+            if j == 1 or j % progress_every == 0 or j == n_total:
+                elapsed = time.time() - t_phase
+                rate = j / elapsed if elapsed > 0 else 0
+                eta = (n_total - j) / rate if rate > 0 else 0
+                log(
+                    "tokenize",
+                    f"trace  {j}/{n_total} ({100*j/n_total:.0f}%)  "
+                    f"ok={len(output_rows)} drop={len(dropped)} err={n_errors}  "
+                    f"cache=h{client.cache_hits}/m{client.cache_misses}  "
+                    f"elapsed={fmt_duration(elapsed)}  eta={fmt_duration(eta)}",
+                )
 
     write_csv_rows(output_csv, output_rows, OUTPUT_COLS)
 
@@ -364,10 +406,25 @@ def run_tokenize(
         "git_sha": git_short_sha(repo_root),
     }
     write_json(summary_path, summary)
-    print(
-        f"[tokenize] wrote {output_csv} ({len(output_rows)} rows; |M|={n_mixed})",
-        file=sys.stderr,
+
+    drop_reasons = Counter(d["drop_reason"].split(":", 1)[0] for d in dropped)
+    n_complete_q = sum(1 for s in per_q_stats.values() if s["total"] >= 1)
+    log(
+        "tokenize",
+        f"per-q  questions_with_output={n_complete_q}/{len(grouped)}  "
+        f"mixed_outcome|M|={n_mixed}",
     )
+    if drop_reasons:
+        log("tokenize", f"drops  {dict(drop_reasons)}")
+    log(
+        "tokenize",
+        f"DONE   rows={len(output_rows)}/{len(rows)}  "
+        f"in {fmt_duration(time.time() - t_start)}  "
+        f"cache=h{client.cache_hits}/m{client.cache_misses}  "
+        f"errors={n_errors}",
+    )
+    log("tokenize", f"wrote  {output_csv}")
+    log("tokenize", f"wrote  {summary_path}")
     return summary
 
 

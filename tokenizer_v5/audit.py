@@ -13,17 +13,21 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
 from ._common import (
     file_sha256,
+    filter_mixed_outcome,
+    fmt_duration,
     git_short_sha,
+    log,
     parse_bool,
     read_csv_rows,
     safe_model_suffix,
+    short_err,
     subset_by_questions,
     text_sha256,
     write_csv_rows,
@@ -194,22 +198,53 @@ def run_audit(
     confidence_threshold: float = 0.8,
     max_workers: int = 4,
     max_questions: int | None = None,
+    prefilter_mixed_outcome: bool = True,
     api_base: str | None = None,
     api_key_env: str | None = None,
 ) -> dict[str, Any]:
+    t_start = time.time()
     rows = read_csv_rows(input_csv)
     if not rows:
         raise ValueError(f"No rows in {input_csv}")
     missing = [c for c in REQUIRED_INPUT_COLS if c not in rows[0]]
     if missing:
         raise ValueError(f"Missing required columns: {missing}")
+
+    n_q_total = len({r.get("question_id", "") for r in rows})
+    n_rows_total = len(rows)
+
+    prefilter_drops: dict[str, str] = {}
+    if prefilter_mixed_outcome:
+        rows, prefilter_drops = filter_mixed_outcome(rows)
+        n_drop_q = len(prefilter_drops)
+        n_all_correct = sum(1 for v in prefilter_drops.values() if v == "all_correct")
+        n_all_incorrect = sum(
+            1 for v in prefilter_drops.values() if v == "all_incorrect"
+        )
+        log(
+            "audit",
+            f"prefilter mixed-outcome: kept {n_q_total - n_drop_q}/{n_q_total} questions, "
+            f"{len(rows)}/{n_rows_total} rows  "
+            f"(dropped {n_all_correct} all-correct, {n_all_incorrect} all-incorrect)",
+        )
+        if not rows:
+            raise ValueError(
+                "Prefilter removed every row: no mixed-outcome questions in input. "
+                "Re-run with --no-prefilter to disable."
+            )
+
     if max_questions:
         before = len(rows)
         rows = subset_by_questions(rows, max_questions)
-        print(
-            f"[audit] limiting to {max_questions} questions: {len(rows)}/{before} rows",
-            file=sys.stderr,
-        )
+        log("audit", f"limit max_questions={max_questions}: {len(rows)}/{before} rows")
+
+    n_questions = len({r.get("question_id", "") for r in rows})
+    log("audit", f"input  csv={input_csv}  rows={len(rows)}  questions={n_questions}")
+    log(
+        "audit",
+        f"config judge={judge_model}  workers={max_workers}  "
+        f"threshold={confidence_threshold}  cache={cache_dir}",
+    )
 
     client = LLMClient(
         model=judge_model,
@@ -220,26 +255,46 @@ def run_audit(
         max_tokens=512,
     )
 
-    print(f"[audit] {len(rows)} rows, judge={judge_model}", file=sys.stderr)
-
     audited: list[dict[str, str]] = [{} for _ in rows]
+    n_total = len(rows)
+    progress_every = max(10, n_total // 10)
+    first_error: str | None = None
 
-    def task(idx: int) -> tuple[int, dict[str, str]]:
+    def task(idx: int) -> tuple[int, dict[str, str], str | None]:
         row = rows[idx]
         verdict = judge_one(client, row)
+        err = None
+        if (verdict.get("reason") or "").startswith("judge_error:"):
+            err = verdict["reason"]
         flags = apply_decision_rules(row, verdict, confidence_threshold)
         flags["judge_model"] = judge_model
         merged: dict[str, str] = dict(row)
         merged.update(flags)
-        return idx, merged
+        return idx, merged, err
 
+    n_errors = 0
     with ThreadPoolExecutor(max_workers=max_workers) as ex:
-        futures = [ex.submit(task, i) for i in range(len(rows))]
+        futures = [ex.submit(task, i) for i in range(n_total)]
         for j, f in enumerate(as_completed(futures), start=1):
-            idx, merged = f.result()
+            idx, merged, err = f.result()
             audited[idx] = merged
-            if j % 50 == 0:
-                print(f"[audit] {j}/{len(rows)} done", file=sys.stderr)
+            if err:
+                n_errors += 1
+                if first_error is None:
+                    first_error = err
+                    log("audit", f"FIRST ERROR @ row {idx}: {short_err(err)}")
+            if j == 1 or j % progress_every == 0 or j == n_total:
+                elapsed = time.time() - t_start
+                rate = j / elapsed if elapsed > 0 else 0
+                eta = (n_total - j) / rate if rate > 0 else 0
+                log(
+                    "audit",
+                    f"progress {j}/{n_total} ({100*j/n_total:.0f}%)  "
+                    f"cache=h{client.cache_hits}/m{client.cache_misses}  "
+                    f"errors={n_errors}  "
+                    f"elapsed={fmt_duration(elapsed)}  "
+                    f"eta={fmt_duration(eta)}",
+                )
 
     n = len(audited)
     n_drop = sum(1 for r in audited if r["keep"] == "False")
@@ -262,6 +317,18 @@ def run_audit(
         "input_sha256": file_sha256(input_csv),
         "output_csv": str(output_csv),
         "judge_model": judge_model,
+        "n_rows_input": n_rows_total,
+        "n_questions_input": n_q_total,
+        "prefilter_mixed_outcome": prefilter_mixed_outcome,
+        "prefilter_dropped_questions": len(prefilter_drops),
+        "prefilter_dropped_breakdown": {
+            "all_correct": sum(
+                1 for v in prefilter_drops.values() if v == "all_correct"
+            ),
+            "all_incorrect": sum(
+                1 for v in prefilter_drops.values() if v == "all_incorrect"
+            ),
+        },
         "n_rows": n,
         "n_drop": n_drop,
         "n_relabel": n_relabel,
@@ -274,7 +341,20 @@ def run_audit(
         "confidence_threshold": confidence_threshold,
     }
     write_json(summary_path, summary)
-    print(f"[audit] wrote {output_csv} and {summary_path}", file=sys.stderr)
+    log(
+        "audit",
+        f"verdicts {dict(sorted(by_verdict.items()))}  "
+        f"drops={n_drop} {dict(by_drop_reason) if by_drop_reason else ''}  "
+        f"relabels={n_relabel}  low_conf={n_low_conf}",
+    )
+    log(
+        "audit",
+        f"DONE   {n} rows in {fmt_duration(time.time() - t_start)}  "
+        f"cache=h{client.cache_hits}/m{client.cache_misses}  "
+        f"errors={n_errors}",
+    )
+    log("audit", f"wrote  {output_csv}")
+    log("audit", f"wrote  {summary_path}")
     return summary
 
 
@@ -297,6 +377,11 @@ def main() -> None:
         default=None,
         help="If set, keep only the first N unique question_ids (smoke test).",
     )
+    parser.add_argument(
+        "--no-prefilter",
+        action="store_true",
+        help="Disable the mixed-outcome prefilter (default: prefilter on).",
+    )
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parents[1]
@@ -311,6 +396,7 @@ def main() -> None:
         confidence_threshold=args.confidence_threshold,
         max_workers=args.max_workers,
         max_questions=args.max_questions,
+        prefilter_mixed_outcome=not args.no_prefilter,
     )
 
 
