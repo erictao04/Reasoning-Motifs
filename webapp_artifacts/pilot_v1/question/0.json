@@ -1,0 +1,789 @@
+{
+  "question_id": "0",
+  "question_text": "A reflection takes $\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ to $\\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}.$  Which vector does the reflection take $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ to?",
+  "gold_answer": "\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}",
+  "benchmark_name": "math_500",
+  "pilot_question_uid": "math500_level45_random100_10samples:q0",
+  "total_traces": 10,
+  "success_count": 1,
+  "failure_count": 9,
+  "success_rate": 0.1,
+  "avg_token_count": 13.1,
+  "median_token_count": 12.0,
+  "distinct_predicted_answers": 3,
+  "tags": [
+    "mixed_outcomes",
+    "hard_question",
+    "high_diversity",
+    "low_evidence"
+  ],
+  "insights": [
+    "This question shows mixed outcomes: 1 successful traces versus 9 failures.",
+    "Successful traces tend to be shorter than failed traces on this question.",
+    "Answer diversity is high here: the traces produce 3 distinct final answers."
+  ],
+  "answer_distribution": [
+    {
+      "answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+      "count": 8,
+      "share": 0.8
+    },
+    {
+      "answer": "\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}",
+      "count": 1,
+      "share": 0.1
+    },
+    {
+      "answer": "\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}",
+      "count": 1,
+      "share": 0.1
+    }
+  ],
+  "local_motifs": {
+    "available": false,
+    "reason": "Need at least two successful and two failed traces with repeated motifs.",
+    "success": [],
+    "failure": []
+  },
+  "global_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "analyze|compute",
+        "tokens": [
+          "analyze",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 139,
+        "failure_count": 47,
+        "success_support": 0.7433155080213903,
+        "failure_support": 0.6266666666666667,
+        "support_difference": 0.11664884135472364,
+        "lift": 1.1861417662264604,
+        "log_odds_ratio": 0.5456751795519921,
+        "q_value": 0.5170493423981184
+      },
+      {
+        "motif": "analyze|compute|analyze",
+        "tokens": [
+          "analyze",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 61,
+        "failure_count": 18,
+        "success_support": 0.32620320855614976,
+        "failure_support": 0.24,
+        "support_difference": 0.08620320855614977,
+        "lift": 1.359180029987374,
+        "log_odds_ratio": 0.41280908236392305,
+        "q_value": 0.7598319082426742
+      },
+      {
+        "motif": "analyze|check-constraint",
+        "tokens": [
+          "analyze",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 48,
+        "failure_count": 13,
+        "success_support": 0.25668449197860965,
+        "failure_support": 0.17333333333333334,
+        "support_difference": 0.08335115864527631,
+        "lift": 1.4808720605638708,
+        "log_odds_ratio": 0.47597606797998926,
+        "q_value": 0.7598319082426742
+      },
+      {
+        "motif": "analyze|instantiate",
+        "tokens": [
+          "analyze",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 107,
+        "failure_count": 37,
+        "success_support": 0.5721925133689839,
+        "failure_support": 0.49333333333333335,
+        "support_difference": 0.07885918003565057,
+        "lift": 1.1598496869104071,
+        "log_odds_ratio": 0.3155509714605732,
+        "q_value": 0.921353659271186
+      }
+    ],
+    "failure": [
+      {
+        "motif": "conclude|compute",
+        "tokens": [
+          "conclude",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 36,
+        "failure_count": 34,
+        "success_support": 0.1925133689839572,
+        "failure_support": 0.4533333333333333,
+        "support_difference": -0.2608199643493761,
+        "lift": 0.4246618424102104,
+        "log_odds_ratio": -1.2385392611616395,
+        "q_value": 0.013014976654953778
+      },
+      {
+        "motif": "apply-formula",
+        "tokens": [
+          "apply-formula"
+        ],
+        "length": 1,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 80,
+        "failure_count": 46,
+        "success_support": 0.42780748663101603,
+        "failure_support": 0.6133333333333333,
+        "support_difference": -0.18552584670231725,
+        "lift": 0.697512205326365,
+        "log_odds_ratio": -0.7442957123907363,
+        "q_value": 0.17345516068302833
+      },
+      {
+        "motif": "compute|instantiate",
+        "tokens": [
+          "compute",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 79,
+        "failure_count": 45,
+        "success_support": 0.42245989304812837,
+        "failure_support": 0.6,
+        "support_difference": -0.1775401069518716,
+        "lift": 0.7040998205733809,
+        "log_odds_ratio": -0.7109787936637668,
+        "q_value": 0.20978919397023355
+      },
+      {
+        "motif": "compute|check-constraint",
+        "tokens": [
+          "compute",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 46,
+        "failure_count": 31,
+        "success_support": 0.24598930481283424,
+        "failure_support": 0.41333333333333333,
+        "support_difference": -0.1673440285204991,
+        "lift": 0.5951354134299165,
+        "log_odds_ratio": -0.7673457611493745,
+        "q_value": 0.18673130699197357
+      },
+      {
+        "motif": "analyze|apply-formula",
+        "tokens": [
+          "analyze",
+          "apply-formula"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 15,
+        "failure_count": 18,
+        "success_support": 0.08021390374331551,
+        "failure_support": 0.24,
+        "support_difference": -0.1597860962566845,
+        "lift": 0.3342245975378788,
+        "log_odds_ratio": -1.2755429968271879,
+        "q_value": 0.048381983504224305
+      },
+      {
+        "motif": "conclude|compute|analyze",
+        "tokens": [
+          "conclude",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 7,
+        "failure_count": 14,
+        "success_support": 0.0374331550802139,
+        "failure_support": 0.18666666666666668,
+        "support_difference": -0.14923351158645276,
+        "lift": 0.2005347582839954,
+        "log_odds_ratio": -1.7359392318447275,
+        "q_value": 0.019239368993132517
+      },
+      {
+        "motif": "substitute|analyze",
+        "tokens": [
+          "substitute",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 5,
+        "failure_count": 13,
+        "success_support": 0.026737967914438502,
+        "failure_support": 0.17333333333333334,
+        "support_difference": -0.14659536541889484,
+        "lift": 0.1542575063087365,
+        "log_odds_ratio": -1.9695252094861488,
+        "q_value": 0.013014976654953778
+      },
+      {
+        "motif": "compute|substitute|analyze",
+        "tokens": [
+          "compute",
+          "substitute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 2,
+        "failure_count": 10,
+        "success_support": 0.0106951871657754,
+        "failure_support": 0.13333333333333333,
+        "support_difference": -0.12263814616755793,
+        "lift": 0.08021390314171123,
+        "log_odds_ratio": -2.4760892646956063,
+        "q_value": 0.013014976654953778
+      }
+    ]
+  },
+  "representative_traces": {
+    "success": [
+      {
+        "trace_id": "0:4:7",
+        "question_id": "0",
+        "sample_id": "4",
+        "attempt_index": "7",
+        "predicted_answer": "\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}",
+        "is_correct": true,
+        "tokenized_trace": "instantiate|analyze|compute|analyze|check-constraint|compute|check-constraint|rewrite|analyze|compute|conclude",
+        "tokens": [
+          "instantiate",
+          "analyze",
+          "compute",
+          "analyze",
+          "check-constraint",
+          "compute",
+          "check-constraint",
+          "rewrite",
+          "analyze",
+          "compute",
+          "conclude"
+        ],
+        "token_count": 11,
+        "reasoning_trace": "To solve this problem, we need to determine the line of reflection that maps the vector $\\mathbf{u} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ to $\\mathbf{v} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$, and then apply this same reflection to the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\n\n### Step 1: Find the Line of Reflection\nA reflection across a line $L$ maps any point $P$ to a point $P'$ such that the line $L$ is the perpendicular bisector of the segment connecting $P$ and $P'$.\n\nLet the pre-image be $A = (5, 0)$ and the image be $B = (4, 3)$.\nThe line of reflection must pass through the midpoint $M$ of the segment $AB$.\n$$ M = \\left( \\frac{5+4}{2}, \\frac{0+3}{2} \\right) = \\left( \\frac{9}{2}, \\frac{3}{2} \\right) = (4.5, 1.5) $$\n\nThe line of reflection is also perpendicular to the vector $\\vec{AB}$.\n$$ \\vec{AB} = B - A = \\begin{pmatrix} 4-5 \\\\ 3-0 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix} $$\nThe slope of the vector $\\vec{AB}$ is $m_{AB} = \\frac{3}{-1} = -3$.\nTherefore, the slope of the line of reflection (which is perpendicular to $\\vec{AB}$) is the negative reciprocal:\n$$ m_{ref} = -\\frac{1}{-3} = \\frac{1}{3} $$\n\nNow, we write the equation of the line of reflection using the point-slope form $y - y_1 = m(x - x_1)$ with point $M(4.5, 1.5)$ and slope $m = 1/3$:\n$$ y - 1.5 = \\frac{1}{3}(x - 4.5) $$\nMultiply by 3 to clear the fraction:\n$$ 3(y - 1.5) = x - 4.5 $$\n$$ 3y - 4.5 = x - 4.5 $$\n$$ 3y = x $$\nOr in standard form:\n$$ x - 3y = 0 $$\n\n### Step 2: Verify the Reflection Formula\nThe reflection of a point $(x, y)$ across the line $ax + by = 0$ is given by the formula:\n$$ (x', y') = (x, y) - \\frac{2(ax+by)}{a^2+b^2} \\begin{pmatrix} a \\\\ b \\end{pmatrix} $$\nHere, $a = 1$ and $b = -3$.\n$$ a^2 + b^2 = 1^2 + (-3)^2 = 1 + 9 = 10 $$\nSo the transformation is:\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} - \\frac{2(x - 3y)}{10} \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} - \\frac{x - 3y}{5} \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n\nLet's check if this works for the given pair $(5, 0) \\to (4, 3)$:\n$x = 5, y = 0$.\n$x - 3y = 5 - 0 = 5$.\nFactor $k = \\frac{5}{5} = 1$.\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} - 1 \\cdot \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} = \\begin{pmatrix} 5-1 \\\\ 0-(-3) \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix} $$\nThis matches the given information. The line of reflection is indeed $x - 3y = 0$.\n\n### Step 3: Apply the Reflection to the Target Vector\nWe need to reflect $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\nHere $x = -2$ and $y = 3$.\nCalculate the term $x - 3y$:\n$$ x - 3y = -2 - 3(3) = -2 - 9 = -11 $$\nNow apply the formula:\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} - \\frac{-11}{5} \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} + \\frac{11}{5} \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} + \\begin{pmatrix} 2.2 \\\\ -6.6 \\end{pmatrix} $$\nCalculate components:\n$x' = -2 + 2.2 = 0.2 = \\frac{1}{5}$\n$y' = 3 - 6.6 = -3.6 = -\\frac{18}{5}$\n\nAlternatively, using fractions directly:\n$x' = -2 + \\frac{11}{5} = \\frac{-10+11}{5} = \\frac{1}{5}$\n$y' = 3 + \\frac{11}{5}(-3) = 3 - \\frac{33}{5} = \\frac{15-33}{5} = -\\frac{18}{5}$\n\nSo the resulting vector is $\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}$.\n\n### Conclusion\nThe reflection takes $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ to $\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}$.",
+        "matched_success_motifs": [
+          "compute|conclude",
+          "compute|analyze|check-constraint",
+          "rewrite",
+          "analyze|check-constraint|compute",
+          "analyze|check-constraint",
+          "rewrite|analyze",
+          "check-constraint|compute|check-constraint",
+          "check-constraint|compute"
+        ],
+        "matched_failure_motifs": []
+      }
+    ],
+    "failure": [
+      {
+        "trace_id": "0:0:1",
+        "question_id": "0",
+        "sample_id": "0",
+        "attempt_index": "1",
+        "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+        "is_correct": false,
+        "tokenized_trace": "compute|analyze|instantiate|compute|check-constraint|substitute|compute|substitute|analyze|conclude|apply-formula|compute",
+        "tokens": [
+          "compute",
+          "analyze",
+          "instantiate",
+          "compute",
+          "check-constraint",
+          "substitute",
+          "compute",
+          "substitute",
+          "analyze",
+          "conclude",
+          "apply-formula",
+          "compute"
+        ],
+        "token_count": 12,
+        "reasoning_trace": "To solve this problem, we need to determine the line of reflection $L$ that maps the vector $\\mathbf{u} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ to $\\mathbf{v} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$. Once we have the line of reflection, we can apply it to the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\n\n### Step 1: Find the Line of Reflection\nA reflection across a line $L$ maps any point $P$ to a point $P'$ such that $L$ is the perpendicular bisector of the segment connecting $P$ and $P'$.\n\nLet $P = (5, 0)$ and $P' = (4, 3)$.\n1.  **Find the midpoint $M$ of the segment $PP'$:**\n    $$ M = \\left( \\frac{5+4}{2}, \\frac{0+3}{2} \\right) = \\left( \\frac{9}{2}, \\frac{3}{2} \\right) = (4.5, 1.5) $$\n    The line of reflection passes through $M$.\n\n2.  **Find the slope of the segment $PP'$:**\n    $$ m_{PP'} = \\frac{3 - 0}{4 - 5} = \\frac{3}{-1} = -3 $$\n\n3.  **Find the slope of the line of reflection $L$:**\n    Since $L$ is perpendicular to $PP'$, its slope $m_L$ is the negative reciprocal of $m_{PP'}$:\n    $$ m_L = -\\frac{1}{-3} = \\frac{1}{3} $$\n\n4.  **Determine the equation of the line $L$:**\n    Using the point-slope form $y - y_1 = m(x - x_1)$ with point $M(4.5, 1.5)$ and slope $m_L = \\frac{1}{3}$:\n    $$ y - 1.5 = \\frac{1}{3}(x - 4.5) $$\n    Multiply by 3 to clear the fraction:\n    $$ 3(y - 1.5) = x - 4.5 $$\n    $$ 3y - 4.5 = x - 4.5 $$\n    $$ 3y = x $$\n    Or in standard form: $x - 3y = 0$.\n\n### Step 2: Reflect the Vector $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$\nLet the vector to be reflected be $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$. Let the reflected vector be $\\mathbf{w}' = \\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$.\n\nThe line of reflection is $x - 3y = 0$.\nThe vector $\\mathbf{w}'$ must satisfy two conditions:\n1.  The midpoint of $\\mathbf{w}$ and $\\mathbf{w}'$ lies on the line $x - 3y = 0$.\n2.  The vector connecting $\\mathbf{w}$ and $\\mathbf{w}'$ is perpendicular to the line $x - 3y = 0$.\n\n**Condition 1: Midpoint lies on the line**\nMidpoint $M_w = \\left( \\frac{-2 + x'}{2}, \\frac{3 + y'}{2} \\right)$.\nSubstitute into $x - 3y = 0$:\n$$ \\frac{-2 + x'}{2} - 3\\left( \\frac{3 + y'}{2} \\right) = 0 $$\nMultiply by 2:\n$$ (-2 + x') - 3(3 + y') = 0 $$\n$$ -2 + x' - 9 - 3y' = 0 $$\n$$ x' - 3y' = 11 \\quad \\text{(Equation 1)} $$\n\n**Condition 2: Perpendicularity**\nThe direction vector of the line $x - 3y = 0$ is $\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$ (since $x=3y$).\nThe vector connecting $\\mathbf{w}$ and $\\mathbf{w}'$ is $\\mathbf{w}' - \\mathbf{w} = \\begin{pmatrix} x' - (-2) \\\\ y' - 3 \\end{pmatrix} = \\begin{pmatrix} x' + 2 \\\\ y' - 3 \\end{pmatrix}$.\nThis vector must be parallel to the normal vector of the line $x - 3y = 0$, which is $\\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix}$.\nAlternatively, the dot product of the connecting vector and the line's direction vector must be 0:\n$$ \\begin{pmatrix} x' + 2 \\\\ y' - 3 \\end{pmatrix} \\cdot \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = 0 $$\n$$ 3(x' + 2) + 1(y' - 3) = 0 $$\n$$ 3x' + 6 + y' - 3 = 0 $$\n$$ 3x' + y' = -3 \\quad \\text{(Equation 2)} $$\n\n**Solve the system of equations:**\nFrom Equation 1: $x' = 3y' + 11$.\nSubstitute into Equation 2:\n$$ 3(3y' + 11) + y' = -3 $$\n$$ 9y' + 33 + y' = -3 $$\n$$ 10y' = -36 $$\n$$ y' = -3.6 = -\\frac{18}{5} $$\n\nNow find $x'$:\n$$ x' = 3\\left(-\\frac{18}{5}\\right) + 11 $$\n$$ x' = -\\frac{54}{5} + \\frac{55}{5} $$\n$$ x' = \\frac{1}{5} = 0.2 $$\n\nSo the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$ or $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$.\n\n### Alternative Method: Projection Formula\nThe reflection of a vector $\\mathbf{w}$ across a line with unit direction vector $\\mathbf{u}$ is given by:\n$$ \\text{Ref}(\\mathbf{w}) = 2 \\text{proj}_{\\mathbf{u}}(\\mathbf{w}) - \\mathbf{w} $$\nThe line is $x = 3y$. A direction vector is $\\mathbf{d} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$.\nThe unit vector $\\mathbf{u} = \\frac{1}{\\sqrt{10}} \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$.\n$$ \\text{proj}_{\\mathbf{u}}(\\mathbf{w}) = \\left( \\mathbf{w} \\cdot \\mathbf{u} \\right) \\mathbf{u} = \\frac{\\mathbf{w} \\cdot \\mathbf{d}}{\\|\\mathbf{d}\\|^2} \\mathbf{d} $$\n$$ \\mathbf{w} \\cdot \\mathbf{d} = (-2)(3) + (3)(1) = -6 + 3 = -3 $$\n$$ \\|\\mathbf{d}\\|^2 = 3^2 + 1^2 = 10 $$\n$$ \\text{proj}_{\\mathbf{u}}(\\mathbf{w}) = \\frac{-3}{10} \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix} $$\n$$ \\text{Ref}(\\mathbf{w}) = 2 \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} = \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} $$\n$$ = \\begin{pmatrix} -1.8 - (-2) \\\\ -0.6 - 3 \\end{pmatrix} = \\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix} $$\nThis confirms the previous result.\n\nThe vector is $\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}$.",
+        "matched_success_motifs": [],
+        "matched_failure_motifs": [
+          "apply-formula",
+          "instantiate|compute",
+          "apply-formula|compute",
+          "analyze|instantiate",
+          "analyze|conclude",
+          "compute|substitute",
+          "substitute"
+        ]
+      },
+      {
+        "trace_id": "0:5:8",
+        "question_id": "0",
+        "sample_id": "5",
+        "attempt_index": "8",
+        "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+        "is_correct": false,
+        "tokenized_trace": "instantiate|compute|instantiate|analyze|apply-formula|compute|substitute|conclude|check-constraint|compute|check-constraint|analyze|compute",
+        "tokens": [
+          "instantiate",
+          "compute",
+          "instantiate",
+          "analyze",
+          "apply-formula",
+          "compute",
+          "substitute",
+          "conclude",
+          "check-constraint",
+          "compute",
+          "check-constraint",
+          "analyze",
+          "compute"
+        ],
+        "token_count": 13,
+        "reasoning_trace": "To find the image of the vector $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ under the given reflection, we must first determine the line of reflection.\n\n**Step 1: Determine the line of reflection.**\nA reflection maps a point $P$ to its mirror image $P'$ across a line $L$. The line of reflection $L$ is the perpendicular bisector of the segment connecting $P$ and $P'$.\nLet $P = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ and $P' = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$.\n\n1.  **Find the midpoint ($M$) of the segment $PP'$:**\n    $$M = \\frac{P + P'}{2} = \\frac{\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} + \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}}{2} = \\frac{\\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}}{2} = \\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix}$$\n\n2.  **Find the slope of the segment $PP'$:**\n    $$m_{PP'} = \\frac{3 - 0}{4 - 5} = \\frac{3}{-1} = -3$$\n\n3.  **Find the slope of the line of reflection ($m_L$):**\n    Since the line of reflection is perpendicular to $PP'$, its slope is the negative reciprocal of $m_{PP'}$.\n    $$m_L = -\\frac{1}{-3} = \\frac{1}{3}$$\n\n4.  **Find the equation of the line of reflection:**\n    Using the point-slope form $y - y_1 = m(x - x_1)$ with point $M(4.5, 1.5)$ and slope $m_L = \\frac{1}{3}$:\n    $$y - 1.5 = \\frac{1}{3}(x - 4.5)$$\n    Multiply by 3 to clear the fraction:\n    $$3(y - 1.5) = x - 4.5$$\n    $$3y - 4.5 = x - 4.5$$\n    $$3y = x$$\n    Or in standard form: $x - 3y = 0$.\n\n**Step 2: Reflect the target vector across the line $x - 3y = 0$.**\nLet the target vector be $Q = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$. We need to find its reflection $Q' = \\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$.\n\nThe formula for reflecting a point $(x, y)$ across the line $ax + by = 0$ is:\n$$x' = x - \\frac{2a(ax + by)}{a^2 + b^2}$$\n$$y' = y - \\frac{2b(ax + by)}{a^2 + b^2}$$\n\nHere, $a = 1$ and $b = -3$.\nFirst, calculate the term $ax + by$:\n$$ax + by = 1(-2) + (-3)(3) = -2 - 9 = -11$$\n\nNext, calculate the denominator $a^2 + b^2$:\n$$a^2 + b^2 = 1^2 + (-3)^2 = 1 + 9 = 10$$\n\nNow substitute these values into the formulas:\n$$x' = -2 - \\frac{2(1)(-11)}{10} = -2 - \\frac{-22}{10} = -2 + 2.2 = 0.2 = \\frac{1}{5}$$\n$$y' = 3 - \\frac{2(-3)(-11)}{10} = 3 - \\frac{66}{10} = 3 - 6.6 = -3.6 = -\\frac{18}{5}$$\n\nSo, the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$ or $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$.\n\n**Alternative Method: Geometric Verification**\nLet's check if the midpoint of $Q$ and $Q'$ lies on the line $x - 3y = 0$ and if the vector $QQ'$ is perpendicular to the line.\n$Q = (-2, 3)$, $Q' = (0.2, -3.6)$.\nMidpoint $M' = \\left( \\frac{-2 + 0.2}{2}, \\frac{3 + (-3.6)}{2} \\right) = \\left( \\frac{-1.8}{2}, \\frac{-0.6}{2} \\right) = (-0.9, -0.3)$.\nCheck if $M'$ is on $x - 3y = 0$:\n$-0.9 - 3(-0.3) = -0.9 + 0.9 = 0$. Yes.\nSlope of $QQ'$: $\\frac{-3.6 - 3}{0.2 - (-2)} = \\frac{-6.6}{2.2} = -3$.\nThe slope of the line of reflection was $1/3$. Since $-3 \\times \\frac{1}{3} = -1$, the segment $QQ'$ is perpendicular to the line of reflection. The calculation is correct.\n\nThe resulting vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$. In fraction form, this is $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$.",
+        "matched_success_motifs": [
+          "check-constraint|compute|check-constraint",
+          "check-constraint|compute"
+        ],
+        "matched_failure_motifs": [
+          "apply-formula",
+          "instantiate|compute",
+          "compute|instantiate",
+          "apply-formula|compute",
+          "compute|substitute",
+          "substitute"
+        ]
+      },
+      {
+        "trace_id": "0:6:9",
+        "question_id": "0",
+        "sample_id": "6",
+        "attempt_index": "9",
+        "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+        "is_correct": false,
+        "tokenized_trace": "compute|analyze|instantiate|compute|instantiate|apply-formula|compute|analyze|conclude|compute|check-constraint",
+        "tokens": [
+          "compute",
+          "analyze",
+          "instantiate",
+          "compute",
+          "instantiate",
+          "apply-formula",
+          "compute",
+          "analyze",
+          "conclude",
+          "compute",
+          "check-constraint"
+        ],
+        "token_count": 11,
+        "reasoning_trace": "To solve this problem, we need to determine the line of reflection $L$ that maps the vector $\\mathbf{u} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ to $\\mathbf{v} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$. Once we find the equation of this line, we can reflect the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across it.\n\n**Step 1: Find the midpoint of the segment connecting $\\mathbf{u}$ and $\\mathbf{v}$.**\nThe line of reflection must pass through the midpoint of any point and its image.\nLet $M$ be the midpoint of $\\mathbf{u}$ and $\\mathbf{v}$:\n$$ M = \\frac{\\mathbf{u} + \\mathbf{v}}{2} = \\frac{\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} + \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}}{2} = \\frac{\\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}}{2} = \\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix} $$\n\n**Step 2: Find the direction vector of the line of reflection.**\nThe line of reflection is perpendicular to the vector connecting $\\mathbf{u}$ and $\\mathbf{v}$. Let $\\mathbf{d} = \\mathbf{v} - \\mathbf{u}$:\n$$ \\mathbf{d} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix} - \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix} $$\nSince the reflection line is perpendicular to $\\mathbf{d}$, the normal vector of the line is $\\mathbf{n} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$. Alternatively, a direction vector for the line itself would be perpendicular to $\\mathbf{n}$, such as $\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$ (since $(-1)(3) + (3)(1) = 0$).\n\n**Step 3: Determine the equation of the line of reflection.**\nThe line passes through $M(4.5, 1.5)$ and has a normal vector $\\mathbf{n} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$.\nThe equation of the line is given by $\\mathbf{n} \\cdot (\\mathbf{x} - M) = 0$:\n$$ -1(x - 4.5) + 3(y - 1.5) = 0 $$\n$$ -x + 4.5 + 3y - 4.5 = 0 $$\n$$ -x + 3y = 0 \\implies x = 3y $$\nSo, the line of reflection is $y = \\frac{1}{3}x$.\n\n**Step 4: Reflect the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across the line $x - 3y = 0$.**\nLet the reflected vector be $\\mathbf{w}' = \\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$.\nThe formula for reflecting a point $(x, y)$ across the line $ax + by = 0$ is:\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} - \\frac{2(ax + by)}{a^2 + b^2} \\begin{pmatrix} a \\\\ b \\end{pmatrix} $$\nHere, $a = 1$ and $b = -3$ (from $x - 3y = 0$).\nFirst, calculate the scalar term $k = \\frac{2(ax + by)}{a^2 + b^2}$:\n$$ ax + by = 1(-2) + (-3)(3) = -2 - 9 = -11 $$\n$$ a^2 + b^2 = 1^2 + (-3)^2 = 1 + 9 = 10 $$\n$$ k = \\frac{2(-11)}{10} = -\\frac{22}{10} = -2.2 $$\n\nNow apply the transformation:\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} - (-2.2) \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} + 2.2 \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n$$ x' = -2 + 2.2(1) = -2 + 2.2 = 0.2 $$\n$$ y' = 3 + 2.2(-3) = 3 - 6.6 = -3.6 $$\n\nSo the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\nIn fraction form:\n$x' = \\frac{1}{5}$\n$y' = -\\frac{18}{5}$\nVector: $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$ or $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\n\nLet's double check with the geometric property that the midpoint of $\\mathbf{w}$ and $\\mathbf{w}'$ lies on the line $x=3y$.\nMidpoint $M_w = \\frac{1}{2} \\left( \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} + \\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix} \\right) = \\frac{1}{2} \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix} = \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix}$.\nCheck if $x = 3y$: $-0.9 = 3(-0.3)$. This holds true.\nAlso, the vector $\\mathbf{w}' - \\mathbf{w}$ must be parallel to the normal vector $\\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix}$.\n$\\mathbf{w}' - \\mathbf{w} = \\begin{pmatrix} 0.2 - (-2) \\\\ -3.6 - 3 \\end{pmatrix} = \\begin{pmatrix} 2.2 \\\\ -6.6 \\end{pmatrix} = 2.2 \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix}$. This also holds true.\n\nThe calculation is correct.",
+        "matched_success_motifs": [],
+        "matched_failure_motifs": [
+          "apply-formula",
+          "instantiate|compute",
+          "compute|instantiate",
+          "apply-formula|compute",
+          "analyze|instantiate",
+          "analyze|conclude"
+        ]
+      }
+    ]
+  },
+  "all_traces": [
+    {
+      "trace_id": "0:0:1",
+      "question_id": "0",
+      "sample_id": "0",
+      "attempt_index": "1",
+      "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+      "is_correct": false,
+      "tokenized_trace": "compute|analyze|instantiate|compute|check-constraint|substitute|compute|substitute|analyze|conclude|apply-formula|compute",
+      "tokens": [
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "check-constraint",
+        "substitute",
+        "compute",
+        "substitute",
+        "analyze",
+        "conclude",
+        "apply-formula",
+        "compute"
+      ],
+      "token_count": 12,
+      "reasoning_trace": "To solve this problem, we need to determine the line of reflection $L$ that maps the vector $\\mathbf{u} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ to $\\mathbf{v} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$. Once we have the line of reflection, we can apply it to the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\n\n### Step 1: Find the Line of Reflection\nA reflection across a line $L$ maps any point $P$ to a point $P'$ such that $L$ is the perpendicular bisector of the segment connecting $P$ and $P'$.\n\nLet $P = (5, 0)$ and $P' = (4, 3)$.\n1.  **Find the midpoint $M$ of the segment $PP'$:**\n    $$ M = \\left( \\frac{5+4}{2}, \\frac{0+3}{2} \\right) = \\left( \\frac{9}{2}, \\frac{3}{2} \\right) = (4.5, 1.5) $$\n    The line of reflection passes through $M$.\n\n2.  **Find the slope of the segment $PP'$:**\n    $$ m_{PP'} = \\frac{3 - 0}{4 - 5} = \\frac{3}{-1} = -3 $$\n\n3.  **Find the slope of the line of reflection $L$:**\n    Since $L$ is perpendicular to $PP'$, its slope $m_L$ is the negative reciprocal of $m_{PP'}$:\n    $$ m_L = -\\frac{1}{-3} = \\frac{1}{3} $$\n\n4.  **Determine the equation of the line $L$:**\n    Using the point-slope form $y - y_1 = m(x - x_1)$ with point $M(4.5, 1.5)$ and slope $m_L = \\frac{1}{3}$:\n    $$ y - 1.5 = \\frac{1}{3}(x - 4.5) $$\n    Multiply by 3 to clear the fraction:\n    $$ 3(y - 1.5) = x - 4.5 $$\n    $$ 3y - 4.5 = x - 4.5 $$\n    $$ 3y = x $$\n    Or in standard form: $x - 3y = 0$.\n\n### Step 2: Reflect the Vector $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$\nLet the vector to be reflected be $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$. Let the reflected vector be $\\mathbf{w}' = \\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$.\n\nThe line of reflection is $x - 3y = 0$.\nThe vector $\\mathbf{w}'$ must satisfy two conditions:\n1.  The midpoint of $\\mathbf{w}$ and $\\mathbf{w}'$ lies on the line $x - 3y = 0$.\n2.  The vector connecting $\\mathbf{w}$ and $\\mathbf{w}'$ is perpendicular to the line $x - 3y = 0$.\n\n**Condition 1: Midpoint lies on the line**\nMidpoint $M_w = \\left( \\frac{-2 + x'}{2}, \\frac{3 + y'}{2} \\right)$.\nSubstitute into $x - 3y = 0$:\n$$ \\frac{-2 + x'}{2} - 3\\left( \\frac{3 + y'}{2} \\right) = 0 $$\nMultiply by 2:\n$$ (-2 + x') - 3(3 + y') = 0 $$\n$$ -2 + x' - 9 - 3y' = 0 $$\n$$ x' - 3y' = 11 \\quad \\text{(Equation 1)} $$\n\n**Condition 2: Perpendicularity**\nThe direction vector of the line $x - 3y = 0$ is $\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$ (since $x=3y$).\nThe vector connecting $\\mathbf{w}$ and $\\mathbf{w}'$ is $\\mathbf{w}' - \\mathbf{w} = \\begin{pmatrix} x' - (-2) \\\\ y' - 3 \\end{pmatrix} = \\begin{pmatrix} x' + 2 \\\\ y' - 3 \\end{pmatrix}$.\nThis vector must be parallel to the normal vector of the line $x - 3y = 0$, which is $\\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix}$.\nAlternatively, the dot product of the connecting vector and the line's direction vector must be 0:\n$$ \\begin{pmatrix} x' + 2 \\\\ y' - 3 \\end{pmatrix} \\cdot \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = 0 $$\n$$ 3(x' + 2) + 1(y' - 3) = 0 $$\n$$ 3x' + 6 + y' - 3 = 0 $$\n$$ 3x' + y' = -3 \\quad \\text{(Equation 2)} $$\n\n**Solve the system of equations:**\nFrom Equation 1: $x' = 3y' + 11$.\nSubstitute into Equation 2:\n$$ 3(3y' + 11) + y' = -3 $$\n$$ 9y' + 33 + y' = -3 $$\n$$ 10y' = -36 $$\n$$ y' = -3.6 = -\\frac{18}{5} $$\n\nNow find $x'$:\n$$ x' = 3\\left(-\\frac{18}{5}\\right) + 11 $$\n$$ x' = -\\frac{54}{5} + \\frac{55}{5} $$\n$$ x' = \\frac{1}{5} = 0.2 $$\n\nSo the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$ or $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$.\n\n### Alternative Method: Projection Formula\nThe reflection of a vector $\\mathbf{w}$ across a line with unit direction vector $\\mathbf{u}$ is given by:\n$$ \\text{Ref}(\\mathbf{w}) = 2 \\text{proj}_{\\mathbf{u}}(\\mathbf{w}) - \\mathbf{w} $$\nThe line is $x = 3y$. A direction vector is $\\mathbf{d} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$.\nThe unit vector $\\mathbf{u} = \\frac{1}{\\sqrt{10}} \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$.\n$$ \\text{proj}_{\\mathbf{u}}(\\mathbf{w}) = \\left( \\mathbf{w} \\cdot \\mathbf{u} \\right) \\mathbf{u} = \\frac{\\mathbf{w} \\cdot \\mathbf{d}}{\\|\\mathbf{d}\\|^2} \\mathbf{d} $$\n$$ \\mathbf{w} \\cdot \\mathbf{d} = (-2)(3) + (3)(1) = -6 + 3 = -3 $$\n$$ \\|\\mathbf{d}\\|^2 = 3^2 + 1^2 = 10 $$\n$$ \\text{proj}_{\\mathbf{u}}(\\mathbf{w}) = \\frac{-3}{10} \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix} $$\n$$ \\text{Ref}(\\mathbf{w}) = 2 \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} = \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} $$\n$$ = \\begin{pmatrix} -1.8 - (-2) \\\\ -0.6 - 3 \\end{pmatrix} = \\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix} $$\nThis confirms the previous result.\n\nThe vector is $\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}$.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "apply-formula",
+        "instantiate|compute",
+        "apply-formula|compute",
+        "analyze|instantiate",
+        "analyze|conclude",
+        "compute|substitute",
+        "substitute"
+      ]
+    },
+    {
+      "trace_id": "0:1:3",
+      "question_id": "0",
+      "sample_id": "1",
+      "attempt_index": "3",
+      "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+      "is_correct": false,
+      "tokenized_trace": "compute|analyze|instantiate|compute|rewrite|analyze|conclude|check-constraint|analyze|apply-formula|compute",
+      "tokens": [
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "rewrite",
+        "analyze",
+        "conclude",
+        "check-constraint",
+        "analyze",
+        "apply-formula",
+        "compute"
+      ],
+      "token_count": 11,
+      "reasoning_trace": "To solve this problem, we need to determine the line of reflection that maps the vector $\\mathbf{u} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ to $\\mathbf{v} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$. Once we have the line of reflection, we can apply it to the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\n\n**Step 1: Find the line of reflection.**\nA reflection across a line $L$ maps a point $P$ to a point $P'$ such that $L$ is the perpendicular bisector of the segment $PP'$.\nLet the endpoints of the segment be $A(5, 0)$ and $B(4, 3)$.\n\n1.  **Find the midpoint $M$ of segment $AB$:**\n    $$M = \\left( \\frac{5+4}{2}, \\frac{0+3}{2} \\right) = \\left( \\frac{9}{2}, \\frac{3}{2} \\right) = (4.5, 1.5)$$\n    The line of reflection passes through $M$.\n\n2.  **Find the slope of segment $AB$:**\n    $$m_{AB} = \\frac{3 - 0}{4 - 5} = \\frac{3}{-1} = -3$$\n\n3.  **Find the slope of the line of reflection ($m_L$):**\n    Since the line of reflection is perpendicular to $AB$, its slope is the negative reciprocal of $m_{AB}$.\n    $$m_L = -\\frac{1}{-3} = \\frac{1}{3}$$\n\n4.  **Determine the equation of the line of reflection:**\n    Using the point-slope form $y - y_1 = m(x - x_1)$ with point $M(4.5, 1.5)$ and slope $m_L = \\frac{1}{3}$:\n    $$y - 1.5 = \\frac{1}{3}(x - 4.5)$$\n    Multiply by 3 to clear the fraction:\n    $$3(y - 1.5) = x - 4.5$$\n    $$3y - 4.5 = x - 4.5$$\n    $$3y = x$$\n    So, the line of reflection is $y = \\frac{1}{3}x$ (or $x - 3y = 0$).\n\n**Step 2: Reflect the vector $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across the line $x - 3y = 0$.**\nLet the vector be $\\mathbf{w} = \\begin{pmatrix} x_0 \\\\ y_0 \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$. We want to find the reflected point $\\mathbf{w}' = \\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$.\n\nThe formula for reflecting a point $(x_0, y_0)$ across the line $ax + by + c = 0$ is:\n$$\\frac{x' - x_0}{a} = \\frac{y' - y_0}{b} = -2 \\frac{ax_0 + by_0 + c}{a^2 + b^2}$$\nHere, the line is $x - 3y = 0$, so $a = 1$, $b = -3$, and $c = 0$.\n\nFirst, calculate the term $D = ax_0 + by_0 + c$:\n$$D = (1)(-2) + (-3)(3) + 0 = -2 - 9 = -11$$\n\nNext, calculate the denominator $a^2 + b^2$:\n$$a^2 + b^2 = 1^2 + (-3)^2 = 1 + 9 = 10$$\n\nNow, calculate the scaling factor $k = -2 \\frac{D}{a^2 + b^2}$:\n$$k = -2 \\frac{-11}{10} = \\frac{22}{10} = \\frac{11}{5} = 2.2$$\n\nNow find $x'$ and $y'$:\n$$x' = x_0 + k \\cdot a = -2 + 2.2(1) = -2 + 2.2 = 0.2$$\n$$y' = y_0 + k \\cdot b = 3 + 2.2(-3) = 3 - 6.6 = -3.6$$\n\nSo the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\n\nLet's double-check using fractions to ensure precision.\n$k = \\frac{11}{5}$.\n$x' = -2 + \\frac{11}{5}(1) = -\\frac{10}{5} + \\frac{11}{5} = \\frac{1}{5}$.\n$y' = 3 + \\frac{11}{5}(-3) = \\frac{15}{5} - \\frac{33}{5} = -\\frac{18}{5}$.\n\nThe vector is $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$ or $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\n\n**Alternative Method: Geometric Projection**\nThe reflection of a point $\\mathbf{w}$ across a line passing through the origin with unit direction vector $\\mathbf{u}$ is given by $\\mathbf{w}' = 2(\\mathbf{w} \\cdot \\mathbf{u})\\mathbf{u} - \\mathbf{w}$.\nThe line is $y = \\frac{1}{3}x$. A direction vector is $\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$.\nThe magnitude is $\\sqrt{3^2 + 1^2} = \\sqrt{10}$.\nUnit vector $\\mathbf{u} = \\begin{pmatrix} 3/\\sqrt{10} \\\\ 1/\\sqrt{10} \\end{pmatrix}$.\n\nCalculate dot product $\\mathbf{w} \\cdot \\mathbf{u}$:\n$\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\n$\\mathbf{w} \\cdot \\mathbf{u} = (-2)(\\frac{3}{\\sqrt{10}}) + (3)(\\frac{1}{\\sqrt{10}}) = \\frac{-6 + 3}{\\sqrt{10}} = \\frac{-3}{\\sqrt{10}}$.\n\nCalculate projection $2(\\mathbf{w} \\cdot \\mathbf{u})\\mathbf{u}$:\n$2(\\frac{-3}{\\sqrt{10}}) \\begin{pmatrix} 3/\\sqrt{10} \\\\ 1/\\sqrt{10} \\end{pmatrix} = \\frac{-6}{10} \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = -0.6 \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix}$.\n\nCalculate reflection $\\mathbf{w}' = \\text{projection} - \\mathbf{w}$:\n$\\mathbf{w}' = \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} = \\begin{pmatrix} -1.8 - (-2) \\\\ -0.6 - 3 \\end{pmatrix} = \\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\n\nBoth methods yield the same result.",
+      "matched_success_motifs": [
+        "rewrite",
+        "rewrite|analyze"
+      ],
+      "matched_failure_motifs": [
+        "apply-formula",
+        "instantiate|compute",
+        "apply-formula|compute",
+        "analyze|instantiate",
+        "analyze|conclude"
+      ]
+    },
+    {
+      "trace_id": "0:2:4",
+      "question_id": "0",
+      "sample_id": "2",
+      "attempt_index": "4",
+      "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+      "is_correct": false,
+      "tokenized_trace": "compute|instantiate|analyze|compute|backtrack|compute|instantiate|apply-formula|compute|analyze|conclude|compute|check-constraint",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "backtrack",
+        "compute",
+        "instantiate",
+        "apply-formula",
+        "compute",
+        "analyze",
+        "conclude",
+        "compute",
+        "check-constraint"
+      ],
+      "token_count": 13,
+      "reasoning_trace": "To find the image of the vector $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ under the given reflection, we first need to determine the axis of reflection.\n\n**Step 1: Identify the properties of the reflection.**\nA reflection in 2D space is an isometry that fixes every point on the axis of reflection (the line of symmetry) and maps any point $P$ to a point $P'$ such that the axis is the perpendicular bisector of the segment $PP'$.\n\nWe are given:\n- Point $A = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ maps to $A' = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$.\n\n**Step 2: Find the midpoint of the segment connecting $A$ and $A'$.**\nSince the axis of reflection passes through the midpoint of $AA'$, let's calculate this midpoint $M$.\n$$ M = \\frac{A + A'}{2} = \\frac{\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} + \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}}{2} = \\frac{\\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}}{2} = \\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix} $$\n\n**Step 3: Find the direction vector of the segment $AA'$.**\nThe vector $\\vec{v} = A' - A$ is perpendicular to the axis of reflection.\n$$ \\vec{v} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix} - \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix} $$\n\n**Step 4: Determine the direction vector of the axis of reflection.**\nThe axis of reflection is perpendicular to $\\vec{v} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$.\nIf a vector is $\\begin{pmatrix} a \\\\ b \\end{pmatrix}$, a perpendicular vector is $\\begin{pmatrix} -b \\\\ a \\end{pmatrix}$ or $\\begin{pmatrix} b \\\\ -a \\end{pmatrix}$.\nSo, a direction vector for the axis, $\\vec{u}$, is $\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$ (since $(-1)(3) + (3)(1) = 0$).\n\n**Step 5: Formulate the equation of the line (axis of reflection).**\nThe line passes through $M(4.5, 1.5)$ and has direction vector $\\vec{u} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$.\nThe slope of the line is $m = \\frac{1}{3}$.\nUsing the point-slope form $y - y_1 = m(x - x_1)$:\n$$ y - 1.5 = \\frac{1}{3}(x - 4.5) $$\nMultiply by 3 to clear the fraction:\n$$ 3y - 4.5 = x - 4.5 $$\n$$ 3y = x $$\nOr in general form: $x - 3y = 0$.\n\nLet's verify this line is indeed the perpendicular bisector.\nDistance from $A(5,0)$ to line $x-3y=0$: $\\frac{|5 - 3(0)|}{\\sqrt{1^2 + (-3)^2}} = \\frac{5}{\\sqrt{10}}$.\nDistance from $A'(4,3)$ to line $x-3y=0$: $\\frac{|4 - 3(3)|}{\\sqrt{10}} = \\frac{|-5|}{\\sqrt{10}} = \\frac{5}{\\sqrt{10}}$.\nDistances are equal.\nMidpoint $(4.5, 1.5)$: $4.5 - 3(1.5) = 4.5 - 4.5 = 0$. The midpoint lies on the line.\nSlope of $AA'$ is $\\frac{3-0}{4-5} = -3$. Slope of line is $\\frac{1}{3}$. Product is $-1$. They are perpendicular.\nThe axis is confirmed to be $x - 3y = 0$.\n\n**Step 6: Reflect the target vector $B = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across the line $x - 3y = 0$.**\nLet $B = (x_0, y_0) = (-2, 3)$.\nThe formula for the reflection of a point $(x_0, y_0)$ across the line $ax + by + c = 0$ is:\n$$ \\frac{x - x_0}{a} = \\frac{y - y_0}{b} = -2 \\frac{ax_0 + by_0 + c}{a^2 + b^2} $$\nHere, $a = 1$, $b = -3$, $c = 0$.\nCalculate the term $K = -2 \\frac{1(-2) + (-3)(3) + 0}{1^2 + (-3)^2}$:\n$$ K = -2 \\frac{-2 - 9}{1 + 9} = -2 \\frac{-11}{10} = \\frac{22}{10} = 2.2 $$\n\nNow find the coordinates $(x, y)$ of the reflected point $B'$:\n$$ x = x_0 + aK = -2 + 1(2.2) = -2 + 2.2 = 0.2 $$\n$$ y = y_0 + bK = 3 + (-3)(2.2) = 3 - 6.6 = -3.6 $$\n\nSo the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\nConverting to fractions:\n$0.2 = \\frac{1}{5}$\n$-3.6 = -\\frac{18}{5}$\n\nLet's double check using the geometric method (projection).\nVector $\\vec{OB} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\nThe line direction is $\\vec{u} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$. Normalized $\\hat{u} = \\frac{1}{\\sqrt{10}}\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$.\nThe projection of $\\vec{OB}$ onto the line is $\\text{proj}_{\\vec{u}} \\vec{OB} = (\\vec{OB} \\cdot \\hat{u}) \\hat{u}$.\n$\\vec{OB} \\cdot \\vec{u} = (-2)(3) + (3)(1) = -6 + 3 = -3$.\n$\\text{proj} = \\frac{-3}{10} \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix}$.\nThe reflection is $2 \\times \\text{proj} - \\vec{OB}$.\n$2 \\times \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix} = \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix}$.\n$B' = \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} = \\begin{pmatrix} -1.8 - (-2) \\\\ -0.6 - 3 \\end{pmatrix} = \\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\n\nThe calculation holds.\nThe vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$ or $\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}$.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "apply-formula",
+        "compute|instantiate",
+        "apply-formula|compute",
+        "analyze|conclude"
+      ]
+    },
+    {
+      "trace_id": "0:3:5",
+      "question_id": "0",
+      "sample_id": "3",
+      "attempt_index": "5",
+      "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|compute|instantiate|analyze|compute|substitute|analyze|compute|apply-formula|analyze|compute|check-constraint",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "substitute",
+        "analyze",
+        "compute",
+        "apply-formula",
+        "analyze",
+        "compute",
+        "check-constraint"
+      ],
+      "token_count": 12,
+      "reasoning_trace": "To determine which vector the reflection takes $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ to, we first need to identify the line of reflection.\n\n**Step 1: Determine the line of reflection.**\nA reflection maps a point $P$ to its image $P'$ such that the line of reflection is the perpendicular bisector of the segment connecting $P$ and $P'$.\nLet $P = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ and $P' = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$.\n\n1.  **Find the midpoint ($M$) of the segment $PP'$:**\n    $$M = \\frac{P + P'}{2} = \\frac{\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} + \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}}{2} = \\frac{\\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}}{2} = \\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix}$$\n\n2.  **Find the slope of the segment $PP'$:**\n    $$m_{PP'} = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{3 - 0}{4 - 5} = \\frac{3}{-1} = -3$$\n\n3.  **Find the slope of the line of reflection ($m_{ref}$):**\n    Since the line of reflection is perpendicular to $PP'$, its slope is the negative reciprocal of $m_{PP'}$.\n    $$m_{ref} = -\\frac{1}{m_{PP'}} = -\\frac{1}{-3} = \\frac{1}{3}$$\n\n4.  **Find the equation of the line of reflection:**\n    Using the point-slope form $y - y_1 = m(x - x_1)$ with point $M(4.5, 1.5)$ and slope $m_{ref} = \\frac{1}{3}$:\n    $$y - 1.5 = \\frac{1}{3}(x - 4.5)$$\n    Multiply by 3 to clear the fraction:\n    $$3(y - 1.5) = x - 4.5$$\n    $$3y - 4.5 = x - 4.5$$\n    $$3y = x$$\n    Or in standard form: $x - 3y = 0$.\n\n**Step 2: Reflect the vector $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across the line $x - 3y = 0$.**\nLet $Q = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$. We need to find its image $Q' = \\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$.\n\nThe line connecting $Q$ and $Q'$ is perpendicular to the line of reflection.\n-   Slope of line of reflection: $m_{ref} = \\frac{1}{3}$.\n-   Slope of line $QQ'$: $m_{QQ'} = -3$ (negative reciprocal).\n\nThe equation of the line passing through $Q(-2, 3)$ with slope $-3$ is:\n$$y - 3 = -3(x - (-2))$$\n$$y - 3 = -3(x + 2)$$\n$$y = -3x - 6 + 3$$\n$$y = -3x - 3$$\n\n**Step 3: Find the intersection point ($I$) of the line $QQ'$ and the line of reflection.**\nThe intersection point lies on both lines:\n1.  $x - 3y = 0 \\implies x = 3y$\n2.  $y = -3x - 3$\n\nSubstitute (1) into (2):\n$$y = -3(3y) - 3$$\n$$y = -9y - 3$$\n$$10y = -3$$\n$$y = -0.3$$\n\nNow find $x$:\n$$x = 3(-0.3) = -0.9$$\nSo, the intersection point is $I = \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix}$.\n\n**Step 4: Use the midpoint property to find $Q'$.**\nThe intersection point $I$ is the midpoint of the segment $QQ'$.\n$$I = \\frac{Q + Q'}{2}$$\n$$2I = Q + Q'$$\n$$Q' = 2I - Q$$\n\nCalculate $2I$:\n$$2I = 2 \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix} = \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix}$$\n\nCalculate $Q'$:\n$$Q' = \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$$\n$$Q' = \\begin{pmatrix} -1.8 - (-2) \\\\ -0.6 - 3 \\end{pmatrix}$$\n$$Q' = \\begin{pmatrix} -1.8 + 2 \\\\ -3.6 \\end{pmatrix}$$\n$$Q' = \\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$$\n\nLet's double check with fractions to ensure precision.\n$I = \\begin{pmatrix} -9/10 \\\\ -3/10 \\end{pmatrix}$\n$2I = \\begin{pmatrix} -9/5 \\\\ -3/5 \\end{pmatrix}$\n$Q = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} = \\begin{pmatrix} -10/5 \\\\ 15/5 \\end{pmatrix}$\n$Q' = \\begin{pmatrix} -9/5 - (-10/5) \\\\ -3/5 - 15/5 \\end{pmatrix} = \\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix} = \\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$\n\nThe calculation holds.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "apply-formula",
+        "instantiate|compute",
+        "compute|instantiate",
+        "compute|substitute",
+        "substitute"
+      ]
+    },
+    {
+      "trace_id": "0:4:7",
+      "question_id": "0",
+      "sample_id": "4",
+      "attempt_index": "7",
+      "predicted_answer": "\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}",
+      "is_correct": true,
+      "tokenized_trace": "instantiate|analyze|compute|analyze|check-constraint|compute|check-constraint|rewrite|analyze|compute|conclude",
+      "tokens": [
+        "instantiate",
+        "analyze",
+        "compute",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "check-constraint",
+        "rewrite",
+        "analyze",
+        "compute",
+        "conclude"
+      ],
+      "token_count": 11,
+      "reasoning_trace": "To solve this problem, we need to determine the line of reflection that maps the vector $\\mathbf{u} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ to $\\mathbf{v} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$, and then apply this same reflection to the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\n\n### Step 1: Find the Line of Reflection\nA reflection across a line $L$ maps any point $P$ to a point $P'$ such that the line $L$ is the perpendicular bisector of the segment connecting $P$ and $P'$.\n\nLet the pre-image be $A = (5, 0)$ and the image be $B = (4, 3)$.\nThe line of reflection must pass through the midpoint $M$ of the segment $AB$.\n$$ M = \\left( \\frac{5+4}{2}, \\frac{0+3}{2} \\right) = \\left( \\frac{9}{2}, \\frac{3}{2} \\right) = (4.5, 1.5) $$\n\nThe line of reflection is also perpendicular to the vector $\\vec{AB}$.\n$$ \\vec{AB} = B - A = \\begin{pmatrix} 4-5 \\\\ 3-0 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix} $$\nThe slope of the vector $\\vec{AB}$ is $m_{AB} = \\frac{3}{-1} = -3$.\nTherefore, the slope of the line of reflection (which is perpendicular to $\\vec{AB}$) is the negative reciprocal:\n$$ m_{ref} = -\\frac{1}{-3} = \\frac{1}{3} $$\n\nNow, we write the equation of the line of reflection using the point-slope form $y - y_1 = m(x - x_1)$ with point $M(4.5, 1.5)$ and slope $m = 1/3$:\n$$ y - 1.5 = \\frac{1}{3}(x - 4.5) $$\nMultiply by 3 to clear the fraction:\n$$ 3(y - 1.5) = x - 4.5 $$\n$$ 3y - 4.5 = x - 4.5 $$\n$$ 3y = x $$\nOr in standard form:\n$$ x - 3y = 0 $$\n\n### Step 2: Verify the Reflection Formula\nThe reflection of a point $(x, y)$ across the line $ax + by = 0$ is given by the formula:\n$$ (x', y') = (x, y) - \\frac{2(ax+by)}{a^2+b^2} \\begin{pmatrix} a \\\\ b \\end{pmatrix} $$\nHere, $a = 1$ and $b = -3$.\n$$ a^2 + b^2 = 1^2 + (-3)^2 = 1 + 9 = 10 $$\nSo the transformation is:\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} - \\frac{2(x - 3y)}{10} \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} - \\frac{x - 3y}{5} \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n\nLet's check if this works for the given pair $(5, 0) \\to (4, 3)$:\n$x = 5, y = 0$.\n$x - 3y = 5 - 0 = 5$.\nFactor $k = \\frac{5}{5} = 1$.\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} - 1 \\cdot \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} = \\begin{pmatrix} 5-1 \\\\ 0-(-3) \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix} $$\nThis matches the given information. The line of reflection is indeed $x - 3y = 0$.\n\n### Step 3: Apply the Reflection to the Target Vector\nWe need to reflect $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\nHere $x = -2$ and $y = 3$.\nCalculate the term $x - 3y$:\n$$ x - 3y = -2 - 3(3) = -2 - 9 = -11 $$\nNow apply the formula:\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} - \\frac{-11}{5} \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} + \\frac{11}{5} \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} + \\begin{pmatrix} 2.2 \\\\ -6.6 \\end{pmatrix} $$\nCalculate components:\n$x' = -2 + 2.2 = 0.2 = \\frac{1}{5}$\n$y' = 3 - 6.6 = -3.6 = -\\frac{18}{5}$\n\nAlternatively, using fractions directly:\n$x' = -2 + \\frac{11}{5} = \\frac{-10+11}{5} = \\frac{1}{5}$\n$y' = 3 + \\frac{11}{5}(-3) = 3 - \\frac{33}{5} = \\frac{15-33}{5} = -\\frac{18}{5}$\n\nSo the resulting vector is $\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}$.\n\n### Conclusion\nThe reflection takes $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ to $\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}$.",
+      "matched_success_motifs": [
+        "compute|conclude",
+        "compute|analyze|check-constraint",
+        "rewrite",
+        "analyze|check-constraint|compute",
+        "analyze|check-constraint",
+        "rewrite|analyze",
+        "check-constraint|compute|check-constraint",
+        "check-constraint|compute"
+      ],
+      "matched_failure_motifs": []
+    },
+    {
+      "trace_id": "0:5:8",
+      "question_id": "0",
+      "sample_id": "5",
+      "attempt_index": "8",
+      "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|compute|instantiate|analyze|apply-formula|compute|substitute|conclude|check-constraint|compute|check-constraint|analyze|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "instantiate",
+        "analyze",
+        "apply-formula",
+        "compute",
+        "substitute",
+        "conclude",
+        "check-constraint",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 13,
+      "reasoning_trace": "To find the image of the vector $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ under the given reflection, we must first determine the line of reflection.\n\n**Step 1: Determine the line of reflection.**\nA reflection maps a point $P$ to its mirror image $P'$ across a line $L$. The line of reflection $L$ is the perpendicular bisector of the segment connecting $P$ and $P'$.\nLet $P = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ and $P' = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$.\n\n1.  **Find the midpoint ($M$) of the segment $PP'$:**\n    $$M = \\frac{P + P'}{2} = \\frac{\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} + \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}}{2} = \\frac{\\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}}{2} = \\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix}$$\n\n2.  **Find the slope of the segment $PP'$:**\n    $$m_{PP'} = \\frac{3 - 0}{4 - 5} = \\frac{3}{-1} = -3$$\n\n3.  **Find the slope of the line of reflection ($m_L$):**\n    Since the line of reflection is perpendicular to $PP'$, its slope is the negative reciprocal of $m_{PP'}$.\n    $$m_L = -\\frac{1}{-3} = \\frac{1}{3}$$\n\n4.  **Find the equation of the line of reflection:**\n    Using the point-slope form $y - y_1 = m(x - x_1)$ with point $M(4.5, 1.5)$ and slope $m_L = \\frac{1}{3}$:\n    $$y - 1.5 = \\frac{1}{3}(x - 4.5)$$\n    Multiply by 3 to clear the fraction:\n    $$3(y - 1.5) = x - 4.5$$\n    $$3y - 4.5 = x - 4.5$$\n    $$3y = x$$\n    Or in standard form: $x - 3y = 0$.\n\n**Step 2: Reflect the target vector across the line $x - 3y = 0$.**\nLet the target vector be $Q = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$. We need to find its reflection $Q' = \\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$.\n\nThe formula for reflecting a point $(x, y)$ across the line $ax + by = 0$ is:\n$$x' = x - \\frac{2a(ax + by)}{a^2 + b^2}$$\n$$y' = y - \\frac{2b(ax + by)}{a^2 + b^2}$$\n\nHere, $a = 1$ and $b = -3$.\nFirst, calculate the term $ax + by$:\n$$ax + by = 1(-2) + (-3)(3) = -2 - 9 = -11$$\n\nNext, calculate the denominator $a^2 + b^2$:\n$$a^2 + b^2 = 1^2 + (-3)^2 = 1 + 9 = 10$$\n\nNow substitute these values into the formulas:\n$$x' = -2 - \\frac{2(1)(-11)}{10} = -2 - \\frac{-22}{10} = -2 + 2.2 = 0.2 = \\frac{1}{5}$$\n$$y' = 3 - \\frac{2(-3)(-11)}{10} = 3 - \\frac{66}{10} = 3 - 6.6 = -3.6 = -\\frac{18}{5}$$\n\nSo, the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$ or $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$.\n\n**Alternative Method: Geometric Verification**\nLet's check if the midpoint of $Q$ and $Q'$ lies on the line $x - 3y = 0$ and if the vector $QQ'$ is perpendicular to the line.\n$Q = (-2, 3)$, $Q' = (0.2, -3.6)$.\nMidpoint $M' = \\left( \\frac{-2 + 0.2}{2}, \\frac{3 + (-3.6)}{2} \\right) = \\left( \\frac{-1.8}{2}, \\frac{-0.6}{2} \\right) = (-0.9, -0.3)$.\nCheck if $M'$ is on $x - 3y = 0$:\n$-0.9 - 3(-0.3) = -0.9 + 0.9 = 0$. Yes.\nSlope of $QQ'$: $\\frac{-3.6 - 3}{0.2 - (-2)} = \\frac{-6.6}{2.2} = -3$.\nThe slope of the line of reflection was $1/3$. Since $-3 \\times \\frac{1}{3} = -1$, the segment $QQ'$ is perpendicular to the line of reflection. The calculation is correct.\n\nThe resulting vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$. In fraction form, this is $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$.",
+      "matched_success_motifs": [
+        "check-constraint|compute|check-constraint",
+        "check-constraint|compute"
+      ],
+      "matched_failure_motifs": [
+        "apply-formula",
+        "instantiate|compute",
+        "compute|instantiate",
+        "apply-formula|compute",
+        "compute|substitute",
+        "substitute"
+      ]
+    },
+    {
+      "trace_id": "0:6:9",
+      "question_id": "0",
+      "sample_id": "6",
+      "attempt_index": "9",
+      "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+      "is_correct": false,
+      "tokenized_trace": "compute|analyze|instantiate|compute|instantiate|apply-formula|compute|analyze|conclude|compute|check-constraint",
+      "tokens": [
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "instantiate",
+        "apply-formula",
+        "compute",
+        "analyze",
+        "conclude",
+        "compute",
+        "check-constraint"
+      ],
+      "token_count": 11,
+      "reasoning_trace": "To solve this problem, we need to determine the line of reflection $L$ that maps the vector $\\mathbf{u} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ to $\\mathbf{v} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$. Once we find the equation of this line, we can reflect the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across it.\n\n**Step 1: Find the midpoint of the segment connecting $\\mathbf{u}$ and $\\mathbf{v}$.**\nThe line of reflection must pass through the midpoint of any point and its image.\nLet $M$ be the midpoint of $\\mathbf{u}$ and $\\mathbf{v}$:\n$$ M = \\frac{\\mathbf{u} + \\mathbf{v}}{2} = \\frac{\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} + \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}}{2} = \\frac{\\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}}{2} = \\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix} $$\n\n**Step 2: Find the direction vector of the line of reflection.**\nThe line of reflection is perpendicular to the vector connecting $\\mathbf{u}$ and $\\mathbf{v}$. Let $\\mathbf{d} = \\mathbf{v} - \\mathbf{u}$:\n$$ \\mathbf{d} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix} - \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix} $$\nSince the reflection line is perpendicular to $\\mathbf{d}$, the normal vector of the line is $\\mathbf{n} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$. Alternatively, a direction vector for the line itself would be perpendicular to $\\mathbf{n}$, such as $\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$ (since $(-1)(3) + (3)(1) = 0$).\n\n**Step 3: Determine the equation of the line of reflection.**\nThe line passes through $M(4.5, 1.5)$ and has a normal vector $\\mathbf{n} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$.\nThe equation of the line is given by $\\mathbf{n} \\cdot (\\mathbf{x} - M) = 0$:\n$$ -1(x - 4.5) + 3(y - 1.5) = 0 $$\n$$ -x + 4.5 + 3y - 4.5 = 0 $$\n$$ -x + 3y = 0 \\implies x = 3y $$\nSo, the line of reflection is $y = \\frac{1}{3}x$.\n\n**Step 4: Reflect the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across the line $x - 3y = 0$.**\nLet the reflected vector be $\\mathbf{w}' = \\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$.\nThe formula for reflecting a point $(x, y)$ across the line $ax + by = 0$ is:\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} - \\frac{2(ax + by)}{a^2 + b^2} \\begin{pmatrix} a \\\\ b \\end{pmatrix} $$\nHere, $a = 1$ and $b = -3$ (from $x - 3y = 0$).\nFirst, calculate the scalar term $k = \\frac{2(ax + by)}{a^2 + b^2}$:\n$$ ax + by = 1(-2) + (-3)(3) = -2 - 9 = -11 $$\n$$ a^2 + b^2 = 1^2 + (-3)^2 = 1 + 9 = 10 $$\n$$ k = \\frac{2(-11)}{10} = -\\frac{22}{10} = -2.2 $$\n\nNow apply the transformation:\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} - (-2.2) \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n$$ \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} + 2.2 \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} $$\n$$ x' = -2 + 2.2(1) = -2 + 2.2 = 0.2 $$\n$$ y' = 3 + 2.2(-3) = 3 - 6.6 = -3.6 $$\n\nSo the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\nIn fraction form:\n$x' = \\frac{1}{5}$\n$y' = -\\frac{18}{5}$\nVector: $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$ or $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\n\nLet's double check with the geometric property that the midpoint of $\\mathbf{w}$ and $\\mathbf{w}'$ lies on the line $x=3y$.\nMidpoint $M_w = \\frac{1}{2} \\left( \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix} + \\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix} \\right) = \\frac{1}{2} \\begin{pmatrix} -1.8 \\\\ -0.6 \\end{pmatrix} = \\begin{pmatrix} -0.9 \\\\ -0.3 \\end{pmatrix}$.\nCheck if $x = 3y$: $-0.9 = 3(-0.3)$. This holds true.\nAlso, the vector $\\mathbf{w}' - \\mathbf{w}$ must be parallel to the normal vector $\\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix}$.\n$\\mathbf{w}' - \\mathbf{w} = \\begin{pmatrix} 0.2 - (-2) \\\\ -3.6 - 3 \\end{pmatrix} = \\begin{pmatrix} 2.2 \\\\ -6.6 \\end{pmatrix} = 2.2 \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix}$. This also holds true.\n\nThe calculation is correct.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "apply-formula",
+        "instantiate|compute",
+        "compute|instantiate",
+        "apply-formula|compute",
+        "analyze|instantiate",
+        "analyze|conclude"
+      ]
+    },
+    {
+      "trace_id": "0:7:10",
+      "question_id": "0",
+      "sample_id": "7",
+      "attempt_index": "10",
+      "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+      "is_correct": false,
+      "tokenized_trace": "compute|analyze|instantiate|analyze|compute|instantiate|compute|substitute|conclude|compute|analyze|check-constraint|compute|check-constraint",
+      "tokens": [
+        "compute",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "compute",
+        "substitute",
+        "conclude",
+        "compute",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "check-constraint"
+      ],
+      "token_count": 14,
+      "reasoning_trace": "To solve this problem, we need to determine the line of reflection that maps the vector $\\mathbf{u} = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ to $\\mathbf{v} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$. Once we have the line of reflection, we can apply it to the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$.\n\n**Step 1: Find the midpoint of the segment connecting $\\mathbf{u}$ and $\\mathbf{v}$.**\nThe line of reflection must pass through the midpoint of any segment connecting a point to its image.\nLet $M$ be the midpoint:\n$$ M = \\frac{\\mathbf{u} + \\mathbf{v}}{2} = \\frac{\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} + \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}}{2} = \\frac{\\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}}{2} = \\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix} $$\n\n**Step 2: Find the direction vector of the segment $\\mathbf{u}\\mathbf{v}$.**\nThe line of reflection is perpendicular to the segment connecting a point to its image.\nLet $\\mathbf{d}$ be the vector from $\\mathbf{u}$ to $\\mathbf{v}$:\n$$ \\mathbf{d} = \\mathbf{v} - \\mathbf{u} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix} - \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix} $$\n\n**Step 3: Determine the normal vector and equation of the line of reflection.**\nThe line of reflection passes through $M$ and has a normal vector parallel to $\\mathbf{d} = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$.\nThe equation of a line with normal vector $\\begin{pmatrix} A \\\\ B \\end{pmatrix}$ passing through $(x_0, y_0)$ is $A(x - x_0) + B(y - y_0) = 0$.\nHere, $A = -1$, $B = 3$, $x_0 = 4.5$, and $y_0 = 1.5$.\n$$ -1(x - 4.5) + 3(y - 1.5) = 0 $$\n$$ -x + 4.5 + 3y - 4.5 = 0 $$\n$$ -x + 3y = 0 \\implies x = 3y $$\nSo, the line of reflection is $y = \\frac{1}{3}x$.\n\n**Step 4: Verify the reflection property.**\nLet's check if the midpoint lies on the line $x = 3y$: $4.5 = 3(1.5)$. Yes.\nLet's check the slope of the segment $\\mathbf{u}\\mathbf{v}$: $m = \\frac{3-0}{4-5} = -3$.\nThe slope of the line $x=3y$ (or $y=x/3$) is $1/3$.\nSince $(-3) \\times (1/3) = -1$, the line is indeed perpendicular to the segment. The setup is correct.\n\n**Step 5: Reflect the vector $\\mathbf{w} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across the line $x = 3y$.**\nLet the image of $\\mathbf{w}$ be $\\mathbf{w}' = \\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$.\nThe midpoint of $\\mathbf{w}$ and $\\mathbf{w}'$ must lie on the line $x = 3y$.\nMidpoint $M_w = \\left( \\frac{-2 + x'}{2}, \\frac{3 + y'}{2} \\right)$.\nCondition 1: $\\frac{-2 + x'}{2} = 3 \\left( \\frac{3 + y'}{2} \\right)$\n$$ -2 + x' = 9 + 3y' \\implies x' - 3y' = 11 \\quad \\text{(Equation 1)} $$\n\nThe vector $\\mathbf{w}\\mathbf{w}'$ must be perpendicular to the line $x=3y$. The direction of the line is $\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$ (since $y = x/3$).\nThe vector $\\mathbf{w}\\mathbf{w}' = \\begin{pmatrix} x' - (-2) \\\\ y' - 3 \\end{pmatrix} = \\begin{pmatrix} x' + 2 \\\\ y' - 3 \\end{pmatrix}$.\nThe dot product with the direction vector $\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$ must be 0.\nCondition 2: $3(x' + 2) + 1(y' - 3) = 0$\n$$ 3x' + 6 + y' - 3 = 0 \\implies 3x' + y' = -3 \\quad \\text{(Equation 2)} $$\n\nNow we solve the system of linear equations:\n1) $x' - 3y' = 11$\n2) $3x' + y' = -3$\n\nFrom (2), $y' = -3 - 3x'$. Substitute into (1):\n$$ x' - 3(-3 - 3x') = 11 $$\n$$ x' + 9 + 9x' = 11 $$\n$$ 10x' = 2 \\implies x' = 0.2 $$\n\nSubstitute $x' = 0.2$ back into the expression for $y'$:\n$$ y' = -3 - 3(0.2) = -3 - 0.6 = -3.6 $$\n\nSo the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\nIn fraction form: $x' = \\frac{1}{5}$, $y' = -\\frac{18}{5}$.\nVector: $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$.\n\nLet's double check with the formula for reflection of a point $(x,y)$ across $ax+by+c=0$.\nLine: $x - 3y = 0$, so $a=1, b=-3, c=0$.\nFormula:\n$$ x' = x - \\frac{2a(ax+by+c)}{a^2+b^2} $$\n$$ y' = y - \\frac{2b(ax+by+c)}{a^2+b^2} $$\nFor point $(-2, 3)$:\n$ax+by+c = 1(-2) - 3(3) + 0 = -2 - 9 = -11$.\n$a^2+b^2 = 1^2 + (-3)^2 = 10$.\n\n$$ x' = -2 - \\frac{2(1)(-11)}{10} = -2 - \\frac{-22}{10} = -2 + 2.2 = 0.2 $$\n$$ y' = 3 - \\frac{2(-3)(-11)}{10} = 3 - \\frac{66}{10} = 3 - 6.6 = -3.6 $$\n\nThe calculation holds. The resulting vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.",
+      "matched_success_motifs": [
+        "compute|analyze|check-constraint",
+        "analyze|check-constraint|compute",
+        "analyze|check-constraint",
+        "check-constraint|compute|check-constraint",
+        "check-constraint|compute"
+      ],
+      "matched_failure_motifs": [
+        "instantiate|compute",
+        "compute|instantiate",
+        "analyze|instantiate",
+        "compute|substitute",
+        "substitute"
+      ]
+    },
+    {
+      "trace_id": "0:8:11",
+      "question_id": "0",
+      "sample_id": "8",
+      "attempt_index": "11",
+      "predicted_answer": "\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|analyze|compute|instantiate|apply-formula|compute|check-constraint|analyze|compute|check-constraint|analyze|compute|backtrack|compute|analyze|apply-formula|check-constraint|backtrack|compute|rewrite|analyze|instantiate|analyze|conclude",
+      "tokens": [
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "apply-formula",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compute",
+        "backtrack",
+        "compute",
+        "analyze",
+        "apply-formula",
+        "check-constraint",
+        "backtrack",
+        "compute",
+        "rewrite",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "conclude"
+      ],
+      "token_count": 24,
+      "reasoning_trace": "To find the image of the vector $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ under the given reflection, we first need to determine the axis of reflection.\n\n**Step 1: Identify the properties of the reflection.**\nA reflection in 2D space is an isometry (it preserves distances) and is symmetric with respect to the line of reflection (the axis).\nLet the given points be:\n$A = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$\n$B = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$\nThe reflection maps $A$ to $B$. Let's call the image of $A$ as $A' = B$.\n\n**Step 2: Determine the axis of reflection.**\nThe axis of reflection is the perpendicular bisector of the segment connecting a point and its image.\n1.  **Find the midpoint ($M$) of segment $AB$:**\n    $$M = \\frac{A + B}{2} = \\frac{\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} + \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}}{2} = \\frac{\\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}}{2} = \\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix}$$\n\n2.  **Find the slope of segment $AB$:**\n    $$m_{AB} = \\frac{3 - 0}{4 - 5} = \\frac{3}{-1} = -3$$\n\n3.  **Find the slope of the perpendicular bisector ($m_{\\perp}$):**\n    The slope of the axis is the negative reciprocal of $m_{AB}$.\n    $$m_{\\perp} = -\\frac{1}{-3} = \\frac{1}{3}$$\n\n4.  **Find the equation of the axis:**\n    Using point-slope form with point $M(4.5, 1.5)$ and slope $m_{\\perp} = 1/3$:\n    $$y - 1.5 = \\frac{1}{3}(x - 4.5)$$\n    Multiply by 3 to clear fractions:\n    $$3(y - 1.5) = x - 4.5$$\n    $$3y - 4.5 = x - 4.5$$\n    $$x - 3y = 0$$\n    So, the axis of reflection is the line $y = \\frac{1}{3}x$.\n\n**Step 3: Reflect the target vector across the axis.**\nWe need to reflect the point $P = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across the line $x - 3y = 0$.\nLet the reflected point be $P' = (x', y')$.\n\nThe formula for reflecting a point $(x_0, y_0)$ across the line $ax + by + c = 0$ is:\n$$\\frac{x' - x_0}{a} = \\frac{y' - y_0}{b} = -2 \\frac{ax_0 + by_0 + c}{a^2 + b^2}$$\n\nHere, $a = 1$, $b = -3$, $c = 0$, $x_0 = -2$, $y_0 = 3$.\n\n1.  **Calculate the term $K$:**\n    $$ax_0 + by_0 + c = 1(-2) + (-3)(3) + 0 = -2 - 9 = -11$$\n    $$a^2 + b^2 = 1^2 + (-3)^2 = 1 + 9 = 10$$\n    $$K = -2 \\frac{-11}{10} = \\frac{22}{10} = 2.2$$\n\n2.  **Calculate $x'$:**\n    $$x' = x_0 + aK = -2 + 1(2.2) = -2 + 2.2 = 0.2$$\n\n3.  **Calculate $y'$:**\n    $$y' = y_0 + bK = 3 + (-3)(2.2) = 3 - 6.6 = -3.6$$\n\nSo, the reflected point is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\n\n**Alternative Method: Geometric Symmetry**\nNotice the relationship between the original vectors.\nOriginal vector $u = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$.\nReflected vector $v = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$.\nLet's check the sum $u+v = \\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}$. The midpoint is $\\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix}$.\nThe vector connecting them is $v-u = \\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$.\nThe axis direction is perpendicular to $v-u$, so the axis direction vector is $\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$. This matches our line $y = x/3$.\n\nLet's try a simpler check. Is there a pattern?\nMaybe the reflection is across the line $y=x/3$.\nLet's verify the reflection of $\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ again.\nDistance from $(5,0)$ to line $x-3y=0$: $|5 - 0|/\\sqrt{10} = 5/\\sqrt{10}$.\nDistance from $(4,3)$ to line $x-3y=0$: $|4 - 9|/\\sqrt{10} = 5/\\sqrt{10}$. Correct.\nMidpoint lies on line: $4.5 - 3(1.5) = 0$. Correct.\n\nNow reflect $P(-2, 3)$.\nDistance from $P$ to line: $|-2 - 3(3)|/\\sqrt{10} = |-11|/\\sqrt{10} = 11/\\sqrt{10}$.\nThe normal vector to the line is $\\vec{n} = \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix}$.\nThe vector from $P$ to the line is $d \\cdot \\frac{\\vec{n}}{|\\vec{n}|}$.\nActually, the formula used above is robust.\n$x' = 0.2 = \\frac{1}{5}$\n$y' = -3.6 = -\\frac{18}{5}$\n\nLet's double check the calculation $3y - 4.5 = x - 4.5 \\Rightarrow x = 3y$.\nWait, in Step 2, I wrote $3y - 4.5 = x - 4.5 \\Rightarrow x - 3y = 0$.\nEquation: $y - 1.5 = \\frac{1}{3}(x - 4.5) \\Rightarrow 3y - 4.5 = x - 4.5 \\Rightarrow x = 3y$.\nYes, $x - 3y = 0$.\n$a=1, b=-3$.\n$ax_0 + by_0 = 1(-2) - 3(3) = -2 - 9 = -11$.\n$a^2+b^2 = 10$.\nFactor $= -2(-11)/10 = 2.2$.\n$x' = -2 + 1(2.2) = 0.2$.\n$y' = 3 + (-3)(2.2) = 3 - 6.6 = -3.6$.\n\nThe result is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$ or $\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}$.\n\nLet's re-read the problem to ensure no misinterpretation. \"A reflection takes ... to ...\". Standard Euclidean reflection.\nThe calculations hold.\n\nFinal Answer seems to be $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.",
+      "matched_success_motifs": [
+        "rewrite",
+        "rewrite|analyze"
+      ],
+      "matched_failure_motifs": [
+        "apply-formula",
+        "compute|instantiate",
+        "apply-formula|compute",
+        "analyze|instantiate",
+        "analyze|conclude"
+      ]
+    },
+    {
+      "trace_id": "0:9:12",
+      "question_id": "0",
+      "sample_id": "9",
+      "attempt_index": "12",
+      "predicted_answer": "\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|compute|conclude|compute|analyze|check-constraint|compute|check-constraint|analyze|instantiate",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "conclude",
+        "compute",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "instantiate"
+      ],
+      "token_count": 10,
+      "reasoning_trace": "To find the image of the vector $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ under the given reflection, we first need to determine the line of reflection.\n\n**Step 1: Identify the properties of the reflection.**\nA reflection in the plane is an isometry (distance-preserving transformation) that maps a line (the axis of reflection) to itself and maps every point to its mirror image across that line. The midpoint of the segment connecting any point $P$ and its image $P'$ lies on the axis of reflection. Additionally, the axis of reflection is the perpendicular bisector of the segment $PP'$.\n\nLet $P = \\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix}$ and $P' = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$.\n\n**Step 2: Find the midpoint of the segment $PP'$.**\nThe midpoint $M$ is calculated as:\n$$ M = \\frac{P + P'}{2} = \\frac{\\begin{pmatrix} 5 \\\\ 0 \\end{pmatrix} + \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}}{2} = \\frac{\\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix}}{2} = \\begin{pmatrix} 4.5 \\\\ 1.5 \\end{pmatrix} $$\nSo, the axis of reflection passes through $M(4.5, 1.5)$.\n\n**Step 3: Determine the slope of the segment $PP'$.**\nThe slope $m_{PP'}$ is:\n$$ m_{PP'} = \\frac{3 - 0}{4 - 5} = \\frac{3}{-1} = -3 $$\n\n**Step 4: Determine the slope of the axis of reflection.**\nSince the axis of reflection is perpendicular to the segment $PP'$, its slope $m_{axis}$ is the negative reciprocal of $m_{PP'}$:\n$$ m_{axis} = -\\frac{1}{-3} = \\frac{1}{3} $$\n\n**Step 5: Find the equation of the axis of reflection.**\nUsing the point-slope form $y - y_1 = m(x - x_1)$ with point $M(4.5, 1.5)$ and slope $m = 1/3$:\n$$ y - 1.5 = \\frac{1}{3}(x - 4.5) $$\nMultiply by 3 to clear the fraction:\n$$ 3(y - 1.5) = x - 4.5 $$\n$$ 3y - 4.5 = x - 4.5 $$\n$$ 3y = x $$\nOr in standard form: $x - 3y = 0$.\n\n**Step 6: Reflect the target vector $Q = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ across the line $x - 3y = 0$.**\nLet $Q = (x_0, y_0) = (-2, 3)$. We want to find $Q' = (x', y')$.\nThe formula for the reflection of a point $(x_0, y_0)$ across the line $ax + by + c = 0$ is given by:\n$$ \\frac{x' - x_0}{a} = \\frac{y' - y_0}{b} = -2 \\frac{ax_0 + by_0 + c}{a^2 + b^2} $$\nHere, $a = 1$, $b = -3$, and $c = 0$.\n\nFirst, calculate the term $-2 \\frac{ax_0 + by_0 + c}{a^2 + b^2}$:\n$$ ax_0 + by_0 + c = 1(-2) + (-3)(3) + 0 = -2 - 9 = -11 $$\n$$ a^2 + b^2 = 1^2 + (-3)^2 = 1 + 9 = 10 $$\n$$ \\text{Ratio} = -2 \\frac{-11}{10} = \\frac{22}{10} = 2.2 $$\n\nNow solve for $x'$ and $y'$:\n$$ x' - (-2) = 1 \\cdot (2.2) \\implies x' + 2 = 2.2 \\implies x' = 0.2 $$\n$$ y' - 3 = -3 \\cdot (2.2) \\implies y' - 3 = -6.6 \\implies y' = -3.6 $$\n\nSo the reflected vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$.\nConverting to fractions: $0.2 = \\frac{1}{5}$ and $-3.6 = -\\frac{18}{5}$.\nVector: $\\begin{pmatrix} \\frac{1}{5} \\\\ -\\frac{18}{5} \\end{pmatrix}$.\n\n**Alternative Method: Geometric Verification**\nLet's check if the midpoint of $Q$ and $Q'$ lies on the line $x - 3y = 0$.\n$Q = (-2, 3)$, $Q' = (0.2, -3.6)$.\nMidpoint $M_Q = \\left( \\frac{-2 + 0.2}{2}, \\frac{3 + (-3.6)}{2} \\right) = \\left( \\frac{-1.8}{2}, \\frac{-0.6}{2} \\right) = (-0.9, -0.3)$.\nCheck line equation: $x - 3y = -0.9 - 3(-0.3) = -0.9 + 0.9 = 0$. It holds.\nCheck slope of $QQ'$: $\\frac{-3.6 - 3}{0.2 - (-2)} = \\frac{-6.6}{2.2} = -3$. This is perpendicular to the axis slope ($1/3$). It holds.\n\nThe calculation is correct. The vector is $\\begin{pmatrix} 0.2 \\\\ -3.6 \\end{pmatrix}$ or $\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}$. Usually, decimal or fraction forms are acceptable. Let's provide the fraction form as it is exact.",
+      "matched_success_motifs": [
+        "compute|conclude",
+        "compute|analyze|check-constraint",
+        "analyze|check-constraint|compute",
+        "analyze|check-constraint",
+        "check-constraint|compute|check-constraint",
+        "check-constraint|compute"
+      ],
+      "matched_failure_motifs": [
+        "instantiate|compute",
+        "analyze|instantiate"
+      ]
+    }
+  ]
+}

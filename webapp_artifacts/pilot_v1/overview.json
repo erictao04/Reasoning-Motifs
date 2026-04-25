@@ -1,0 +1,474 @@
+{
+  "corpus_label": "Curated pilot reasoning traces",
+  "num_questions": 22,
+  "num_traces": 262,
+  "num_success": 187,
+  "num_failure": 75,
+  "success_rate": 0.7137404580152672,
+  "avg_token_count": 16.97328244274809,
+  "median_token_count": 16.0,
+  "featured_question_ids": [
+    "1",
+    "18",
+    "190"
+  ],
+  "story_sections": [
+    {
+      "id": "hypothesis",
+      "title": "Reasoning fingerprints",
+      "body": "Successful and failed solutions do not just differ in final answers. They often reuse different local reasoning motifs that can be surfaced and compared."
+    },
+    {
+      "id": "method",
+      "title": "Method shape",
+      "body": "We join raw traces with tokenized traces, mine motifs at the corpus and question level, and then present representative traces alongside the motifs they instantiate."
+    },
+    {
+      "id": "significance",
+      "title": "Why it matters",
+      "body": "If reasoning traces have structural fingerprints, motifs can become a practical lens for debugging model failures, diagnosing benchmarks, and designing targeted interventions."
+    }
+  ],
+  "top_success_motifs": [
+    {
+      "motif": "case-split",
+      "tokens": [
+        "case-split"
+      ],
+      "length": 1,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 56,
+      "failure_count": 10,
+      "success_support": 0.2994652406417112,
+      "failure_support": 0.13333333333333333,
+      "support_difference": 0.16613190730837787,
+      "lift": 2.2459892879679146,
+      "log_odds_ratio": 0.9859086720123047,
+      "q_value": 0.12700879161005763
+    },
+    {
+      "motif": "substitute|compute|analyze",
+      "tokens": [
+        "substitute",
+        "compute",
+        "analyze"
+      ],
+      "length": 3,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 28,
+      "failure_count": 2,
+      "success_support": 0.1497326203208556,
+      "failure_support": 0.02666666666666667,
+      "support_difference": 0.12306595365418893,
+      "lift": 5.614973051470596,
+      "log_odds_ratio": 1.6588548393943414,
+      "q_value": 0.12700879161005763
+    },
+    {
+      "motif": "analyze|compute",
+      "tokens": [
+        "analyze",
+        "compute"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 139,
+      "failure_count": 47,
+      "success_support": 0.7433155080213903,
+      "failure_support": 0.6266666666666667,
+      "support_difference": 0.11664884135472364,
+      "lift": 1.1861417662264604,
+      "log_odds_ratio": 0.5456751795519921,
+      "q_value": 0.5170493423981184
+    },
+    {
+      "motif": "check-constraint|instantiate",
+      "tokens": [
+        "check-constraint",
+        "instantiate"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 29,
+      "failure_count": 4,
+      "success_support": 0.15508021390374332,
+      "failure_support": 0.05333333333333334,
+      "support_difference": 0.10174688057040998,
+      "lift": 2.9077539561748007,
+      "log_odds_ratio": 1.0842557229521268,
+      "q_value": 0.2590575790198284
+    },
+    {
+      "motif": "count|case-split",
+      "tokens": [
+        "count",
+        "case-split"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 24,
+      "failure_count": 2,
+      "success_support": 0.12834224598930483,
+      "failure_support": 0.02666666666666667,
+      "support_difference": 0.10167557932263815,
+      "lift": 4.812834044117654,
+      "log_odds_ratio": 1.482854801558009,
+      "q_value": 0.19430732510374785
+    },
+    {
+      "motif": "conclude|analyze",
+      "tokens": [
+        "conclude",
+        "analyze"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 30,
+      "failure_count": 5,
+      "success_support": 0.16042780748663102,
+      "failure_support": 0.06666666666666667,
+      "support_difference": 0.09376114081996435,
+      "lift": 2.4064170762032093,
+      "log_odds_ratio": 0.9091658429274759,
+      "q_value": 0.44877234845590286
+    },
+    {
+      "motif": "analyze|case-split",
+      "tokens": [
+        "analyze",
+        "case-split"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 25,
+      "failure_count": 3,
+      "success_support": 0.13368983957219252,
+      "failure_support": 0.04,
+      "support_difference": 0.09368983957219251,
+      "lift": 3.3422459057486655,
+      "log_odds_ratio": 1.1788240437598494,
+      "q_value": 0.27585577712588477
+    },
+    {
+      "motif": "case-split|analyze",
+      "tokens": [
+        "case-split",
+        "analyze"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 27,
+      "failure_count": 4,
+      "success_support": 0.1443850267379679,
+      "failure_support": 0.05333333333333334,
+      "support_difference": 0.09105169340463456,
+      "lift": 2.7072192005765383,
+      "log_odds_ratio": 1.0015121150261428,
+      "q_value": 0.5081915367890064
+    },
+    {
+      "motif": "check-constraint|compute|analyze",
+      "tokens": [
+        "check-constraint",
+        "compute",
+        "analyze"
+      ],
+      "length": 3,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 19,
+      "failure_count": 1,
+      "success_support": 0.10160427807486631,
+      "failure_support": 0.013333333333333334,
+      "support_difference": 0.08827094474153298,
+      "lift": 7.620320284090952,
+      "log_odds_ratio": 1.7488127330546341,
+      "q_value": 0.24439853663472808
+    },
+    {
+      "motif": "analyze|compute|analyze",
+      "tokens": [
+        "analyze",
+        "compute",
+        "analyze"
+      ],
+      "length": 3,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 61,
+      "failure_count": 18,
+      "success_support": 0.32620320855614976,
+      "failure_support": 0.24,
+      "support_difference": 0.08620320855614977,
+      "lift": 1.359180029987374,
+      "log_odds_ratio": 0.41280908236392305,
+      "q_value": 0.7598319082426742
+    },
+    {
+      "motif": "analyze|check-constraint",
+      "tokens": [
+        "analyze",
+        "check-constraint"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 48,
+      "failure_count": 13,
+      "success_support": 0.25668449197860965,
+      "failure_support": 0.17333333333333334,
+      "support_difference": 0.08335115864527631,
+      "lift": 1.4808720605638708,
+      "log_odds_ratio": 0.47597606797998926,
+      "q_value": 0.7598319082426742
+    },
+    {
+      "motif": "analyze|instantiate",
+      "tokens": [
+        "analyze",
+        "instantiate"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "success",
+      "success_count": 107,
+      "failure_count": 37,
+      "success_support": 0.5721925133689839,
+      "failure_support": 0.49333333333333335,
+      "support_difference": 0.07885918003565057,
+      "lift": 1.1598496869104071,
+      "log_odds_ratio": 0.3155509714605732,
+      "q_value": 0.921353659271186
+    }
+  ],
+  "top_failure_motifs": [
+    {
+      "motif": "conclude|compute",
+      "tokens": [
+        "conclude",
+        "compute"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 36,
+      "failure_count": 34,
+      "success_support": 0.1925133689839572,
+      "failure_support": 0.4533333333333333,
+      "support_difference": -0.2608199643493761,
+      "lift": 0.4246618424102104,
+      "log_odds_ratio": -1.2385392611616395,
+      "q_value": 0.013014976654953778
+    },
+    {
+      "motif": "apply-formula",
+      "tokens": [
+        "apply-formula"
+      ],
+      "length": 1,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 80,
+      "failure_count": 46,
+      "success_support": 0.42780748663101603,
+      "failure_support": 0.6133333333333333,
+      "support_difference": -0.18552584670231725,
+      "lift": 0.697512205326365,
+      "log_odds_ratio": -0.7442957123907363,
+      "q_value": 0.17345516068302833
+    },
+    {
+      "motif": "compute|instantiate",
+      "tokens": [
+        "compute",
+        "instantiate"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 79,
+      "failure_count": 45,
+      "success_support": 0.42245989304812837,
+      "failure_support": 0.6,
+      "support_difference": -0.1775401069518716,
+      "lift": 0.7040998205733809,
+      "log_odds_ratio": -0.7109787936637668,
+      "q_value": 0.20978919397023355
+    },
+    {
+      "motif": "compute|check-constraint",
+      "tokens": [
+        "compute",
+        "check-constraint"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 46,
+      "failure_count": 31,
+      "success_support": 0.24598930481283424,
+      "failure_support": 0.41333333333333333,
+      "support_difference": -0.1673440285204991,
+      "lift": 0.5951354134299165,
+      "log_odds_ratio": -0.7673457611493745,
+      "q_value": 0.18673130699197357
+    },
+    {
+      "motif": "analyze|apply-formula",
+      "tokens": [
+        "analyze",
+        "apply-formula"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 15,
+      "failure_count": 18,
+      "success_support": 0.08021390374331551,
+      "failure_support": 0.24,
+      "support_difference": -0.1597860962566845,
+      "lift": 0.3342245975378788,
+      "log_odds_ratio": -1.2755429968271879,
+      "q_value": 0.048381983504224305
+    },
+    {
+      "motif": "conclude|compute|analyze",
+      "tokens": [
+        "conclude",
+        "compute",
+        "analyze"
+      ],
+      "length": 3,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 7,
+      "failure_count": 14,
+      "success_support": 0.0374331550802139,
+      "failure_support": 0.18666666666666668,
+      "support_difference": -0.14923351158645276,
+      "lift": 0.2005347582839954,
+      "log_odds_ratio": -1.7359392318447275,
+      "q_value": 0.019239368993132517
+    },
+    {
+      "motif": "substitute|analyze",
+      "tokens": [
+        "substitute",
+        "analyze"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 5,
+      "failure_count": 13,
+      "success_support": 0.026737967914438502,
+      "failure_support": 0.17333333333333334,
+      "support_difference": -0.14659536541889484,
+      "lift": 0.1542575063087365,
+      "log_odds_ratio": -1.9695252094861488,
+      "q_value": 0.013014976654953778
+    },
+    {
+      "motif": "compute|substitute|analyze",
+      "tokens": [
+        "compute",
+        "substitute",
+        "analyze"
+      ],
+      "length": 3,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 2,
+      "failure_count": 10,
+      "success_support": 0.0106951871657754,
+      "failure_support": 0.13333333333333333,
+      "support_difference": -0.12263814616755793,
+      "lift": 0.08021390314171123,
+      "log_odds_ratio": -2.4760892646956063,
+      "q_value": 0.013014976654953778
+    },
+    {
+      "motif": "compute|instantiate|analyze",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "analyze"
+      ],
+      "length": 3,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 15,
+      "failure_count": 15,
+      "success_support": 0.08021390374331551,
+      "failure_support": 0.2,
+      "support_difference": -0.1197860962566845,
+      "lift": 0.4010695167112299,
+      "log_odds_ratio": -1.0477538714346186,
+      "q_value": 0.17345516068302833
+    },
+    {
+      "motif": "substitute|analyze|compute",
+      "tokens": [
+        "substitute",
+        "analyze",
+        "compute"
+      ],
+      "length": 3,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 3,
+      "failure_count": 10,
+      "success_support": 0.016042780748663103,
+      "failure_support": 0.13333333333333333,
+      "support_difference": -0.11729055258467022,
+      "lift": 0.12032085471256687,
+      "log_odds_ratio": -2.1342116095074855,
+      "q_value": 0.021574642799705678
+    },
+    {
+      "motif": "apply-formula|instantiate",
+      "tokens": [
+        "apply-formula",
+        "instantiate"
+      ],
+      "length": 2,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 18,
+      "failure_count": 16,
+      "success_support": 0.0962566844919786,
+      "failure_support": 0.21333333333333335,
+      "support_difference": -0.11707664884135474,
+      "lift": 0.45120320644113465,
+      "log_odds_ratio": -0.9324662630911768,
+      "q_value": 0.20978919397023355
+    },
+    {
+      "motif": "compute|analyze|compare",
+      "tokens": [
+        "compute",
+        "analyze",
+        "compare"
+      ],
+      "length": 3,
+      "scope": "corpus_global",
+      "direction": "failure",
+      "success_count": 9,
+      "failure_count": 12,
+      "success_support": 0.0481283422459893,
+      "failure_support": 0.16,
+      "support_difference": -0.1118716577540107,
+      "lift": 0.30080213715741977,
+      "log_odds_ratio": -1.3079855410228083,
+      "q_value": 0.12700879161005763
+    }
+  ]
+}

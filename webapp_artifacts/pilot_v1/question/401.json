@@ -1,0 +1,1131 @@
+{
+  "question_id": "401",
+  "question_text": "Let $z$ be a complex number such that $|z| = 1.$  Find the maximum value of\n\\[|1 + z| + |1 - z + z^2|.\\]",
+  "gold_answer": "\\frac{13}{4}",
+  "benchmark_name": "math_500",
+  "pilot_question_uid": "math500_level35_random100_10samples:q401",
+  "total_traces": 5,
+  "success_count": 3,
+  "failure_count": 2,
+  "success_rate": 0.6,
+  "avg_token_count": 25.6,
+  "median_token_count": 26.0,
+  "distinct_predicted_answers": 2,
+  "tags": [
+    "mixed_outcomes"
+  ],
+  "insights": [
+    "This question shows mixed outcomes: 3 successful traces versus 2 failures.",
+    "Successful traces tend to be shorter than failed traces on this question.",
+    "The strongest local success motif is \"compute|compare|check-constraint\", appearing more often in correct traces.",
+    "The strongest local failure motif is \"rewrite|analyze\", which clusters with incorrect attempts."
+  ],
+  "answer_distribution": [
+    {
+      "answer": "\\frac{13}{4}",
+      "count": 3,
+      "share": 0.6
+    },
+    {
+      "answer": "3.25",
+      "count": 2,
+      "share": 0.4
+    }
+  ],
+  "local_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "compute|compare|check-constraint",
+        "tokens": [
+          "compute",
+          "compare",
+          "check-constraint"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 3,
+        "failure_count": 0,
+        "success_support": 1.0,
+        "failure_support": 0.0,
+        "support_difference": 1.0,
+        "lift": 999999999.9999999,
+        "log_odds_ratio": 3.5553480614894135,
+        "q_value": 1.0
+      },
+      {
+        "motif": "rewrite|compute",
+        "tokens": [
+          "rewrite",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 3,
+        "failure_count": 0,
+        "success_support": 1.0,
+        "failure_support": 0.0,
+        "support_difference": 1.0,
+        "lift": 999999999.9999999,
+        "log_odds_ratio": 3.5553480614894135,
+        "q_value": 1.0
+      },
+      {
+        "motif": "compute|compare",
+        "tokens": [
+          "compute",
+          "compare"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 3,
+        "failure_count": 0,
+        "success_support": 1.0,
+        "failure_support": 0.0,
+        "support_difference": 1.0,
+        "lift": 999999999.9999999,
+        "log_odds_ratio": 3.5553480614894135,
+        "q_value": 1.0
+      },
+      {
+        "motif": "check-constraint|compute|compare",
+        "tokens": [
+          "check-constraint",
+          "compute",
+          "compare"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.6666666666666666,
+        "failure_support": 0.0,
+        "support_difference": 0.6666666666666666,
+        "lift": 666666666.6666666,
+        "log_odds_ratio": 2.120263536200091,
+        "q_value": 1.0
+      },
+      {
+        "motif": "rewrite|compute|instantiate",
+        "tokens": [
+          "rewrite",
+          "compute",
+          "instantiate"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.6666666666666666,
+        "failure_support": 0.0,
+        "support_difference": 0.6666666666666666,
+        "lift": 666666666.6666666,
+        "log_odds_ratio": 2.120263536200091,
+        "q_value": 1.0
+      },
+      {
+        "motif": "compare|case-split",
+        "tokens": [
+          "compare",
+          "case-split"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.6666666666666666,
+        "failure_support": 0.0,
+        "support_difference": 0.6666666666666666,
+        "lift": 666666666.6666666,
+        "log_odds_ratio": 2.120263536200091,
+        "q_value": 1.0
+      },
+      {
+        "motif": "instantiate|rewrite|compute",
+        "tokens": [
+          "instantiate",
+          "rewrite",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.6666666666666666,
+        "failure_support": 0.0,
+        "support_difference": 0.6666666666666666,
+        "lift": 666666666.6666666,
+        "log_odds_ratio": 2.120263536200091,
+        "q_value": 1.0
+      },
+      {
+        "motif": "check-constraint|analyze|compute",
+        "tokens": [
+          "check-constraint",
+          "analyze",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.6666666666666666,
+        "failure_support": 0.0,
+        "support_difference": 0.6666666666666666,
+        "lift": 666666666.6666666,
+        "log_odds_ratio": 2.120263536200091,
+        "q_value": 1.0
+      }
+    ],
+    "failure": [
+      {
+        "motif": "rewrite|analyze",
+        "tokens": [
+          "rewrite",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 2,
+        "success_support": 0.0,
+        "failure_support": 1.0,
+        "support_difference": -1.0,
+        "lift": 0.0,
+        "log_odds_ratio": -3.5553480614894135,
+        "q_value": 1.0
+      },
+      {
+        "motif": "case-split|compare",
+        "tokens": [
+          "case-split",
+          "compare"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 2,
+        "success_support": 0.3333333333333333,
+        "failure_support": 1.0,
+        "support_difference": -0.6666666666666667,
+        "lift": 0.33333333299999995,
+        "log_odds_ratio": -2.120263536200091,
+        "q_value": 1.0
+      },
+      {
+        "motif": "compute|rewrite",
+        "tokens": [
+          "compute",
+          "rewrite"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 2,
+        "success_support": 0.3333333333333333,
+        "failure_support": 1.0,
+        "support_difference": -0.6666666666666667,
+        "lift": 0.33333333299999995,
+        "log_odds_ratio": -2.120263536200091,
+        "q_value": 1.0
+      },
+      {
+        "motif": "conclude|compute",
+        "tokens": [
+          "conclude",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 2,
+        "success_support": 0.3333333333333333,
+        "failure_support": 1.0,
+        "support_difference": -0.6666666666666667,
+        "lift": 0.33333333299999995,
+        "log_odds_ratio": -2.120263536200091,
+        "q_value": 1.0
+      },
+      {
+        "motif": "compute|check-constraint",
+        "tokens": [
+          "compute",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 2,
+        "success_support": 0.3333333333333333,
+        "failure_support": 1.0,
+        "support_difference": -0.6666666666666667,
+        "lift": 0.33333333299999995,
+        "log_odds_ratio": -2.120263536200091,
+        "q_value": 1.0
+      },
+      {
+        "motif": "instantiate|compute",
+        "tokens": [
+          "instantiate",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 2,
+        "failure_count": 2,
+        "success_support": 0.6666666666666666,
+        "failure_support": 1.0,
+        "support_difference": -0.33333333333333337,
+        "lift": 0.6666666659999999,
+        "log_odds_ratio": -1.0986122886681096,
+        "q_value": 1.0
+      },
+      {
+        "motif": "conclude",
+        "tokens": [
+          "conclude"
+        ],
+        "length": 1,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 2,
+        "failure_count": 2,
+        "success_support": 0.6666666666666666,
+        "failure_support": 1.0,
+        "support_difference": -0.33333333333333337,
+        "lift": 0.6666666659999999,
+        "log_odds_ratio": -1.0986122886681096,
+        "q_value": 1.0
+      },
+      {
+        "motif": "case-split|instantiate|check-constraint",
+        "tokens": [
+          "case-split",
+          "instantiate",
+          "check-constraint"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 1,
+        "success_support": 0.3333333333333333,
+        "failure_support": 0.5,
+        "support_difference": -0.16666666666666669,
+        "lift": 0.6666666653333333,
+        "log_odds_ratio": -0.5108256237659907,
+        "q_value": 1.0
+      }
+    ]
+  },
+  "global_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "case-split",
+        "tokens": [
+          "case-split"
+        ],
+        "length": 1,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 56,
+        "failure_count": 10,
+        "success_support": 0.2994652406417112,
+        "failure_support": 0.13333333333333333,
+        "support_difference": 0.16613190730837787,
+        "lift": 2.2459892879679146,
+        "log_odds_ratio": 0.9859086720123047,
+        "q_value": 0.12700879161005763
+      },
+      {
+        "motif": "analyze|compute",
+        "tokens": [
+          "analyze",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 139,
+        "failure_count": 47,
+        "success_support": 0.7433155080213903,
+        "failure_support": 0.6266666666666667,
+        "support_difference": 0.11664884135472364,
+        "lift": 1.1861417662264604,
+        "log_odds_ratio": 0.5456751795519921,
+        "q_value": 0.5170493423981184
+      },
+      {
+        "motif": "check-constraint|instantiate",
+        "tokens": [
+          "check-constraint",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 29,
+        "failure_count": 4,
+        "success_support": 0.15508021390374332,
+        "failure_support": 0.05333333333333334,
+        "support_difference": 0.10174688057040998,
+        "lift": 2.9077539561748007,
+        "log_odds_ratio": 1.0842557229521268,
+        "q_value": 0.2590575790198284
+      },
+      {
+        "motif": "analyze|case-split",
+        "tokens": [
+          "analyze",
+          "case-split"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 25,
+        "failure_count": 3,
+        "success_support": 0.13368983957219252,
+        "failure_support": 0.04,
+        "support_difference": 0.09368983957219251,
+        "lift": 3.3422459057486655,
+        "log_odds_ratio": 1.1788240437598494,
+        "q_value": 0.27585577712588477
+      },
+      {
+        "motif": "case-split|analyze",
+        "tokens": [
+          "case-split",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 27,
+        "failure_count": 4,
+        "success_support": 0.1443850267379679,
+        "failure_support": 0.05333333333333334,
+        "support_difference": 0.09105169340463456,
+        "lift": 2.7072192005765383,
+        "log_odds_ratio": 1.0015121150261428,
+        "q_value": 0.5081915367890064
+      },
+      {
+        "motif": "analyze|compute|analyze",
+        "tokens": [
+          "analyze",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 61,
+        "failure_count": 18,
+        "success_support": 0.32620320855614976,
+        "failure_support": 0.24,
+        "support_difference": 0.08620320855614977,
+        "lift": 1.359180029987374,
+        "log_odds_ratio": 0.41280908236392305,
+        "q_value": 0.7598319082426742
+      },
+      {
+        "motif": "analyze|instantiate",
+        "tokens": [
+          "analyze",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 107,
+        "failure_count": 37,
+        "success_support": 0.5721925133689839,
+        "failure_support": 0.49333333333333335,
+        "support_difference": 0.07885918003565057,
+        "lift": 1.1598496869104071,
+        "log_odds_ratio": 0.3155509714605732,
+        "q_value": 0.921353659271186
+      }
+    ],
+    "failure": [
+      {
+        "motif": "conclude|compute",
+        "tokens": [
+          "conclude",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 36,
+        "failure_count": 34,
+        "success_support": 0.1925133689839572,
+        "failure_support": 0.4533333333333333,
+        "support_difference": -0.2608199643493761,
+        "lift": 0.4246618424102104,
+        "log_odds_ratio": -1.2385392611616395,
+        "q_value": 0.013014976654953778
+      },
+      {
+        "motif": "apply-formula",
+        "tokens": [
+          "apply-formula"
+        ],
+        "length": 1,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 80,
+        "failure_count": 46,
+        "success_support": 0.42780748663101603,
+        "failure_support": 0.6133333333333333,
+        "support_difference": -0.18552584670231725,
+        "lift": 0.697512205326365,
+        "log_odds_ratio": -0.7442957123907363,
+        "q_value": 0.17345516068302833
+      },
+      {
+        "motif": "compute|instantiate",
+        "tokens": [
+          "compute",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 79,
+        "failure_count": 45,
+        "success_support": 0.42245989304812837,
+        "failure_support": 0.6,
+        "support_difference": -0.1775401069518716,
+        "lift": 0.7040998205733809,
+        "log_odds_ratio": -0.7109787936637668,
+        "q_value": 0.20978919397023355
+      },
+      {
+        "motif": "compute|check-constraint",
+        "tokens": [
+          "compute",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 46,
+        "failure_count": 31,
+        "success_support": 0.24598930481283424,
+        "failure_support": 0.41333333333333333,
+        "support_difference": -0.1673440285204991,
+        "lift": 0.5951354134299165,
+        "log_odds_ratio": -0.7673457611493745,
+        "q_value": 0.18673130699197357
+      },
+      {
+        "motif": "analyze|apply-formula",
+        "tokens": [
+          "analyze",
+          "apply-formula"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 15,
+        "failure_count": 18,
+        "success_support": 0.08021390374331551,
+        "failure_support": 0.24,
+        "support_difference": -0.1597860962566845,
+        "lift": 0.3342245975378788,
+        "log_odds_ratio": -1.2755429968271879,
+        "q_value": 0.048381983504224305
+      },
+      {
+        "motif": "compute|instantiate|analyze",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 15,
+        "failure_count": 15,
+        "success_support": 0.08021390374331551,
+        "failure_support": 0.2,
+        "support_difference": -0.1197860962566845,
+        "lift": 0.4010695167112299,
+        "log_odds_ratio": -1.0477538714346186,
+        "q_value": 0.17345516068302833
+      },
+      {
+        "motif": "apply-formula|instantiate",
+        "tokens": [
+          "apply-formula",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 18,
+        "failure_count": 16,
+        "success_support": 0.0962566844919786,
+        "failure_support": 0.21333333333333335,
+        "support_difference": -0.11707664884135474,
+        "lift": 0.45120320644113465,
+        "log_odds_ratio": -0.9324662630911768,
+        "q_value": 0.20978919397023355
+      },
+      {
+        "motif": "compute|analyze|compare",
+        "tokens": [
+          "compute",
+          "analyze",
+          "compare"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 9,
+        "failure_count": 12,
+        "success_support": 0.0481283422459893,
+        "failure_support": 0.16,
+        "support_difference": -0.1118716577540107,
+        "lift": 0.30080213715741977,
+        "log_odds_ratio": -1.3079855410228083,
+        "q_value": 0.12700879161005763
+      }
+    ]
+  },
+  "representative_traces": {
+    "success": [
+      {
+        "trace_id": "401:0:2",
+        "question_id": "401",
+        "sample_id": "0",
+        "attempt_index": "2",
+        "predicted_answer": "\\frac{13}{4}",
+        "is_correct": true,
+        "tokenized_trace": "compute|instantiate|compute|analyze|instantiate|rewrite|compute|instantiate|compute|analyze|substitute|case-split|instantiate|analyze|compute|compare|case-split|analyze|compute|case-split|analyze|compute|case-split|compare|check-constraint|compute|compare|check-constraint|analyze|compute|check-constraint|analyze|compare",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "compute",
+          "analyze",
+          "instantiate",
+          "rewrite",
+          "compute",
+          "instantiate",
+          "compute",
+          "analyze",
+          "substitute",
+          "case-split",
+          "instantiate",
+          "analyze",
+          "compute",
+          "compare",
+          "case-split",
+          "analyze",
+          "compute",
+          "case-split",
+          "analyze",
+          "compute",
+          "case-split",
+          "compare",
+          "check-constraint",
+          "compute",
+          "compare",
+          "check-constraint",
+          "analyze",
+          "compute",
+          "check-constraint",
+          "analyze",
+          "compare"
+        ],
+        "token_count": 33,
+        "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed with the following steps:\n\n### Step 1: Simplify the second term using the property $|z|=1$\nLet $z = e^{i\\theta}$. Since $|z| = 1$, we have $z \\bar{z} = 1$, which implies $\\bar{z} = \\frac{1}{z}$.\nConsider the term $1 - z + z^2$. We can relate this to its conjugate or factor it.\nNotice that $(1-z)(1+z+z^2) = 1 - z^3$. This doesn't seem immediately helpful for simplifying the modulus directly unless $z^3$ is involved.\nLet's try to express $1 - z + z^2$ in terms of $1+z$.\nAlternatively, let's use the substitution $z = e^{i\\theta}$.\n$|1 - z + z^2| = |1 - e^{i\\theta} + e^{2i\\theta}|$.\nFactor out $e^{i\\theta}$:\n$1 - e^{i\\theta} + e^{2i\\theta} = e^{i\\theta} (e^{-i\\theta} - 1 + e^{i\\theta}) = e^{i\\theta} (2\\cos\\theta - 1)$.\nSince $|e^{i\\theta}| = 1$, we have:\n$|1 - z + z^2| = |2\\cos\\theta - 1|$.\n\nNow consider the first term $|1 + z|$:\n$|1 + z| = |1 + e^{i\\theta}| = |e^{i\\theta/2}(e^{-i\\theta/2} + e^{i\\theta/2})| = |2\\cos(\\theta/2)|$.\n\nSo the expression becomes a function of $\\theta$:\n$f(\\theta) = |2\\cos(\\theta/2)| + |2\\cos\\theta - 1|$.\n\n### Step 2: Analyze the function using trigonometric identities\nLet $x = \\cos(\\theta/2)$. Then $\\cos\\theta = 2\\cos^2(\\theta/2) - 1 = 2x^2 - 1$.\nThe domain for $x$ is $[-1, 1]$.\nSubstitute these into the expression:\n$f(x) = |2x| + |2(2x^2 - 1) - 1| = 2|x| + |4x^2 - 3|$.\nSince the expression is even in $x$ (depends on $|x|$ and $x^2$), we can assume $x \\ge 0$ without loss of generality.\nLet $g(x) = 2x + |4x^2 - 3|$ for $x \\in [0, 1]$.\n\nWe need to analyze the sign of $4x^2 - 3$ in the interval $[0, 1]$.\nThe roots of $4x^2 - 3 = 0$ are $x = \\pm \\frac{\\sqrt{3}}{2}$.\nSince $\\frac{\\sqrt{3}}{2} \\approx 0.866$, we split the interval $[0, 1]$ into two parts:\n1.  $0 \\le x \\le \\frac{\\sqrt{3}}{2}$: Here $4x^2 - 3 \\le 0$, so $|4x^2 - 3| = 3 - 4x^2$.\n    $g_1(x) = 2x + 3 - 4x^2$.\n2.  $\\frac{\\sqrt{3}}{2} < x \\le 1$: Here $4x^2 - 3 > 0$, so $|4x^2 - 3| = 4x^2 - 3$.\n    $g_2(x) = 2x + 4x^2 - 3$.\n\n### Step 3: Maximize the function in each interval\n\n**Case 1:** $g_1(x) = -4x^2 + 2x + 3$ on $[0, \\frac{\\sqrt{3}}{2}]$.\nThis is a downward-opening parabola. The vertex occurs at $x = -\\frac{b}{2a} = -\\frac{2}{2(-4)} = \\frac{1}{4}$.\nSince $\\frac{1}{4} = 0.25$ is within the interval $[0, \\frac{\\sqrt{3}}{2}]$, the maximum occurs at the vertex.\n$g_1(\\frac{1}{4}) = -4(\\frac{1}{4})^2 + 2(\\frac{1}{4}) + 3 = -4(\\frac{1}{16}) + \\frac{1}{2} + 3 = -\\frac{1}{4} + \\frac{2}{4} + \\frac{12}{4} = \\frac{13}{4} = 3.25$.\n\n**Case 2:** $g_2(x) = 4x^2 + 2x - 3$ on $[\\frac{\\sqrt{3}}{2}, 1]$.\nThis is an upward-opening parabola. The vertex is at $x = -\\frac{2}{8} = -0.25$, which is outside the interval.\nSince the parabola opens upwards and the vertex is to the left of the interval, the function is strictly increasing on $[\\frac{\\sqrt{3}}{2}, 1]$.\nTherefore, the maximum occurs at the right endpoint $x = 1$.\n$g_2(1) = 4(1)^2 + 2(1) - 3 = 4 + 2 - 3 = 3$.\n\nComparing the values from both cases:\n- Maximum in Case 1 is $3.25$.\n- Maximum in Case 2 is $3$.\n\nThe global maximum is $3.25$.\n\n### Step 4: Verify the value of $z$\nThe maximum occurs at $x = \\frac{1}{4}$.\nRecall $x = |\\cos(\\theta/2)|$. So $\\cos(\\theta/2) = \\pm \\frac{1}{4}$.\nThen $\\cos\\theta = 2(\\frac{1}{4})^2 - 1 = 2(\\frac{1}{16}) - 1 = \\frac{1}{8} - 1 = -\\frac{7}{8}$.\nLet's check the original expression with these values.\n$|1+z| = |2\\cos(\\theta/2)| = 2(1/4) = 0.5$.\n$|1-z+z^2| = |2\\cos\\theta - 1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 2.75$.\nSum = $0.5 + 2.75 = 3.25$.\n\nIs there any other constraint?\nWe assumed $x = \\cos(\\theta/2)$. If $\\cos(\\theta/2) = -1/4$, then $|2\\cos(\\theta/2)| = 0.5$ and $\\cos\\theta = 2(-1/4)^2 - 1 = -7/8$, same result.\nSo the maximum value is indeed $3.25$ or $\\frac{13}{4}$.\n\nLet's double check the boundary point $x = \\frac{\\sqrt{3}}{2}$.\n$g_1(\\frac{\\sqrt{3}}{2}) = -4(\\frac{3}{4}) + 2(\\frac{\\sqrt{3}}{2}) + 3 = -3 + \\sqrt{3} + 3 = \\sqrt{3} \\approx 1.732$.\n$g_2(\\frac{\\sqrt{3}}{2}) = 4(\\frac{3}{4}) + 2(\\frac{\\sqrt{3}}{2}) - 3 = 3 + \\sqrt{3} - 3 = \\sqrt{3}$.\nThe function is continuous. The local max at $x=1/4$ is clearly the highest.\n\nFinal calculation check:\n$g_1(1/4) = 3.25$.\n$g_2(1) = 3$.\nMax is $3.25$.\n\nThe maximum value is $\\frac{13}{4}$.",
+        "matched_success_motifs": [
+          "compute|compare|check-constraint",
+          "rewrite|compute",
+          "compute|compare",
+          "check-constraint|compute|compare",
+          "rewrite|compute|instantiate",
+          "compare|case-split",
+          "instantiate|rewrite|compute",
+          "check-constraint|analyze|compute"
+        ],
+        "matched_failure_motifs": [
+          "case-split|compare",
+          "compute|check-constraint",
+          "instantiate|compute"
+        ]
+      },
+      {
+        "trace_id": "401:1:8",
+        "question_id": "401",
+        "sample_id": "1",
+        "attempt_index": "8",
+        "predicted_answer": "\\frac{13}{4}",
+        "is_correct": true,
+        "tokenized_trace": "compute|rewrite|instantiate|rewrite|compute|instantiate|analyze|compute|case-split|instantiate|check-constraint|compute|case-split|analyze|conclude|case-split|compute|compare|check-constraint|compute|compare",
+        "tokens": [
+          "compute",
+          "rewrite",
+          "instantiate",
+          "rewrite",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute",
+          "case-split",
+          "instantiate",
+          "check-constraint",
+          "compute",
+          "case-split",
+          "analyze",
+          "conclude",
+          "case-split",
+          "compute",
+          "compare",
+          "check-constraint",
+          "compute",
+          "compare"
+        ],
+        "token_count": 21,
+        "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed as follows:\n\n### Step 1: Simplify the second term using the property $|z|=1$\nSince $|z| = 1$, we have $z \\bar{z} = 1$, which implies $\\bar{z} = \\frac{1}{z}$.\nLet's analyze the term $|1 - z + z^2|$.\nWe can factor out $z$ from the expression inside the modulus:\n$$1 - z + z^2 = z \\left( \\frac{1}{z} - 1 + z \\right) = z \\left( \\bar{z} - 1 + z \\right) = z (z + \\bar{z} - 1)$$\nUsing the property $|ab| = |a||b|$, we get:\n$$|1 - z + z^2| = |z| \\cdot |z + \\bar{z} - 1|$$\nSince $|z| = 1$, this simplifies to:\n$$|1 - z + z^2| = |z + \\bar{z} - 1|$$\nLet $z = x + iy$, where $x, y \\in \\mathbb{R}$ and $x^2 + y^2 = 1$.\nThen $z + \\bar{z} = 2x$.\nSo, $|1 - z + z^2| = |2x - 1|$.\n\n### Step 2: Simplify the first term\nThe first term is $|1 + z|$.\n$$|1 + z| = |1 + x + iy| = \\sqrt{(1+x)^2 + y^2}$$\nSince $y^2 = 1 - x^2$:\n$$|1 + z| = \\sqrt{(1+x)^2 + (1-x^2)} = \\sqrt{1 + 2x + x^2 + 1 - x^2} = \\sqrt{2 + 2x} = \\sqrt{2(1+x)}$$\nNote that for the square root to be real, we must have $1+x \\ge 0$, i.e., $x \\ge -1$. Since $|z|=1$, the range of $x$ is $[-1, 1]$.\n\n### Step 3: Formulate the function to maximize\nLet $f(x)$ be the expression we want to maximize in terms of $x$:\n$$f(x) = \\sqrt{2(1+x)} + |2x - 1|$$\nThe domain for $x$ is $[-1, 1]$.\nWe need to consider the absolute value $|2x - 1|$. The critical point is where $2x - 1 = 0$, i.e., $x = 1/2$.\nSo we split the domain into two intervals: $[-1, 1/2]$ and $[1/2, 1]$.\n\n**Case 1: $x \\in [-1, 1/2]$**\nHere, $2x - 1 \\le 0$, so $|2x - 1| = -(2x - 1) = 1 - 2x$.\n$$f(x) = \\sqrt{2(1+x)} + 1 - 2x$$\nLet's find the derivative with respect to $x$:\n$$f'(x) = \\frac{1}{2\\sqrt{2(1+x)}} \\cdot 2 - 2 = \\frac{1}{\\sqrt{2(1+x)}} - 2$$\nSet $f'(x) = 0$ to find critical points:\n$$\\frac{1}{\\sqrt{2(1+x)}} = 2 \\implies \\sqrt{2(1+x)} = \\frac{1}{2} \\implies 2(1+x) = \\frac{1}{4} \\implies 1+x = \\frac{1}{8} \\implies x = -\\frac{7}{8}$$\nCheck if this is in the interval $[-1, 1/2]$: Yes, $-1 \\le -0.875 \\le 0.5$.\nEvaluate $f(x)$ at the critical point and endpoints:\n- At $x = -1$: $f(-1) = \\sqrt{0} + 1 - 2(-1) = 0 + 3 = 3$.\n- At $x = -7/8$:\n  $$f(-7/8) = \\sqrt{2(1 - 7/8)} + 1 - 2(-7/8) = \\sqrt{2(1/8)} + 1 + 7/4 = \\sqrt{1/4} + 11/4 = 0.5 + 2.75 = 3.25$$\n- At $x = 1/2$:\n  $$f(1/2) = \\sqrt{2(1.5)} + 1 - 1 = \\sqrt{3} \\approx 1.732$$\n\n**Case 2: $x \\in [1/2, 1]$**\nHere, $2x - 1 \\ge 0$, so $|2x - 1| = 2x - 1$.\n$$f(x) = \\sqrt{2(1+x)} + 2x - 1$$\nFind the derivative:\n$$f'(x) = \\frac{1}{\\sqrt{2(1+x)}} + 2$$\nSince $\\sqrt{2(1+x)} > 0$ for $x > -1$, $f'(x)$ is always positive. Thus, $f(x)$ is strictly increasing on this interval.\nThe maximum occurs at the right endpoint $x = 1$:\n- At $x = 1$: $f(1) = \\sqrt{2(2)} + 2(1) - 1 = 2 + 1 = 3$.\n- At $x = 1/2$: $f(1/2) = \\sqrt{3} \\approx 1.732$ (matches the limit from Case 1).\n\n### Step 4: Compare values\nThe candidate values for the maximum are:\n- $x = -1 \\implies 3$\n- $x = -7/8 \\implies 3.25$\n- $x = 1 \\implies 3$\n\nThe maximum value is $3.25$, which is $\\frac{13}{4}$.\n\nLet's double check the calculation for $x = -7/8$.\n$z = -7/8 + i\\sqrt{1 - (-7/8)^2} = -7/8 + i\\sqrt{15/64} = -7/8 + i\\frac{\\sqrt{15}}{8}$.\n$|1+z| = \\sqrt{(1-7/8)^2 + 15/64} = \\sqrt{1/64 + 15/64} = \\sqrt{16/64} = \\sqrt{1/4} = 1/2$.\n$|1-z+z^2| = |2x-1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4$.\nSum = $1/2 + 11/4 = 2/4 + 11/4 = 13/4 = 3.25$.\n\nThe maximum value is indeed $13/4$.",
+        "matched_success_motifs": [
+          "compute|compare|check-constraint",
+          "rewrite|compute",
+          "compute|compare",
+          "check-constraint|compute|compare",
+          "rewrite|compute|instantiate",
+          "instantiate|rewrite|compute"
+        ],
+        "matched_failure_motifs": [
+          "compute|rewrite",
+          "conclude",
+          "case-split|instantiate|check-constraint"
+        ]
+      },
+      {
+        "trace_id": "401:3:19",
+        "question_id": "401",
+        "sample_id": "3",
+        "attempt_index": "19",
+        "predicted_answer": "\\frac{13}{4}",
+        "is_correct": true,
+        "tokenized_trace": "compute|instantiate|compute|analyze|rewrite|compute|analyze|case-split|check-constraint|instantiate|check-constraint|analyze|compute|analyze|compare|case-split|analyze|conclude|compute|compare|check-constraint|compute",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "compute",
+          "analyze",
+          "rewrite",
+          "compute",
+          "analyze",
+          "case-split",
+          "check-constraint",
+          "instantiate",
+          "check-constraint",
+          "analyze",
+          "compute",
+          "analyze",
+          "compare",
+          "case-split",
+          "analyze",
+          "conclude",
+          "compute",
+          "compare",
+          "check-constraint",
+          "compute"
+        ],
+        "token_count": 22,
+        "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed with the following steps:\n\n### Step 1: Simplify the second term using the property $|z|=1$\nLet $E = |1 + z| + |1 - z + z^2|$.\nSince $|z| = 1$, we have $z\\bar{z} = 1$, which implies $\\bar{z} = \\frac{1}{z}$.\nConsider the term $|1 - z + z^2|$. We can factor out $z$ from the expression inside the modulus:\n\\[ 1 - z + z^2 = z \\left( \\frac{1}{z} - 1 + z \\right) = z \\left( \\bar{z} - 1 + z \\right) = z \\left( (z + \\bar{z}) - 1 \\right). \\]\nTaking the modulus:\n\\[ |1 - z + z^2| = |z| \\cdot |z + \\bar{z} - 1|. \\]\nSince $|z| = 1$, this simplifies to:\n\\[ |1 - z + z^2| = |z + \\bar{z} - 1|. \\]\n\n### Step 2: Express in terms of a real variable\nLet $z = x + iy$, where $x, y \\in \\mathbb{R}$.\nSince $|z| = 1$, we have $x^2 + y^2 = 1$.\nThe term $z + \\bar{z} = (x + iy) + (x - iy) = 2x$.\nSubstituting this into the simplified second term:\n\\[ |1 - z + z^2| = |2x - 1|. \\]\n\nNow consider the first term $|1 + z|$:\n\\[ |1 + z| = |1 + x + iy| = \\sqrt{(1+x)^2 + y^2}. \\]\nExpand the expression inside the square root:\n\\[ (1+x)^2 + y^2 = 1 + 2x + x^2 + y^2. \\]\nSince $x^2 + y^2 = 1$:\n\\[ 1 + 2x + 1 = 2 + 2x = 2(1+x). \\]\nThus,\n\\[ |1 + z| = \\sqrt{2(1+x)}. \\]\nNote that for the square root to be defined in the real domain (which it is since $|z|=1 \\implies x \\ge -1$), we must have $1+x \\ge 0$. Since $x \\ge -1$, $2(1+x) \\ge 0$.\n\nSo the expression becomes a function of $x$:\n\\[ E(x) = \\sqrt{2(1+x)} + |2x - 1|. \\]\nThe domain for $x$ is $[-1, 1]$.\n\n### Step 3: Analyze the function $E(x)$\nWe need to maximize $E(x) = \\sqrt{2(1+x)} + |2x - 1|$ on the interval $x \\in [-1, 1]$.\nThe absolute value term $|2x - 1|$ changes behavior at $x = 1/2$. We split the analysis into two intervals: $[-1, 1/2]$ and $[1/2, 1]$.\n\n**Case 1: $-1 \\le x \\le 1/2$**\nIn this interval, $2x - 1 \\le 0$, so $|2x - 1| = -(2x - 1) = 1 - 2x$.\n\\[ E(x) = \\sqrt{2(1+x)} + 1 - 2x. \\]\nLet's check the derivative with respect to $x$:\n\\[ E'(x) = \\frac{d}{dx} \\left( \\sqrt{2}(1+x)^{1/2} + 1 - 2x \\right) = \\frac{\\sqrt{2}}{2\\sqrt{1+x}} - 2 = \\frac{1}{\\sqrt{2(1+x)}} - 2. \\]\nSet $E'(x) = 0$ to find critical points:\n\\[ \\frac{1}{\\sqrt{2(1+x)}} = 2 \\implies \\sqrt{2(1+x)} = \\frac{1}{2} \\implies 2(1+x) = \\frac{1}{4} \\implies 1+x = \\frac{1}{8} \\implies x = -\\frac{7}{8}. \\]\nCheck if this critical point is in the interval $[-1, 1/2]$. Yes, $-1 \\le -0.875 \\le 0.5$.\nEvaluate $E(x)$ at the critical point and endpoints:\n- At $x = -1$: $E(-1) = \\sqrt{0} + | -2 - 1 | = 3$.\n- At $x = -7/8$:\n  $1+x = 1/8$.\n  $\\sqrt{2(1+x)} = \\sqrt{2/8} = \\sqrt{1/4} = 1/2$.\n  $|2x - 1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4 = 2.75$.\n  $E(-7/8) = 0.5 + 2.75 = 3.25 = \\frac{13}{4}$.\n- At $x = 1/2$:\n  $\\sqrt{2(1.5)} = \\sqrt{3}$.\n  $|2(0.5) - 1| = 0$.\n  $E(1/2) = \\sqrt{3} \\approx 1.732$.\n\nComparing values in this interval: $3.25 > 3 > 1.732$. The local maximum is $3.25$.\n\n**Case 2: $1/2 \\le x \\le 1$**\nIn this interval, $2x - 1 \\ge 0$, so $|2x - 1| = 2x - 1$.\n\\[ E(x) = \\sqrt{2(1+x)} + 2x - 1. \\]\nDerivative:\n\\[ E'(x) = \\frac{1}{\\sqrt{2(1+x)}} + 2. \\]\nSince $\\sqrt{2(1+x)} > 0$, $E'(x) > 0$ for all $x$ in this interval.\nThus, $E(x)$ is strictly increasing on $[1/2, 1]$.\nThe maximum occurs at the right endpoint $x = 1$.\n- At $x = 1$:\n  $\\sqrt{2(2)} = 2$.\n  $|2(1) - 1| = 1$.\n  $E(1) = 2 + 1 = 3$.\n\n### Step 4: Compare all candidates\nThe candidate values for the maximum are:\n- $x = -1 \\implies E = 3$\n- $x = -7/8 \\implies E = 3.25$\n- $x = 1/2 \\implies E = \\sqrt{3} \\approx 1.732$\n- $x = 1 \\implies E = 3$\n\nThe maximum value is $3.25$, which is $\\frac{13}{4}$.\n\nLet's double check the calculation for $x = -7/8$.\n$z = -7/8 + i\\sqrt{1 - (-7/8)^2} = -7/8 + i\\sqrt{15/64} = -7/8 + i\\frac{\\sqrt{15}}{8}$.\n$|1+z| = \\sqrt{(1-7/8)^2 + 15/64} = \\sqrt{(1/8)^2 + 15/64} = \\sqrt{1/64 + 15/64} = \\sqrt{16/64} = \\sqrt{1/4} = 1/2$.\n$|1-z+z^2| = |2x-1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4$.\nSum = $1/2 + 11/4 = 2/4 + 11/4 = 13/4$.\n\nThe value is indeed $13/4$.",
+        "matched_success_motifs": [
+          "compute|compare|check-constraint",
+          "rewrite|compute",
+          "compute|compare",
+          "compare|case-split",
+          "check-constraint|analyze|compute"
+        ],
+        "matched_failure_motifs": [
+          "conclude|compute",
+          "instantiate|compute",
+          "conclude"
+        ]
+      }
+    ],
+    "failure": [
+      {
+        "trace_id": "401:4:32",
+        "question_id": "401",
+        "sample_id": "4",
+        "attempt_index": "32",
+        "predicted_answer": "3.25",
+        "is_correct": false,
+        "tokenized_trace": "compute|rewrite|instantiate|rewrite|analyze|compute|instantiate|compute|substitute|compute|instantiate|analyze|compute|case-split|instantiate|check-constraint|compute|case-split|analyze|conclude|compute|case-split|compare|check-constraint|compute|check-constraint",
+        "tokens": [
+          "compute",
+          "rewrite",
+          "instantiate",
+          "rewrite",
+          "analyze",
+          "compute",
+          "instantiate",
+          "compute",
+          "substitute",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute",
+          "case-split",
+          "instantiate",
+          "check-constraint",
+          "compute",
+          "case-split",
+          "analyze",
+          "conclude",
+          "compute",
+          "case-split",
+          "compare",
+          "check-constraint",
+          "compute",
+          "check-constraint"
+        ],
+        "token_count": 26,
+        "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed with the following steps:\n\n### Step 1: Simplify the second term using the property $|z|=1$\nSince $|z| = 1$, we have $z \\bar{z} = |z|^2 = 1$, which implies $\\bar{z} = \\frac{1}{z}$.\nLet's analyze the term $|1 - z + z^2|$. We can factor out $z$ from the expression inside the modulus:\n\\[ 1 - z + z^2 = z \\left( \\frac{1}{z} - 1 + z \\right) = z \\left( \\bar{z} - 1 + z \\right) = z (\\bar{z} + z - 1). \\]\nTaking the modulus of both sides:\n\\[ |1 - z + z^2| = |z| \\cdot |\\bar{z} + z - 1|. \\]\nSince $|z| = 1$, this simplifies to:\n\\[ |1 - z + z^2| = |\\bar{z} + z - 1|. \\]\nLet $z = x + iy$, where $x, y \\in \\mathbb{R}$. Then $\\bar{z} = x - iy$.\nSo, $\\bar{z} + z = 2x$.\nThus, the second term becomes:\n\\[ |1 - z + z^2| = |2x - 1|. \\]\n\n### Step 2: Simplify the first term\nThe first term is $|1 + z|$.\nSubstituting $z = x + iy$:\n\\[ |1 + z| = |1 + x + iy| = \\sqrt{(1+x)^2 + y^2}. \\]\nSince $|z| = 1$, we have $x^2 + y^2 = 1$, so $y^2 = 1 - x^2$.\nSubstitute $y^2$ into the expression:\n\\[ |1 + z| = \\sqrt{(1+x)^2 + (1-x^2)} = \\sqrt{1 + 2x + x^2 + 1 - x^2} = \\sqrt{2 + 2x} = \\sqrt{2(1+x)}. \\]\nNote that since $|z|=1$, $x \\in [-1, 1]$, so $1+x \\ge 0$, and the square root is real.\n\n### Step 3: Formulate the function to maximize\nLet $f(x)$ be the expression we want to maximize in terms of $x$:\n\\[ f(x) = |1 + z| + |1 - z + z^2| = \\sqrt{2(1+x)} + |2x - 1|. \\]\nThe domain for $x$ is $[-1, 1]$.\nWe need to consider the absolute value $|2x - 1|$. The critical point is where $2x - 1 = 0$, i.e., $x = 1/2$.\nSo we split the domain into two intervals: $[-1, 1/2]$ and $[1/2, 1]$.\n\n**Case 1: $x \\in [-1, 1/2]$**\nHere, $2x - 1 \\le 0$, so $|2x - 1| = -(2x - 1) = 1 - 2x$.\n\\[ f(x) = \\sqrt{2(1+x)} + 1 - 2x. \\]\nLet's find the derivative with respect to $x$:\n\\[ f'(x) = \\frac{d}{dx} \\left( \\sqrt{2}(1+x)^{1/2} + 1 - 2x \\right) = \\sqrt{2} \\cdot \\frac{1}{2}(1+x)^{-1/2} - 2 = \\frac{\\sqrt{2}}{2\\sqrt{1+x}} - 2. \\]\nSet $f'(x) = 0$ to find critical points:\n\\[ \\frac{\\sqrt{2}}{2\\sqrt{1+x}} = 2 \\implies \\sqrt{2} = 4\\sqrt{1+x} \\implies 2 = 16(1+x) \\implies 1+x = \\frac{1}{8} \\implies x = -\\frac{7}{8}. \\]\nCheck if this critical point is in the interval $[-1, 1/2]$. Yes, $-7/8 = -0.875$.\nEvaluate $f(x)$ at the critical point and endpoints:\n1.  At $x = -7/8$:\n    \\[ f(-7/8) = \\sqrt{2(1 - 7/8)} + 1 - 2(-7/8) = \\sqrt{2(1/8)} + 1 + 7/4 = \\sqrt{1/4} + 1 + 1.75 = 0.5 + 2.75 = 3.25. \\]\n2.  At $x = -1$:\n    \\[ f(-1) = \\sqrt{2(0)} + 1 - 2(-1) = 0 + 3 = 3. \\]\n3.  At $x = 1/2$:\n    \\[ f(1/2) = \\sqrt{2(1.5)} + 1 - 2(0.5) = \\sqrt{3} + 0 \\approx 1.732. \\]\n    (Note: The function is continuous at $x=1/2$).\n\n**Case 2: $x \\in [1/2, 1]$**\nHere, $2x - 1 \\ge 0$, so $|2x - 1| = 2x - 1$.\n\\[ f(x) = \\sqrt{2(1+x)} + 2x - 1. \\]\nFind the derivative:\n\\[ f'(x) = \\frac{\\sqrt{2}}{2\\sqrt{1+x}} + 2. \\]\nSince $\\sqrt{1+x} > 0$, $f'(x) > 0$ for all $x$ in this interval. Thus, $f(x)$ is strictly increasing on $[1/2, 1]$.\nThe maximum occurs at the right endpoint $x = 1$.\nEvaluate at $x = 1$:\n\\[ f(1) = \\sqrt{2(2)} + 2(1) - 1 = 2 + 2 - 1 = 3. \\]\nEvaluate at the left endpoint $x = 1/2$:\n\\[ f(1/2) = \\sqrt{3} \\approx 1.732. \\]\n\n### Step 4: Compare values\nComparing the local maximum and endpoints from both cases:\n- From Case 1: Max value is $3.25$ (at $x = -7/8$).\n- From Case 2: Max value is $3$ (at $x = 1$).\n- Endpoints check: $f(-1) = 3$, $f(1/2) = \\sqrt{3}$.\n\nThe global maximum is $3.25$, which can be written as the fraction $\\frac{13}{4}$.\n\nLet's double check the calculation for $x = -7/8$.\n$z = -7/8 + i\\sqrt{1 - (-7/8)^2} = -7/8 + i\\sqrt{15}/8$.\n$|1+z| = \\sqrt{(1-7/8)^2 + 15/64} = \\sqrt{1/64 + 15/64} = \\sqrt{16/64} = \\sqrt{1/4} = 1/2$.\n$|1-z+z^2| = |2x-1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4$.\nSum = $1/2 + 11/4 = 2/4 + 11/4 = 13/4 = 3.25$.\n\nThe calculation holds.",
+        "matched_success_motifs": [],
+        "matched_failure_motifs": [
+          "rewrite|analyze",
+          "case-split|compare",
+          "compute|rewrite",
+          "conclude|compute",
+          "compute|check-constraint",
+          "instantiate|compute",
+          "conclude",
+          "case-split|instantiate|check-constraint"
+        ]
+      },
+      {
+        "trace_id": "401:2:15",
+        "question_id": "401",
+        "sample_id": "2",
+        "attempt_index": "15",
+        "predicted_answer": "3.25",
+        "is_correct": false,
+        "tokenized_trace": "compute|rewrite|analyze|apply-formula|instantiate|compute|analyze|compare|compute|analyze|case-split|analyze|compute|check-constraint|case-split|analyze|compute|conclude|compute|check-constraint|case-split|compare|backtrack|compute|backtrack|compare",
+        "tokens": [
+          "compute",
+          "rewrite",
+          "analyze",
+          "apply-formula",
+          "instantiate",
+          "compute",
+          "analyze",
+          "compare",
+          "compute",
+          "analyze",
+          "case-split",
+          "analyze",
+          "compute",
+          "check-constraint",
+          "case-split",
+          "analyze",
+          "compute",
+          "conclude",
+          "compute",
+          "check-constraint",
+          "case-split",
+          "compare",
+          "backtrack",
+          "compute",
+          "backtrack",
+          "compare"
+        ],
+        "token_count": 26,
+        "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed with the following steps:\n\n### Step 1: Simplify the second term using the condition $|z|=1$\nLet $z = e^{i\\theta}$. Since $|z|=1$, we have $z\\bar{z} = 1$, which implies $\\bar{z} = 1/z$.\nConsider the term $|1 - z + z^2|$.\nWe can factor out $z$ from the expression inside the modulus:\n\\[ 1 - z + z^2 = z \\left( \\frac{1}{z} - 1 + z \\right) = z (\\bar{z} - 1 + z) \\]\nTaking the modulus:\n\\[ |1 - z + z^2| = |z| \\cdot |\\bar{z} - 1 + z| = 1 \\cdot |z + \\bar{z} - 1| \\]\nSince $z = x + iy$ where $x = \\cos\\theta$ and $y = \\sin\\theta$, we have $z + \\bar{z} = 2x = 2\\cos\\theta$.\nThus:\n\\[ |1 - z + z^2| = |2\\cos\\theta - 1| \\]\n\n### Step 2: Simplify the first term\nNow consider the first term $|1 + z|$.\n\\[ |1 + z| = |1 + \\cos\\theta + i\\sin\\theta| = \\sqrt{(1+\\cos\\theta)^2 + \\sin^2\\theta} \\]\nExpanding the terms inside the square root:\n\\[ (1+\\cos\\theta)^2 + \\sin^2\\theta = 1 + 2\\cos\\theta + \\cos^2\\theta + \\sin^2\\theta = 2 + 2\\cos\\theta \\]\nSo,\n\\[ |1 + z| = \\sqrt{2(1+\\cos\\theta)} \\]\nUsing the half-angle identity $1+\\cos\\theta = 2\\cos^2(\\theta/2)$:\n\\[ |1 + z| = \\sqrt{4\\cos^2(\\theta/2)} = 2|\\cos(\\theta/2)| \\]\n\n### Step 3: Formulate the function to maximize\nLet $f(\\theta) = |1 + z| + |1 - z + z^2|$. Substituting the simplified forms:\n\\[ f(\\theta) = 2|\\cos(\\theta/2)| + |2\\cos\\theta - 1| \\]\nLet $u = \\cos(\\theta/2)$. Then $\\cos\\theta = 2\\cos^2(\\theta/2) - 1 = 2u^2 - 1$.\nSince $\\theta$ is a real angle, $u \\in [-1, 1]$.\nThe expression becomes a function of $u$:\n\\[ g(u) = 2|u| + |2(2u^2 - 1) - 1| = 2|u| + |4u^2 - 3| \\]\nWe need to maximize $g(u)$ for $u \\in [-1, 1]$. Since $g(u)$ is an even function ($g(-u) = g(u)$), we only need to consider $u \\in [0, 1]$.\nFor $u \\in [0, 1]$, $|u| = u$.\n\\[ g(u) = 2u + |4u^2 - 3| \\]\n\n### Step 4: Analyze the function $g(u)$ on $[0, 1]$\nThe term inside the absolute value, $4u^2 - 3$, changes sign when $4u^2 = 3$, i.e., $u = \\frac{\\sqrt{3}}{2}$.\nNote that $\\frac{\\sqrt{3}}{2} \\approx 0.866$, which is within the interval $[0, 1]$.\n\n**Case 1:** $0 \\le u \\le \\frac{\\sqrt{3}}{2}$\nHere, $4u^2 - 3 \\le 0$, so $|4u^2 - 3| = 3 - 4u^2$.\n\\[ g(u) = 2u + 3 - 4u^2 = -4u^2 + 2u + 3 \\]\nThis is a downward-opening parabola. The vertex occurs at $u = -\\frac{b}{2a} = -\\frac{2}{2(-4)} = \\frac{1}{4}$.\nSince $u = 1/4$ is in the interval $[0, \\frac{\\sqrt{3}}{2}]$, the maximum in this region is at the vertex:\n\\[ g(1/4) = -4(1/4)^2 + 2(1/4) + 3 = -4(1/16) + 1/2 + 3 = -1/4 + 2/4 + 12/4 = 13/4 = 3.25 \\]\nWe should also check the endpoints of this interval:\n$g(0) = 3$\n$g(\\frac{\\sqrt{3}}{2}) = 2(\\frac{\\sqrt{3}}{2}) + 0 = \\sqrt{3} \\approx 1.732$\n\n**Case 2:** $\\frac{\\sqrt{3}}{2} < u \\le 1$\nHere, $4u^2 - 3 > 0$, so $|4u^2 - 3| = 4u^2 - 3$.\n\\[ g(u) = 2u + 4u^2 - 3 = 4u^2 + 2u - 3 \\]\nThis is an upward-opening parabola. Its vertex is at $u = -1/4$, which is outside the interval. Thus, the function is strictly increasing on $[\\frac{\\sqrt{3}}{2}, 1]$.\nThe maximum in this region occurs at the right endpoint $u = 1$:\n\\[ g(1) = 4(1)^2 + 2(1) - 3 = 4 + 2 - 3 = 3 \\]\nLet's check the value at the boundary $u = \\frac{\\sqrt{3}}{2}$:\n$g(\\frac{\\sqrt{3}}{2}) = \\sqrt{3} \\approx 1.732$.\n\n### Step 5: Compare the maxima\nComparing the local maximum from Case 1 and the endpoint maximum from Case 2:\n- Max in Case 1: $3.25$ (at $u = 1/4$)\n- Max in Case 2: $3$ (at $u = 1$)\n\nThe global maximum is $3.25$.\n\nLet's verify the value at $u = 1/4$.\n$u = \\cos(\\theta/2) = 1/4$.\nThen $\\cos\\theta = 2(1/4)^2 - 1 = 2/16 - 1 = -7/8$.\n$|1+z| = 2(1/4) = 1/2$.\n$|1-z+z^2| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4$.\nSum = $1/2 + 11/4 = 2/4 + 11/4 = 13/4 = 3.25$.\n\nLet's verify the value at $u = 1$ (which corresponds to $\\theta = 0$, $z=1$).\n$|1+1| + |1-1+1| = 2 + 1 = 3$.\n\nLet's verify the value at $u = -1$ (which corresponds to $\\theta = \\pi$, $z=-1$).\n$|1-1| + |1-(-1)+1| = 0 + 3 = 3$.\n\nThe maximum value is indeed $13/4$.",
+        "matched_success_motifs": [],
+        "matched_failure_motifs": [
+          "rewrite|analyze",
+          "case-split|compare",
+          "compute|rewrite",
+          "conclude|compute",
+          "compute|check-constraint",
+          "instantiate|compute",
+          "conclude"
+        ]
+      }
+    ]
+  },
+  "all_traces": [
+    {
+      "trace_id": "401:0:2",
+      "question_id": "401",
+      "sample_id": "0",
+      "attempt_index": "2",
+      "predicted_answer": "\\frac{13}{4}",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|analyze|instantiate|rewrite|compute|instantiate|compute|analyze|substitute|case-split|instantiate|analyze|compute|compare|case-split|analyze|compute|case-split|analyze|compute|case-split|compare|check-constraint|compute|compare|check-constraint|analyze|compute|check-constraint|analyze|compare",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "rewrite",
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "substitute",
+        "case-split",
+        "instantiate",
+        "analyze",
+        "compute",
+        "compare",
+        "case-split",
+        "analyze",
+        "compute",
+        "case-split",
+        "analyze",
+        "compute",
+        "case-split",
+        "compare",
+        "check-constraint",
+        "compute",
+        "compare",
+        "check-constraint",
+        "analyze",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compare"
+      ],
+      "token_count": 33,
+      "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed with the following steps:\n\n### Step 1: Simplify the second term using the property $|z|=1$\nLet $z = e^{i\\theta}$. Since $|z| = 1$, we have $z \\bar{z} = 1$, which implies $\\bar{z} = \\frac{1}{z}$.\nConsider the term $1 - z + z^2$. We can relate this to its conjugate or factor it.\nNotice that $(1-z)(1+z+z^2) = 1 - z^3$. This doesn't seem immediately helpful for simplifying the modulus directly unless $z^3$ is involved.\nLet's try to express $1 - z + z^2$ in terms of $1+z$.\nAlternatively, let's use the substitution $z = e^{i\\theta}$.\n$|1 - z + z^2| = |1 - e^{i\\theta} + e^{2i\\theta}|$.\nFactor out $e^{i\\theta}$:\n$1 - e^{i\\theta} + e^{2i\\theta} = e^{i\\theta} (e^{-i\\theta} - 1 + e^{i\\theta}) = e^{i\\theta} (2\\cos\\theta - 1)$.\nSince $|e^{i\\theta}| = 1$, we have:\n$|1 - z + z^2| = |2\\cos\\theta - 1|$.\n\nNow consider the first term $|1 + z|$:\n$|1 + z| = |1 + e^{i\\theta}| = |e^{i\\theta/2}(e^{-i\\theta/2} + e^{i\\theta/2})| = |2\\cos(\\theta/2)|$.\n\nSo the expression becomes a function of $\\theta$:\n$f(\\theta) = |2\\cos(\\theta/2)| + |2\\cos\\theta - 1|$.\n\n### Step 2: Analyze the function using trigonometric identities\nLet $x = \\cos(\\theta/2)$. Then $\\cos\\theta = 2\\cos^2(\\theta/2) - 1 = 2x^2 - 1$.\nThe domain for $x$ is $[-1, 1]$.\nSubstitute these into the expression:\n$f(x) = |2x| + |2(2x^2 - 1) - 1| = 2|x| + |4x^2 - 3|$.\nSince the expression is even in $x$ (depends on $|x|$ and $x^2$), we can assume $x \\ge 0$ without loss of generality.\nLet $g(x) = 2x + |4x^2 - 3|$ for $x \\in [0, 1]$.\n\nWe need to analyze the sign of $4x^2 - 3$ in the interval $[0, 1]$.\nThe roots of $4x^2 - 3 = 0$ are $x = \\pm \\frac{\\sqrt{3}}{2}$.\nSince $\\frac{\\sqrt{3}}{2} \\approx 0.866$, we split the interval $[0, 1]$ into two parts:\n1.  $0 \\le x \\le \\frac{\\sqrt{3}}{2}$: Here $4x^2 - 3 \\le 0$, so $|4x^2 - 3| = 3 - 4x^2$.\n    $g_1(x) = 2x + 3 - 4x^2$.\n2.  $\\frac{\\sqrt{3}}{2} < x \\le 1$: Here $4x^2 - 3 > 0$, so $|4x^2 - 3| = 4x^2 - 3$.\n    $g_2(x) = 2x + 4x^2 - 3$.\n\n### Step 3: Maximize the function in each interval\n\n**Case 1:** $g_1(x) = -4x^2 + 2x + 3$ on $[0, \\frac{\\sqrt{3}}{2}]$.\nThis is a downward-opening parabola. The vertex occurs at $x = -\\frac{b}{2a} = -\\frac{2}{2(-4)} = \\frac{1}{4}$.\nSince $\\frac{1}{4} = 0.25$ is within the interval $[0, \\frac{\\sqrt{3}}{2}]$, the maximum occurs at the vertex.\n$g_1(\\frac{1}{4}) = -4(\\frac{1}{4})^2 + 2(\\frac{1}{4}) + 3 = -4(\\frac{1}{16}) + \\frac{1}{2} + 3 = -\\frac{1}{4} + \\frac{2}{4} + \\frac{12}{4} = \\frac{13}{4} = 3.25$.\n\n**Case 2:** $g_2(x) = 4x^2 + 2x - 3$ on $[\\frac{\\sqrt{3}}{2}, 1]$.\nThis is an upward-opening parabola. The vertex is at $x = -\\frac{2}{8} = -0.25$, which is outside the interval.\nSince the parabola opens upwards and the vertex is to the left of the interval, the function is strictly increasing on $[\\frac{\\sqrt{3}}{2}, 1]$.\nTherefore, the maximum occurs at the right endpoint $x = 1$.\n$g_2(1) = 4(1)^2 + 2(1) - 3 = 4 + 2 - 3 = 3$.\n\nComparing the values from both cases:\n- Maximum in Case 1 is $3.25$.\n- Maximum in Case 2 is $3$.\n\nThe global maximum is $3.25$.\n\n### Step 4: Verify the value of $z$\nThe maximum occurs at $x = \\frac{1}{4}$.\nRecall $x = |\\cos(\\theta/2)|$. So $\\cos(\\theta/2) = \\pm \\frac{1}{4}$.\nThen $\\cos\\theta = 2(\\frac{1}{4})^2 - 1 = 2(\\frac{1}{16}) - 1 = \\frac{1}{8} - 1 = -\\frac{7}{8}$.\nLet's check the original expression with these values.\n$|1+z| = |2\\cos(\\theta/2)| = 2(1/4) = 0.5$.\n$|1-z+z^2| = |2\\cos\\theta - 1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 2.75$.\nSum = $0.5 + 2.75 = 3.25$.\n\nIs there any other constraint?\nWe assumed $x = \\cos(\\theta/2)$. If $\\cos(\\theta/2) = -1/4$, then $|2\\cos(\\theta/2)| = 0.5$ and $\\cos\\theta = 2(-1/4)^2 - 1 = -7/8$, same result.\nSo the maximum value is indeed $3.25$ or $\\frac{13}{4}$.\n\nLet's double check the boundary point $x = \\frac{\\sqrt{3}}{2}$.\n$g_1(\\frac{\\sqrt{3}}{2}) = -4(\\frac{3}{4}) + 2(\\frac{\\sqrt{3}}{2}) + 3 = -3 + \\sqrt{3} + 3 = \\sqrt{3} \\approx 1.732$.\n$g_2(\\frac{\\sqrt{3}}{2}) = 4(\\frac{3}{4}) + 2(\\frac{\\sqrt{3}}{2}) - 3 = 3 + \\sqrt{3} - 3 = \\sqrt{3}$.\nThe function is continuous. The local max at $x=1/4$ is clearly the highest.\n\nFinal calculation check:\n$g_1(1/4) = 3.25$.\n$g_2(1) = 3$.\nMax is $3.25$.\n\nThe maximum value is $\\frac{13}{4}$.",
+      "matched_success_motifs": [
+        "compute|compare|check-constraint",
+        "rewrite|compute",
+        "compute|compare",
+        "check-constraint|compute|compare",
+        "rewrite|compute|instantiate",
+        "compare|case-split",
+        "instantiate|rewrite|compute",
+        "check-constraint|analyze|compute"
+      ],
+      "matched_failure_motifs": [
+        "case-split|compare",
+        "compute|check-constraint",
+        "instantiate|compute"
+      ]
+    },
+    {
+      "trace_id": "401:1:8",
+      "question_id": "401",
+      "sample_id": "1",
+      "attempt_index": "8",
+      "predicted_answer": "\\frac{13}{4}",
+      "is_correct": true,
+      "tokenized_trace": "compute|rewrite|instantiate|rewrite|compute|instantiate|analyze|compute|case-split|instantiate|check-constraint|compute|case-split|analyze|conclude|case-split|compute|compare|check-constraint|compute|compare",
+      "tokens": [
+        "compute",
+        "rewrite",
+        "instantiate",
+        "rewrite",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "case-split",
+        "instantiate",
+        "check-constraint",
+        "compute",
+        "case-split",
+        "analyze",
+        "conclude",
+        "case-split",
+        "compute",
+        "compare",
+        "check-constraint",
+        "compute",
+        "compare"
+      ],
+      "token_count": 21,
+      "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed as follows:\n\n### Step 1: Simplify the second term using the property $|z|=1$\nSince $|z| = 1$, we have $z \\bar{z} = 1$, which implies $\\bar{z} = \\frac{1}{z}$.\nLet's analyze the term $|1 - z + z^2|$.\nWe can factor out $z$ from the expression inside the modulus:\n$$1 - z + z^2 = z \\left( \\frac{1}{z} - 1 + z \\right) = z \\left( \\bar{z} - 1 + z \\right) = z (z + \\bar{z} - 1)$$\nUsing the property $|ab| = |a||b|$, we get:\n$$|1 - z + z^2| = |z| \\cdot |z + \\bar{z} - 1|$$\nSince $|z| = 1$, this simplifies to:\n$$|1 - z + z^2| = |z + \\bar{z} - 1|$$\nLet $z = x + iy$, where $x, y \\in \\mathbb{R}$ and $x^2 + y^2 = 1$.\nThen $z + \\bar{z} = 2x$.\nSo, $|1 - z + z^2| = |2x - 1|$.\n\n### Step 2: Simplify the first term\nThe first term is $|1 + z|$.\n$$|1 + z| = |1 + x + iy| = \\sqrt{(1+x)^2 + y^2}$$\nSince $y^2 = 1 - x^2$:\n$$|1 + z| = \\sqrt{(1+x)^2 + (1-x^2)} = \\sqrt{1 + 2x + x^2 + 1 - x^2} = \\sqrt{2 + 2x} = \\sqrt{2(1+x)}$$\nNote that for the square root to be real, we must have $1+x \\ge 0$, i.e., $x \\ge -1$. Since $|z|=1$, the range of $x$ is $[-1, 1]$.\n\n### Step 3: Formulate the function to maximize\nLet $f(x)$ be the expression we want to maximize in terms of $x$:\n$$f(x) = \\sqrt{2(1+x)} + |2x - 1|$$\nThe domain for $x$ is $[-1, 1]$.\nWe need to consider the absolute value $|2x - 1|$. The critical point is where $2x - 1 = 0$, i.e., $x = 1/2$.\nSo we split the domain into two intervals: $[-1, 1/2]$ and $[1/2, 1]$.\n\n**Case 1: $x \\in [-1, 1/2]$**\nHere, $2x - 1 \\le 0$, so $|2x - 1| = -(2x - 1) = 1 - 2x$.\n$$f(x) = \\sqrt{2(1+x)} + 1 - 2x$$\nLet's find the derivative with respect to $x$:\n$$f'(x) = \\frac{1}{2\\sqrt{2(1+x)}} \\cdot 2 - 2 = \\frac{1}{\\sqrt{2(1+x)}} - 2$$\nSet $f'(x) = 0$ to find critical points:\n$$\\frac{1}{\\sqrt{2(1+x)}} = 2 \\implies \\sqrt{2(1+x)} = \\frac{1}{2} \\implies 2(1+x) = \\frac{1}{4} \\implies 1+x = \\frac{1}{8} \\implies x = -\\frac{7}{8}$$\nCheck if this is in the interval $[-1, 1/2]$: Yes, $-1 \\le -0.875 \\le 0.5$.\nEvaluate $f(x)$ at the critical point and endpoints:\n- At $x = -1$: $f(-1) = \\sqrt{0} + 1 - 2(-1) = 0 + 3 = 3$.\n- At $x = -7/8$:\n  $$f(-7/8) = \\sqrt{2(1 - 7/8)} + 1 - 2(-7/8) = \\sqrt{2(1/8)} + 1 + 7/4 = \\sqrt{1/4} + 11/4 = 0.5 + 2.75 = 3.25$$\n- At $x = 1/2$:\n  $$f(1/2) = \\sqrt{2(1.5)} + 1 - 1 = \\sqrt{3} \\approx 1.732$$\n\n**Case 2: $x \\in [1/2, 1]$**\nHere, $2x - 1 \\ge 0$, so $|2x - 1| = 2x - 1$.\n$$f(x) = \\sqrt{2(1+x)} + 2x - 1$$\nFind the derivative:\n$$f'(x) = \\frac{1}{\\sqrt{2(1+x)}} + 2$$\nSince $\\sqrt{2(1+x)} > 0$ for $x > -1$, $f'(x)$ is always positive. Thus, $f(x)$ is strictly increasing on this interval.\nThe maximum occurs at the right endpoint $x = 1$:\n- At $x = 1$: $f(1) = \\sqrt{2(2)} + 2(1) - 1 = 2 + 1 = 3$.\n- At $x = 1/2$: $f(1/2) = \\sqrt{3} \\approx 1.732$ (matches the limit from Case 1).\n\n### Step 4: Compare values\nThe candidate values for the maximum are:\n- $x = -1 \\implies 3$\n- $x = -7/8 \\implies 3.25$\n- $x = 1 \\implies 3$\n\nThe maximum value is $3.25$, which is $\\frac{13}{4}$.\n\nLet's double check the calculation for $x = -7/8$.\n$z = -7/8 + i\\sqrt{1 - (-7/8)^2} = -7/8 + i\\sqrt{15/64} = -7/8 + i\\frac{\\sqrt{15}}{8}$.\n$|1+z| = \\sqrt{(1-7/8)^2 + 15/64} = \\sqrt{1/64 + 15/64} = \\sqrt{16/64} = \\sqrt{1/4} = 1/2$.\n$|1-z+z^2| = |2x-1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4$.\nSum = $1/2 + 11/4 = 2/4 + 11/4 = 13/4 = 3.25$.\n\nThe maximum value is indeed $13/4$.",
+      "matched_success_motifs": [
+        "compute|compare|check-constraint",
+        "rewrite|compute",
+        "compute|compare",
+        "check-constraint|compute|compare",
+        "rewrite|compute|instantiate",
+        "instantiate|rewrite|compute"
+      ],
+      "matched_failure_motifs": [
+        "compute|rewrite",
+        "conclude",
+        "case-split|instantiate|check-constraint"
+      ]
+    },
+    {
+      "trace_id": "401:2:15",
+      "question_id": "401",
+      "sample_id": "2",
+      "attempt_index": "15",
+      "predicted_answer": "3.25",
+      "is_correct": false,
+      "tokenized_trace": "compute|rewrite|analyze|apply-formula|instantiate|compute|analyze|compare|compute|analyze|case-split|analyze|compute|check-constraint|case-split|analyze|compute|conclude|compute|check-constraint|case-split|compare|backtrack|compute|backtrack|compare",
+      "tokens": [
+        "compute",
+        "rewrite",
+        "analyze",
+        "apply-formula",
+        "instantiate",
+        "compute",
+        "analyze",
+        "compare",
+        "compute",
+        "analyze",
+        "case-split",
+        "analyze",
+        "compute",
+        "check-constraint",
+        "case-split",
+        "analyze",
+        "compute",
+        "conclude",
+        "compute",
+        "check-constraint",
+        "case-split",
+        "compare",
+        "backtrack",
+        "compute",
+        "backtrack",
+        "compare"
+      ],
+      "token_count": 26,
+      "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed with the following steps:\n\n### Step 1: Simplify the second term using the condition $|z|=1$\nLet $z = e^{i\\theta}$. Since $|z|=1$, we have $z\\bar{z} = 1$, which implies $\\bar{z} = 1/z$.\nConsider the term $|1 - z + z^2|$.\nWe can factor out $z$ from the expression inside the modulus:\n\\[ 1 - z + z^2 = z \\left( \\frac{1}{z} - 1 + z \\right) = z (\\bar{z} - 1 + z) \\]\nTaking the modulus:\n\\[ |1 - z + z^2| = |z| \\cdot |\\bar{z} - 1 + z| = 1 \\cdot |z + \\bar{z} - 1| \\]\nSince $z = x + iy$ where $x = \\cos\\theta$ and $y = \\sin\\theta$, we have $z + \\bar{z} = 2x = 2\\cos\\theta$.\nThus:\n\\[ |1 - z + z^2| = |2\\cos\\theta - 1| \\]\n\n### Step 2: Simplify the first term\nNow consider the first term $|1 + z|$.\n\\[ |1 + z| = |1 + \\cos\\theta + i\\sin\\theta| = \\sqrt{(1+\\cos\\theta)^2 + \\sin^2\\theta} \\]\nExpanding the terms inside the square root:\n\\[ (1+\\cos\\theta)^2 + \\sin^2\\theta = 1 + 2\\cos\\theta + \\cos^2\\theta + \\sin^2\\theta = 2 + 2\\cos\\theta \\]\nSo,\n\\[ |1 + z| = \\sqrt{2(1+\\cos\\theta)} \\]\nUsing the half-angle identity $1+\\cos\\theta = 2\\cos^2(\\theta/2)$:\n\\[ |1 + z| = \\sqrt{4\\cos^2(\\theta/2)} = 2|\\cos(\\theta/2)| \\]\n\n### Step 3: Formulate the function to maximize\nLet $f(\\theta) = |1 + z| + |1 - z + z^2|$. Substituting the simplified forms:\n\\[ f(\\theta) = 2|\\cos(\\theta/2)| + |2\\cos\\theta - 1| \\]\nLet $u = \\cos(\\theta/2)$. Then $\\cos\\theta = 2\\cos^2(\\theta/2) - 1 = 2u^2 - 1$.\nSince $\\theta$ is a real angle, $u \\in [-1, 1]$.\nThe expression becomes a function of $u$:\n\\[ g(u) = 2|u| + |2(2u^2 - 1) - 1| = 2|u| + |4u^2 - 3| \\]\nWe need to maximize $g(u)$ for $u \\in [-1, 1]$. Since $g(u)$ is an even function ($g(-u) = g(u)$), we only need to consider $u \\in [0, 1]$.\nFor $u \\in [0, 1]$, $|u| = u$.\n\\[ g(u) = 2u + |4u^2 - 3| \\]\n\n### Step 4: Analyze the function $g(u)$ on $[0, 1]$\nThe term inside the absolute value, $4u^2 - 3$, changes sign when $4u^2 = 3$, i.e., $u = \\frac{\\sqrt{3}}{2}$.\nNote that $\\frac{\\sqrt{3}}{2} \\approx 0.866$, which is within the interval $[0, 1]$.\n\n**Case 1:** $0 \\le u \\le \\frac{\\sqrt{3}}{2}$\nHere, $4u^2 - 3 \\le 0$, so $|4u^2 - 3| = 3 - 4u^2$.\n\\[ g(u) = 2u + 3 - 4u^2 = -4u^2 + 2u + 3 \\]\nThis is a downward-opening parabola. The vertex occurs at $u = -\\frac{b}{2a} = -\\frac{2}{2(-4)} = \\frac{1}{4}$.\nSince $u = 1/4$ is in the interval $[0, \\frac{\\sqrt{3}}{2}]$, the maximum in this region is at the vertex:\n\\[ g(1/4) = -4(1/4)^2 + 2(1/4) + 3 = -4(1/16) + 1/2 + 3 = -1/4 + 2/4 + 12/4 = 13/4 = 3.25 \\]\nWe should also check the endpoints of this interval:\n$g(0) = 3$\n$g(\\frac{\\sqrt{3}}{2}) = 2(\\frac{\\sqrt{3}}{2}) + 0 = \\sqrt{3} \\approx 1.732$\n\n**Case 2:** $\\frac{\\sqrt{3}}{2} < u \\le 1$\nHere, $4u^2 - 3 > 0$, so $|4u^2 - 3| = 4u^2 - 3$.\n\\[ g(u) = 2u + 4u^2 - 3 = 4u^2 + 2u - 3 \\]\nThis is an upward-opening parabola. Its vertex is at $u = -1/4$, which is outside the interval. Thus, the function is strictly increasing on $[\\frac{\\sqrt{3}}{2}, 1]$.\nThe maximum in this region occurs at the right endpoint $u = 1$:\n\\[ g(1) = 4(1)^2 + 2(1) - 3 = 4 + 2 - 3 = 3 \\]\nLet's check the value at the boundary $u = \\frac{\\sqrt{3}}{2}$:\n$g(\\frac{\\sqrt{3}}{2}) = \\sqrt{3} \\approx 1.732$.\n\n### Step 5: Compare the maxima\nComparing the local maximum from Case 1 and the endpoint maximum from Case 2:\n- Max in Case 1: $3.25$ (at $u = 1/4$)\n- Max in Case 2: $3$ (at $u = 1$)\n\nThe global maximum is $3.25$.\n\nLet's verify the value at $u = 1/4$.\n$u = \\cos(\\theta/2) = 1/4$.\nThen $\\cos\\theta = 2(1/4)^2 - 1 = 2/16 - 1 = -7/8$.\n$|1+z| = 2(1/4) = 1/2$.\n$|1-z+z^2| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4$.\nSum = $1/2 + 11/4 = 2/4 + 11/4 = 13/4 = 3.25$.\n\nLet's verify the value at $u = 1$ (which corresponds to $\\theta = 0$, $z=1$).\n$|1+1| + |1-1+1| = 2 + 1 = 3$.\n\nLet's verify the value at $u = -1$ (which corresponds to $\\theta = \\pi$, $z=-1$).\n$|1-1| + |1-(-1)+1| = 0 + 3 = 3$.\n\nThe maximum value is indeed $13/4$.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "rewrite|analyze",
+        "case-split|compare",
+        "compute|rewrite",
+        "conclude|compute",
+        "compute|check-constraint",
+        "instantiate|compute",
+        "conclude"
+      ]
+    },
+    {
+      "trace_id": "401:3:19",
+      "question_id": "401",
+      "sample_id": "3",
+      "attempt_index": "19",
+      "predicted_answer": "\\frac{13}{4}",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|analyze|rewrite|compute|analyze|case-split|check-constraint|instantiate|check-constraint|analyze|compute|analyze|compare|case-split|analyze|conclude|compute|compare|check-constraint|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "rewrite",
+        "compute",
+        "analyze",
+        "case-split",
+        "check-constraint",
+        "instantiate",
+        "check-constraint",
+        "analyze",
+        "compute",
+        "analyze",
+        "compare",
+        "case-split",
+        "analyze",
+        "conclude",
+        "compute",
+        "compare",
+        "check-constraint",
+        "compute"
+      ],
+      "token_count": 22,
+      "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed with the following steps:\n\n### Step 1: Simplify the second term using the property $|z|=1$\nLet $E = |1 + z| + |1 - z + z^2|$.\nSince $|z| = 1$, we have $z\\bar{z} = 1$, which implies $\\bar{z} = \\frac{1}{z}$.\nConsider the term $|1 - z + z^2|$. We can factor out $z$ from the expression inside the modulus:\n\\[ 1 - z + z^2 = z \\left( \\frac{1}{z} - 1 + z \\right) = z \\left( \\bar{z} - 1 + z \\right) = z \\left( (z + \\bar{z}) - 1 \\right). \\]\nTaking the modulus:\n\\[ |1 - z + z^2| = |z| \\cdot |z + \\bar{z} - 1|. \\]\nSince $|z| = 1$, this simplifies to:\n\\[ |1 - z + z^2| = |z + \\bar{z} - 1|. \\]\n\n### Step 2: Express in terms of a real variable\nLet $z = x + iy$, where $x, y \\in \\mathbb{R}$.\nSince $|z| = 1$, we have $x^2 + y^2 = 1$.\nThe term $z + \\bar{z} = (x + iy) + (x - iy) = 2x$.\nSubstituting this into the simplified second term:\n\\[ |1 - z + z^2| = |2x - 1|. \\]\n\nNow consider the first term $|1 + z|$:\n\\[ |1 + z| = |1 + x + iy| = \\sqrt{(1+x)^2 + y^2}. \\]\nExpand the expression inside the square root:\n\\[ (1+x)^2 + y^2 = 1 + 2x + x^2 + y^2. \\]\nSince $x^2 + y^2 = 1$:\n\\[ 1 + 2x + 1 = 2 + 2x = 2(1+x). \\]\nThus,\n\\[ |1 + z| = \\sqrt{2(1+x)}. \\]\nNote that for the square root to be defined in the real domain (which it is since $|z|=1 \\implies x \\ge -1$), we must have $1+x \\ge 0$. Since $x \\ge -1$, $2(1+x) \\ge 0$.\n\nSo the expression becomes a function of $x$:\n\\[ E(x) = \\sqrt{2(1+x)} + |2x - 1|. \\]\nThe domain for $x$ is $[-1, 1]$.\n\n### Step 3: Analyze the function $E(x)$\nWe need to maximize $E(x) = \\sqrt{2(1+x)} + |2x - 1|$ on the interval $x \\in [-1, 1]$.\nThe absolute value term $|2x - 1|$ changes behavior at $x = 1/2$. We split the analysis into two intervals: $[-1, 1/2]$ and $[1/2, 1]$.\n\n**Case 1: $-1 \\le x \\le 1/2$**\nIn this interval, $2x - 1 \\le 0$, so $|2x - 1| = -(2x - 1) = 1 - 2x$.\n\\[ E(x) = \\sqrt{2(1+x)} + 1 - 2x. \\]\nLet's check the derivative with respect to $x$:\n\\[ E'(x) = \\frac{d}{dx} \\left( \\sqrt{2}(1+x)^{1/2} + 1 - 2x \\right) = \\frac{\\sqrt{2}}{2\\sqrt{1+x}} - 2 = \\frac{1}{\\sqrt{2(1+x)}} - 2. \\]\nSet $E'(x) = 0$ to find critical points:\n\\[ \\frac{1}{\\sqrt{2(1+x)}} = 2 \\implies \\sqrt{2(1+x)} = \\frac{1}{2} \\implies 2(1+x) = \\frac{1}{4} \\implies 1+x = \\frac{1}{8} \\implies x = -\\frac{7}{8}. \\]\nCheck if this critical point is in the interval $[-1, 1/2]$. Yes, $-1 \\le -0.875 \\le 0.5$.\nEvaluate $E(x)$ at the critical point and endpoints:\n- At $x = -1$: $E(-1) = \\sqrt{0} + | -2 - 1 | = 3$.\n- At $x = -7/8$:\n  $1+x = 1/8$.\n  $\\sqrt{2(1+x)} = \\sqrt{2/8} = \\sqrt{1/4} = 1/2$.\n  $|2x - 1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4 = 2.75$.\n  $E(-7/8) = 0.5 + 2.75 = 3.25 = \\frac{13}{4}$.\n- At $x = 1/2$:\n  $\\sqrt{2(1.5)} = \\sqrt{3}$.\n  $|2(0.5) - 1| = 0$.\n  $E(1/2) = \\sqrt{3} \\approx 1.732$.\n\nComparing values in this interval: $3.25 > 3 > 1.732$. The local maximum is $3.25$.\n\n**Case 2: $1/2 \\le x \\le 1$**\nIn this interval, $2x - 1 \\ge 0$, so $|2x - 1| = 2x - 1$.\n\\[ E(x) = \\sqrt{2(1+x)} + 2x - 1. \\]\nDerivative:\n\\[ E'(x) = \\frac{1}{\\sqrt{2(1+x)}} + 2. \\]\nSince $\\sqrt{2(1+x)} > 0$, $E'(x) > 0$ for all $x$ in this interval.\nThus, $E(x)$ is strictly increasing on $[1/2, 1]$.\nThe maximum occurs at the right endpoint $x = 1$.\n- At $x = 1$:\n  $\\sqrt{2(2)} = 2$.\n  $|2(1) - 1| = 1$.\n  $E(1) = 2 + 1 = 3$.\n\n### Step 4: Compare all candidates\nThe candidate values for the maximum are:\n- $x = -1 \\implies E = 3$\n- $x = -7/8 \\implies E = 3.25$\n- $x = 1/2 \\implies E = \\sqrt{3} \\approx 1.732$\n- $x = 1 \\implies E = 3$\n\nThe maximum value is $3.25$, which is $\\frac{13}{4}$.\n\nLet's double check the calculation for $x = -7/8$.\n$z = -7/8 + i\\sqrt{1 - (-7/8)^2} = -7/8 + i\\sqrt{15/64} = -7/8 + i\\frac{\\sqrt{15}}{8}$.\n$|1+z| = \\sqrt{(1-7/8)^2 + 15/64} = \\sqrt{(1/8)^2 + 15/64} = \\sqrt{1/64 + 15/64} = \\sqrt{16/64} = \\sqrt{1/4} = 1/2$.\n$|1-z+z^2| = |2x-1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4$.\nSum = $1/2 + 11/4 = 2/4 + 11/4 = 13/4$.\n\nThe value is indeed $13/4$.",
+      "matched_success_motifs": [
+        "compute|compare|check-constraint",
+        "rewrite|compute",
+        "compute|compare",
+        "compare|case-split",
+        "check-constraint|analyze|compute"
+      ],
+      "matched_failure_motifs": [
+        "conclude|compute",
+        "instantiate|compute",
+        "conclude"
+      ]
+    },
+    {
+      "trace_id": "401:4:32",
+      "question_id": "401",
+      "sample_id": "4",
+      "attempt_index": "32",
+      "predicted_answer": "3.25",
+      "is_correct": false,
+      "tokenized_trace": "compute|rewrite|instantiate|rewrite|analyze|compute|instantiate|compute|substitute|compute|instantiate|analyze|compute|case-split|instantiate|check-constraint|compute|case-split|analyze|conclude|compute|case-split|compare|check-constraint|compute|check-constraint",
+      "tokens": [
+        "compute",
+        "rewrite",
+        "instantiate",
+        "rewrite",
+        "analyze",
+        "compute",
+        "instantiate",
+        "compute",
+        "substitute",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "case-split",
+        "instantiate",
+        "check-constraint",
+        "compute",
+        "case-split",
+        "analyze",
+        "conclude",
+        "compute",
+        "case-split",
+        "compare",
+        "check-constraint",
+        "compute",
+        "check-constraint"
+      ],
+      "token_count": 26,
+      "reasoning_trace": "To find the maximum value of the expression $|1 + z| + |1 - z + z^2|$ given that $|z| = 1$, we proceed with the following steps:\n\n### Step 1: Simplify the second term using the property $|z|=1$\nSince $|z| = 1$, we have $z \\bar{z} = |z|^2 = 1$, which implies $\\bar{z} = \\frac{1}{z}$.\nLet's analyze the term $|1 - z + z^2|$. We can factor out $z$ from the expression inside the modulus:\n\\[ 1 - z + z^2 = z \\left( \\frac{1}{z} - 1 + z \\right) = z \\left( \\bar{z} - 1 + z \\right) = z (\\bar{z} + z - 1). \\]\nTaking the modulus of both sides:\n\\[ |1 - z + z^2| = |z| \\cdot |\\bar{z} + z - 1|. \\]\nSince $|z| = 1$, this simplifies to:\n\\[ |1 - z + z^2| = |\\bar{z} + z - 1|. \\]\nLet $z = x + iy$, where $x, y \\in \\mathbb{R}$. Then $\\bar{z} = x - iy$.\nSo, $\\bar{z} + z = 2x$.\nThus, the second term becomes:\n\\[ |1 - z + z^2| = |2x - 1|. \\]\n\n### Step 2: Simplify the first term\nThe first term is $|1 + z|$.\nSubstituting $z = x + iy$:\n\\[ |1 + z| = |1 + x + iy| = \\sqrt{(1+x)^2 + y^2}. \\]\nSince $|z| = 1$, we have $x^2 + y^2 = 1$, so $y^2 = 1 - x^2$.\nSubstitute $y^2$ into the expression:\n\\[ |1 + z| = \\sqrt{(1+x)^2 + (1-x^2)} = \\sqrt{1 + 2x + x^2 + 1 - x^2} = \\sqrt{2 + 2x} = \\sqrt{2(1+x)}. \\]\nNote that since $|z|=1$, $x \\in [-1, 1]$, so $1+x \\ge 0$, and the square root is real.\n\n### Step 3: Formulate the function to maximize\nLet $f(x)$ be the expression we want to maximize in terms of $x$:\n\\[ f(x) = |1 + z| + |1 - z + z^2| = \\sqrt{2(1+x)} + |2x - 1|. \\]\nThe domain for $x$ is $[-1, 1]$.\nWe need to consider the absolute value $|2x - 1|$. The critical point is where $2x - 1 = 0$, i.e., $x = 1/2$.\nSo we split the domain into two intervals: $[-1, 1/2]$ and $[1/2, 1]$.\n\n**Case 1: $x \\in [-1, 1/2]$**\nHere, $2x - 1 \\le 0$, so $|2x - 1| = -(2x - 1) = 1 - 2x$.\n\\[ f(x) = \\sqrt{2(1+x)} + 1 - 2x. \\]\nLet's find the derivative with respect to $x$:\n\\[ f'(x) = \\frac{d}{dx} \\left( \\sqrt{2}(1+x)^{1/2} + 1 - 2x \\right) = \\sqrt{2} \\cdot \\frac{1}{2}(1+x)^{-1/2} - 2 = \\frac{\\sqrt{2}}{2\\sqrt{1+x}} - 2. \\]\nSet $f'(x) = 0$ to find critical points:\n\\[ \\frac{\\sqrt{2}}{2\\sqrt{1+x}} = 2 \\implies \\sqrt{2} = 4\\sqrt{1+x} \\implies 2 = 16(1+x) \\implies 1+x = \\frac{1}{8} \\implies x = -\\frac{7}{8}. \\]\nCheck if this critical point is in the interval $[-1, 1/2]$. Yes, $-7/8 = -0.875$.\nEvaluate $f(x)$ at the critical point and endpoints:\n1.  At $x = -7/8$:\n    \\[ f(-7/8) = \\sqrt{2(1 - 7/8)} + 1 - 2(-7/8) = \\sqrt{2(1/8)} + 1 + 7/4 = \\sqrt{1/4} + 1 + 1.75 = 0.5 + 2.75 = 3.25. \\]\n2.  At $x = -1$:\n    \\[ f(-1) = \\sqrt{2(0)} + 1 - 2(-1) = 0 + 3 = 3. \\]\n3.  At $x = 1/2$:\n    \\[ f(1/2) = \\sqrt{2(1.5)} + 1 - 2(0.5) = \\sqrt{3} + 0 \\approx 1.732. \\]\n    (Note: The function is continuous at $x=1/2$).\n\n**Case 2: $x \\in [1/2, 1]$**\nHere, $2x - 1 \\ge 0$, so $|2x - 1| = 2x - 1$.\n\\[ f(x) = \\sqrt{2(1+x)} + 2x - 1. \\]\nFind the derivative:\n\\[ f'(x) = \\frac{\\sqrt{2}}{2\\sqrt{1+x}} + 2. \\]\nSince $\\sqrt{1+x} > 0$, $f'(x) > 0$ for all $x$ in this interval. Thus, $f(x)$ is strictly increasing on $[1/2, 1]$.\nThe maximum occurs at the right endpoint $x = 1$.\nEvaluate at $x = 1$:\n\\[ f(1) = \\sqrt{2(2)} + 2(1) - 1 = 2 + 2 - 1 = 3. \\]\nEvaluate at the left endpoint $x = 1/2$:\n\\[ f(1/2) = \\sqrt{3} \\approx 1.732. \\]\n\n### Step 4: Compare values\nComparing the local maximum and endpoints from both cases:\n- From Case 1: Max value is $3.25$ (at $x = -7/8$).\n- From Case 2: Max value is $3$ (at $x = 1$).\n- Endpoints check: $f(-1) = 3$, $f(1/2) = \\sqrt{3}$.\n\nThe global maximum is $3.25$, which can be written as the fraction $\\frac{13}{4}$.\n\nLet's double check the calculation for $x = -7/8$.\n$z = -7/8 + i\\sqrt{1 - (-7/8)^2} = -7/8 + i\\sqrt{15}/8$.\n$|1+z| = \\sqrt{(1-7/8)^2 + 15/64} = \\sqrt{1/64 + 15/64} = \\sqrt{16/64} = \\sqrt{1/4} = 1/2$.\n$|1-z+z^2| = |2x-1| = |2(-7/8) - 1| = |-7/4 - 4/4| = |-11/4| = 11/4$.\nSum = $1/2 + 11/4 = 2/4 + 11/4 = 13/4 = 3.25$.\n\nThe calculation holds.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "rewrite|analyze",
+        "case-split|compare",
+        "compute|rewrite",
+        "conclude|compute",
+        "compute|check-constraint",
+        "instantiate|compute",
+        "conclude",
+        "case-split|instantiate|check-constraint"
+      ]
+    }
+  ]
+}

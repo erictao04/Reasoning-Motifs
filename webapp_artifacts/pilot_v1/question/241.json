@@ -1,0 +1,718 @@
+{
+  "question_id": "241",
+  "question_text": "The smallest distance between the origin and a point on the graph of $y=\\frac{1}{2}x^2-9$ can be expressed as $a$.  Find $a^2$.",
+  "gold_answer": "17",
+  "benchmark_name": "math_500",
+  "pilot_question_uid": "math500_level35_random100_10samples:q241",
+  "total_traces": 10,
+  "success_count": 9,
+  "failure_count": 1,
+  "success_rate": 0.9,
+  "avg_token_count": 12.3,
+  "median_token_count": 10.5,
+  "distinct_predicted_answers": 2,
+  "tags": [
+    "mixed_outcomes",
+    "low_evidence"
+  ],
+  "insights": [
+    "This question shows mixed outcomes: 9 successful traces versus 1 failures.",
+    "Successful traces tend to be longer than failed traces on this question."
+  ],
+  "answer_distribution": [
+    {
+      "answer": "17",
+      "count": 9,
+      "share": 0.9
+    },
+    {
+      "answer": "32",
+      "count": 1,
+      "share": 0.1
+    }
+  ],
+  "local_motifs": {
+    "available": false,
+    "reason": "Need at least two successful and two failed traces with repeated motifs.",
+    "success": [],
+    "failure": []
+  },
+  "global_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "substitute|compute|analyze",
+        "tokens": [
+          "substitute",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 28,
+        "failure_count": 2,
+        "success_support": 0.1497326203208556,
+        "failure_support": 0.02666666666666667,
+        "support_difference": 0.12306595365418893,
+        "lift": 5.614973051470596,
+        "log_odds_ratio": 1.6588548393943414,
+        "q_value": 0.12700879161005763
+      },
+      {
+        "motif": "analyze|compute",
+        "tokens": [
+          "analyze",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 139,
+        "failure_count": 47,
+        "success_support": 0.7433155080213903,
+        "failure_support": 0.6266666666666667,
+        "support_difference": 0.11664884135472364,
+        "lift": 1.1861417662264604,
+        "log_odds_ratio": 0.5456751795519921,
+        "q_value": 0.5170493423981184
+      },
+      {
+        "motif": "check-constraint|instantiate",
+        "tokens": [
+          "check-constraint",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 29,
+        "failure_count": 4,
+        "success_support": 0.15508021390374332,
+        "failure_support": 0.05333333333333334,
+        "support_difference": 0.10174688057040998,
+        "lift": 2.9077539561748007,
+        "log_odds_ratio": 1.0842557229521268,
+        "q_value": 0.2590575790198284
+      },
+      {
+        "motif": "analyze|instantiate",
+        "tokens": [
+          "analyze",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 107,
+        "failure_count": 37,
+        "success_support": 0.5721925133689839,
+        "failure_support": 0.49333333333333335,
+        "support_difference": 0.07885918003565057,
+        "lift": 1.1598496869104071,
+        "log_odds_ratio": 0.3155509714605732,
+        "q_value": 0.921353659271186
+      }
+    ],
+    "failure": [
+      {
+        "motif": "apply-formula",
+        "tokens": [
+          "apply-formula"
+        ],
+        "length": 1,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 80,
+        "failure_count": 46,
+        "success_support": 0.42780748663101603,
+        "failure_support": 0.6133333333333333,
+        "support_difference": -0.18552584670231725,
+        "lift": 0.697512205326365,
+        "log_odds_ratio": -0.7442957123907363,
+        "q_value": 0.17345516068302833
+      },
+      {
+        "motif": "compute|instantiate",
+        "tokens": [
+          "compute",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 79,
+        "failure_count": 45,
+        "success_support": 0.42245989304812837,
+        "failure_support": 0.6,
+        "support_difference": -0.1775401069518716,
+        "lift": 0.7040998205733809,
+        "log_odds_ratio": -0.7109787936637668,
+        "q_value": 0.20978919397023355
+      },
+      {
+        "motif": "compute|check-constraint",
+        "tokens": [
+          "compute",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 46,
+        "failure_count": 31,
+        "success_support": 0.24598930481283424,
+        "failure_support": 0.41333333333333333,
+        "support_difference": -0.1673440285204991,
+        "lift": 0.5951354134299165,
+        "log_odds_ratio": -0.7673457611493745,
+        "q_value": 0.18673130699197357
+      },
+      {
+        "motif": "apply-formula|instantiate",
+        "tokens": [
+          "apply-formula",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 18,
+        "failure_count": 16,
+        "success_support": 0.0962566844919786,
+        "failure_support": 0.21333333333333335,
+        "support_difference": -0.11707664884135474,
+        "lift": 0.45120320644113465,
+        "log_odds_ratio": -0.9324662630911768,
+        "q_value": 0.20978919397023355
+      },
+      {
+        "motif": "compute|analyze|compare",
+        "tokens": [
+          "compute",
+          "analyze",
+          "compare"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 9,
+        "failure_count": 12,
+        "success_support": 0.0481283422459893,
+        "failure_support": 0.16,
+        "support_difference": -0.1118716577540107,
+        "lift": 0.30080213715741977,
+        "log_odds_ratio": -1.3079855410228083,
+        "q_value": 0.12700879161005763
+      }
+    ]
+  },
+  "representative_traces": {
+    "success": [
+      {
+        "trace_id": "241:3:3",
+        "question_id": "241",
+        "sample_id": "3",
+        "attempt_index": "3",
+        "predicted_answer": "17",
+        "is_correct": true,
+        "tokenized_trace": "compute|instantiate|compute|rewrite|analyze|instantiate|compute|compare|analyze|compute",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "compute",
+          "rewrite",
+          "analyze",
+          "instantiate",
+          "compute",
+          "compare",
+          "analyze",
+          "compute"
+        ],
+        "token_count": 10,
+        "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can follow these steps:\n\n### Step 1: Define the distance function\nLet $P(x, y)$ be a point on the graph. Since $P$ lies on the curve, its coordinates satisfy $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $P(x,y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nTo minimize the distance $d$, it is equivalent and computationally simpler to minimize the square of the distance, $D = d^2$.\n$$D(x) = x^2 + y^2$$\n\n### Step 2: Express $D$ as a function of $x$\nSubstitute the expression for $y$ into the equation for $D$:\n$$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\nExpand the squared term:\n$$\\left(\\frac{1}{2}x^2 - 9\\right)^2 = \\left(\\frac{1}{2}x^2\\right)^2 - 2\\left(\\frac{1}{2}x^2\\right)(9) + 9^2 = \\frac{1}{4}x^4 - 9x^2 + 81$$\n\nNow add $x^2$ to this result:\n$$D(x) = x^2 + \\left(\\frac{1}{4}x^4 - 9x^2 + 81\\right)$$\n$$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n### Step 3: Minimize the function $D(x)$\nTo find the minimum value, we take the derivative of $D(x)$ with respect to $x$ and set it to zero.\n$$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right)$$\n$$D'(x) = x^3 - 16x$$\n\nSet $D'(x) = 0$ to find critical points:\n$$x^3 - 16x = 0$$\n$$x(x^2 - 16) = 0$$\n$$x(x - 4)(x + 4) = 0$$\n\nThe critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n### Step 4: Evaluate $D(x)$ at critical points\nWe calculate the value of $D(x)$ at these points to determine which yields the minimum distance.\n\n1.  **At $x = 0$**:\n    $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    (Corresponding $y = -9$, point is $(0, -9)$, distance squared is $0^2 + (-9)^2 = 81$)\n\n2.  **At $x = 4$**:\n    $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81$$\n    $$D(4) = \\frac{1}{4}(256) - 8(16) + 81$$\n    $$D(4) = 64 - 128 + 81$$\n    $$D(4) = 17$$\n    (Corresponding $y = \\frac{1}{2}(16) - 9 = 8 - 9 = -1$, point is $(4, -1)$, distance squared is $4^2 + (-1)^2 = 16+1=17$)\n\n3.  **At $x = -4$**:\n    Since $D(x)$ depends on $x^2$ and $x^4$, $D(-4) = D(4) = 17$.\n\nComparing the values, the minimum value of $D(x)$ is $17$.\n\n### Step 5: Determine $a$ and $a^2$\nThe problem states that the smallest distance is $a$.\nSince $a^2 = D_{\\min}$, we have:\n$$a = \\sqrt{17}$$\nThe question asks for $a^2$.\n$$a^2 = 17$$",
+        "matched_success_motifs": [
+          "rewrite",
+          "analyze|compute",
+          "compare|analyze",
+          "compare|analyze|compute",
+          "instantiate|compute|compare",
+          "compute|compare",
+          "instantiate|compute|rewrite",
+          "compute|rewrite"
+        ],
+        "matched_failure_motifs": [
+          "analyze|instantiate|compute",
+          "analyze|instantiate"
+        ]
+      },
+      {
+        "trace_id": "241:7:7",
+        "question_id": "241",
+        "sample_id": "7",
+        "attempt_index": "7",
+        "predicted_answer": "17",
+        "is_correct": true,
+        "tokenized_trace": "compute|instantiate|compute|rewrite|instantiate|compute|compare|analyze|compute",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "compute",
+          "rewrite",
+          "instantiate",
+          "compute",
+          "compare",
+          "analyze",
+          "compute"
+        ],
+        "token_count": 9,
+        "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can proceed with the following steps:\n\n### Step 1: Define the distance function\nLet a point on the graph be $(x, y)$. Since the point lies on the curve, its coordinates satisfy $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $(x,y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nTo minimize the distance $d$, it is equivalent to minimize the square of the distance, $D = d^2$, because the square root function is strictly increasing for non-negative values.\n$$D(x) = x^2 + y^2$$\n\n### Step 2: Express $D$ as a function of $x$\nSubstitute the equation of the parabola $y = \\frac{1}{2}x^2 - 9$ into the expression for $D$:\n$$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\nExpand the squared term:\n$$D(x) = x^2 + \\left(\\frac{1}{4}x^4 - 2\\left(\\frac{1}{2}x^2\\right)(9) + 81\\right)$$\n$$D(x) = x^2 + \\frac{1}{4}x^4 - 9x^2 + 81$$\n$$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n### Step 3: Find the critical points\nTo find the minimum value, take the derivative of $D(x)$ with respect to $x$ and set it to zero:\n$$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right)$$\n$$D'(x) = x^3 - 16x$$\n\nSet $D'(x) = 0$:\n$$x^3 - 16x = 0$$\n$$x(x^2 - 16) = 0$$\n$$x(x - 4)(x + 4) = 0$$\n\nThe critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n### Step 4: Evaluate $D(x)$ at the critical points\nWe calculate the value of $D(x)$ for each critical point to determine which yields the minimum distance.\n\n1.  **For $x = 0$**:\n    $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    (Note: At $x=0$, $y = -9$, so the point is $(0, -9)$ and distance is $\\sqrt{81}=9$).\n\n2.  **For $x = 4$**:\n    $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81$$\n    $$D(4) = \\frac{1}{4}(256) - 8(16) + 81$$\n    $$D(4) = 64 - 128 + 81$$\n    $$D(4) = 17$$\n\n3.  **For $x = -4$**:\n    Since the function $D(x)$ depends on $x^2$ and $x^4$, $D(-4) = D(4) = 17$.\n\nComparing the values, the minimum value of $D(x)$ is $17$.\n\n### Step 5: Determine $a$ and $a^2$\nThe problem states that the smallest distance is $a$.\nSince $D = a^2$ and we found the minimum value of $D$ to be $17$:\n$$a^2 = 17$$\n\n(Note: $a = \\sqrt{17}$, but the question asks for $a^2$).",
+        "matched_success_motifs": [
+          "rewrite",
+          "analyze|compute",
+          "compare|analyze",
+          "compare|analyze|compute",
+          "instantiate|compute|compare",
+          "compute|compare",
+          "instantiate|compute|rewrite",
+          "compute|rewrite"
+        ],
+        "matched_failure_motifs": []
+      },
+      {
+        "trace_id": "241:1:1",
+        "question_id": "241",
+        "sample_id": "1",
+        "attempt_index": "1",
+        "predicted_answer": "17",
+        "is_correct": true,
+        "tokenized_trace": "compute|instantiate|compute|apply-formula|rewrite|substitute|rewrite|analyze|compare|instantiate|compute|compare|analyze|compute",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "compute",
+          "apply-formula",
+          "rewrite",
+          "substitute",
+          "rewrite",
+          "analyze",
+          "compare",
+          "instantiate",
+          "compute",
+          "compare",
+          "analyze",
+          "compute"
+        ],
+        "token_count": 14,
+        "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can follow these steps:\n\n1.  **Define the distance function**:\n    Let a point on the graph be $(x, y)$. Since the point lies on the curve, we have $y = \\frac{1}{2}x^2 - 9$.\n    The distance $d$ between the origin $(0,0)$ and the point $(x, y)$ is given by the distance formula:\n    $$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\n2.  **Express distance squared in terms of $x$**:\n    To minimize the distance $d$, it is equivalent to minimize the square of the distance, $D = d^2$, since $d \\ge 0$.\n    Substitute $y = \\frac{1}{2}x^2 - 9$ into the equation for $D$:\n    $$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\n3.  **Simplify the expression**:\n    Expand the squared term:\n    $$\\left(\\frac{1}{2}x^2 - 9\\right)^2 = \\left(\\frac{1}{2}x^2\\right)^2 - 2\\left(\\frac{1}{2}x^2\\right)(9) + 9^2 = \\frac{1}{4}x^4 - 9x^2 + 81$$\n    Now add $x^2$:\n    $$D(x) = x^2 + \\frac{1}{4}x^4 - 9x^2 + 81 = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n4.  **Find the minimum using calculus**:\n    Differentiate $D(x)$ with respect to $x$:\n    $$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right) = x^3 - 16x$$\n    Set the derivative equal to zero to find critical points:\n    $$x^3 - 16x = 0$$\n    $$x(x^2 - 16) = 0$$\n    $$x(x - 4)(x + 4) = 0$$\n    The critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n5.  **Evaluate $D(x)$ at the critical points**:\n    - For $x = 0$:\n      $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    - For $x = 4$:\n      $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81 = \\frac{1}{4}(256) - 8(16) + 81 = 64 - 128 + 81 = 17$$\n    - For $x = -4$:\n      Since $x^2$ and $x^4$ are even functions, $D(-4) = D(4) = 17$.\n\n    Comparing the values, the minimum value of $D(x)$ is $17$.\n\n6.  **Relate back to the problem statement**:\n    The problem states that the smallest distance is $a$.\n    So, $a = \\sqrt{D_{min}} = \\sqrt{17}$.\n    We need to find $a^2$.\n    $$a^2 = (\\sqrt{17})^2 = 17$$\n\n    Alternatively, since we minimized $D = d^2$, and $d=a$, then $a^2$ is simply the minimum value of $D(x)$, which we found to be 17.",
+        "matched_success_motifs": [
+          "rewrite",
+          "analyze|compute",
+          "compare|analyze",
+          "compare|analyze|compute",
+          "instantiate|compute|compare",
+          "compute|compare"
+        ],
+        "matched_failure_motifs": []
+      }
+    ],
+    "failure": [
+      {
+        "trace_id": "241:9:9",
+        "question_id": "241",
+        "sample_id": "9",
+        "attempt_index": "9",
+        "predicted_answer": "32",
+        "is_correct": false,
+        "tokenized_trace": "compute|instantiate|compute|analyze|instantiate|compute|analyze|compare|check-constraint|compute",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "compute",
+          "analyze",
+          "instantiate",
+          "compute",
+          "analyze",
+          "compare",
+          "check-constraint",
+          "compute"
+        ],
+        "token_count": 10,
+        "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can follow these steps:\n\n### Step 1: Define the distance function\nLet $P(x, y)$ be a point on the graph. Since $P$ lies on the curve, its coordinates satisfy $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $P(x, y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nTo minimize the distance $d$, it is equivalent and often simpler to minimize the square of the distance, $D = d^2$. Minimizing $D$ will yield the same $x$-coordinate for the closest point.\n$$D(x) = x^2 + y^2$$\n\n### Step 2: Express $D$ as a function of $x$ only\nSubstitute the expression for $y$ from the given equation into $D(x)$:\n$$y = \\frac{1}{2}x^2 - 9$$\n$$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\n### Step 3: Find the critical points\nTo find the minimum, we take the derivative of $D(x)$ with respect to $x$ and set it to zero.\n$$D(x) = x^2 + \\left(\\frac{1}{4}x^4 - 9x^2 + 81\\right)$$\n$$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81 + x^2$$\n$$D(x) = \\frac{1}{4}x^4 - 7x^2 + 81$$\n\nNow, differentiate with respect to $x$:\n$$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 7x^2 + 81\\right)$$\n$$D'(x) = x^3 - 14x$$\n\nSet $D'(x) = 0$ to find critical points:\n$$x^3 - 14x = 0$$\n$$x(x^2 - 14) = 0$$\n\nThe solutions are:\n1. $x = 0$\n2. $x^2 = 14 \\implies x = \\sqrt{14}$ or $x = -\\sqrt{14}$\n\n### Step 4: Determine the minimum\nWe evaluate $D(x)$ at the critical points to find the minimum squared distance.\n- For $x = 0$:\n  $$D(0) = \\frac{1}{4}(0)^4 - 7(0)^2 + 81 = 81$$\n  The corresponding $y$ value is $y = \\frac{1}{2}(0)^2 - 9 = -9$. Point: $(0, -9)$. Distance squared is $0^2 + (-9)^2 = 81$.\n\n- For $x^2 = 14$:\n  $$D(\\pm\\sqrt{14}) = \\frac{1}{4}(14)^2 - 7(14) + 81$$\n  $$D(\\pm\\sqrt{14}) = \\frac{1}{4}(196) - 98 + 81$$\n  $$D(\\pm\\sqrt{14}) = 49 - 98 + 81$$\n  $$D(\\pm\\sqrt{14}) = 130 - 98 = 32$$\n\nComparing the values, $32 < 81$. Thus, the minimum squared distance is $32$.\n\nAlternatively, we can check the second derivative to confirm it's a minimum:\n$$D''(x) = 3x^2 - 14$$\nAt $x = 0$, $D''(0) = -14$ (local maximum).\nAt $x = \\pm\\sqrt{14}$, $D''(\\pm\\sqrt{14}) = 3(14) - 14 = 28 > 0$ (local minimum).\n\n### Step 5: Calculate $a^2$\nThe problem states that the smallest distance is $a$.\nSo, $a = \\sqrt{32}$.\nWe need to find $a^2$.\n$$a^2 = (\\sqrt{32})^2 = 32$$",
+        "matched_success_motifs": [],
+        "matched_failure_motifs": [
+          "compare|check-constraint",
+          "compare|check-constraint|compute",
+          "analyze|instantiate|compute",
+          "check-constraint|compute",
+          "compute|analyze|compare",
+          "analyze|instantiate",
+          "instantiate|compute|analyze",
+          "compute|analyze"
+        ]
+      }
+    ]
+  },
+  "all_traces": [
+    {
+      "trace_id": "241:0:0",
+      "question_id": "241",
+      "sample_id": "0",
+      "attempt_index": "0",
+      "predicted_answer": "17",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|apply-formula|instantiate|compute|analyze|compare|analyze|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "apply-formula",
+        "instantiate",
+        "compute",
+        "analyze",
+        "compare",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 10,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can proceed with the following steps:\n\n### Step 1: Define the distance function\nLet $P(x, y)$ be a point on the graph. The coordinates of $P$ satisfy $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $P(x,y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nSince minimizing the distance $d$ is equivalent to minimizing the squared distance $d^2$ (as $d \\ge 0$), let's define a function $f(x)$ representing the squared distance:\n$$f(x) = x^2 + y^2$$\n\n### Step 2: Express $f(x)$ in terms of $x$ only\nSubstitute the expression for $y$ from the given equation into $f(x)$:\n$$f(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\n### Step 3: Minimize the function $f(x)$\nTo find the minimum value, we take the derivative of $f(x)$ with respect to $x$ and set it to zero.\n$$f(x) = x^2 + \\left(\\frac{1}{4}x^4 - 9x^2 + 81\\right)$$\n$$f(x) = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\nNow, compute the derivative $f'(x)$:\n$$f'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right)$$\n$$f'(x) = x^3 - 16x$$\n\nSet $f'(x) = 0$ to find the critical points:\n$$x^3 - 16x = 0$$\n$$x(x^2 - 16) = 0$$\n$$x(x - 4)(x + 4) = 0$$\n\nThe critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n### Step 4: Evaluate $f(x)$ at the critical points\nWe calculate the squared distance $f(x)$ for each critical point to determine which yields the minimum.\n\n1.  **For $x = 0$:**\n    $$y = \\frac{1}{2}(0)^2 - 9 = -9$$\n    Point: $(0, -9)$\n    $$f(0) = 0^2 + (-9)^2 = 81$$\n\n2.  **For $x = 4$:**\n    $$y = \\frac{1}{2}(4)^2 - 9 = \\frac{1}{2}(16) - 9 = 8 - 9 = -1$$\n    Point: $(4, -1)$\n    $$f(4) = 4^2 + (-1)^2 = 16 + 1 = 17$$\n\n3.  **For $x = -4$:**\n    $$y = \\frac{1}{2}(-4)^2 - 9 = \\frac{1}{2}(16) - 9 = -1$$\n    Point: $(-4, -1)$\n    $$f(-4) = (-4)^2 + (-1)^2 = 16 + 1 = 17$$\n\nComparing the values, the minimum squared distance is $17$. Thus, the minimum distance squared is $17$.\n\n### Step 5: Determine $a$ and $a^2$\nThe problem states that the smallest distance is $a$.\n$$a = \\sqrt{17}$$\nWe are asked to find $a^2$:\n$$a^2 = (\\sqrt{17})^2 = 17$$\n\nAlternatively, since we minimized $f(x) = d^2$, the minimum value of $f(x)$ is directly $a^2$.\n$$a^2 = 17$$",
+      "matched_success_motifs": [
+        "analyze|compute",
+        "compare|analyze",
+        "compare|analyze|compute"
+      ],
+      "matched_failure_motifs": [
+        "compute|analyze|compare",
+        "instantiate|compute|analyze",
+        "compute|analyze"
+      ]
+    },
+    {
+      "trace_id": "241:1:1",
+      "question_id": "241",
+      "sample_id": "1",
+      "attempt_index": "1",
+      "predicted_answer": "17",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|apply-formula|rewrite|substitute|rewrite|analyze|compare|instantiate|compute|compare|analyze|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "apply-formula",
+        "rewrite",
+        "substitute",
+        "rewrite",
+        "analyze",
+        "compare",
+        "instantiate",
+        "compute",
+        "compare",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 14,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can follow these steps:\n\n1.  **Define the distance function**:\n    Let a point on the graph be $(x, y)$. Since the point lies on the curve, we have $y = \\frac{1}{2}x^2 - 9$.\n    The distance $d$ between the origin $(0,0)$ and the point $(x, y)$ is given by the distance formula:\n    $$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\n2.  **Express distance squared in terms of $x$**:\n    To minimize the distance $d$, it is equivalent to minimize the square of the distance, $D = d^2$, since $d \\ge 0$.\n    Substitute $y = \\frac{1}{2}x^2 - 9$ into the equation for $D$:\n    $$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\n3.  **Simplify the expression**:\n    Expand the squared term:\n    $$\\left(\\frac{1}{2}x^2 - 9\\right)^2 = \\left(\\frac{1}{2}x^2\\right)^2 - 2\\left(\\frac{1}{2}x^2\\right)(9) + 9^2 = \\frac{1}{4}x^4 - 9x^2 + 81$$\n    Now add $x^2$:\n    $$D(x) = x^2 + \\frac{1}{4}x^4 - 9x^2 + 81 = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n4.  **Find the minimum using calculus**:\n    Differentiate $D(x)$ with respect to $x$:\n    $$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right) = x^3 - 16x$$\n    Set the derivative equal to zero to find critical points:\n    $$x^3 - 16x = 0$$\n    $$x(x^2 - 16) = 0$$\n    $$x(x - 4)(x + 4) = 0$$\n    The critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n5.  **Evaluate $D(x)$ at the critical points**:\n    - For $x = 0$:\n      $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    - For $x = 4$:\n      $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81 = \\frac{1}{4}(256) - 8(16) + 81 = 64 - 128 + 81 = 17$$\n    - For $x = -4$:\n      Since $x^2$ and $x^4$ are even functions, $D(-4) = D(4) = 17$.\n\n    Comparing the values, the minimum value of $D(x)$ is $17$.\n\n6.  **Relate back to the problem statement**:\n    The problem states that the smallest distance is $a$.\n    So, $a = \\sqrt{D_{min}} = \\sqrt{17}$.\n    We need to find $a^2$.\n    $$a^2 = (\\sqrt{17})^2 = 17$$\n\n    Alternatively, since we minimized $D = d^2$, and $d=a$, then $a^2$ is simply the minimum value of $D(x)$, which we found to be 17.",
+      "matched_success_motifs": [
+        "rewrite",
+        "analyze|compute",
+        "compare|analyze",
+        "compare|analyze|compute",
+        "instantiate|compute|compare",
+        "compute|compare"
+      ],
+      "matched_failure_motifs": []
+    },
+    {
+      "trace_id": "241:2:2",
+      "question_id": "241",
+      "sample_id": "2",
+      "attempt_index": "2",
+      "predicted_answer": "17",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|analyze|rewrite|instantiate|compute|analyze|compare|analyze|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "rewrite",
+        "instantiate",
+        "compute",
+        "analyze",
+        "compare",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 11,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can proceed with the following steps:\n\n### Step 1: Define the distance function\nLet $P(x, y)$ be a point on the graph. Since $P$ lies on the curve, its coordinates satisfy $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $P(x, y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nTo minimize the distance $d$, it is equivalent to minimize the square of the distance, $D = d^2$, because the square root function is strictly increasing for non-negative values.\n$$D(x) = x^2 + y^2$$\n\n### Step 2: Express $D$ as a function of $x$\nSubstitute the expression for $y$ from the given equation into $D(x)$:\n$$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\nExpand the squared term:\n$$D(x) = x^2 + \\left(\\frac{1}{4}x^4 - 9x^2 + 81\\right)$$\n$$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n### Step 3: Find the critical points\nTo find the minimum value, we take the derivative of $D(x)$ with respect to $x$ and set it to zero.\n$$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right)$$\n$$D'(x) = x^3 - 16x$$\n\nSet $D'(x) = 0$:\n$$x^3 - 16x = 0$$\n$$x(x^2 - 16) = 0$$\n$$x(x - 4)(x + 4) = 0$$\n\nThe critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n### Step 4: Evaluate $D(x)$ at the critical points\nWe calculate the value of $D(x)$ for each critical point to determine which yields the minimum distance.\n\n1.  **For $x = 0$:**\n    $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    The corresponding $y$ value is $y = \\frac{1}{2}(0)^2 - 9 = -9$. The point is $(0, -9)$.\n    Distance squared $D = 81$.\n\n2.  **For $x = 4$:**\n    $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81$$\n    $$D(4) = \\frac{1}{4}(256) - 8(16) + 81$$\n    $$D(4) = 64 - 128 + 81$$\n    $$D(4) = 17$$\n    The corresponding $y$ value is $y = \\frac{1}{2}(4)^2 - 9 = 8 - 9 = -1$. The point is $(4, -1)$.\n\n3.  **For $x = -4$:**\n    Since $D(x)$ depends on $x^2$ and $x^4$, $D(-4) = D(4) = 17$.\n    The corresponding $y$ value is $y = \\frac{1}{2}(-4)^2 - 9 = -1$. The point is $(-4, -1)$.\n\nComparing the values, the minimum value of $D(x)$ is $17$.\n\n### Step 5: Determine $a$ and $a^2$\nThe smallest distance is $a = \\sqrt{17}$.\nThe problem asks for $a^2$.\n$$a^2 = (\\sqrt{17})^2 = 17$$\n\nAlternatively, since we minimized $D = d^2$ directly, the minimum value of $D$ is exactly $a^2$.\n$$a^2 = 17$$",
+      "matched_success_motifs": [
+        "rewrite",
+        "analyze|compute",
+        "compare|analyze",
+        "compare|analyze|compute"
+      ],
+      "matched_failure_motifs": [
+        "compute|analyze|compare",
+        "instantiate|compute|analyze",
+        "compute|analyze"
+      ]
+    },
+    {
+      "trace_id": "241:3:3",
+      "question_id": "241",
+      "sample_id": "3",
+      "attempt_index": "3",
+      "predicted_answer": "17",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|rewrite|analyze|instantiate|compute|compare|analyze|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "rewrite",
+        "analyze",
+        "instantiate",
+        "compute",
+        "compare",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 10,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can follow these steps:\n\n### Step 1: Define the distance function\nLet $P(x, y)$ be a point on the graph. Since $P$ lies on the curve, its coordinates satisfy $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $P(x,y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nTo minimize the distance $d$, it is equivalent and computationally simpler to minimize the square of the distance, $D = d^2$.\n$$D(x) = x^2 + y^2$$\n\n### Step 2: Express $D$ as a function of $x$\nSubstitute the expression for $y$ into the equation for $D$:\n$$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\nExpand the squared term:\n$$\\left(\\frac{1}{2}x^2 - 9\\right)^2 = \\left(\\frac{1}{2}x^2\\right)^2 - 2\\left(\\frac{1}{2}x^2\\right)(9) + 9^2 = \\frac{1}{4}x^4 - 9x^2 + 81$$\n\nNow add $x^2$ to this result:\n$$D(x) = x^2 + \\left(\\frac{1}{4}x^4 - 9x^2 + 81\\right)$$\n$$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n### Step 3: Minimize the function $D(x)$\nTo find the minimum value, we take the derivative of $D(x)$ with respect to $x$ and set it to zero.\n$$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right)$$\n$$D'(x) = x^3 - 16x$$\n\nSet $D'(x) = 0$ to find critical points:\n$$x^3 - 16x = 0$$\n$$x(x^2 - 16) = 0$$\n$$x(x - 4)(x + 4) = 0$$\n\nThe critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n### Step 4: Evaluate $D(x)$ at critical points\nWe calculate the value of $D(x)$ at these points to determine which yields the minimum distance.\n\n1.  **At $x = 0$**:\n    $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    (Corresponding $y = -9$, point is $(0, -9)$, distance squared is $0^2 + (-9)^2 = 81$)\n\n2.  **At $x = 4$**:\n    $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81$$\n    $$D(4) = \\frac{1}{4}(256) - 8(16) + 81$$\n    $$D(4) = 64 - 128 + 81$$\n    $$D(4) = 17$$\n    (Corresponding $y = \\frac{1}{2}(16) - 9 = 8 - 9 = -1$, point is $(4, -1)$, distance squared is $4^2 + (-1)^2 = 16+1=17$)\n\n3.  **At $x = -4$**:\n    Since $D(x)$ depends on $x^2$ and $x^4$, $D(-4) = D(4) = 17$.\n\nComparing the values, the minimum value of $D(x)$ is $17$.\n\n### Step 5: Determine $a$ and $a^2$\nThe problem states that the smallest distance is $a$.\nSince $a^2 = D_{\\min}$, we have:\n$$a = \\sqrt{17}$$\nThe question asks for $a^2$.\n$$a^2 = 17$$",
+      "matched_success_motifs": [
+        "rewrite",
+        "analyze|compute",
+        "compare|analyze",
+        "compare|analyze|compute",
+        "instantiate|compute|compare",
+        "compute|compare",
+        "instantiate|compute|rewrite",
+        "compute|rewrite"
+      ],
+      "matched_failure_motifs": [
+        "analyze|instantiate|compute",
+        "analyze|instantiate"
+      ]
+    },
+    {
+      "trace_id": "241:4:4",
+      "question_id": "241",
+      "sample_id": "4",
+      "attempt_index": "4",
+      "predicted_answer": "17",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|apply-formula|substitute|compute|analyze|rewrite|conclude|instantiate|compute|compare|check-constraint|compute|compare|analyze|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "apply-formula",
+        "substitute",
+        "compute",
+        "analyze",
+        "rewrite",
+        "conclude",
+        "instantiate",
+        "compute",
+        "compare",
+        "check-constraint",
+        "compute",
+        "compare",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 17,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can proceed with the following steps:\n\n1.  **Define the distance function**:\n    Let a point on the graph be $(x, y)$. Since the point lies on the curve, $y = \\frac{1}{2}x^2 - 9$.\n    The distance $d$ from the origin $(0,0)$ to the point $(x, y)$ is given by the distance formula:\n    $$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\n2.  **Substitute $y$ in terms of $x$**:\n    Substitute $y = \\frac{1}{2}x^2 - 9$ into the distance equation:\n    $$d(x) = \\sqrt{x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2}$$\n\n3.  **Minimize the squared distance**:\n    Minimizing the distance $d$ is equivalent to minimizing the square of the distance, $D = d^2$, because the square root function is monotonically increasing for non-negative values. This simplifies the differentiation process.\n    $$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n    Expand the term $\\left(\\frac{1}{2}x^2 - 9\\right)^2$:\n    $$\\left(\\frac{1}{2}x^2 - 9\\right)^2 = \\frac{1}{4}x^4 - 9x^2 + 81$$\n    So,\n    $$D(x) = x^2 + \\frac{1}{4}x^4 - 9x^2 + 81$$\n    $$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n4.  **Find the critical points**:\n    To find the minimum, take the derivative of $D(x)$ with respect to $x$ and set it to zero:\n    $$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right)$$\n    $$D'(x) = x^3 - 16x$$\n    Set $D'(x) = 0$:\n    $$x^3 - 16x = 0$$\n    $$x(x^2 - 16) = 0$$\n    $$x(x - 4)(x + 4) = 0$$\n    The critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n5.  **Evaluate $D(x)$ at the critical points**:\n    *   For $x = 0$:\n        $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    *   For $x = 4$:\n        $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81 = \\frac{1}{4}(256) - 8(16) + 81 = 64 - 128 + 81 = 17$$\n    *   For $x = -4$:\n        Since $D(x)$ depends on $x^2$ and $x^4$, $D(-4) = D(4) = 17$.\n\n    Comparing the values, the minimum value of the squared distance is $17$.\n\n6.  **Verify the nature of the critical points**:\n    We can use the second derivative test.\n    $$D''(x) = 3x^2 - 16$$\n    *   At $x = 0$: $D''(0) = -16 < 0$, so $x=0$ is a local maximum.\n    *   At $x = \\pm 4$: $D''(\\pm 4) = 3(16) - 16 = 32 > 0$, so $x = \\pm 4$ are local minima.\n    Since the parabola opens upwards ($y \\to \\infty$ as $x \\to \\infty$), the global minimum must be at one of these local minima. Thus, the minimum squared distance is indeed 17.\n\n7.  **Calculate the final answer**:\n    The problem states the smallest distance is $a$.\n    So, $a = \\sqrt{17}$.\n    We need to find $a^2$.\n    $$a^2 = (\\sqrt{17})^2 = 17$$",
+      "matched_success_motifs": [
+        "rewrite",
+        "analyze|compute",
+        "compare|analyze",
+        "compare|analyze|compute",
+        "instantiate|compute|compare",
+        "compute|compare"
+      ],
+      "matched_failure_motifs": [
+        "compare|check-constraint",
+        "compare|check-constraint|compute",
+        "check-constraint|compute",
+        "compute|analyze"
+      ]
+    },
+    {
+      "trace_id": "241:5:5",
+      "question_id": "241",
+      "sample_id": "5",
+      "attempt_index": "5",
+      "predicted_answer": "17",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|check-constraint|rewrite|analyze|instantiate|compute|compare|compute|check-constraint|analyze|compare|compute|backtrack|compute|check-constraint|instantiate|backtrack|compute|compare|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "check-constraint",
+        "rewrite",
+        "analyze",
+        "instantiate",
+        "compute",
+        "compare",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compare",
+        "compute",
+        "backtrack",
+        "compute",
+        "check-constraint",
+        "instantiate",
+        "backtrack",
+        "compute",
+        "compare",
+        "compute"
+      ],
+      "token_count": 22,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can follow these steps:\n\n1.  **Define the distance function:**\n    Let $P(x, y)$ be a point on the graph. The coordinates satisfy $y = \\frac{1}{2}x^2 - 9$.\n    The distance $d$ from the origin to $P$ is given by the distance formula:\n    $$d = \\sqrt{x^2 + y^2}$$\n    To minimize $d$, it is equivalent to minimize the square of the distance, $D = d^2$, since the square root function is strictly increasing for non-negative values.\n    $$D = x^2 + y^2$$\n\n2.  **Substitute the constraint:**\n    Substitute $y = \\frac{1}{2}x^2 - 9$ into the expression for $D$:\n    $$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\n3.  **Simplify the expression:**\n    Expand the squared term:\n    $$\\left(\\frac{1}{2}x^2 - 9\\right)^2 = \\left(\\frac{1}{2}x^2\\right)^2 - 2\\left(\\frac{1}{2}x^2\\right)(9) + 9^2$$\n    $$= \\frac{1}{4}x^4 - 9x^2 + 81$$\n    Now add the $x^2$ term:\n    $$D(x) = x^2 + \\frac{1}{4}x^4 - 9x^2 + 81$$\n    $$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n4.  **Find the minimum of $D(x)$:**\n    To find the critical points, take the derivative of $D(x)$ with respect to $x$ and set it to zero:\n    $$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right)$$\n    $$D'(x) = x^3 - 16x$$\n    Set $D'(x) = 0$:\n    $$x(x^2 - 16) = 0$$\n    $$x(x - 4)(x + 4) = 0$$\n    The critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n5.  **Evaluate $D(x)$ at the critical points:**\n    *   For $x = 0$:\n        $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    *   For $x = 4$:\n        $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81 = \\frac{1}{4}(256) - 8(16) + 81 = 64 - 128 + 81 = 17$$\n    *   For $x = -4$:\n        $$D(-4) = \\frac{1}{4}(-4)^4 - 8(-4)^2 + 81 = 64 - 128 + 81 = 17$$\n\n    Comparing the values, the minimum value of $D(x)$ is $17$.\n    Since $D = a^2$ (where $a$ is the minimum distance), we have found $a^2$.\n\n    Let's double check the logic. We minimized $d^2$. The problem asks for $a^2$, where $a$ is the smallest distance. Thus $a = \\sqrt{17}$ and $a^2 = 17$.\n\n    Alternatively, using the geometric property that the shortest distance from a point to a curve occurs where the normal line passes through that point.\n    $y = \\frac{1}{2}x^2 - 9 \\implies y' = x$.\n    Slope of tangent at $x$ is $m = x$.\n    Slope of normal is $-1/x$.\n    Slope of line connecting origin $(0,0)$ to $(x, y)$ is $y/x = (\\frac{1}{2}x^2 - 9)/x = \\frac{x}{2} - \\frac{9}{x}$.\n    Equating slopes: $x = \\frac{x}{2} - \\frac{9}{x}$.\n    Multiply by $2x$ (assuming $x \\neq 0$): $2x^2 = x^2 - 18 \\implies x^2 = -18$. No real solution for $x \\neq 0$.\n    This implies the minimum must occur at $x=0$ or at a point where the derivative logic needs careful handling (often related to the vertex or symmetry). Wait, let's re-evaluate the derivative method.\n    \n    Re-checking derivative calculation:\n    $D(x) = \\frac{1}{4}x^4 - 8x^2 + 81$.\n    $D'(x) = x^3 - 16x$.\n    Roots: $0, 4, -4$.\n    $D(0) = 81$.\n    $D(4) = 17$.\n    $D(-4) = 17$.\n    The function $D(x)$ goes to infinity as $x \\to \\pm \\infty$.\n    At $x=0$, $y=-9$, distance squared is $0^2 + (-9)^2 = 81$.\n    At $x=4$, $y = \\frac{1}{2}(16) - 9 = 8 - 9 = -1$. Distance squared is $4^2 + (-1)^2 = 16 + 1 = 17$.\n    The calculation holds. The normal line method yielded $x^2 = -18$ because I set the slope of the radius vector equal to the negative reciprocal of the tangent slope incorrectly or missed a sign?\n    Let's re-verify the normal condition.\n    Vector from origin to point: $\\vec{v} = (x, y)$.\n    Tangent vector: $\\vec{t} = (1, y') = (1, x)$.\n    For minimum distance, $\\vec{v}$ must be perpendicular to $\\vec{t}$.\n    Dot product $\\vec{v} \\cdot \\vec{t} = 0$.\n    $x(1) + y(x) = 0 \\implies x + xy = 0 \\implies x(1+y) = 0$.\n    So either $x=0$ or $y=-1$.\n    If $x=0$, $y=-9$. $D = 81$.\n    If $y=-1$, then $\\frac{1}{2}x^2 - 9 = -1 \\implies \\frac{1}{2}x^2 = 8 \\implies x^2 = 16 \\implies x = \\pm 4$.\n    This confirms the points $x=\\pm 4$ are the critical points derived from the geometric condition.\n    At these points, $D = 17$.\n    The minimum is indeed 17.\n\n    The smallest distance is $a = \\sqrt{17}$.\n    We need to find $a^2$.\n    $a^2 = 17$.",
+      "matched_success_motifs": [
+        "rewrite",
+        "instantiate|compute|compare",
+        "compute|compare"
+      ],
+      "matched_failure_motifs": [
+        "analyze|instantiate|compute",
+        "analyze|instantiate"
+      ]
+    },
+    {
+      "trace_id": "241:6:6",
+      "question_id": "241",
+      "sample_id": "6",
+      "attempt_index": "6",
+      "predicted_answer": "17",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|rewrite|instantiate|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "rewrite",
+        "instantiate",
+        "compute"
+      ],
+      "token_count": 6,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can follow these steps:\n\n### Step 1: Define the distance function\nLet a point on the graph be $P(x, y)$. Since $P$ lies on the curve, its coordinates satisfy $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $P(x,y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nTo minimize the distance $d$, it is equivalent to minimize the square of the distance, $D = d^2$, because the square root function is monotonically increasing for non-negative values.\n$$D(x) = x^2 + y^2$$\n\n### Step 2: Express $D$ in terms of a single variable\nSubstitute $y = \\frac{1}{2}x^2 - 9$ into the equation for $D$:\n$$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\nExpand the squared term:\n$$D(x) = x^2 + \\left(\\frac{1}{4}x^4 - 2\\left(\\frac{1}{2}x^2\\right)(9) + 81\\right)$$\n$$D(x) = x^2 + \\frac{1}{4}x^4 - 9x^2 + 81$$\n$$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n### Step 3: Find the critical points\nTo find the minimum value, we take the derivative of $D(x)$ with respect to $x$ and set it to zero.\n$$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right)$$\n$$D'(x) = x^3 - 16x$$\n\nSet $D'(x) = 0$:\n$$x^3 - 16x = 0$$\n$$x(x^2 - 16) = 0$$\n$$x(x - 4)(x + 4) = 0$$\n\nThe critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n### Step 4: Evaluate $D(x)$ at the critical points\nWe calculate the value of $D(x)$ for each critical point to determine which yields the minimum distance.\n\n1.  **For $x = 0$:**\n    $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    The corresponding $y$-coordinate is $y = \\frac{1}{2}(0)^2 - 9 = -9$. Point: $(0, -9)$.\n    Distance squared $a^2 = 81$.\n\n2.  **For $x = 4$:**\n    $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81$$\n    $$D(4) = \\frac{1}{4}(256) - 8(16) + 81$$\n    $$D(4) = 64 - 128 + 81$$\n    $$D(4) = 17$$\n    The corresponding $y$-coordinate is $y = \\frac{1}{2}(4)^2 - 9 = \\frac{1}{2}(16) - 9 = 8 - 9 = -1$. Point: $(4, -1)$.\n    Distance squared $a^2 = 17$.\n\n3.  **For $x = -4$:**\n    Since the function $D(x)$ depends on $x^2$ and $x^4$, $D(-4) = D(4)$.\n    $$D(-4) = 17$$\n    The corresponding $y$-coordinate is $y = \\frac{1}{2}(-4)^2 - 9 = -1$. Point: $(-4, -1)$.\n    Distance squared $a^2 = 17$.\n\n### Step 5: Determine the minimum and calculate $a^2$\nComparing the values $81$, $17$, and $17$, the minimum value of the squared distance is $17$.\nThus, the smallest distance $a = \\sqrt{17}$.\nThe problem asks for $a^2$.\n$$a^2 = 17$$",
+      "matched_success_motifs": [
+        "rewrite",
+        "instantiate|compute|rewrite",
+        "compute|rewrite"
+      ],
+      "matched_failure_motifs": []
+    },
+    {
+      "trace_id": "241:7:7",
+      "question_id": "241",
+      "sample_id": "7",
+      "attempt_index": "7",
+      "predicted_answer": "17",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|rewrite|instantiate|compute|compare|analyze|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "rewrite",
+        "instantiate",
+        "compute",
+        "compare",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 9,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can proceed with the following steps:\n\n### Step 1: Define the distance function\nLet a point on the graph be $(x, y)$. Since the point lies on the curve, its coordinates satisfy $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $(x,y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nTo minimize the distance $d$, it is equivalent to minimize the square of the distance, $D = d^2$, because the square root function is strictly increasing for non-negative values.\n$$D(x) = x^2 + y^2$$\n\n### Step 2: Express $D$ as a function of $x$\nSubstitute the equation of the parabola $y = \\frac{1}{2}x^2 - 9$ into the expression for $D$:\n$$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\nExpand the squared term:\n$$D(x) = x^2 + \\left(\\frac{1}{4}x^4 - 2\\left(\\frac{1}{2}x^2\\right)(9) + 81\\right)$$\n$$D(x) = x^2 + \\frac{1}{4}x^4 - 9x^2 + 81$$\n$$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81$$\n\n### Step 3: Find the critical points\nTo find the minimum value, take the derivative of $D(x)$ with respect to $x$ and set it to zero:\n$$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 8x^2 + 81\\right)$$\n$$D'(x) = x^3 - 16x$$\n\nSet $D'(x) = 0$:\n$$x^3 - 16x = 0$$\n$$x(x^2 - 16) = 0$$\n$$x(x - 4)(x + 4) = 0$$\n\nThe critical points are $x = 0$, $x = 4$, and $x = -4$.\n\n### Step 4: Evaluate $D(x)$ at the critical points\nWe calculate the value of $D(x)$ for each critical point to determine which yields the minimum distance.\n\n1.  **For $x = 0$**:\n    $$D(0) = \\frac{1}{4}(0)^4 - 8(0)^2 + 81 = 81$$\n    (Note: At $x=0$, $y = -9$, so the point is $(0, -9)$ and distance is $\\sqrt{81}=9$).\n\n2.  **For $x = 4$**:\n    $$D(4) = \\frac{1}{4}(4)^4 - 8(4)^2 + 81$$\n    $$D(4) = \\frac{1}{4}(256) - 8(16) + 81$$\n    $$D(4) = 64 - 128 + 81$$\n    $$D(4) = 17$$\n\n3.  **For $x = -4$**:\n    Since the function $D(x)$ depends on $x^2$ and $x^4$, $D(-4) = D(4) = 17$.\n\nComparing the values, the minimum value of $D(x)$ is $17$.\n\n### Step 5: Determine $a$ and $a^2$\nThe problem states that the smallest distance is $a$.\nSince $D = a^2$ and we found the minimum value of $D$ to be $17$:\n$$a^2 = 17$$\n\n(Note: $a = \\sqrt{17}$, but the question asks for $a^2$).",
+      "matched_success_motifs": [
+        "rewrite",
+        "analyze|compute",
+        "compare|analyze",
+        "compare|analyze|compute",
+        "instantiate|compute|compare",
+        "compute|compare",
+        "instantiate|compute|rewrite",
+        "compute|rewrite"
+      ],
+      "matched_failure_motifs": []
+    },
+    {
+      "trace_id": "241:8:8",
+      "question_id": "241",
+      "sample_id": "8",
+      "attempt_index": "8",
+      "predicted_answer": "17",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|rewrite|instantiate|analyze|rewrite|instantiate|check-constraint|compute|substitute|compare|analyze|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "rewrite",
+        "instantiate",
+        "analyze",
+        "rewrite",
+        "instantiate",
+        "check-constraint",
+        "compute",
+        "substitute",
+        "compare",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 14,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can follow these steps:\n\n### Step 1: Define the distance function\nLet $P(x, y)$ be a point on the graph. The coordinates satisfy the equation $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $P(x,y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nTo minimize the distance $d$, it is equivalent to minimize the square of the distance, $D = d^2$, since the square root function is strictly increasing for non-negative values.\n$$D(x) = x^2 + y^2$$\n\n### Step 2: Express $D$ in terms of a single variable\nSubstitute the expression for $y$ from the parabola's equation into the distance squared function:\n$$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\n### Step 3: Minimize the function $D(x)$\nLet $u = x^2$. Since $x$ is a real number, $u \\ge 0$.\nThe function becomes:\n$$f(u) = u + \\left(\\frac{1}{2}u - 9\\right)^2$$\nExpand the squared term:\n$$f(u) = u + \\left(\\frac{1}{4}u^2 - 9u + 81\\right)$$\n$$f(u) = \\frac{1}{4}u^2 - 8u + 81$$\n\nTo find the minimum, we take the derivative with respect to $u$ and set it to zero:\n$$f'(u) = \\frac{1}{2}u - 8$$\nSet $f'(u) = 0$:\n$$\\frac{1}{2}u - 8 = 0 \\implies \\frac{1}{2}u = 8 \\implies u = 16$$\n\nCheck if this critical point is a minimum. The second derivative is $f''(u) = \\frac{1}{2}$, which is positive, indicating a local minimum. Since $u=16$ is within the domain $u \\ge 0$, this is the global minimum for the function.\n\n### Step 4: Calculate the minimum squared distance\nSubstitute $u = 16$ back into the function $f(u)$ to find the minimum value of $D$:\n$$D_{min} = \\frac{1}{4}(16)^2 - 8(16) + 81$$\n$$D_{min} = \\frac{1}{4}(256) - 128 + 81$$\n$$D_{min} = 64 - 128 + 81$$\n$$D_{min} = -64 + 81$$\n$$D_{min} = 17$$\n\nSo, the smallest distance squared is $17$.\nThe problem states that the smallest distance is $a$. Therefore, $a = \\sqrt{17}$.\nWe are asked to find $a^2$.\n$$a^2 = (\\sqrt{17})^2 = 17$$\n\nAlternatively, we found $D = a^2$ directly in Step 4.\n\n### Conclusion\nThe smallest distance is $a = \\sqrt{17}$, so $a^2 = 17$.",
+      "matched_success_motifs": [
+        "rewrite",
+        "analyze|compute",
+        "compare|analyze",
+        "compare|analyze|compute",
+        "instantiate|compute|rewrite",
+        "compute|rewrite"
+      ],
+      "matched_failure_motifs": [
+        "check-constraint|compute"
+      ]
+    },
+    {
+      "trace_id": "241:9:9",
+      "question_id": "241",
+      "sample_id": "9",
+      "attempt_index": "9",
+      "predicted_answer": "32",
+      "is_correct": false,
+      "tokenized_trace": "compute|instantiate|compute|analyze|instantiate|compute|analyze|compare|check-constraint|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "analyze",
+        "compare",
+        "check-constraint",
+        "compute"
+      ],
+      "token_count": 10,
+      "reasoning_trace": "To find the smallest distance between the origin $(0,0)$ and a point on the graph of the parabola $y = \\frac{1}{2}x^2 - 9$, we can follow these steps:\n\n### Step 1: Define the distance function\nLet $P(x, y)$ be a point on the graph. Since $P$ lies on the curve, its coordinates satisfy $y = \\frac{1}{2}x^2 - 9$.\nThe distance $d$ between the origin $(0,0)$ and the point $P(x, y)$ is given by the distance formula:\n$$d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2}$$\n\nTo minimize the distance $d$, it is equivalent and often simpler to minimize the square of the distance, $D = d^2$. Minimizing $D$ will yield the same $x$-coordinate for the closest point.\n$$D(x) = x^2 + y^2$$\n\n### Step 2: Express $D$ as a function of $x$ only\nSubstitute the expression for $y$ from the given equation into $D(x)$:\n$$y = \\frac{1}{2}x^2 - 9$$\n$$D(x) = x^2 + \\left(\\frac{1}{2}x^2 - 9\\right)^2$$\n\n### Step 3: Find the critical points\nTo find the minimum, we take the derivative of $D(x)$ with respect to $x$ and set it to zero.\n$$D(x) = x^2 + \\left(\\frac{1}{4}x^4 - 9x^2 + 81\\right)$$\n$$D(x) = \\frac{1}{4}x^4 - 8x^2 + 81 + x^2$$\n$$D(x) = \\frac{1}{4}x^4 - 7x^2 + 81$$\n\nNow, differentiate with respect to $x$:\n$$D'(x) = \\frac{d}{dx}\\left(\\frac{1}{4}x^4 - 7x^2 + 81\\right)$$\n$$D'(x) = x^3 - 14x$$\n\nSet $D'(x) = 0$ to find critical points:\n$$x^3 - 14x = 0$$\n$$x(x^2 - 14) = 0$$\n\nThe solutions are:\n1. $x = 0$\n2. $x^2 = 14 \\implies x = \\sqrt{14}$ or $x = -\\sqrt{14}$\n\n### Step 4: Determine the minimum\nWe evaluate $D(x)$ at the critical points to find the minimum squared distance.\n- For $x = 0$:\n  $$D(0) = \\frac{1}{4}(0)^4 - 7(0)^2 + 81 = 81$$\n  The corresponding $y$ value is $y = \\frac{1}{2}(0)^2 - 9 = -9$. Point: $(0, -9)$. Distance squared is $0^2 + (-9)^2 = 81$.\n\n- For $x^2 = 14$:\n  $$D(\\pm\\sqrt{14}) = \\frac{1}{4}(14)^2 - 7(14) + 81$$\n  $$D(\\pm\\sqrt{14}) = \\frac{1}{4}(196) - 98 + 81$$\n  $$D(\\pm\\sqrt{14}) = 49 - 98 + 81$$\n  $$D(\\pm\\sqrt{14}) = 130 - 98 = 32$$\n\nComparing the values, $32 < 81$. Thus, the minimum squared distance is $32$.\n\nAlternatively, we can check the second derivative to confirm it's a minimum:\n$$D''(x) = 3x^2 - 14$$\nAt $x = 0$, $D''(0) = -14$ (local maximum).\nAt $x = \\pm\\sqrt{14}$, $D''(\\pm\\sqrt{14}) = 3(14) - 14 = 28 > 0$ (local minimum).\n\n### Step 5: Calculate $a^2$\nThe problem states that the smallest distance is $a$.\nSo, $a = \\sqrt{32}$.\nWe need to find $a^2$.\n$$a^2 = (\\sqrt{32})^2 = 32$$",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "compare|check-constraint",
+        "compare|check-constraint|compute",
+        "analyze|instantiate|compute",
+        "check-constraint|compute",
+        "compute|analyze|compare",
+        "analyze|instantiate",
+        "instantiate|compute|analyze",
+        "compute|analyze"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1276 @@
+{
+  "question_id": "50",
+  "question_text": "Let $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$.\n\nWithout using long division (which would be horribly nasty!), find the remainder when $f(x)$ is divided by $x^2-1$.",
+  "gold_answer": "-13x+3",
+  "benchmark_name": "math_500",
+  "pilot_question_uid": "math500_level45_random100_10samples:q50",
+  "total_traces": 10,
+  "success_count": 6,
+  "failure_count": 4,
+  "success_rate": 0.6,
+  "avg_token_count": 15.9,
+  "median_token_count": 16.0,
+  "distinct_predicted_answers": 3,
+  "tags": [
+    "mixed_outcomes",
+    "high_diversity"
+  ],
+  "insights": [
+    "This question shows mixed outcomes: 6 successful traces versus 4 failures.",
+    "Successful traces tend to be longer than failed traces on this question.",
+    "The strongest local success motif is \"analyze|compute\", appearing more often in correct traces.",
+    "The strongest local failure motif is \"compute|backtrack\", which clusters with incorrect attempts."
+  ],
+  "answer_distribution": [
+    {
+      "answer": "-13x+3",
+      "count": 6,
+      "share": 0.6
+    },
+    {
+      "answer": "-15.5x + 5.5",
+      "count": 3,
+      "share": 0.3
+    },
+    {
+      "answer": "-\\frac{31}{2}x + \\frac{11}{2}",
+      "count": 1,
+      "share": 0.1
+    }
+  ],
+  "local_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "analyze|compute",
+        "tokens": [
+          "analyze",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 5,
+        "failure_count": 2,
+        "success_support": 0.8333333333333334,
+        "failure_support": 0.5,
+        "support_difference": 0.33333333333333337,
+        "lift": 1.6666666633333336,
+        "log_odds_ratio": 1.2992829841302609,
+        "q_value": 1.0
+      },
+      {
+        "motif": "instantiate|compute",
+        "tokens": [
+          "instantiate",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 5,
+        "failure_count": 2,
+        "success_support": 0.8333333333333334,
+        "failure_support": 0.5,
+        "support_difference": 0.33333333333333337,
+        "lift": 1.6666666633333336,
+        "log_odds_ratio": 1.2992829841302609,
+        "q_value": 1.0
+      },
+      {
+        "motif": "instantiate|analyze|compute",
+        "tokens": [
+          "instantiate",
+          "analyze",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.3333333333333333,
+        "failure_support": 0.0,
+        "support_difference": 0.3333333333333333,
+        "lift": 333333333.3333333,
+        "log_odds_ratio": 1.6094379124341005,
+        "q_value": 1.0
+      },
+      {
+        "motif": "analyze|instantiate",
+        "tokens": [
+          "analyze",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.3333333333333333,
+        "failure_support": 0.0,
+        "support_difference": 0.3333333333333333,
+        "lift": 333333333.3333333,
+        "log_odds_ratio": 1.6094379124341005,
+        "q_value": 1.0
+      },
+      {
+        "motif": "analyze|compute|analyze",
+        "tokens": [
+          "analyze",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.3333333333333333,
+        "failure_support": 0.0,
+        "support_difference": 0.3333333333333333,
+        "lift": 333333333.3333333,
+        "log_odds_ratio": 1.6094379124341005,
+        "q_value": 1.0
+      },
+      {
+        "motif": "apply-formula|analyze",
+        "tokens": [
+          "apply-formula",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 6,
+        "failure_count": 3,
+        "success_support": 1.0,
+        "failure_support": 0.75,
+        "support_difference": 0.25,
+        "lift": 1.3333333315555556,
+        "log_odds_ratio": 1.717651497074333,
+        "q_value": 1.0
+      },
+      {
+        "motif": "substitute|compute|analyze",
+        "tokens": [
+          "substitute",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 3,
+        "failure_count": 1,
+        "success_support": 0.5,
+        "failure_support": 0.25,
+        "support_difference": 0.25,
+        "lift": 1.9999999919999998,
+        "log_odds_ratio": 0.8472978603872037,
+        "q_value": 1.0
+      },
+      {
+        "motif": "instantiate|analyze",
+        "tokens": [
+          "instantiate",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 3,
+        "failure_count": 1,
+        "success_support": 0.5,
+        "failure_support": 0.25,
+        "support_difference": 0.25,
+        "lift": 1.9999999919999998,
+        "log_odds_ratio": 0.8472978603872037,
+        "q_value": 1.0
+      }
+    ],
+    "failure": [
+      {
+        "motif": "compute|backtrack",
+        "tokens": [
+          "compute",
+          "backtrack"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 2,
+        "success_support": 0.0,
+        "failure_support": 0.5,
+        "support_difference": -0.5,
+        "lift": 0.0,
+        "log_odds_ratio": -2.5649493574615367,
+        "q_value": 1.0
+      },
+      {
+        "motif": "conclude|compute",
+        "tokens": [
+          "conclude",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 3,
+        "failure_count": 4,
+        "success_support": 0.5,
+        "failure_support": 1.0,
+        "support_difference": -0.5,
+        "lift": 0.49999999949999996,
+        "log_odds_ratio": -2.1972245773362196,
+        "q_value": 1.0
+      },
+      {
+        "motif": "backtrack",
+        "tokens": [
+          "backtrack"
+        ],
+        "length": 1,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 2,
+        "failure_count": 3,
+        "success_support": 0.3333333333333333,
+        "failure_support": 0.75,
+        "support_difference": -0.4166666666666667,
+        "lift": 0.44444444385185183,
+        "log_odds_ratio": -1.4350845252893227,
+        "q_value": 1.0
+      },
+      {
+        "motif": "analyze|check-constraint|compute",
+        "tokens": [
+          "analyze",
+          "check-constraint",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 2,
+        "success_support": 0.16666666666666666,
+        "failure_support": 0.5,
+        "support_difference": -0.33333333333333337,
+        "lift": 0.33333333266666665,
+        "log_odds_ratio": -1.2992829841302609,
+        "q_value": 1.0
+      },
+      {
+        "motif": "apply-formula|analyze|conclude",
+        "tokens": [
+          "apply-formula",
+          "analyze",
+          "conclude"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 2,
+        "success_support": 0.16666666666666666,
+        "failure_support": 0.5,
+        "support_difference": -0.33333333333333337,
+        "lift": 0.33333333266666665,
+        "log_odds_ratio": -1.2992829841302609,
+        "q_value": 1.0
+      },
+      {
+        "motif": "backtrack|compute",
+        "tokens": [
+          "backtrack",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 2,
+        "success_support": 0.16666666666666666,
+        "failure_support": 0.5,
+        "support_difference": -0.33333333333333337,
+        "lift": 0.33333333266666665,
+        "log_odds_ratio": -1.2992829841302609,
+        "q_value": 1.0
+      },
+      {
+        "motif": "analyze|conclude|compute",
+        "tokens": [
+          "analyze",
+          "conclude",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 2,
+        "success_support": 0.16666666666666666,
+        "failure_support": 0.5,
+        "support_difference": -0.33333333333333337,
+        "lift": 0.33333333266666665,
+        "log_odds_ratio": -1.2992829841302609,
+        "q_value": 1.0
+      },
+      {
+        "motif": "check-constraint|compute",
+        "tokens": [
+          "check-constraint",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 2,
+        "success_support": 0.16666666666666666,
+        "failure_support": 0.5,
+        "support_difference": -0.33333333333333337,
+        "lift": 0.33333333266666665,
+        "log_odds_ratio": -1.2992829841302609,
+        "q_value": 1.0
+      }
+    ]
+  },
+  "global_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "case-split",
+        "tokens": [
+          "case-split"
+        ],
+        "length": 1,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 56,
+        "failure_count": 10,
+        "success_support": 0.2994652406417112,
+        "failure_support": 0.13333333333333333,
+        "support_difference": 0.16613190730837787,
+        "lift": 2.2459892879679146,
+        "log_odds_ratio": 0.9859086720123047,
+        "q_value": 0.12700879161005763
+      },
+      {
+        "motif": "substitute|compute|analyze",
+        "tokens": [
+          "substitute",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 28,
+        "failure_count": 2,
+        "success_support": 0.1497326203208556,
+        "failure_support": 0.02666666666666667,
+        "support_difference": 0.12306595365418893,
+        "lift": 5.614973051470596,
+        "log_odds_ratio": 1.6588548393943414,
+        "q_value": 0.12700879161005763
+      },
+      {
+        "motif": "analyze|compute",
+        "tokens": [
+          "analyze",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 139,
+        "failure_count": 47,
+        "success_support": 0.7433155080213903,
+        "failure_support": 0.6266666666666667,
+        "support_difference": 0.11664884135472364,
+        "lift": 1.1861417662264604,
+        "log_odds_ratio": 0.5456751795519921,
+        "q_value": 0.5170493423981184
+      },
+      {
+        "motif": "check-constraint|instantiate",
+        "tokens": [
+          "check-constraint",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 29,
+        "failure_count": 4,
+        "success_support": 0.15508021390374332,
+        "failure_support": 0.05333333333333334,
+        "support_difference": 0.10174688057040998,
+        "lift": 2.9077539561748007,
+        "log_odds_ratio": 1.0842557229521268,
+        "q_value": 0.2590575790198284
+      },
+      {
+        "motif": "conclude|analyze",
+        "tokens": [
+          "conclude",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 30,
+        "failure_count": 5,
+        "success_support": 0.16042780748663102,
+        "failure_support": 0.06666666666666667,
+        "support_difference": 0.09376114081996435,
+        "lift": 2.4064170762032093,
+        "log_odds_ratio": 0.9091658429274759,
+        "q_value": 0.44877234845590286
+      },
+      {
+        "motif": "analyze|case-split",
+        "tokens": [
+          "analyze",
+          "case-split"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 25,
+        "failure_count": 3,
+        "success_support": 0.13368983957219252,
+        "failure_support": 0.04,
+        "support_difference": 0.09368983957219251,
+        "lift": 3.3422459057486655,
+        "log_odds_ratio": 1.1788240437598494,
+        "q_value": 0.27585577712588477
+      },
+      {
+        "motif": "analyze|compute|analyze",
+        "tokens": [
+          "analyze",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 61,
+        "failure_count": 18,
+        "success_support": 0.32620320855614976,
+        "failure_support": 0.24,
+        "support_difference": 0.08620320855614977,
+        "lift": 1.359180029987374,
+        "log_odds_ratio": 0.41280908236392305,
+        "q_value": 0.7598319082426742
+      },
+      {
+        "motif": "analyze|check-constraint",
+        "tokens": [
+          "analyze",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 48,
+        "failure_count": 13,
+        "success_support": 0.25668449197860965,
+        "failure_support": 0.17333333333333334,
+        "support_difference": 0.08335115864527631,
+        "lift": 1.4808720605638708,
+        "log_odds_ratio": 0.47597606797998926,
+        "q_value": 0.7598319082426742
+      }
+    ],
+    "failure": [
+      {
+        "motif": "conclude|compute",
+        "tokens": [
+          "conclude",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 36,
+        "failure_count": 34,
+        "success_support": 0.1925133689839572,
+        "failure_support": 0.4533333333333333,
+        "support_difference": -0.2608199643493761,
+        "lift": 0.4246618424102104,
+        "log_odds_ratio": -1.2385392611616395,
+        "q_value": 0.013014976654953778
+      },
+      {
+        "motif": "apply-formula",
+        "tokens": [
+          "apply-formula"
+        ],
+        "length": 1,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 80,
+        "failure_count": 46,
+        "success_support": 0.42780748663101603,
+        "failure_support": 0.6133333333333333,
+        "support_difference": -0.18552584670231725,
+        "lift": 0.697512205326365,
+        "log_odds_ratio": -0.7442957123907363,
+        "q_value": 0.17345516068302833
+      },
+      {
+        "motif": "compute|instantiate",
+        "tokens": [
+          "compute",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 79,
+        "failure_count": 45,
+        "success_support": 0.42245989304812837,
+        "failure_support": 0.6,
+        "support_difference": -0.1775401069518716,
+        "lift": 0.7040998205733809,
+        "log_odds_ratio": -0.7109787936637668,
+        "q_value": 0.20978919397023355
+      },
+      {
+        "motif": "compute|check-constraint",
+        "tokens": [
+          "compute",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 46,
+        "failure_count": 31,
+        "success_support": 0.24598930481283424,
+        "failure_support": 0.41333333333333333,
+        "support_difference": -0.1673440285204991,
+        "lift": 0.5951354134299165,
+        "log_odds_ratio": -0.7673457611493745,
+        "q_value": 0.18673130699197357
+      },
+      {
+        "motif": "analyze|apply-formula",
+        "tokens": [
+          "analyze",
+          "apply-formula"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 15,
+        "failure_count": 18,
+        "success_support": 0.08021390374331551,
+        "failure_support": 0.24,
+        "support_difference": -0.1597860962566845,
+        "lift": 0.3342245975378788,
+        "log_odds_ratio": -1.2755429968271879,
+        "q_value": 0.048381983504224305
+      },
+      {
+        "motif": "conclude|compute|analyze",
+        "tokens": [
+          "conclude",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 7,
+        "failure_count": 14,
+        "success_support": 0.0374331550802139,
+        "failure_support": 0.18666666666666668,
+        "support_difference": -0.14923351158645276,
+        "lift": 0.2005347582839954,
+        "log_odds_ratio": -1.7359392318447275,
+        "q_value": 0.019239368993132517
+      },
+      {
+        "motif": "compute|instantiate|analyze",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 15,
+        "failure_count": 15,
+        "success_support": 0.08021390374331551,
+        "failure_support": 0.2,
+        "support_difference": -0.1197860962566845,
+        "lift": 0.4010695167112299,
+        "log_odds_ratio": -1.0477538714346186,
+        "q_value": 0.17345516068302833
+      }
+    ]
+  },
+  "representative_traces": {
+    "success": [
+      {
+        "trace_id": "50:9:11",
+        "question_id": "50",
+        "sample_id": "9",
+        "attempt_index": "11",
+        "predicted_answer": "-13x+3",
+        "is_correct": true,
+        "tokenized_trace": "apply-formula|analyze|compute|instantiate|analyze|compute|analyze|backtrack|analyze|compute|analyze|substitute|compute|check-constraint|analyze|instantiate|compute|analyze|conclude",
+        "tokens": [
+          "apply-formula",
+          "analyze",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute",
+          "analyze",
+          "backtrack",
+          "analyze",
+          "compute",
+          "analyze",
+          "substitute",
+          "compute",
+          "check-constraint",
+          "analyze",
+          "instantiate",
+          "compute",
+          "analyze",
+          "conclude"
+        ],
+        "token_count": 19,
+        "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the factorization of the divisor.\n\n### Step 1: Understand the form of the remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = ax + b$ for some constants $a$ and $b$.\n\n### Step 2: Use the roots of the divisor\nThe divisor is $x^2 - 1$. The roots of this equation are $x = 1$ and $x = -1$.\nSubstituting these values into the division equation:\n1.  For $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 \\cdot Q(1) + (a(1) + b) \\implies f(1) = a + b$$\n2.  For $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 \\cdot Q(-1) + (a(-1) + b) \\implies f(-1) = -a + b$$\n\n### Step 3: Evaluate $f(1)$ and $f(-1)$\nLet's calculate the value of $f(x)$ at $x=1$ by substituting into the original polynomial:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1(1)^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, $a + b = -10$.\n\nNow, let's calculate the value of $f(x)$ at $x=-1$. We can substitute $x=-1$ directly, or notice the pattern of powers.\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\nRecall that $(-1)^n = 1$ if $n$ is even, and $-1$ if $n$ is odd.\n- $(-1)^{10} = 1$\n- $5(-1)^9 = -5$\n- $-8(-1)^8 = -8$\n- $7(-1)^7 = -7$\n- $-(-1)^6 = -1$\n- $-12(-1)^5 = -12(-1) = 12$\n- $4(-1)^4 = 4$\n- $-8(-1)^3 = -8(-1) = 8$\n- $12(-1)^2 = 12$\n- $-5(-1) = 5$\n- $-5 = -5$\n\nSumming these up:\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping positives and negatives:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 = -21$\nWait, let me re-calculate carefully term by term to avoid sign errors.\nTerms:\n1. $1$\n2. $-5$\n3. $-8$\n4. $-7$\n5. $-1$\n6. $+12$\n7. $+4$\n8. $+8$\n9. $+12$\n10. $+5$\n11. $-5$\n\nSum: $1 - 5 = -4$\n$-4 - 8 = -12$\n$-12 - 7 = -19$\n$-19 - 1 = -20$\n$-20 + 12 = -8$\n$-8 + 4 = -4$\n$-4 + 8 = 4$\n$4 + 12 = 16$\n$16 + 5 = 21$\n$21 - 5 = 16$\n\nSo, $f(-1) = 16$.\nThus, $-a + b = 16$.\n\n### Step 4: Solve the system of linear equations\nWe have the system:\n1. $a + b = -10$\n2. $-a + b = 16$\n\nAdd the two equations:\n$$(a + b) + (-a + b) = -10 + 16$$\n$$2b = 6$$\n$$b = 3$$\n\nSubstitute $b=3$ into the first equation:\n$$a + 3 = -10$$\n$$a = -13$$\n\n### Step 5: Construct the remainder\nThe remainder is $R(x) = ax + b$.\nSubstituting the values found:\n$$R(x) = -13x + 3$$\n\n### Verification (Optional but recommended)\nLet's check the constant term logic.\n$f(x) = (x^2-1)Q(x) + (-13x+3)$.\nConstant term of $f(x)$ is $-5$.\nConstant term of $(x^2-1)Q(x)$ is $-1 \\cdot Q(0)$.\nConstant term of $R(x)$ is $3$.\nSo $-5 = -Q(0) + 3 \\implies Q(0) = 8$.\n\nLet's check the coefficient of $x$ in $f(x)$.\nCoeff of $x$ in $f(x)$ is $-5$.\nCoeff of $x$ in $(x^2-1)Q(x)$: Let $Q(x) = c_0 + c_1 x + \\dots$. Then $(x^2-1)(c_0 + c_1 x + \\dots) = \\dots - c_0 - c_1 x \\dots$. The coeff of $x$ is $-c_1$.\nCoeff of $x$ in $R(x)$ is $-13$.\nSo $-5 = -c_1 - 13 \\implies c_1 = -8$.\n\nThis seems consistent enough given the calculation of $f(1)$ and $f(-1)$ was straightforward. The direct substitution method is robust.\n\nFinal Answer is $-13x + 3$.",
+        "matched_success_motifs": [
+          "analyze|compute",
+          "instantiate|compute",
+          "instantiate|analyze|compute",
+          "analyze|instantiate",
+          "analyze|compute|analyze",
+          "apply-formula|analyze",
+          "instantiate|analyze"
+        ],
+        "matched_failure_motifs": [
+          "backtrack"
+        ]
+      },
+      {
+        "trace_id": "50:7:9",
+        "question_id": "50",
+        "sample_id": "7",
+        "attempt_index": "9",
+        "predicted_answer": "-13x+3",
+        "is_correct": true,
+        "tokenized_trace": "apply-formula|analyze|compute|instantiate|analyze|compute|instantiate|analyze|compute|analyze|substitute|compute|instantiate|analyze|check-constraint|compute|conclude|instantiate|compute",
+        "tokens": [
+          "apply-formula",
+          "analyze",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute",
+          "analyze",
+          "substitute",
+          "compute",
+          "instantiate",
+          "analyze",
+          "check-constraint",
+          "compute",
+          "conclude",
+          "instantiate",
+          "compute"
+        ],
+        "token_count": 19,
+        "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the form of the remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x)$ is of the form $ax + b$.\n\n### Step 2: Use the roots of the divisor\nThe roots of the divisor $x^2-1$ are $x = 1$ and $x = -1$.\nSubstituting these values into the division equation:\n1.  For $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 \\cdot Q(1) + R(1) \\implies f(1) = R(1)$$\n2.  For $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 \\cdot Q(-1) + R(-1) \\implies f(-1) = R(-1)$$\n\nSince $R(x) = ax + b$, we have the system of equations:\n1.  $a(1) + b = f(1)$\n2.  $a(-1) + b = f(-1)$\n\n### Step 3: Calculate $f(1)$ and $f(-1)$\nLet's evaluate $f(x)$ at $x=1$:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\nSumming the coefficients:\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGroup positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\n\nNow, let's evaluate $f(x)$ at $x=-1$. We can substitute $-1$ directly, or notice that $(-1)^k = -1$ if $k$ is odd and $1$ if $k$ is even.\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\nCalculate term by term:\n- $(-1)^{10} = 1$\n- $5(-1)^9 = -5$\n- $-8(-1)^8 = -8$\n- $7(-1)^7 = -7$\n- $-(-1)^6 = -1$\n- $-12(-1)^5 = -12(-1) = 12$\n- $4(-1)^4 = 4$\n- $-8(-1)^3 = -8(-1) = 8$\n- $12(-1)^2 = 12$\n- $-5(-1) = 5$\n- $-5 = -5$\n\nSumming these values:\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGroup positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 - 5 = -26$\n$$f(-1) = 42 - 26 = 16$$\n\n### Step 4: Solve for $a$ and $b$\nWe have the system:\n1.  $a + b = -10$\n2.  $-a + b = 16$\n\nAdd the two equations:\n$$(a + b) + (-a + b) = -10 + 16$$\n$$2b = 6 \\implies b = 3$$\n\nSubstitute $b=3$ into the first equation:\n$$a + 3 = -10 \\implies a = -13$$\n\nSo, the remainder is $R(x) = -13x + 3$.\n\n### Alternative Method: Grouping Terms\nWe can also rewrite $f(x)$ by grouping terms with even and odd powers to utilize $x^2-1$.\n$f(x) = (x^{10}-x^8) + (5x^9-x^7) + (-8x^8+7x^7) + \\dots$\nActually, a cleaner grouping based on $x^2-1$ factors:\n$x^{10} = x^8(x^2) = x^8(x^2-1+1) = x^8(x^2-1) + x^8$\n$x^9 = x^7(x^2) = x^7(x^2-1+1) = x^7(x^2-1) + x^7$\nGenerally, $x^n = x^{n-2}(x^2-1) + x^{n-2}$.\nSo $f(x) = (x^2-1)Q(x) + g(x)$, where $g(x)$ is the sum of terms formed by reducing the highest power by 2 repeatedly until the degree is less than 2.\nEffectively, $g(x) = f(1)$ evaluated with signs? No, let's just look at the reduced polynomial $g(x)$ where $x^2 \\to 1$.\nIf we replace $x^2$ with $1$ in $f(x)$, we get the remainder for $x^2-1$?\nLet's check: $f(x) = \\sum c_k x^k$.\n$x^k = x^{k \\pmod 2} (x^2)^{\\lfloor k/2 \\rfloor}$.\nIf $k$ is even, $x^k = (x^2)^{k/2} = 1^{k/2} = 1 \\pmod{x^2-1}$.\nIf $k$ is odd, $x^k = x (x^2)^{(k-1)/2} = x \\cdot 1 = x \\pmod{x^2-1}$.\nSo, $f(x) \\equiv \\sum_{k \\text{ even}} c_k + x \\sum_{k \\text{ odd}} c_k \\pmod{x^2-1}$.\nLet's calculate this sum:\nEven powers coefficients: $c_{10}=1, c_8=-8, c_6=-1, c_4=4, c_2=12, c_0=-5$.\nSum_even = $1 - 8 - 1 + 4 + 12 - 5 = 3$.\nOdd powers coefficients: $c_9=5, c_7=7, c_5=-12, c_3=-8, c_1=-5$.\nSum_odd = $5 + 7 - 12 - 8 - 5 = -13$.\nThus, $f(x) \\equiv 3 + x(-13) = -13x + 3$.\n\nThis confirms the previous result.",
+        "matched_success_motifs": [
+          "analyze|compute",
+          "instantiate|compute",
+          "instantiate|analyze|compute",
+          "analyze|compute|analyze",
+          "apply-formula|analyze",
+          "instantiate|analyze"
+        ],
+        "matched_failure_motifs": [
+          "analyze|check-constraint|compute",
+          "check-constraint|compute"
+        ]
+      },
+      {
+        "trace_id": "50:0:0",
+        "question_id": "50",
+        "sample_id": "0",
+        "attempt_index": "0",
+        "predicted_answer": "-13x+3",
+        "is_correct": true,
+        "tokenized_trace": "apply-formula|analyze|compute|substitute|compute|instantiate|compute|substitute|compute|conclude|compute|analyze|substitute|compute|analyze|check-constraint|instantiate|compute",
+        "tokens": [
+          "apply-formula",
+          "analyze",
+          "compute",
+          "substitute",
+          "compute",
+          "instantiate",
+          "compute",
+          "substitute",
+          "compute",
+          "conclude",
+          "compute",
+          "analyze",
+          "substitute",
+          "compute",
+          "analyze",
+          "check-constraint",
+          "instantiate",
+          "compute"
+        ],
+        "token_count": 18,
+        "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the Form of the Remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = ax + b$ for some constants $a$ and $b$.\n\n### Step 2: Utilize the Roots of the Divisor\nThe divisor is $x^2 - 1$, which factors as $(x-1)(x+1)$. The roots of this divisor are $x = 1$ and $x = -1$.\nSince $f(x) = (x^2-1)Q(x) + R(x)$, substituting the roots of $x^2-1$ will eliminate the term involving $Q(x)$:\n1.  Substitute $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 \\cdot Q(1) + R(1) \\implies f(1) = R(1)$$\n    Since $R(x) = ax + b$, we have:\n    $$a(1) + b = f(1) \\implies a + b = f(1)$$\n\n2.  Substitute $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 \\cdot Q(-1) + R(-1) \\implies f(-1) = R(-1)$$\n    Since $R(x) = ax + b$, we have:\n    $$a(-1) + b = f(-1) \\implies -a + b = f(-1)$$\n\n### Step 3: Calculate $f(1)$ and $f(-1)$\nLet's evaluate $f(x)$ at $x=1$:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1(1)^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, our first equation is:\n$$a + b = -10$$\n\nNow, let's evaluate $f(x)$ at $x=-1$:\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\nCalculate powers of $-1$:\n$(-1)^{10} = 1$\n$(-1)^9 = -1$\n$(-1)^8 = 1$\n$(-1)^7 = -1$\n$(-1)^6 = 1$\n$(-1)^5 = -1$\n$(-1)^4 = 1$\n$(-1)^3 = -1$\n$(-1)^2 = 1$\n\nSubstitute these values back:\n$$f(-1) = 1 + 5(-1) - 8(1) + 7(-1) - (1) - 12(-1) + 4(1) - 8(-1) + 12(1) - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 - 5 = -26$\n$$f(-1) = 42 - 26 = 16$$\nSo, our second equation is:\n$$-a + b = 16$$\n\n### Step 4: Solve the System of Equations\nWe have the system:\n1.  $a + b = -10$\n2.  $-a + b = 16$\n\nAdd the two equations together:\n$$(a + b) + (-a + b) = -10 + 16$$\n$$2b = 6$$\n$$b = 3$$\n\nSubstitute $b = 3$ into the first equation:\n$$a + 3 = -10$$\n$$a = -13$$\n\n### Step 5: Construct the Remainder\nThe remainder is $R(x) = ax + b$.\nSubstituting the values we found:\n$$R(x) = -13x + 3$$\n\n### Verification (Optional but recommended)\nLet's check the parity. $f(x)$ has terms with even powers and odd powers.\n$f(x) = (x^{10}-8x^8-x^6+4x^4+12x^2-5) + (5x^9+7x^7-12x^5-8x^3-5x) - 5$.\nActually, let's just re-sum carefully.\n$f(1) = 1+5-8+7-1-12+4-8+12-5-5 = 6-8+7-1-12+4-8+12-10 = -2+7-1-12+4-8+12-10 = 5-1-12+4-8+12-10 = 4-12+4-8+12-10 = -8+4-8+12-10 = -4-8+12-10 = -12+12-10 = -10$. Correct.\n$f(-1) = 1-5-8-7-1+12+4+8+12+5-5 = (1-5-8-7-1) + (12+4+8+12+5-5) = (-20) + (36) = 16$. Correct.\nSystem: $a+b=-10, -a+b=16 \\Rightarrow 2b=6 \\Rightarrow b=3, a=-13$. Correct.\n\nThe remainder is $-13x + 3$.",
+        "matched_success_motifs": [
+          "analyze|compute",
+          "instantiate|compute",
+          "apply-formula|analyze",
+          "substitute|compute|analyze"
+        ],
+        "matched_failure_motifs": [
+          "conclude|compute"
+        ]
+      }
+    ],
+    "failure": [
+      {
+        "trace_id": "50:1:1",
+        "question_id": "50",
+        "sample_id": "1",
+        "attempt_index": "1",
+        "predicted_answer": "-\\frac{31}{2}x + \\frac{11}{2}",
+        "is_correct": false,
+        "tokenized_trace": "apply-formula|analyze|conclude|compute|apply-formula|analyze|compute|instantiate|compute|analyze|substitute|compute|backtrack|analyze|check-constraint|compute|check-constraint|analyze|compute",
+        "tokens": [
+          "apply-formula",
+          "analyze",
+          "conclude",
+          "compute",
+          "apply-formula",
+          "analyze",
+          "compute",
+          "instantiate",
+          "compute",
+          "analyze",
+          "substitute",
+          "compute",
+          "backtrack",
+          "analyze",
+          "check-constraint",
+          "compute",
+          "check-constraint",
+          "analyze",
+          "compute"
+        ],
+        "token_count": 19,
+        "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the form of the remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = ax + b$ for some constants $a$ and $b$.\n\n### Step 2: Use the roots of the divisor\nThe roots of the divisor $x^2-1 = 0$ are $x = 1$ and $x = -1$.\nSubstituting these values into the division equation eliminates the term involving $Q(x)$:\n1.  For $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 + R(1) = a(1) + b = a + b$$\n2.  For $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 + R(-1) = a(-1) + b = -a + b$$\n\n### Step 3: Evaluate $f(1)$ and $f(-1)$\nLet's calculate $f(1)$ by substituting $x=1$ into the given polynomial:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1(1)^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping the terms:\nPositive terms: $1 + 5 + 7 + 4 + 12 = 29$\nNegative terms: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, $a + b = -10$.\n\nNow, let's calculate $f(-1)$ by substituting $x=-1$. Note that $(-1)^n = -1$ if $n$ is odd, and $1$ if $n$ is even.\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping the terms:\nPositive terms: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegative terms: $-5 - 8 - 7 - 1 = -21$\n$$f(-1) = 42 - 21 = 21$$\nSo, $-a + b = 21$.\n\n### Step 4: Solve the system of linear equations\nWe have the system:\n1.  $a + b = -10$\n2.  $-a + b = 21$\n\nAdd the two equations:\n$$(a + b) + (-a + b) = -10 + 21$$\n$$2b = 11$$\n$$b = 5.5$$\n\nSubstitute $b = 5.5$ into the first equation:\n$$a + 5.5 = -10$$\n$$a = -15.5$$\n\nSo the remainder is $R(x) = -15.5x + 5.5$.\n\n### Alternative Method: Grouping Terms (Verification)\nLet's try to group terms in $f(x)$ to see if they form multiples of $x^2-1$.\n$f(x) = x^{10} - x^6 + 5x^9 - 5x^5 - 8x^8 + 8x^4 + 7x^7 - 7x^3 - 12x^5 + 12x^2 - 5x - 5$\nWait, let's re-group carefully based on powers of $(x^2-1)$.\n$x^{10} = (x^2)^5 = (x^2-1+1)^5$. This seems complicated.\nLet's just check the coefficients sum again to be sure.\n$f(1) = 1+5-8+7-1-12+4-8+12-5-5 = -10$. Correct.\n$f(-1) = 1-5-8-7-1+12+4+8+12+5-5 = 21$. Correct.\nSystem:\n$a+b=-10$\n$-a+b=21$\n$2b=11 \\Rightarrow b=11/2$.\n$a = -10 - 11/2 = -31/2$.\n$R(x) = -\\frac{31}{2}x + \\frac{11}{2}$.\n\nLet's double check the calculation of $f(-1)$.\nTerms:\n$x^{10} \\to 1$\n$5x^9 \\to -5$\n$-8x^8 \\to -8$\n$7x^7 \\to -7$\n$-x^6 \\to -1$\n$-12x^5 \\to +12$\n$4x^4 \\to +4$\n$-8x^3 \\to +8$\n$12x^2 \\to +12$\n$-5x \\to +5$\n$-5 \\to -5$\n\nSum positives: $1 + 12 + 4 + 8 + 12 + 5 = 42$.\nSum negatives: $-5 - 8 - 7 - 1 = -21$.\nTotal: $21$. Correct.\n\nCalculation of $f(1)$:\n$1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$\nPositives: $1+5+7+4+12 = 29$.\nNegatives: $-8-1-12-8-5-5 = -39$.\nTotal: $-10$. Correct.\n\nEquations:\n$a+b = -10$\n$-a+b = 21$\nSum: $2b = 11 \\implies b = 5.5$.\nDiff: $2a = -31 \\implies a = -15.5$.\n\nThe remainder is $-15.5x + 5.5$ or $-\\frac{31}{2}x + \\frac{11}{2}$.",
+        "matched_success_motifs": [
+          "analyze|compute",
+          "instantiate|compute",
+          "apply-formula|analyze"
+        ],
+        "matched_failure_motifs": [
+          "compute|backtrack",
+          "conclude|compute",
+          "backtrack",
+          "analyze|check-constraint|compute",
+          "apply-formula|analyze|conclude",
+          "analyze|conclude|compute",
+          "check-constraint|compute"
+        ]
+      },
+      {
+        "trace_id": "50:8:10",
+        "question_id": "50",
+        "sample_id": "8",
+        "attempt_index": "10",
+        "predicted_answer": "-15.5x + 5.5",
+        "is_correct": false,
+        "tokenized_trace": "apply-formula|analyze|conclude|compute|instantiate|compute|analyze|substitute|compute|check-constraint|backtrack|compute|backtrack|instantiate|compute|check-constraint",
+        "tokens": [
+          "apply-formula",
+          "analyze",
+          "conclude",
+          "compute",
+          "instantiate",
+          "compute",
+          "analyze",
+          "substitute",
+          "compute",
+          "check-constraint",
+          "backtrack",
+          "compute",
+          "backtrack",
+          "instantiate",
+          "compute",
+          "check-constraint"
+        ],
+        "token_count": 16,
+        "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the form of the remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = ax + b$ for some constants $a$ and $b$.\n\n### Step 2: Use the roots of the divisor\nThe roots of the divisor $x^2-1$ are $x = 1$ and $x = -1$.\nSubstituting these roots into the equation $f(x) = (x^2-1)Q(x) + R(x)$:\n1.  For $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 \\cdot Q(1) + R(1) \\implies R(1) = f(1)$$\n    Since $R(x) = ax+b$, we have:\n    $$a(1) + b = f(1) \\implies a + b = f(1)$$\n\n2.  For $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 \\cdot Q(-1) + R(-1) \\implies R(-1) = f(-1)$$\n    Since $R(x) = ax+b$, we have:\n    $$a(-1) + b = f(-1) \\implies -a + b = f(-1)$$\n\n### Step 3: Calculate $f(1)$ and $f(-1)$\nLet's evaluate $f(x)$ at $x=1$:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, $a + b = -10$.\n\nNow, let's evaluate $f(x)$ at $x=-1$. Note that $(-1)^n = -1$ if $n$ is odd, and $(-1)^n = 1$ if $n$ is even.\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 = -21$\n$$f(-1) = 42 - 21 = 21$$\nSo, $-a + b = 21$.\n\n### Step 4: Solve the system of linear equations\nWe have the system:\n1.  $a + b = -10$\n2.  $-a + b = 21$\n\nAdd the two equations:\n$$(a + b) + (-a + b) = -10 + 21$$\n$$2b = 11$$\n$$b = 5.5$$\n\nSubstitute $b = 5.5$ into the first equation:\n$$a + 5.5 = -10$$\n$$a = -15.5$$\n\nSo the remainder is $R(x) = -15.5x + 5.5$, or $-\\frac{31}{2}x + \\frac{11}{2}$.\n\n### Alternative Check: Grouping Terms\nWe can also rewrite $f(x)$ by grouping terms to isolate multiples of $x^2-1$.\n$f(x) = x^{10} - 1 + 5x^9 - 5x + \\dots$\nActually, a faster way without full calculation is noticing the pattern of coefficients or simply trusting the substitution method which is robust. Let's re-verify the sums.\n\nSum for $f(1)$:\n$1+5=6$\n$6-8=-2$\n$-2+7=5$\n$5-1=4$\n$4-12=-8$\n$-8+4=-4$\n$-4-8=-12$\n$-12+12=0$\n$0-5=-5$\n$-5-5=-10$. Correct.\n\nSum for $f(-1)$:\n$1-5=-4$\n$-4-8=-12$\n$-12-7=-19$\n$-19-1=-20$\n$-20+12=-8$\n$-8+4=-4$\n$-4+8=4$\n$4+12=16$\n$16+5=21$\n$21-5=16$? Wait.\nLet's re-calculate $f(-1)$ carefully.\nTerms:\n$x^{10} \\to 1$\n$5x^9 \\to -5$\n$-8x^8 \\to -8$\n$7x^7 \\to -7$\n$-x^6 \\to -1$\n$-12x^5 \\to +12$ (since $(-1)^5=-1$, $-12(-1)=12$)\n$4x^4 \\to +4$\n$-8x^3 \\to +8$ (since $(-1)^3=-1$, $-8(-1)=8$)\n$12x^2 \\to +12$\n$-5x \\to +5$ (since $(-1)^1=-1$, $-5(-1)=5$)\n$-5 \\to -5$\n\nSum: $1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 = -21$\nTotal: $42 - 21 = 21$.\nMy previous manual check had a momentary lapse in the running total but the grouped sum was correct.\n$a+b = -10$\n$-a+b = 21$\n$2b = 11 \\implies b = 5.5$\n$a = -15.5$\n\nThe remainder is $-15.5x + 5.5$.",
+        "matched_success_motifs": [
+          "instantiate|compute",
+          "apply-formula|analyze"
+        ],
+        "matched_failure_motifs": [
+          "compute|backtrack",
+          "conclude|compute",
+          "backtrack",
+          "apply-formula|analyze|conclude",
+          "backtrack|compute",
+          "analyze|conclude|compute"
+        ]
+      },
+      {
+        "trace_id": "50:6:8",
+        "question_id": "50",
+        "sample_id": "6",
+        "attempt_index": "8",
+        "predicted_answer": "-15.5x + 5.5",
+        "is_correct": false,
+        "tokenized_trace": "apply-formula|compute|analyze|apply-formula|compute|case-split|compute|conclude|compute|analyze|substitute|compute|instantiate|analyze|backtrack|compute",
+        "tokens": [
+          "apply-formula",
+          "compute",
+          "analyze",
+          "apply-formula",
+          "compute",
+          "case-split",
+          "compute",
+          "conclude",
+          "compute",
+          "analyze",
+          "substitute",
+          "compute",
+          "instantiate",
+          "analyze",
+          "backtrack",
+          "compute"
+        ],
+        "token_count": 16,
+        "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the Form of the Remainder\nWhen a polynomial $f(x)$ is divided by a quadratic divisor $x^2 - a$, the remainder is a linear polynomial of the form $R(x) = Ax + B$.\nHere, the divisor is $x^2 - 1$. Thus, we can write:\n$$f(x) = (x^2 - 1)Q(x) + (Ax + B)$$\nwhere $Q(x)$ is the quotient and $Ax + B$ is the remainder.\n\n### Step 2: Use the Roots of the Divisor\nThe roots of the divisor $x^2 - 1 = 0$ are $x = 1$ and $x = -1$.\nSubstituting these values into the equation from Step 1 allows us to solve for $A$ and $B$.\n\n**Case 1: Let $x = 1$**\n$$f(1) = (1^2 - 1)Q(1) + (A(1) + B)$$\n$$f(1) = 0 \\cdot Q(1) + A + B$$\n$$f(1) = A + B$$\n\nNow, calculate $f(1)$ by substituting $x=1$ into the original polynomial:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, our first equation is:\n$$A + B = -10 \\quad \\text{--- (1)}$$\n\n**Case 2: Let $x = -1$**\n$$f(-1) = ((-1)^2 - 1)Q(-1) + (A(-1) + B)$$\n$$f(-1) = 0 \\cdot Q(-1) - A + B$$\n$$f(-1) = -A + B$$\n\nNow, calculate $f(-1)$ by substituting $x=-1$ into the original polynomial. Note that even powers become positive and odd powers become negative:\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 = -21$\n$$f(-1) = 42 - 21 = 21$$\nSo, our second equation is:\n$$-A + B = 21 \\quad \\text{--- (2)}$$\n\n### Step 3: Solve the System of Equations\nWe have the system:\n1) $A + B = -10$\n2) $-A + B = 21$\n\nAdd equation (1) and equation (2):\n$$(A + B) + (-A + B) = -10 + 21$$\n$$2B = 11$$\n$$B = 5.5$$\n\nSubstitute $B = 5.5$ into equation (1):\n$$A + 5.5 = -10$$\n$$A = -15.5$$\n\nSo the remainder is $R(x) = -15.5x + 5.5$.\n\n### Alternative Method: Grouping Terms (Verification)\nLet's try to group terms in $f(x)$ to see if they form multiples of $(x^2-1)$.\n$f(x) = x^{10} - x^8 + 5x^9 - 5x^7 - 8x^8 + 8x^6 + 7x^7 - 7x^5 - 12x^5 + 12x^3 + 4x^4 - 4x^2 - 8x^3 + 8x + 12x^2 - 12x - 5x - 5$?\nThis seems messy. Let's try grouping by powers of $x^2$.\n$f(x) = x^8(x^2-1) + 5x^7(x^2-1) - 8x^6(x^2-1) + \\dots$\nActually, let's just look at the coefficients again.\n$f(x) = x^8(x^2-1) + 5x^7(x^2-1) - 8x^6(x^2-1) + 7x^5(x^2-1) - x^4(x^2-1) - 12x^3(x^2-1) + 4x^2(x^2-1) - 8x(x^2-1) + 12(x^2-1) + (-5x - 5 - 12 + 8 - 4 + 7 - 5 + 1)$? No, this is getting complicated.\n\nLet's re-verify the calculation of $f(1)$ and $f(-1)$.\n$f(1) = 1+5-8+7-1-12+4-8+12-5-5 = 29 - 39 = -10$. Correct.\n$f(-1) = 1-5-8-7-1+12+4+8+12+5-5 = 42 - 21 = 21$. Correct.\n\nSystem:\n$A+B = -10$\n$-A+B = 21$\nSum: $2B = 11 \\Rightarrow B = 11/2$.\nDiff: $2A = -31 \\Rightarrow A = -31/2 = -15.5$.\n\nThe remainder is $-\\frac{31}{2}x + \\frac{11}{2}$.\n\nLet's double check the arithmetic one more time.\nPositives in $f(1)$: $1, 5, 7, 4, 12$. Sum = $29$.\nNegatives in $f(1)$: $8, 1, 12, 8, 5, 5$. Sum = $39$.\n$29-39 = -10$. Correct.\n\nPositives in $f(-1)$: $1, 12, 4, 8, 12, 5$. Sum = $42$.\nNegatives in $f(-1)$: $5, 8, 7, 1$. Sum = $21$.\n$42-21 = 21$. Correct.\n\nEquations:\n$A+B = -10$\n$-A+B = 21$\n$2B = 11 \\implies B = 5.5$\n$A = -10 - 5.5 = -15.5$.\n\nThe remainder is $-15.5x + 5.5$.",
+        "matched_success_motifs": [
+          "instantiate|analyze"
+        ],
+        "matched_failure_motifs": [
+          "conclude|compute",
+          "backtrack",
+          "backtrack|compute"
+        ]
+      }
+    ]
+  },
+  "all_traces": [
+    {
+      "trace_id": "50:0:0",
+      "question_id": "50",
+      "sample_id": "0",
+      "attempt_index": "0",
+      "predicted_answer": "-13x+3",
+      "is_correct": true,
+      "tokenized_trace": "apply-formula|analyze|compute|substitute|compute|instantiate|compute|substitute|compute|conclude|compute|analyze|substitute|compute|analyze|check-constraint|instantiate|compute",
+      "tokens": [
+        "apply-formula",
+        "analyze",
+        "compute",
+        "substitute",
+        "compute",
+        "instantiate",
+        "compute",
+        "substitute",
+        "compute",
+        "conclude",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute",
+        "analyze",
+        "check-constraint",
+        "instantiate",
+        "compute"
+      ],
+      "token_count": 18,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the Form of the Remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = ax + b$ for some constants $a$ and $b$.\n\n### Step 2: Utilize the Roots of the Divisor\nThe divisor is $x^2 - 1$, which factors as $(x-1)(x+1)$. The roots of this divisor are $x = 1$ and $x = -1$.\nSince $f(x) = (x^2-1)Q(x) + R(x)$, substituting the roots of $x^2-1$ will eliminate the term involving $Q(x)$:\n1.  Substitute $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 \\cdot Q(1) + R(1) \\implies f(1) = R(1)$$\n    Since $R(x) = ax + b$, we have:\n    $$a(1) + b = f(1) \\implies a + b = f(1)$$\n\n2.  Substitute $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 \\cdot Q(-1) + R(-1) \\implies f(-1) = R(-1)$$\n    Since $R(x) = ax + b$, we have:\n    $$a(-1) + b = f(-1) \\implies -a + b = f(-1)$$\n\n### Step 3: Calculate $f(1)$ and $f(-1)$\nLet's evaluate $f(x)$ at $x=1$:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1(1)^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, our first equation is:\n$$a + b = -10$$\n\nNow, let's evaluate $f(x)$ at $x=-1$:\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\nCalculate powers of $-1$:\n$(-1)^{10} = 1$\n$(-1)^9 = -1$\n$(-1)^8 = 1$\n$(-1)^7 = -1$\n$(-1)^6 = 1$\n$(-1)^5 = -1$\n$(-1)^4 = 1$\n$(-1)^3 = -1$\n$(-1)^2 = 1$\n\nSubstitute these values back:\n$$f(-1) = 1 + 5(-1) - 8(1) + 7(-1) - (1) - 12(-1) + 4(1) - 8(-1) + 12(1) - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 - 5 = -26$\n$$f(-1) = 42 - 26 = 16$$\nSo, our second equation is:\n$$-a + b = 16$$\n\n### Step 4: Solve the System of Equations\nWe have the system:\n1.  $a + b = -10$\n2.  $-a + b = 16$\n\nAdd the two equations together:\n$$(a + b) + (-a + b) = -10 + 16$$\n$$2b = 6$$\n$$b = 3$$\n\nSubstitute $b = 3$ into the first equation:\n$$a + 3 = -10$$\n$$a = -13$$\n\n### Step 5: Construct the Remainder\nThe remainder is $R(x) = ax + b$.\nSubstituting the values we found:\n$$R(x) = -13x + 3$$\n\n### Verification (Optional but recommended)\nLet's check the parity. $f(x)$ has terms with even powers and odd powers.\n$f(x) = (x^{10}-8x^8-x^6+4x^4+12x^2-5) + (5x^9+7x^7-12x^5-8x^3-5x) - 5$.\nActually, let's just re-sum carefully.\n$f(1) = 1+5-8+7-1-12+4-8+12-5-5 = 6-8+7-1-12+4-8+12-10 = -2+7-1-12+4-8+12-10 = 5-1-12+4-8+12-10 = 4-12+4-8+12-10 = -8+4-8+12-10 = -4-8+12-10 = -12+12-10 = -10$. Correct.\n$f(-1) = 1-5-8-7-1+12+4+8+12+5-5 = (1-5-8-7-1) + (12+4+8+12+5-5) = (-20) + (36) = 16$. Correct.\nSystem: $a+b=-10, -a+b=16 \\Rightarrow 2b=6 \\Rightarrow b=3, a=-13$. Correct.\n\nThe remainder is $-13x + 3$.",
+      "matched_success_motifs": [
+        "analyze|compute",
+        "instantiate|compute",
+        "apply-formula|analyze",
+        "substitute|compute|analyze"
+      ],
+      "matched_failure_motifs": [
+        "conclude|compute"
+      ]
+    },
+    {
+      "trace_id": "50:1:1",
+      "question_id": "50",
+      "sample_id": "1",
+      "attempt_index": "1",
+      "predicted_answer": "-\\frac{31}{2}x + \\frac{11}{2}",
+      "is_correct": false,
+      "tokenized_trace": "apply-formula|analyze|conclude|compute|apply-formula|analyze|compute|instantiate|compute|analyze|substitute|compute|backtrack|analyze|check-constraint|compute|check-constraint|analyze|compute",
+      "tokens": [
+        "apply-formula",
+        "analyze",
+        "conclude",
+        "compute",
+        "apply-formula",
+        "analyze",
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute",
+        "backtrack",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 19,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the form of the remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = ax + b$ for some constants $a$ and $b$.\n\n### Step 2: Use the roots of the divisor\nThe roots of the divisor $x^2-1 = 0$ are $x = 1$ and $x = -1$.\nSubstituting these values into the division equation eliminates the term involving $Q(x)$:\n1.  For $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 + R(1) = a(1) + b = a + b$$\n2.  For $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 + R(-1) = a(-1) + b = -a + b$$\n\n### Step 3: Evaluate $f(1)$ and $f(-1)$\nLet's calculate $f(1)$ by substituting $x=1$ into the given polynomial:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1(1)^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping the terms:\nPositive terms: $1 + 5 + 7 + 4 + 12 = 29$\nNegative terms: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, $a + b = -10$.\n\nNow, let's calculate $f(-1)$ by substituting $x=-1$. Note that $(-1)^n = -1$ if $n$ is odd, and $1$ if $n$ is even.\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping the terms:\nPositive terms: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegative terms: $-5 - 8 - 7 - 1 = -21$\n$$f(-1) = 42 - 21 = 21$$\nSo, $-a + b = 21$.\n\n### Step 4: Solve the system of linear equations\nWe have the system:\n1.  $a + b = -10$\n2.  $-a + b = 21$\n\nAdd the two equations:\n$$(a + b) + (-a + b) = -10 + 21$$\n$$2b = 11$$\n$$b = 5.5$$\n\nSubstitute $b = 5.5$ into the first equation:\n$$a + 5.5 = -10$$\n$$a = -15.5$$\n\nSo the remainder is $R(x) = -15.5x + 5.5$.\n\n### Alternative Method: Grouping Terms (Verification)\nLet's try to group terms in $f(x)$ to see if they form multiples of $x^2-1$.\n$f(x) = x^{10} - x^6 + 5x^9 - 5x^5 - 8x^8 + 8x^4 + 7x^7 - 7x^3 - 12x^5 + 12x^2 - 5x - 5$\nWait, let's re-group carefully based on powers of $(x^2-1)$.\n$x^{10} = (x^2)^5 = (x^2-1+1)^5$. This seems complicated.\nLet's just check the coefficients sum again to be sure.\n$f(1) = 1+5-8+7-1-12+4-8+12-5-5 = -10$. Correct.\n$f(-1) = 1-5-8-7-1+12+4+8+12+5-5 = 21$. Correct.\nSystem:\n$a+b=-10$\n$-a+b=21$\n$2b=11 \\Rightarrow b=11/2$.\n$a = -10 - 11/2 = -31/2$.\n$R(x) = -\\frac{31}{2}x + \\frac{11}{2}$.\n\nLet's double check the calculation of $f(-1)$.\nTerms:\n$x^{10} \\to 1$\n$5x^9 \\to -5$\n$-8x^8 \\to -8$\n$7x^7 \\to -7$\n$-x^6 \\to -1$\n$-12x^5 \\to +12$\n$4x^4 \\to +4$\n$-8x^3 \\to +8$\n$12x^2 \\to +12$\n$-5x \\to +5$\n$-5 \\to -5$\n\nSum positives: $1 + 12 + 4 + 8 + 12 + 5 = 42$.\nSum negatives: $-5 - 8 - 7 - 1 = -21$.\nTotal: $21$. Correct.\n\nCalculation of $f(1)$:\n$1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$\nPositives: $1+5+7+4+12 = 29$.\nNegatives: $-8-1-12-8-5-5 = -39$.\nTotal: $-10$. Correct.\n\nEquations:\n$a+b = -10$\n$-a+b = 21$\nSum: $2b = 11 \\implies b = 5.5$.\nDiff: $2a = -31 \\implies a = -15.5$.\n\nThe remainder is $-15.5x + 5.5$ or $-\\frac{31}{2}x + \\frac{11}{2}$.",
+      "matched_success_motifs": [
+        "analyze|compute",
+        "instantiate|compute",
+        "apply-formula|analyze"
+      ],
+      "matched_failure_motifs": [
+        "compute|backtrack",
+        "conclude|compute",
+        "backtrack",
+        "analyze|check-constraint|compute",
+        "apply-formula|analyze|conclude",
+        "analyze|conclude|compute",
+        "check-constraint|compute"
+      ]
+    },
+    {
+      "trace_id": "50:2:3",
+      "question_id": "50",
+      "sample_id": "2",
+      "attempt_index": "3",
+      "predicted_answer": "-13x+3",
+      "is_correct": true,
+      "tokenized_trace": "apply-formula|analyze|compute|case-split|instantiate|compute|case-split|instantiate|analyze|backtrack|compute|conclude|compute|analyze|substitute|compute",
+      "tokens": [
+        "apply-formula",
+        "analyze",
+        "compute",
+        "case-split",
+        "instantiate",
+        "compute",
+        "case-split",
+        "instantiate",
+        "analyze",
+        "backtrack",
+        "compute",
+        "conclude",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute"
+      ],
+      "token_count": 16,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Analyze the Divisor and Remainder Form\nThe divisor is $x^2 - 1$. Since this is a quadratic polynomial, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write the remainder in the form:\n$$R(x) = ax + b$$\nwhere $a$ and $b$ are constants to be determined.\n\nAccording to the Polynomial Division Algorithm:\n$$f(x) = (x^2 - 1)Q(x) + (ax + b)$$\nwhere $Q(x)$ is the quotient.\n\n### Step 2: Utilize Roots of the Divisor\nThe roots of the divisor $x^2 - 1 = 0$ are $x = 1$ and $x = -1$.\nSubstituting these values into the equation above eliminates the term containing $Q(x)$ because $(1^2 - 1) = 0$ and $((-1)^2 - 1) = 0$.\n\n**Case 1: Substitute $x = 1$**\n$$f(1) = (1^2 - 1)Q(1) + (a(1) + b)$$\n$$f(1) = 0 + a + b$$\n$$f(1) = a + b$$\n\nLet's calculate $f(1)$ by summing the coefficients of $f(x)$:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1(1)^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, we have our first equation:\n$$a + b = -10 \\quad \\text{--- (1)}$$\n\n**Case 2: Substitute $x = -1$**\n$$f(-1) = ((-1)^2 - 1)Q(-1) + (a(-1) + b)$$\n$$f(-1) = 0 - a + b$$\n$$f(-1) = -a + b$$\n\nLet's calculate $f(-1)$. Notice that terms with even powers of $x$ will be positive (since $(-1)^{\\text{even}} = 1$), and terms with odd powers will be negative (since $(-1)^{\\text{odd}} = -1$).\n$$f(-1) = 1^{10} - 5(1)^9 - 8(1)^8 - 7(1)^7 - 1(1)^6 + 12(1)^5 + 4(1)^4 + 8(1)^3 + 12(1)^2 + 5(1) - 5$$\nWait, let's re-evaluate carefully term by term:\n$x^{10} \\to 1$\n$5x^9 \\to 5(-1) = -5$\n$-8x^8 \\to -8(1) = -8$\n$7x^7 \\to 7(-1) = -7$\n$-x^6 \\to -1$\n$-12x^5 \\to -12(-1) = +12$\n$4x^4 \\to 4$\n$-8x^3 \\to -8(-1) = +8$\n$12x^2 \\to 12$\n$-5x \\to -5(-1) = +5$\n$-5 \\to -5$\n\nSumming these up:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 - 5 = -26$\n$$f(-1) = 42 - 26 = 16$$\nSo, we have our second equation:\n$$-a + b = 16 \\quad \\text{--- (2)}$$\n\n### Step 3: Solve the System of Equations\nWe have the system:\n1) $a + b = -10$\n2) $-a + b = 16$\n\nAdd equation (1) and equation (2):\n$$(a + b) + (-a + b) = -10 + 16$$\n$$2b = 6$$\n$$b = 3$$\n\nSubstitute $b = 3$ into equation (1):\n$$a + 3 = -10$$\n$$a = -13$$\n\n### Step 4: Formulate the Final Answer\nThe remainder is $R(x) = ax + b$.\nSubstituting the values of $a$ and $b$:\n$$R(x) = -13x + 3$$",
+      "matched_success_motifs": [
+        "analyze|compute",
+        "instantiate|compute",
+        "apply-formula|analyze",
+        "instantiate|analyze"
+      ],
+      "matched_failure_motifs": [
+        "conclude|compute",
+        "backtrack",
+        "backtrack|compute"
+      ]
+    },
+    {
+      "trace_id": "50:3:4",
+      "question_id": "50",
+      "sample_id": "3",
+      "attempt_index": "4",
+      "predicted_answer": "-13x+3",
+      "is_correct": true,
+      "tokenized_trace": "apply-formula|analyze|case-split|conclude|analyze|compute|substitute|compute|analyze|substitute|compute",
+      "tokens": [
+        "apply-formula",
+        "analyze",
+        "case-split",
+        "conclude",
+        "analyze",
+        "compute",
+        "substitute",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute"
+      ],
+      "token_count": 11,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the Form of the Remainder\nWhen a polynomial $f(x)$ is divided by a quadratic divisor $x^2 - a$, the remainder $R(x)$ must be a polynomial of degree less than 2. In this case, the divisor is $x^2 - 1$.\nThus, we can write:\n$$f(x) = (x^2 - 1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x)$ is a linear polynomial of the form $Ax + B$.\n\n### Step 2: Utilize the Roots of the Divisor\nThe roots of the divisor $x^2 - 1 = 0$ are $x = 1$ and $x = -1$.\nSubstituting these values into the equation from Step 1 allows us to eliminate the term containing $Q(x)$ because $(1^2 - 1) = 0$ and $((-1)^2 - 1) = 0$.\n\nFor $x = 1$:\n$$f(1) = (1^2 - 1)Q(1) + R(1) \\implies f(1) = R(1)$$\nSince $R(x) = Ax + B$, we have:\n$$R(1) = A(1) + B = A + B$$\nSo, $f(1) = A + B$.\n\nFor $x = -1$:\n$$f(-1) = ((-1)^2 - 1)Q(-1) + R(-1) \\implies f(-1) = R(-1)$$\nSince $R(x) = Ax + B$, we have:\n$$R(-1) = A(-1) + B = -A + B$$\nSo, $f(-1) = -A + B$.\n\n### Step 3: Calculate $f(1)$ and $f(-1)$\nNow we evaluate the given polynomial $f(x)$ at $x = 1$ and $x = -1$.\n\n**Calculate $f(1)$:**\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, $A + B = -10$.\n\n**Calculate $f(-1)$:**\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\nEvaluate powers of $-1$:\n$(-1)^{10} = 1$\n$(-1)^9 = -1$\n$(-1)^8 = 1$\n$(-1)^7 = -1$\n$(-1)^6 = 1$\n$(-1)^5 = -1$\n$(-1)^4 = 1$\n$(-1)^3 = -1$\n$(-1)^2 = 1$\n\nSubstitute these back:\n$$f(-1) = 1 + 5(-1) - 8(1) + 7(-1) - 1 - 12(-1) + 4(1) - 8(-1) + 12(1) - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 - 5 = -26$\n$$f(-1) = 42 - 26 = 16$$\nSo, $-A + B = 16$.\n\n### Step 4: Solve the System of Equations\nWe have the system:\n1) $A + B = -10$\n2) $-A + B = 16$\n\nAdd the two equations:\n$$(A + B) + (-A + B) = -10 + 16$$\n$$2B = 6 \\implies B = 3$$\n\nSubstitute $B = 3$ into equation (1):\n$$A + 3 = -10 \\implies A = -13$$\n\nSo the remainder polynomial is $R(x) = -13x + 3$.\n\n### Step 5: Verification (Optional but recommended)\nLet's check the coefficients of $f(x)$ again to ensure no arithmetic errors.\n$f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$\n\nSum of coefficients ($f(1)$):\n$1+5-8+7-1-12+4-8+12-5-5 = -10$. Correct.\n\nAlternating sum ($f(-1)$):\n$1-5-8-7-1+12+4+8+12+5-5 = 16$. Correct.\n\nSystem solution:\n$A+B=-10$\n$-A+B=16$\n$2B=6 \\to B=3$\n$A=-13$\n$R(x) = -13x+3$.\n\nThe remainder is $-13x + 3$.",
+      "matched_success_motifs": [
+        "analyze|compute",
+        "apply-formula|analyze",
+        "substitute|compute|analyze"
+      ],
+      "matched_failure_motifs": []
+    },
+    {
+      "trace_id": "50:4:6",
+      "question_id": "50",
+      "sample_id": "4",
+      "attempt_index": "6",
+      "predicted_answer": "-15.5x + 5.5",
+      "is_correct": false,
+      "tokenized_trace": "apply-formula|analyze|compute|substitute|compute|conclude|compute|analyze|substitute|compute|analyze|check-constraint|compute",
+      "tokens": [
+        "apply-formula",
+        "analyze",
+        "compute",
+        "substitute",
+        "compute",
+        "conclude",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute",
+        "analyze",
+        "check-constraint",
+        "compute"
+      ],
+      "token_count": 13,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the Form of the Remainder\nWhen a polynomial $f(x)$ is divided by a quadratic divisor $x^2 - a$, the remainder is always a linear polynomial of the form $Ax + B$.\nHere, the divisor is $x^2 - 1$. Thus, we can write:\n$$f(x) = (x^2 - 1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = Ax + B$ is the remainder.\n\n### Step 2: Utilize the Roots of the Divisor\nThe roots of the divisor $x^2 - 1 = 0$ are $x = 1$ and $x = -1$.\nSubstituting these values into the equation from Step 1 eliminates the term containing $Q(x)$ because $(1^2 - 1) = 0$ and $((-1)^2 - 1) = 0$.\n\nThis gives us a system of two linear equations:\n1.  For $x = 1$: $f(1) = A(1) + B = A + B$\n2.  For $x = -1$: $f(-1) = A(-1) + B = -A + B$\n\n### Step 3: Calculate $f(1)$\nSubstitute $x = 1$ into the original polynomial $f(x)$:\n$$f(1) = (1)^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - (1)^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\nSince $1^n = 1$ for any integer $n$:\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGroup the positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, our first equation is:\n$$A + B = -10 \\quad \\text{--- (1)}$$\n\n### Step 4: Calculate $f(-1)$\nSubstitute $x = -1$ into the original polynomial $f(x)$. Note that $(-1)^n = 1$ if $n$ is even, and $(-1)^n = -1$ if $n$ is odd.\nThe terms are:\n- $x^{10}$ (even): $+1$\n- $5x^9$ (odd): $5(-1) = -5$\n- $-8x^8$ (even): $-8(1) = -8$\n- $7x^7$ (odd): $7(-1) = -7$\n- $-x^6$ (even): $-1$\n- $-12x^5$ (odd): $-12(-1) = +12$\n- $4x^4$ (even): $+4$\n- $-8x^3$ (odd): $-8(-1) = +8$\n- $12x^2$ (even): $+12$\n- $-5x$ (odd): $-5(-1) = +5$\n- Constant $-5$: $-5$\n\nSumming these up:\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGroup the positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 = -21$\n$$f(-1) = 42 - 21 = 21$$\nSo, our second equation is:\n$$-A + B = 21 \\quad \\text{--- (2)}$$\n\n### Step 5: Solve the System of Equations\nWe have:\n1.  $A + B = -10$\n2.  $-A + B = 21$\n\nAdd equation (1) and equation (2):\n$$(A + B) + (-A + B) = -10 + 21$$\n$$2B = 11$$\n$$B = \\frac{11}{2} = 5.5$$\n\nSubstitute $B = 5.5$ into equation (1):\n$$A + 5.5 = -10$$\n$$A = -10 - 5.5$$\n$$A = -15.5 = -\\frac{31}{2}$$\n\n### Step 6: Construct the Final Answer\nThe remainder is $R(x) = Ax + B$.\n$$R(x) = -15.5x + 5.5$$\nOr in fraction form:\n$$R(x) = -\\frac{31}{2}x + \\frac{11}{2}$$\n\nLet's double check the calculation.\n$f(1) = 1+5-8+7-1-12+4-8+12-5-5 = 29 - 39 = -10$. Correct.\n$f(-1) = 1-5-8-7-1+12+4+8+12+5-5 = 42 - 21 = 21$. Correct.\n$A+B = -10$, $-A+B = 21$.\n$2B = 11 \\Rightarrow B = 5.5$.\n$A = -10 - 5.5 = -15.5$.\nRemainder is $-15.5x + 5.5$.",
+      "matched_success_motifs": [
+        "analyze|compute",
+        "apply-formula|analyze",
+        "substitute|compute|analyze"
+      ],
+      "matched_failure_motifs": [
+        "conclude|compute",
+        "analyze|check-constraint|compute",
+        "check-constraint|compute"
+      ]
+    },
+    {
+      "trace_id": "50:5:7",
+      "question_id": "50",
+      "sample_id": "5",
+      "attempt_index": "7",
+      "predicted_answer": "-13x+3",
+      "is_correct": true,
+      "tokenized_trace": "apply-formula|analyze|conclude|compute|instantiate|compute|analyze|substitute|compute|analyze|instantiate|substitute",
+      "tokens": [
+        "apply-formula",
+        "analyze",
+        "conclude",
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute",
+        "analyze",
+        "instantiate",
+        "substitute"
+      ],
+      "token_count": 12,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the form of the remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = ax + b$ for some constants $a$ and $b$.\n\n### Step 2: Utilize the roots of the divisor\nThe divisor is $x^2 - 1$. The roots of this equation are $x = 1$ and $x = -1$.\nSubstituting these roots into the division equation eliminates the term with $Q(x)$ because $(x^2-1) = 0$ at these points.\n\nFor $x = 1$:\n$$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 \\cdot Q(1) + R(1) \\implies R(1) = f(1)$$\n\nFor $x = -1$:\n$$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 \\cdot Q(-1) + R(-1) \\implies R(-1) = f(-1)$$\n\n### Step 3: Calculate $f(1)$ and $f(-1)$\nLet's evaluate $f(x)$ at $x=1$:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1(1)^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping the terms:\nPositive terms: $1 + 5 + 7 + 4 + 12 = 29$\nNegative terms: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, $R(1) = -10$.\n\nNow, let's evaluate $f(x)$ at $x=-1$:\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\nRecall that $(-1)^n = 1$ if $n$ is even, and $-1$ if $n$ is odd.\n$$f(-1) = 1 + 5(-1) - 8(1) + 7(-1) - 1 - 12(-1) + 4(1) - 8(-1) + 12(1) - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping the terms:\nPositive terms: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegative terms: $-5 - 8 - 7 - 1 - 5 = -26$\n$$f(-1) = 42 - 26 = 16$$\nSo, $R(-1) = 16$.\n\n### Step 4: Solve for the coefficients of $R(x)$\nWe have the system of equations based on $R(x) = ax + b$:\n1. $a(1) + b = -10 \\implies a + b = -10$\n2. $a(-1) + b = 16 \\implies -a + b = 16$\n\nAdd the two equations:\n$$(a + b) + (-a + b) = -10 + 16$$\n$$2b = 6 \\implies b = 3$$\n\nSubstitute $b=3$ into the first equation:\n$$a + 3 = -10 \\implies a = -13$$\n\nThus, the remainder is $R(x) = -13x + 3$.\n\n### Alternative Verification (Grouping Terms)\nWe can also group the polynomial $f(x)$ into terms divisible by $x^2-1$.\nNote that $x^2 \\equiv 1 \\pmod{x^2-1}$.\nLet's rewrite powers of $x$:\n$x^{10} = (x^2)^5 \\equiv 1^5 = 1$\n$x^9 = x \\cdot (x^2)^4 \\equiv x$\n$x^8 = (x^2)^4 \\equiv 1$\n$x^7 = x \\cdot (x^2)^3 \\equiv x$\n$x^6 = (x^2)^3 \\equiv 1$\n$x^5 = x \\cdot (x^2)^2 \\equiv x$\n$x^4 = (x^2)^2 \\equiv 1$\n$x^3 = x \\cdot x^2 \\equiv x$\n$x^2 \\equiv 1$\n$x \\equiv x$\nConstant $\\equiv$ Constant\n\nSubstitute these into $f(x)$:\n$f(x) \\equiv 1 + 5x - 8(1) + 7x - 1 - 12x + 4(1) - 8x + 12(1) - 5x - 5 \\pmod{x^2-1}$\nCombine constant terms: $1 - 8 - 1 + 4 + 12 - 5 = 3$\nCombine $x$ terms: $5x + 7x - 12x - 8x - 5x = (5+7-12-8-5)x = -13x$\nResult: $-13x + 3$.\n\nBoth methods yield the same result.",
+      "matched_success_motifs": [
+        "instantiate|compute",
+        "analyze|instantiate",
+        "apply-formula|analyze",
+        "substitute|compute|analyze"
+      ],
+      "matched_failure_motifs": [
+        "conclude|compute",
+        "apply-formula|analyze|conclude",
+        "analyze|conclude|compute"
+      ]
+    },
+    {
+      "trace_id": "50:6:8",
+      "question_id": "50",
+      "sample_id": "6",
+      "attempt_index": "8",
+      "predicted_answer": "-15.5x + 5.5",
+      "is_correct": false,
+      "tokenized_trace": "apply-formula|compute|analyze|apply-formula|compute|case-split|compute|conclude|compute|analyze|substitute|compute|instantiate|analyze|backtrack|compute",
+      "tokens": [
+        "apply-formula",
+        "compute",
+        "analyze",
+        "apply-formula",
+        "compute",
+        "case-split",
+        "compute",
+        "conclude",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute",
+        "instantiate",
+        "analyze",
+        "backtrack",
+        "compute"
+      ],
+      "token_count": 16,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the Form of the Remainder\nWhen a polynomial $f(x)$ is divided by a quadratic divisor $x^2 - a$, the remainder is a linear polynomial of the form $R(x) = Ax + B$.\nHere, the divisor is $x^2 - 1$. Thus, we can write:\n$$f(x) = (x^2 - 1)Q(x) + (Ax + B)$$\nwhere $Q(x)$ is the quotient and $Ax + B$ is the remainder.\n\n### Step 2: Use the Roots of the Divisor\nThe roots of the divisor $x^2 - 1 = 0$ are $x = 1$ and $x = -1$.\nSubstituting these values into the equation from Step 1 allows us to solve for $A$ and $B$.\n\n**Case 1: Let $x = 1$**\n$$f(1) = (1^2 - 1)Q(1) + (A(1) + B)$$\n$$f(1) = 0 \\cdot Q(1) + A + B$$\n$$f(1) = A + B$$\n\nNow, calculate $f(1)$ by substituting $x=1$ into the original polynomial:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, our first equation is:\n$$A + B = -10 \\quad \\text{--- (1)}$$\n\n**Case 2: Let $x = -1$**\n$$f(-1) = ((-1)^2 - 1)Q(-1) + (A(-1) + B)$$\n$$f(-1) = 0 \\cdot Q(-1) - A + B$$\n$$f(-1) = -A + B$$\n\nNow, calculate $f(-1)$ by substituting $x=-1$ into the original polynomial. Note that even powers become positive and odd powers become negative:\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 = -21$\n$$f(-1) = 42 - 21 = 21$$\nSo, our second equation is:\n$$-A + B = 21 \\quad \\text{--- (2)}$$\n\n### Step 3: Solve the System of Equations\nWe have the system:\n1) $A + B = -10$\n2) $-A + B = 21$\n\nAdd equation (1) and equation (2):\n$$(A + B) + (-A + B) = -10 + 21$$\n$$2B = 11$$\n$$B = 5.5$$\n\nSubstitute $B = 5.5$ into equation (1):\n$$A + 5.5 = -10$$\n$$A = -15.5$$\n\nSo the remainder is $R(x) = -15.5x + 5.5$.\n\n### Alternative Method: Grouping Terms (Verification)\nLet's try to group terms in $f(x)$ to see if they form multiples of $(x^2-1)$.\n$f(x) = x^{10} - x^8 + 5x^9 - 5x^7 - 8x^8 + 8x^6 + 7x^7 - 7x^5 - 12x^5 + 12x^3 + 4x^4 - 4x^2 - 8x^3 + 8x + 12x^2 - 12x - 5x - 5$?\nThis seems messy. Let's try grouping by powers of $x^2$.\n$f(x) = x^8(x^2-1) + 5x^7(x^2-1) - 8x^6(x^2-1) + \\dots$\nActually, let's just look at the coefficients again.\n$f(x) = x^8(x^2-1) + 5x^7(x^2-1) - 8x^6(x^2-1) + 7x^5(x^2-1) - x^4(x^2-1) - 12x^3(x^2-1) + 4x^2(x^2-1) - 8x(x^2-1) + 12(x^2-1) + (-5x - 5 - 12 + 8 - 4 + 7 - 5 + 1)$? No, this is getting complicated.\n\nLet's re-verify the calculation of $f(1)$ and $f(-1)$.\n$f(1) = 1+5-8+7-1-12+4-8+12-5-5 = 29 - 39 = -10$. Correct.\n$f(-1) = 1-5-8-7-1+12+4+8+12+5-5 = 42 - 21 = 21$. Correct.\n\nSystem:\n$A+B = -10$\n$-A+B = 21$\nSum: $2B = 11 \\Rightarrow B = 11/2$.\nDiff: $2A = -31 \\Rightarrow A = -31/2 = -15.5$.\n\nThe remainder is $-\\frac{31}{2}x + \\frac{11}{2}$.\n\nLet's double check the arithmetic one more time.\nPositives in $f(1)$: $1, 5, 7, 4, 12$. Sum = $29$.\nNegatives in $f(1)$: $8, 1, 12, 8, 5, 5$. Sum = $39$.\n$29-39 = -10$. Correct.\n\nPositives in $f(-1)$: $1, 12, 4, 8, 12, 5$. Sum = $42$.\nNegatives in $f(-1)$: $5, 8, 7, 1$. Sum = $21$.\n$42-21 = 21$. Correct.\n\nEquations:\n$A+B = -10$\n$-A+B = 21$\n$2B = 11 \\implies B = 5.5$\n$A = -10 - 5.5 = -15.5$.\n\nThe remainder is $-15.5x + 5.5$.",
+      "matched_success_motifs": [
+        "instantiate|analyze"
+      ],
+      "matched_failure_motifs": [
+        "conclude|compute",
+        "backtrack",
+        "backtrack|compute"
+      ]
+    },
+    {
+      "trace_id": "50:7:9",
+      "question_id": "50",
+      "sample_id": "7",
+      "attempt_index": "9",
+      "predicted_answer": "-13x+3",
+      "is_correct": true,
+      "tokenized_trace": "apply-formula|analyze|compute|instantiate|analyze|compute|instantiate|analyze|compute|analyze|substitute|compute|instantiate|analyze|check-constraint|compute|conclude|instantiate|compute",
+      "tokens": [
+        "apply-formula",
+        "analyze",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute",
+        "instantiate",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "conclude",
+        "instantiate",
+        "compute"
+      ],
+      "token_count": 19,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the form of the remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x)$ is of the form $ax + b$.\n\n### Step 2: Use the roots of the divisor\nThe roots of the divisor $x^2-1$ are $x = 1$ and $x = -1$.\nSubstituting these values into the division equation:\n1.  For $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 \\cdot Q(1) + R(1) \\implies f(1) = R(1)$$\n2.  For $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 \\cdot Q(-1) + R(-1) \\implies f(-1) = R(-1)$$\n\nSince $R(x) = ax + b$, we have the system of equations:\n1.  $a(1) + b = f(1)$\n2.  $a(-1) + b = f(-1)$\n\n### Step 3: Calculate $f(1)$ and $f(-1)$\nLet's evaluate $f(x)$ at $x=1$:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\nSumming the coefficients:\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGroup positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\n\nNow, let's evaluate $f(x)$ at $x=-1$. We can substitute $-1$ directly, or notice that $(-1)^k = -1$ if $k$ is odd and $1$ if $k$ is even.\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\nCalculate term by term:\n- $(-1)^{10} = 1$\n- $5(-1)^9 = -5$\n- $-8(-1)^8 = -8$\n- $7(-1)^7 = -7$\n- $-(-1)^6 = -1$\n- $-12(-1)^5 = -12(-1) = 12$\n- $4(-1)^4 = 4$\n- $-8(-1)^3 = -8(-1) = 8$\n- $12(-1)^2 = 12$\n- $-5(-1) = 5$\n- $-5 = -5$\n\nSumming these values:\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGroup positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 - 5 = -26$\n$$f(-1) = 42 - 26 = 16$$\n\n### Step 4: Solve for $a$ and $b$\nWe have the system:\n1.  $a + b = -10$\n2.  $-a + b = 16$\n\nAdd the two equations:\n$$(a + b) + (-a + b) = -10 + 16$$\n$$2b = 6 \\implies b = 3$$\n\nSubstitute $b=3$ into the first equation:\n$$a + 3 = -10 \\implies a = -13$$\n\nSo, the remainder is $R(x) = -13x + 3$.\n\n### Alternative Method: Grouping Terms\nWe can also rewrite $f(x)$ by grouping terms with even and odd powers to utilize $x^2-1$.\n$f(x) = (x^{10}-x^8) + (5x^9-x^7) + (-8x^8+7x^7) + \\dots$\nActually, a cleaner grouping based on $x^2-1$ factors:\n$x^{10} = x^8(x^2) = x^8(x^2-1+1) = x^8(x^2-1) + x^8$\n$x^9 = x^7(x^2) = x^7(x^2-1+1) = x^7(x^2-1) + x^7$\nGenerally, $x^n = x^{n-2}(x^2-1) + x^{n-2}$.\nSo $f(x) = (x^2-1)Q(x) + g(x)$, where $g(x)$ is the sum of terms formed by reducing the highest power by 2 repeatedly until the degree is less than 2.\nEffectively, $g(x) = f(1)$ evaluated with signs? No, let's just look at the reduced polynomial $g(x)$ where $x^2 \\to 1$.\nIf we replace $x^2$ with $1$ in $f(x)$, we get the remainder for $x^2-1$?\nLet's check: $f(x) = \\sum c_k x^k$.\n$x^k = x^{k \\pmod 2} (x^2)^{\\lfloor k/2 \\rfloor}$.\nIf $k$ is even, $x^k = (x^2)^{k/2} = 1^{k/2} = 1 \\pmod{x^2-1}$.\nIf $k$ is odd, $x^k = x (x^2)^{(k-1)/2} = x \\cdot 1 = x \\pmod{x^2-1}$.\nSo, $f(x) \\equiv \\sum_{k \\text{ even}} c_k + x \\sum_{k \\text{ odd}} c_k \\pmod{x^2-1}$.\nLet's calculate this sum:\nEven powers coefficients: $c_{10}=1, c_8=-8, c_6=-1, c_4=4, c_2=12, c_0=-5$.\nSum_even = $1 - 8 - 1 + 4 + 12 - 5 = 3$.\nOdd powers coefficients: $c_9=5, c_7=7, c_5=-12, c_3=-8, c_1=-5$.\nSum_odd = $5 + 7 - 12 - 8 - 5 = -13$.\nThus, $f(x) \\equiv 3 + x(-13) = -13x + 3$.\n\nThis confirms the previous result.",
+      "matched_success_motifs": [
+        "analyze|compute",
+        "instantiate|compute",
+        "instantiate|analyze|compute",
+        "analyze|compute|analyze",
+        "apply-formula|analyze",
+        "instantiate|analyze"
+      ],
+      "matched_failure_motifs": [
+        "analyze|check-constraint|compute",
+        "check-constraint|compute"
+      ]
+    },
+    {
+      "trace_id": "50:8:10",
+      "question_id": "50",
+      "sample_id": "8",
+      "attempt_index": "10",
+      "predicted_answer": "-15.5x + 5.5",
+      "is_correct": false,
+      "tokenized_trace": "apply-formula|analyze|conclude|compute|instantiate|compute|analyze|substitute|compute|check-constraint|backtrack|compute|backtrack|instantiate|compute|check-constraint",
+      "tokens": [
+        "apply-formula",
+        "analyze",
+        "conclude",
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute",
+        "check-constraint",
+        "backtrack",
+        "compute",
+        "backtrack",
+        "instantiate",
+        "compute",
+        "check-constraint"
+      ],
+      "token_count": 16,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the specific structure of the divisor.\n\n### Step 1: Understand the form of the remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = ax + b$ for some constants $a$ and $b$.\n\n### Step 2: Use the roots of the divisor\nThe roots of the divisor $x^2-1$ are $x = 1$ and $x = -1$.\nSubstituting these roots into the equation $f(x) = (x^2-1)Q(x) + R(x)$:\n1.  For $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 \\cdot Q(1) + R(1) \\implies R(1) = f(1)$$\n    Since $R(x) = ax+b$, we have:\n    $$a(1) + b = f(1) \\implies a + b = f(1)$$\n\n2.  For $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 \\cdot Q(-1) + R(-1) \\implies R(-1) = f(-1)$$\n    Since $R(x) = ax+b$, we have:\n    $$a(-1) + b = f(-1) \\implies -a + b = f(-1)$$\n\n### Step 3: Calculate $f(1)$ and $f(-1)$\nLet's evaluate $f(x)$ at $x=1$:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, $a + b = -10$.\n\nNow, let's evaluate $f(x)$ at $x=-1$. Note that $(-1)^n = -1$ if $n$ is odd, and $(-1)^n = 1$ if $n$ is even.\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping positive and negative terms:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 = -21$\n$$f(-1) = 42 - 21 = 21$$\nSo, $-a + b = 21$.\n\n### Step 4: Solve the system of linear equations\nWe have the system:\n1.  $a + b = -10$\n2.  $-a + b = 21$\n\nAdd the two equations:\n$$(a + b) + (-a + b) = -10 + 21$$\n$$2b = 11$$\n$$b = 5.5$$\n\nSubstitute $b = 5.5$ into the first equation:\n$$a + 5.5 = -10$$\n$$a = -15.5$$\n\nSo the remainder is $R(x) = -15.5x + 5.5$, or $-\\frac{31}{2}x + \\frac{11}{2}$.\n\n### Alternative Check: Grouping Terms\nWe can also rewrite $f(x)$ by grouping terms to isolate multiples of $x^2-1$.\n$f(x) = x^{10} - 1 + 5x^9 - 5x + \\dots$\nActually, a faster way without full calculation is noticing the pattern of coefficients or simply trusting the substitution method which is robust. Let's re-verify the sums.\n\nSum for $f(1)$:\n$1+5=6$\n$6-8=-2$\n$-2+7=5$\n$5-1=4$\n$4-12=-8$\n$-8+4=-4$\n$-4-8=-12$\n$-12+12=0$\n$0-5=-5$\n$-5-5=-10$. Correct.\n\nSum for $f(-1)$:\n$1-5=-4$\n$-4-8=-12$\n$-12-7=-19$\n$-19-1=-20$\n$-20+12=-8$\n$-8+4=-4$\n$-4+8=4$\n$4+12=16$\n$16+5=21$\n$21-5=16$? Wait.\nLet's re-calculate $f(-1)$ carefully.\nTerms:\n$x^{10} \\to 1$\n$5x^9 \\to -5$\n$-8x^8 \\to -8$\n$7x^7 \\to -7$\n$-x^6 \\to -1$\n$-12x^5 \\to +12$ (since $(-1)^5=-1$, $-12(-1)=12$)\n$4x^4 \\to +4$\n$-8x^3 \\to +8$ (since $(-1)^3=-1$, $-8(-1)=8$)\n$12x^2 \\to +12$\n$-5x \\to +5$ (since $(-1)^1=-1$, $-5(-1)=5$)\n$-5 \\to -5$\n\nSum: $1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 = -21$\nTotal: $42 - 21 = 21$.\nMy previous manual check had a momentary lapse in the running total but the grouped sum was correct.\n$a+b = -10$\n$-a+b = 21$\n$2b = 11 \\implies b = 5.5$\n$a = -15.5$\n\nThe remainder is $-15.5x + 5.5$.",
+      "matched_success_motifs": [
+        "instantiate|compute",
+        "apply-formula|analyze"
+      ],
+      "matched_failure_motifs": [
+        "compute|backtrack",
+        "conclude|compute",
+        "backtrack",
+        "apply-formula|analyze|conclude",
+        "backtrack|compute",
+        "analyze|conclude|compute"
+      ]
+    },
+    {
+      "trace_id": "50:9:11",
+      "question_id": "50",
+      "sample_id": "9",
+      "attempt_index": "11",
+      "predicted_answer": "-13x+3",
+      "is_correct": true,
+      "tokenized_trace": "apply-formula|analyze|compute|instantiate|analyze|compute|analyze|backtrack|analyze|compute|analyze|substitute|compute|check-constraint|analyze|instantiate|compute|analyze|conclude",
+      "tokens": [
+        "apply-formula",
+        "analyze",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "analyze",
+        "backtrack",
+        "analyze",
+        "compute",
+        "analyze",
+        "substitute",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "instantiate",
+        "compute",
+        "analyze",
+        "conclude"
+      ],
+      "token_count": 19,
+      "reasoning_trace": "To find the remainder when $f(x) = x^{10}+5x^9-8x^8+7x^7-x^6-12x^5+4x^4-8x^3+12x^2-5x-5$ is divided by $x^2-1$, we can use the properties of polynomial division and the factorization of the divisor.\n\n### Step 1: Understand the form of the remainder\nWhen a polynomial $f(x)$ is divided by a quadratic polynomial $x^2-1$, the remainder $R(x)$ must be a polynomial of degree less than 2. Therefore, we can write:\n$$f(x) = (x^2-1)Q(x) + R(x)$$\nwhere $Q(x)$ is the quotient and $R(x) = ax + b$ for some constants $a$ and $b$.\n\n### Step 2: Use the roots of the divisor\nThe divisor is $x^2 - 1$. The roots of this equation are $x = 1$ and $x = -1$.\nSubstituting these values into the division equation:\n1.  For $x = 1$:\n    $$f(1) = (1^2-1)Q(1) + R(1) \\implies f(1) = 0 \\cdot Q(1) + (a(1) + b) \\implies f(1) = a + b$$\n2.  For $x = -1$:\n    $$f(-1) = ((-1)^2-1)Q(-1) + R(-1) \\implies f(-1) = 0 \\cdot Q(-1) + (a(-1) + b) \\implies f(-1) = -a + b$$\n\n### Step 3: Evaluate $f(1)$ and $f(-1)$\nLet's calculate the value of $f(x)$ at $x=1$ by substituting into the original polynomial:\n$$f(1) = 1^{10} + 5(1)^9 - 8(1)^8 + 7(1)^7 - 1(1)^6 - 12(1)^5 + 4(1)^4 - 8(1)^3 + 12(1)^2 - 5(1) - 5$$\n$$f(1) = 1 + 5 - 8 + 7 - 1 - 12 + 4 - 8 + 12 - 5 - 5$$\nGrouping the positive and negative terms:\nPositives: $1 + 5 + 7 + 4 + 12 = 29$\nNegatives: $-8 - 1 - 12 - 8 - 5 - 5 = -39$\n$$f(1) = 29 - 39 = -10$$\nSo, $a + b = -10$.\n\nNow, let's calculate the value of $f(x)$ at $x=-1$. We can substitute $x=-1$ directly, or notice the pattern of powers.\n$$f(-1) = (-1)^{10} + 5(-1)^9 - 8(-1)^8 + 7(-1)^7 - (-1)^6 - 12(-1)^5 + 4(-1)^4 - 8(-1)^3 + 12(-1)^2 - 5(-1) - 5$$\nRecall that $(-1)^n = 1$ if $n$ is even, and $-1$ if $n$ is odd.\n- $(-1)^{10} = 1$\n- $5(-1)^9 = -5$\n- $-8(-1)^8 = -8$\n- $7(-1)^7 = -7$\n- $-(-1)^6 = -1$\n- $-12(-1)^5 = -12(-1) = 12$\n- $4(-1)^4 = 4$\n- $-8(-1)^3 = -8(-1) = 8$\n- $12(-1)^2 = 12$\n- $-5(-1) = 5$\n- $-5 = -5$\n\nSumming these up:\n$$f(-1) = 1 - 5 - 8 - 7 - 1 + 12 + 4 + 8 + 12 + 5 - 5$$\nGrouping positives and negatives:\nPositives: $1 + 12 + 4 + 8 + 12 + 5 = 42$\nNegatives: $-5 - 8 - 7 - 1 = -21$\nWait, let me re-calculate carefully term by term to avoid sign errors.\nTerms:\n1. $1$\n2. $-5$\n3. $-8$\n4. $-7$\n5. $-1$\n6. $+12$\n7. $+4$\n8. $+8$\n9. $+12$\n10. $+5$\n11. $-5$\n\nSum: $1 - 5 = -4$\n$-4 - 8 = -12$\n$-12 - 7 = -19$\n$-19 - 1 = -20$\n$-20 + 12 = -8$\n$-8 + 4 = -4$\n$-4 + 8 = 4$\n$4 + 12 = 16$\n$16 + 5 = 21$\n$21 - 5 = 16$\n\nSo, $f(-1) = 16$.\nThus, $-a + b = 16$.\n\n### Step 4: Solve the system of linear equations\nWe have the system:\n1. $a + b = -10$\n2. $-a + b = 16$\n\nAdd the two equations:\n$$(a + b) + (-a + b) = -10 + 16$$\n$$2b = 6$$\n$$b = 3$$\n\nSubstitute $b=3$ into the first equation:\n$$a + 3 = -10$$\n$$a = -13$$\n\n### Step 5: Construct the remainder\nThe remainder is $R(x) = ax + b$.\nSubstituting the values found:\n$$R(x) = -13x + 3$$\n\n### Verification (Optional but recommended)\nLet's check the constant term logic.\n$f(x) = (x^2-1)Q(x) + (-13x+3)$.\nConstant term of $f(x)$ is $-5$.\nConstant term of $(x^2-1)Q(x)$ is $-1 \\cdot Q(0)$.\nConstant term of $R(x)$ is $3$.\nSo $-5 = -Q(0) + 3 \\implies Q(0) = 8$.\n\nLet's check the coefficient of $x$ in $f(x)$.\nCoeff of $x$ in $f(x)$ is $-5$.\nCoeff of $x$ in $(x^2-1)Q(x)$: Let $Q(x) = c_0 + c_1 x + \\dots$. Then $(x^2-1)(c_0 + c_1 x + \\dots) = \\dots - c_0 - c_1 x \\dots$. The coeff of $x$ is $-c_1$.\nCoeff of $x$ in $R(x)$ is $-13$.\nSo $-5 = -c_1 - 13 \\implies c_1 = -8$.\n\nThis seems consistent enough given the calculation of $f(1)$ and $f(-1)$ was straightforward. The direct substitution method is robust.\n\nFinal Answer is $-13x + 3$.",
+      "matched_success_motifs": [
+        "analyze|compute",
+        "instantiate|compute",
+        "instantiate|analyze|compute",
+        "analyze|instantiate",
+        "analyze|compute|analyze",
+        "apply-formula|analyze",
+        "instantiate|analyze"
+      ],
+      "matched_failure_motifs": [
+        "backtrack"
+      ]
+    }
+  ]
+}

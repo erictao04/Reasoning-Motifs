@@ -1,0 +1,1174 @@
+{
+  "question_id": "352",
+  "question_text": "Triangle $ABC$ is isosceles, with $AB=AC$ and altitude $AM=11.$ Suppose that there is a point $D$ on $\\overline{AM}$ with $AD=10$ and $\\angle BDC=3\\angle BAC.$  Find the perimeter of triangle $ABC.$\n\n[asy]\nunitsize(0.4 cm);\n\npair A, B, C, D, M;\n\nA = (0,11);\nD = (0,1);\nB = (-11/2,0);\nC = (11/2,0);\nM = (B + C)/2;\n\ndraw(A--B--C--cycle);\ndraw(A--M);\ndraw(B--D--C);\n\nlabel(\"$A$\", A, N);\nlabel(\"$B$\", B, SW);\nlabel(\"$C$\", C, SE);\nlabel(\"$D$\", D, NW);\nlabel(\"$M$\", M, S);\n[/asy]",
+  "gold_answer": "11 \\sqrt{5} + 11",
+  "benchmark_name": "math_500",
+  "pilot_question_uid": "math500_level35_random100_10samples:q352",
+  "total_traces": 10,
+  "success_count": 2,
+  "failure_count": 8,
+  "success_rate": 0.2,
+  "avg_token_count": 15.2,
+  "median_token_count": 15.0,
+  "distinct_predicted_answers": 3,
+  "tags": [
+    "mixed_outcomes",
+    "hard_question",
+    "high_diversity"
+  ],
+  "insights": [
+    "This question shows mixed outcomes: 2 successful traces versus 8 failures.",
+    "Successful traces tend to be shorter than failed traces on this question.",
+    "The strongest local success motif is \"compute|conclude|compute\", appearing more often in correct traces.",
+    "The strongest local failure motif is \"compute|instantiate\", which clusters with incorrect attempts."
+  ],
+  "answer_distribution": [
+    {
+      "answer": "11(\\sqrt{5}+1)",
+      "count": 5,
+      "share": 0.5
+    },
+    {
+      "answer": "11 + 11\\sqrt{5}",
+      "count": 3,
+      "share": 0.3
+    },
+    {
+      "answer": "11\\sqrt{5} + 11",
+      "count": 2,
+      "share": 0.2
+    }
+  ],
+  "local_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "compute|conclude|compute",
+        "tokens": [
+          "compute",
+          "conclude",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 1.0,
+        "failure_support": 0.0,
+        "support_difference": 1.0,
+        "lift": 999999999.9999999,
+        "log_odds_ratio": 4.442651256490317,
+        "q_value": 1.0
+      },
+      {
+        "motif": "instantiate|compute|conclude",
+        "tokens": [
+          "instantiate",
+          "compute",
+          "conclude"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 1,
+        "success_support": 1.0,
+        "failure_support": 0.125,
+        "support_difference": 0.875,
+        "lift": 7.999999936000001,
+        "log_odds_ratio": 3.2188758248682006,
+        "q_value": 1.0
+      },
+      {
+        "motif": "compute|conclude",
+        "tokens": [
+          "compute",
+          "conclude"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 1,
+        "success_support": 1.0,
+        "failure_support": 0.125,
+        "support_difference": 0.875,
+        "lift": 7.999999936000001,
+        "log_odds_ratio": 3.2188758248682006,
+        "q_value": 1.0
+      },
+      {
+        "motif": "analyze|instantiate|analyze",
+        "tokens": [
+          "analyze",
+          "instantiate",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 2,
+        "success_support": 1.0,
+        "failure_support": 0.25,
+        "support_difference": 0.75,
+        "lift": 3.9999999839999996,
+        "log_odds_ratio": 2.5649493574615367,
+        "q_value": 1.0
+      },
+      {
+        "motif": "compute|analyze|instantiate",
+        "tokens": [
+          "compute",
+          "analyze",
+          "instantiate"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 4,
+        "success_support": 1.0,
+        "failure_support": 0.5,
+        "support_difference": 0.5,
+        "lift": 1.9999999960000001,
+        "log_odds_ratio": 1.6094379124341003,
+        "q_value": 1.0
+      },
+      {
+        "motif": "analyze|instantiate",
+        "tokens": [
+          "analyze",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 4,
+        "success_support": 1.0,
+        "failure_support": 0.5,
+        "support_difference": 0.5,
+        "lift": 1.9999999960000001,
+        "log_odds_ratio": 1.6094379124341003,
+        "q_value": 1.0
+      },
+      {
+        "motif": "apply-formula|instantiate",
+        "tokens": [
+          "apply-formula",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 1,
+        "failure_count": 1,
+        "success_support": 0.5,
+        "failure_support": 0.125,
+        "support_difference": 0.375,
+        "lift": 3.9999999680000005,
+        "log_odds_ratio": 1.6094379124341003,
+        "q_value": 1.0
+      },
+      {
+        "motif": "apply-formula|instantiate|compute",
+        "tokens": [
+          "apply-formula",
+          "instantiate",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 1,
+        "failure_count": 1,
+        "success_support": 0.5,
+        "failure_support": 0.125,
+        "support_difference": 0.375,
+        "lift": 3.9999999680000005,
+        "log_odds_ratio": 1.6094379124341003,
+        "q_value": 1.0
+      }
+    ],
+    "failure": [
+      {
+        "motif": "compute|instantiate",
+        "tokens": [
+          "compute",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 8,
+        "success_support": 0.5,
+        "failure_support": 1.0,
+        "support_difference": -0.5,
+        "lift": 0.49999999949999996,
+        "log_odds_ratio": -2.833213344056216,
+        "q_value": 1.0
+      },
+      {
+        "motif": "check-constraint",
+        "tokens": [
+          "check-constraint"
+        ],
+        "length": 1,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 4,
+        "success_support": 0.0,
+        "failure_support": 0.5,
+        "support_difference": -0.5,
+        "lift": 0.0,
+        "log_odds_ratio": -1.6094379124341003,
+        "q_value": 1.0
+      },
+      {
+        "motif": "apply-formula|substitute",
+        "tokens": [
+          "apply-formula",
+          "substitute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 1,
+        "failure_count": 7,
+        "success_support": 0.5,
+        "failure_support": 0.875,
+        "support_difference": -0.375,
+        "lift": 0.5714285707755102,
+        "log_odds_ratio": -1.6094379124341003,
+        "q_value": 1.0
+      },
+      {
+        "motif": "substitute|conclude",
+        "tokens": [
+          "substitute",
+          "conclude"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 3,
+        "success_support": 0.0,
+        "failure_support": 0.375,
+        "support_difference": -0.375,
+        "lift": 0.0,
+        "log_odds_ratio": -1.157452788691043,
+        "q_value": 1.0
+      },
+      {
+        "motif": "conclude|compute|instantiate",
+        "tokens": [
+          "conclude",
+          "compute",
+          "instantiate"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 3,
+        "success_support": 0.0,
+        "failure_support": 0.375,
+        "support_difference": -0.375,
+        "lift": 0.0,
+        "log_odds_ratio": -1.157452788691043,
+        "q_value": 1.0
+      },
+      {
+        "motif": "analyze|compute|instantiate",
+        "tokens": [
+          "analyze",
+          "compute",
+          "instantiate"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 3,
+        "success_support": 0.0,
+        "failure_support": 0.375,
+        "support_difference": -0.375,
+        "lift": 0.0,
+        "log_odds_ratio": -1.157452788691043,
+        "q_value": 1.0
+      },
+      {
+        "motif": "apply-formula|substitute|conclude",
+        "tokens": [
+          "apply-formula",
+          "substitute",
+          "conclude"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 3,
+        "success_support": 0.0,
+        "failure_support": 0.375,
+        "support_difference": -0.375,
+        "lift": 0.0,
+        "log_odds_ratio": -1.157452788691043,
+        "q_value": 1.0
+      },
+      {
+        "motif": "substitute|conclude|compute",
+        "tokens": [
+          "substitute",
+          "conclude",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 3,
+        "success_support": 0.0,
+        "failure_support": 0.375,
+        "support_difference": -0.375,
+        "lift": 0.0,
+        "log_odds_ratio": -1.157452788691043,
+        "q_value": 1.0
+      }
+    ]
+  },
+  "global_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "analyze|compute",
+        "tokens": [
+          "analyze",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 139,
+        "failure_count": 47,
+        "success_support": 0.7433155080213903,
+        "failure_support": 0.6266666666666667,
+        "support_difference": 0.11664884135472364,
+        "lift": 1.1861417662264604,
+        "log_odds_ratio": 0.5456751795519921,
+        "q_value": 0.5170493423981184
+      },
+      {
+        "motif": "check-constraint|instantiate",
+        "tokens": [
+          "check-constraint",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 29,
+        "failure_count": 4,
+        "success_support": 0.15508021390374332,
+        "failure_support": 0.05333333333333334,
+        "support_difference": 0.10174688057040998,
+        "lift": 2.9077539561748007,
+        "log_odds_ratio": 1.0842557229521268,
+        "q_value": 0.2590575790198284
+      },
+      {
+        "motif": "analyze|compute|analyze",
+        "tokens": [
+          "analyze",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 61,
+        "failure_count": 18,
+        "success_support": 0.32620320855614976,
+        "failure_support": 0.24,
+        "support_difference": 0.08620320855614977,
+        "lift": 1.359180029987374,
+        "log_odds_ratio": 0.41280908236392305,
+        "q_value": 0.7598319082426742
+      },
+      {
+        "motif": "analyze|check-constraint",
+        "tokens": [
+          "analyze",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 48,
+        "failure_count": 13,
+        "success_support": 0.25668449197860965,
+        "failure_support": 0.17333333333333334,
+        "support_difference": 0.08335115864527631,
+        "lift": 1.4808720605638708,
+        "log_odds_ratio": 0.47597606797998926,
+        "q_value": 0.7598319082426742
+      },
+      {
+        "motif": "analyze|instantiate",
+        "tokens": [
+          "analyze",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 107,
+        "failure_count": 37,
+        "success_support": 0.5721925133689839,
+        "failure_support": 0.49333333333333335,
+        "support_difference": 0.07885918003565057,
+        "lift": 1.1598496869104071,
+        "log_odds_ratio": 0.3155509714605732,
+        "q_value": 0.921353659271186
+      }
+    ],
+    "failure": [
+      {
+        "motif": "conclude|compute",
+        "tokens": [
+          "conclude",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 36,
+        "failure_count": 34,
+        "success_support": 0.1925133689839572,
+        "failure_support": 0.4533333333333333,
+        "support_difference": -0.2608199643493761,
+        "lift": 0.4246618424102104,
+        "log_odds_ratio": -1.2385392611616395,
+        "q_value": 0.013014976654953778
+      },
+      {
+        "motif": "apply-formula",
+        "tokens": [
+          "apply-formula"
+        ],
+        "length": 1,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 80,
+        "failure_count": 46,
+        "success_support": 0.42780748663101603,
+        "failure_support": 0.6133333333333333,
+        "support_difference": -0.18552584670231725,
+        "lift": 0.697512205326365,
+        "log_odds_ratio": -0.7442957123907363,
+        "q_value": 0.17345516068302833
+      },
+      {
+        "motif": "compute|instantiate",
+        "tokens": [
+          "compute",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 79,
+        "failure_count": 45,
+        "success_support": 0.42245989304812837,
+        "failure_support": 0.6,
+        "support_difference": -0.1775401069518716,
+        "lift": 0.7040998205733809,
+        "log_odds_ratio": -0.7109787936637668,
+        "q_value": 0.20978919397023355
+      },
+      {
+        "motif": "compute|check-constraint",
+        "tokens": [
+          "compute",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 46,
+        "failure_count": 31,
+        "success_support": 0.24598930481283424,
+        "failure_support": 0.41333333333333333,
+        "support_difference": -0.1673440285204991,
+        "lift": 0.5951354134299165,
+        "log_odds_ratio": -0.7673457611493745,
+        "q_value": 0.18673130699197357
+      },
+      {
+        "motif": "analyze|apply-formula",
+        "tokens": [
+          "analyze",
+          "apply-formula"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 15,
+        "failure_count": 18,
+        "success_support": 0.08021390374331551,
+        "failure_support": 0.24,
+        "support_difference": -0.1597860962566845,
+        "lift": 0.3342245975378788,
+        "log_odds_ratio": -1.2755429968271879,
+        "q_value": 0.048381983504224305
+      },
+      {
+        "motif": "substitute|analyze",
+        "tokens": [
+          "substitute",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 5,
+        "failure_count": 13,
+        "success_support": 0.026737967914438502,
+        "failure_support": 0.17333333333333334,
+        "support_difference": -0.14659536541889484,
+        "lift": 0.1542575063087365,
+        "log_odds_ratio": -1.9695252094861488,
+        "q_value": 0.013014976654953778
+      },
+      {
+        "motif": "compute|instantiate|analyze",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 15,
+        "failure_count": 15,
+        "success_support": 0.08021390374331551,
+        "failure_support": 0.2,
+        "support_difference": -0.1197860962566845,
+        "lift": 0.4010695167112299,
+        "log_odds_ratio": -1.0477538714346186,
+        "q_value": 0.17345516068302833
+      },
+      {
+        "motif": "substitute|analyze|compute",
+        "tokens": [
+          "substitute",
+          "analyze",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 3,
+        "failure_count": 10,
+        "success_support": 0.016042780748663103,
+        "failure_support": 0.13333333333333333,
+        "support_difference": -0.11729055258467022,
+        "lift": 0.12032085471256687,
+        "log_odds_ratio": -2.1342116095074855,
+        "q_value": 0.021574642799705678
+      }
+    ]
+  },
+  "representative_traces": {
+    "success": [
+      {
+        "trace_id": "352:3:4",
+        "question_id": "352",
+        "sample_id": "3",
+        "attempt_index": "4",
+        "predicted_answer": "11\\sqrt{5} + 11",
+        "is_correct": true,
+        "tokenized_trace": "instantiate|compute|analyze|instantiate|analyze|compute|analyze|instantiate|compute|substitute|apply-formula|instantiate|compute|conclude|compute",
+        "tokens": [
+          "instantiate",
+          "compute",
+          "analyze",
+          "instantiate",
+          "analyze",
+          "compute",
+          "analyze",
+          "instantiate",
+          "compute",
+          "substitute",
+          "apply-formula",
+          "instantiate",
+          "compute",
+          "conclude",
+          "compute"
+        ],
+        "token_count": 15,
+        "reasoning_trace": "Let's define the geometry and variables based on the problem statement.\n\n1.  **Setup and Coordinates**:\n    *   Let $M$ be the origin $(0,0)$. Since $AM$ is an altitude in an isosceles triangle $ABC$ with $AB=AC$, $M$ is the midpoint of $BC$, and $AM \\perp BC$.\n    *   We are given $AM = 11$. So, point $A$ is at $(0, 11)$.\n    *   Point $D$ lies on $AM$ such that $AD = 10$. Since $A$ is at $y=11$ and $M$ is at $y=0$, the distance from $A$ to $D$ is $11 - y_D = 10$, which implies $y_D = 1$. So, $D$ is at $(0, 1)$.\n    *   Let the length of $BM$ be $x$. Since $M$ is the midpoint of $BC$, $MC = x$ and $BC = 2x$. The coordinates of $B$ are $(-x, 0)$ and $C$ are $(x, 0)$.\n\n2.  **Analyze Angles**:\n    *   Let $\\angle BAC = \\alpha$.\n    *   Since $\\triangle ABC$ is isosceles with altitude $AM$, $AM$ bisects $\\angle BAC$. Therefore, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\n    *   Similarly, $AM$ bisects $\\angle BDC$. Let $\\angle BDC = \\beta$. Then $\\angle BDM = \\angle CDM = \\frac{\\beta}{2}$.\n    *   The problem states $\\angle BDC = 3 \\angle BAC$, so $\\beta = 3\\alpha$.\n    *   Consequently, $\\angle BDM = \\frac{3\\alpha}{2} = 3 \\left(\\frac{\\alpha}{2}\\right)$.\n\n3.  **Relate Angles to Side Lengths using Trigonometry**:\n    *   Consider the right-angled triangle $\\triangle ABM$.\n        $\\tan(\\angle BAM) = \\frac{BM}{AM} = \\frac{x}{11}$.\n        Let $\\theta = \\frac{\\alpha}{2}$. Then $\\tan \\theta = \\frac{x}{11}$.\n    *   Consider the right-angled triangle $\\triangle DBM$.\n        $\\tan(\\angle BDM) = \\frac{BM}{DM}$.\n        We know $DM = AM - AD = 11 - 10 = 1$.\n        So, $\\tan(3\\theta) = \\frac{x}{1} = x$.\n\n4.  **Solve the Equation**:\n    We have a system of two equations:\n    1.  $x = 11 \\tan \\theta$\n    2.  $x = \\tan(3\\theta)$\n\n    Substitute (1) into (2):\n    $11 \\tan \\theta = \\tan(3\\theta)$\n\n    Recall the triple angle identity for tangent:\n    $\\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$\n\n    Let $t = \\tan \\theta$. The equation becomes:\n    $11t = \\frac{3t - t^3}{1 - 3t^2}$\n\n    Since $\\theta = \\alpha/2$ and $\\alpha$ is an angle of a triangle, $0 < \\alpha < 180^\\circ$, so $0 < \\theta < 90^\\circ$. Thus $t \\neq 0$. We can divide both sides by $t$:\n    $11 = \\frac{3 - t^2}{1 - 3t^2}$\n\n    Multiply both sides by $(1 - 3t^2)$:\n    $11(1 - 3t^2) = 3 - t^2$\n    $11 - 33t^2 = 3 - t^2$\n    $8 = 32t^2$\n    $t^2 = \\frac{8}{32} = \\frac{1}{4}$\n\n    Since $\\theta$ is acute, $t > 0$, so:\n    $t = \\frac{1}{2}$\n\n5.  **Calculate Side Lengths**:\n    *   We found $t = \\tan \\theta = \\frac{1}{2}$.\n    *   From $x = 11t$, we get $x = 11 \\times \\frac{1}{2} = 5.5$.\n    *   So, $BM = 5.5$ and $BC = 2x = 11$.\n    *   Now find the length of the equal sides $AB$ (and $AC$). In right $\\triangle ABM$:\n        $AB = \\sqrt{AM^2 + BM^2} = \\sqrt{11^2 + (5.5)^2}$\n        $AB = \\sqrt{121 + 30.25} = \\sqrt{151.25}$\n        Alternatively, using fractions: $BM = \\frac{11}{2}$.\n        $AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{11^2 \\left(1 + \\frac{1}{4}\\right)} = 11 \\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2}$.\n\n6.  **Calculate Perimeter**:\n    The perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\n    Since $AB = AC$:\n    $P = 2 \\times AB + BC$\n    $P = 2 \\left( \\frac{11\\sqrt{5}}{2} \\right) + 11$\n    $P = 11\\sqrt{5} + 11$\n    $P = 11(\\sqrt{5} + 1)$\n\n    Let's double check the calculation.\n    $x = 5.5$.\n    $AB = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\n    $151.25 = \\frac{605}{4}$.\n    $\\sqrt{\\frac{605}{4}} = \\frac{\\sqrt{121 \\times 5}}{2} = \\frac{11\\sqrt{5}}{2}$.\n    $2 \\times AB = 11\\sqrt{5}$.\n    $BC = 11$.\n    Perimeter = $11\\sqrt{5} + 11$.\n\n    The steps are logical and the arithmetic is consistent.",
+        "matched_success_motifs": [
+          "compute|conclude|compute",
+          "instantiate|compute|conclude",
+          "compute|conclude",
+          "analyze|instantiate|analyze",
+          "compute|analyze|instantiate",
+          "analyze|instantiate",
+          "apply-formula|instantiate",
+          "apply-formula|instantiate|compute"
+        ],
+        "matched_failure_motifs": []
+      },
+      {
+        "trace_id": "352:9:11",
+        "question_id": "352",
+        "sample_id": "9",
+        "attempt_index": "11",
+        "predicted_answer": "11\\sqrt{5} + 11",
+        "is_correct": true,
+        "tokenized_trace": "instantiate|compute|analyze|instantiate|analyze|apply-formula|substitute|compute|instantiate|compute|conclude|compute",
+        "tokens": [
+          "instantiate",
+          "compute",
+          "analyze",
+          "instantiate",
+          "analyze",
+          "apply-formula",
+          "substitute",
+          "compute",
+          "instantiate",
+          "compute",
+          "conclude",
+          "compute"
+        ],
+        "token_count": 12,
+        "reasoning_trace": "Let's define the variables and set up the coordinate system based on the problem statement.\n\n1.  **Coordinate System Setup**:\n    Since $\\triangle ABC$ is isosceles with $AB = AC$ and $AM$ is the altitude to $BC$, $M$ is the midpoint of $BC$, and $AM \\perp BC$.\n    Let $M$ be the origin $(0,0)$.\n    Since $AM = 11$, point $A$ is at $(0, 11)$.\n    Point $D$ lies on $AM$ with $AD = 10$. Since $A$ is at $y=11$ and $D$ is between $A$ and $M$, the y-coordinate of $D$ is $11 - 10 = 1$. So, $D$ is at $(0, 1)$.\n    Let the length of $BM$ be $x$. Since $M$ is the midpoint, $C$ is at $(x, 0)$ and $B$ is at $(-x, 0)$.\n\n2.  **Analyze Angles**:\n    Let $\\angle BAC = \\alpha$.\n    Since $AM$ is the altitude and bisector of the vertex angle in an isosceles triangle, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\n    In right $\\triangle ABM$, $\\tan(\\frac{\\alpha}{2}) = \\frac{BM}{AM} = \\frac{x}{11}$.\n\n    Now consider $\\angle BDC$.\n    Similarly, $DM$ is the altitude for $\\triangle DBC$ (since $D$ lies on $AM$).\n    In right $\\triangle DBM$, $\\tan(\\angle BDM) = \\frac{BM}{DM}$.\n    The length $DM = AM - AD = 11 - 10 = 1$.\n    So, $\\tan(\\angle BDM) = \\frac{x}{1} = x$.\n    Since $\\triangle DBC$ is also isosceles with $DB=DC$, $\\angle BDC = 2 \\angle BDM$.\n    Let $\\angle BDC = \\beta$. Then $\\beta = 3\\alpha$ is given in the problem.\n    So, $\\angle BDM = \\frac{\\beta}{2} = \\frac{3\\alpha}{2}$.\n\n3.  **Relate the Tangents**:\n    We have two expressions involving $x$:\n    From $\\triangle ABM$: $\\frac{x}{11} = \\tan\\left(\\frac{\\alpha}{2}\\right) \\implies x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n    From $\\triangle DBM$: $x = \\tan\\left(\\frac{3\\alpha}{2}\\right)$.\n\n    Equating the expressions for $x$:\n    $$11 \\tan\\left(\\frac{\\alpha}{2}\\right) = \\tan\\left(\\frac{3\\alpha}{2}\\right)$$\n\n    Let $\\theta = \\frac{\\alpha}{2}$. Then the equation becomes:\n    $$11 \\tan(\\theta) = \\tan(3\\theta)$$\n\n4.  **Solve for $\\theta$**:\n    Use the triple angle identity for tangent: $\\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$.\n    Substitute this into the equation:\n    $$11 \\tan\\theta = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$$\n\n    Since $\\alpha$ is an angle of a triangle, $\\alpha > 0$, so $\\theta > 0$, which implies $\\tan\\theta \\neq 0$. We can divide both sides by $\\tan\\theta$:\n    $$11 = \\frac{3 - \\tan^2\\theta}{1 - 3\\tan^2\\theta}$$\n\n    Let $u = \\tan^2\\theta$.\n    $$11 = \\frac{3 - u}{1 - 3u}$$\n    Multiply both sides by $(1 - 3u)$:\n    $$11(1 - 3u) = 3 - u$$\n    $$11 - 33u = 3 - u$$\n    $$8 = 32u$$\n    $$u = \\frac{8}{32} = \\frac{1}{4}$$\n\n    So, $\\tan^2\\theta = \\frac{1}{4}$.\n    Since $\\theta$ is half an angle of a triangle, $\\theta$ is acute, so $\\tan\\theta > 0$.\n    $$\\tan\\theta = \\frac{1}{2}$$\n\n5.  **Calculate Side Lengths**:\n    Recall $x = 11 \\tan\\theta$.\n    $$x = 11 \\times \\frac{1}{2} = 5.5$$\n    So, $BM = 5.5$.\n    Since $M$ is the midpoint of $BC$, $BC = 2 \\times BM = 11$.\n\n    Now find the length of the equal sides $AB$ (and $AC$).\n    In right $\\triangle ABM$:\n    $$AB = \\sqrt{AM^2 + BM^2} = \\sqrt{11^2 + (5.5)^2}$$\n    $$AB = \\sqrt{121 + 30.25} = \\sqrt{151.25}$$\n    Alternatively, using fractions: $BM = \\frac{11}{2}$.\n    $$AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = 11\\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2}$$\n\n6.  **Calculate Perimeter**:\n    The perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\n    Since $AB = AC$:\n    $$P = 2AB + BC$$\n    $$P = 2\\left(\\frac{11\\sqrt{5}}{2}\\right) + 11$$\n    $$P = 11\\sqrt{5} + 11$$\n    $$P = 11(\\sqrt{5} + 1)$$\n\n    Let's double check the calculation.\n    $x = 5.5$.\n    $AB = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\n    $151.25 = \\frac{605}{4}$.\n    $\\sqrt{\\frac{605}{4}} = \\frac{\\sqrt{121 \\times 5}}{2} = \\frac{11\\sqrt{5}}{2}$.\n    $2AB = 11\\sqrt{5}$.\n    $BC = 11$.\n    Perimeter = $11\\sqrt{5} + 11$.\n\n    The value seems correct.",
+        "matched_success_motifs": [
+          "compute|conclude|compute",
+          "instantiate|compute|conclude",
+          "compute|conclude",
+          "analyze|instantiate|analyze",
+          "compute|analyze|instantiate",
+          "analyze|instantiate"
+        ],
+        "matched_failure_motifs": [
+          "compute|instantiate",
+          "apply-formula|substitute"
+        ]
+      }
+    ],
+    "failure": [
+      {
+        "trace_id": "352:7:8",
+        "question_id": "352",
+        "sample_id": "7",
+        "attempt_index": "8",
+        "predicted_answer": "11(\\sqrt{5}+1)",
+        "is_correct": false,
+        "tokenized_trace": "check-constraint|instantiate|compute|instantiate|analyze|apply-formula|substitute|conclude|compute|instantiate|analyze|compute|check-constraint|analyze|compute",
+        "tokens": [
+          "check-constraint",
+          "instantiate",
+          "compute",
+          "instantiate",
+          "analyze",
+          "apply-formula",
+          "substitute",
+          "conclude",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute",
+          "check-constraint",
+          "analyze",
+          "compute"
+        ],
+        "token_count": 15,
+        "reasoning_trace": "To find the perimeter of triangle $ABC$, we will proceed step by step, utilizing the properties of isosceles triangles, trigonometry, and the given angle condition.\n\n### Step 1: Analyze the Geometry and Define Variables\nLet the vertices of the triangle be $A$, $B$, and $C$.\nWe are given:\n- $\\triangle ABC$ is isosceles with $AB = AC$.\n- $AM$ is the altitude to the base $BC$, so $AM \\perp BC$ and $M$ is the midpoint of $BC$.\n- The length of the altitude $AM = 11$.\n- Point $D$ lies on $AM$ such that $AD = 10$.\n- Since $AM = 11$ and $AD = 10$, the length $DM = AM - AD = 11 - 10 = 1$.\n- Let $\\angle BAC = \\alpha$.\n- We are given $\\angle BDC = 3\\alpha$.\n\nSince $\\triangle ABC$ is isosceles with $AB=AC$ and $AM$ is the altitude, $AM$ is also the angle bisector of $\\angle BAC$.\nTherefore, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\nSimilarly, in $\\triangle DBC$, $DM$ is the altitude and bisector of $\\angle BDC$ (since $DB=DC$ by symmetry).\nTherefore, $\\angle BDM = \\angle CDM = \\frac{3\\alpha}{2}$.\n\n### Step 2: Relate the Angles using Trigonometry\nLet $BM = x$. Since $M$ is the midpoint of $BC$, $BC = 2x$.\nIn the right-angled triangle $\\triangle ABM$:\n$$ \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{BM}{AM} = \\frac{x}{11} $$\nSo, $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n\nIn the right-angled triangle $\\triangle DBM$:\n$$ \\tan\\left(\\frac{3\\alpha}{2}\\right) = \\frac{BM}{DM} = \\frac{x}{1} $$\nSo, $x = \\tan\\left(\\frac{3\\alpha}{2}\\right)$.\n\n### Step 3: Set up the Equation\nEquating the two expressions for $x$:\n$$ 11 \\tan\\left(\\frac{\\alpha}{2}\\right) = \\tan\\left(\\frac{3\\alpha}{2}\\right) $$\n\nLet $\\theta = \\frac{\\alpha}{2}$. Then the equation becomes:\n$$ 11 \\tan(\\theta) = \\tan(3\\theta) $$\n\nWe use the triple angle identity for tangent:\n$$ \\tan(3\\theta) = \\frac{3\\tan(\\theta) - \\tan^3(\\theta)}{1 - 3\\tan^2(\\theta)} $$\n\nSubstitute this into the equation:\n$$ 11 \\tan(\\theta) = \\frac{3\\tan(\\theta) - \\tan^3(\\theta)}{1 - 3\\tan^2(\\theta)} $$\n\nSince $\\alpha$ is an angle of a triangle, $0 < \\alpha < 180^\\circ$, so $0 < \\theta < 90^\\circ$. Thus $\\tan(\\theta) \\neq 0$. We can divide both sides by $\\tan(\\theta)$:\n$$ 11 = \\frac{3 - \\tan^2(\\theta)}{1 - 3\\tan^2(\\theta)} $$\n\nLet $u = \\tan^2(\\theta)$. Then:\n$$ 11 = \\frac{3 - u}{1 - 3u} $$\n$$ 11(1 - 3u) = 3 - u $$\n$$ 11 - 33u = 3 - u $$\n$$ 8 = 32u $$\n$$ u = \\frac{1}{4} $$\n\nSo, $\\tan^2(\\theta) = \\frac{1}{4}$. Since $\\theta$ is acute, $\\tan(\\theta) = \\frac{1}{2}$.\n\n### Step 4: Calculate the Side Lengths\nNow we can find the lengths of the sides of $\\triangle ABC$.\nRecall $x = BM = 11 \\tan(\\theta)$.\n$$ x = 11 \\cdot \\frac{1}{2} = 5.5 $$\nSo, the base $BC = 2x = 11$.\n\nNext, we find the length of the equal sides $AB$ (and $AC$).\nIn right $\\triangle ABM$:\n$$ AB = \\sqrt{AM^2 + BM^2} $$\n$$ AB = \\sqrt{11^2 + (5.5)^2} $$\n$$ AB = \\sqrt{121 + 30.25} = \\sqrt{151.25} $$\nAlternatively, using fractions: $BM = \\frac{11}{2}$.\n$$ AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = \\sqrt{121 \\cdot \\frac{5}{4}} = 11 \\cdot \\frac{\\sqrt{5}}{2} = \\frac{11\\sqrt{5}}{2} $$\n\n### Step 5: Calculate the Perimeter\nThe perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\nSince $AB = AC$:\n$$ P = 2 \\cdot AB + BC $$\n$$ P = 2 \\cdot \\left(\\frac{11\\sqrt{5}}{2}\\right) + 11 $$\n$$ P = 11\\sqrt{5} + 11 $$\n$$ P = 11(\\sqrt{5} + 1) $$\n\nLet's double check the calculation.\n$\\tan(\\theta) = 0.5$.\n$\\tan(3\\theta) = \\frac{3(0.5) - 0.5^3}{1 - 3(0.5)^2} = \\frac{1.5 - 0.125}{1 - 0.75} = \\frac{1.375}{0.25} = 5.5$.\n$11 \\tan(\\theta) = 11(0.5) = 5.5$.\nMatches.\n\n$BM = 5.5$.\n$BC = 11$.\n$AB = \\sqrt{11^2 + 5.5^2} = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\n$151.25 = \\frac{605}{4}$.\n$\\sqrt{\\frac{605}{4}} = \\frac{\\sqrt{121 \\cdot 5}}{2} = \\frac{11\\sqrt{5}}{2}$.\nPerimeter $= 2 \\cdot \\frac{11\\sqrt{5}}{2} + 11 = 11\\sqrt{5} + 11$.\n\nThe result is $11(\\sqrt{5} + 1)$.",
+        "matched_success_motifs": [],
+        "matched_failure_motifs": [
+          "compute|instantiate",
+          "check-constraint",
+          "apply-formula|substitute",
+          "substitute|conclude",
+          "conclude|compute|instantiate",
+          "apply-formula|substitute|conclude",
+          "substitute|conclude|compute"
+        ]
+      },
+      {
+        "trace_id": "352:5:6",
+        "question_id": "352",
+        "sample_id": "5",
+        "attempt_index": "6",
+        "predicted_answer": "11(\\sqrt{5}+1)",
+        "is_correct": false,
+        "tokenized_trace": "compute|analyze|instantiate|compute|analyze|instantiate|analyze|compute|analyze|instantiate|analyze|apply-formula|substitute|conclude|compute|instantiate|compute|analyze|check-constraint|compute",
+        "tokens": [
+          "compute",
+          "analyze",
+          "instantiate",
+          "compute",
+          "analyze",
+          "instantiate",
+          "analyze",
+          "compute",
+          "analyze",
+          "instantiate",
+          "analyze",
+          "apply-formula",
+          "substitute",
+          "conclude",
+          "compute",
+          "instantiate",
+          "compute",
+          "analyze",
+          "check-constraint",
+          "compute"
+        ],
+        "token_count": 20,
+        "reasoning_trace": "To find the perimeter of triangle $ABC$, we will proceed step by step, utilizing the properties of isosceles triangles and trigonometry.\n\n**Step 1: Analyze the geometry and given values.**\n*   Triangle $ABC$ is isosceles with $AB = AC$.\n*   $AM$ is the altitude to the base $BC$. Since the triangle is isosceles, $AM$ is also the median and the angle bisector of $\\angle BAC$.\n*   Let $M$ be the origin $(0,0)$ for simplicity, or simply work with lengths relative to $M$.\n*   Given $AM = 11$.\n*   Point $D$ lies on $AM$ such that $AD = 10$.\n*   Since $D$ is on the segment $AM$, the length $DM = AM - AD = 11 - 10 = 1$.\n*   Let $\\alpha = \\angle BAC$.\n*   Since $AM$ bisects $\\angle BAC$, we have $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\n*   Similarly, since $AM$ is the perpendicular bisector of $BC$, $BD = CD$ and $AM$ bisects $\\angle BDC$. Let $\\beta = \\angle BDC$. Then $\\angle BDM = \\angle CDM = \\frac{\\beta}{2}$.\n*   We are given $\\angle BDC = 3\\angle BAC$, so $\\beta = 3\\alpha$.\n*   Therefore, $\\angle BDM = \\frac{3\\alpha}{2}$.\n\n**Step 2: Establish a relationship between the angles using trigonometry.**\nConsider the right-angled triangle $ABM$ (since $AM \\perp BC$).\nLet $BM = x$.\nIn $\\triangle ABM$:\n$$ \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{BM}{AM} = \\frac{x}{11} $$\nSo, $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n\nNow consider the right-angled triangle $DBM$ (since $DM \\perp BC$).\nIn $\\triangle DBM$:\n$$ \\tan\\left(\\frac{\\beta}{2}\\right) = \\frac{BM}{DM} = \\frac{x}{1} $$\nSo, $x = 1 \\cdot \\tan\\left(\\frac{\\beta}{2}\\right) = \\tan\\left(\\frac{3\\alpha}{2}\\right)$.\n\n**Step 3: Solve for $\\alpha$.**\nEquating the two expressions for $x$:\n$$ 11 \\tan\\left(\\frac{\\alpha}{2}\\right) = \\tan\\left(\\frac{3\\alpha}{2}\\right) $$\n\nLet $\\theta = \\frac{\\alpha}{2}$. Then the equation becomes:\n$$ 11 \\tan(\\theta) = \\tan(3\\theta) $$\n\nUse the triple angle identity for tangent: $\\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$.\nSubstitute this into the equation:\n$$ 11 \\tan\\theta = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta} $$\n\nSince $\\alpha$ is an angle of a triangle, $\\alpha > 0$, so $\\theta > 0$ and $\\tan\\theta \\neq 0$. We can divide both sides by $\\tan\\theta$:\n$$ 11 = \\frac{3 - \\tan^2\\theta}{1 - 3\\tan^2\\theta} $$\n\nLet $u = \\tan^2\\theta$.\n$$ 11 = \\frac{3 - u}{1 - 3u} $$\nMultiply both sides by $(1 - 3u)$:\n$$ 11(1 - 3u) = 3 - u $$\n$$ 11 - 33u = 3 - u $$\n$$ 11 - 3 = 33u - u $$\n$$ 8 = 32u $$\n$$ u = \\frac{8}{32} = \\frac{1}{4} $$\n\nSo, $\\tan^2\\theta = \\frac{1}{4}$. Since $\\theta$ is acute (half of a triangle angle), $\\tan\\theta > 0$.\n$$ \\tan\\theta = \\frac{1}{2} $$\n\n**Step 4: Calculate the side lengths of triangle $ABC$.**\nWe know $\\theta = \\frac{\\alpha}{2}$, so $\\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{1}{2}$.\nRecall from Step 2 that $BM = x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n$$ BM = 11 \\cdot \\frac{1}{2} = 5.5 $$\n\nSince $M$ is the midpoint of $BC$, the base $BC = 2 \\cdot BM = 2 \\cdot 5.5 = 11$.\n\nNow we need the length of the equal sides $AB$ (and $AC$).\nIn right $\\triangle ABM$:\n$$ AB = \\sqrt{AM^2 + BM^2} $$\n$$ AB = \\sqrt{11^2 + (5.5)^2} $$\n$$ AB = \\sqrt{121 + 30.25} = \\sqrt{151.25} $$\nAlternatively, using fractions: $BM = \\frac{11}{2}$.\n$$ AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = 11\\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2} $$\n\nSo, $AB = AC = \\frac{11\\sqrt{5}}{2}$.\n\n**Step 5: Calculate the perimeter.**\nThe perimeter $P$ is $AB + AC + BC$.\n$$ P = \\frac{11\\sqrt{5}}{2} + \\frac{11\\sqrt{5}}{2} + 11 $$\n$$ P = 11\\sqrt{5} + 11 $$\n$$ P = 11(\\sqrt{5} + 1) $$\n\nLet's double check the calculation.\n$BM = 5.5$. $AM = 11$.\n$AB = \\sqrt{11^2 + 5.5^2} = 5.5 \\sqrt{2^2 + 1^2} = 5.5 \\sqrt{5} = \\frac{11\\sqrt{5}}{2}$. Correct.\n$BC = 11$. Correct.\nPerimeter = $11\\sqrt{5} + 11$.\n\nThe value is $11(\\sqrt{5} + 1)$.",
+        "matched_success_motifs": [
+          "analyze|instantiate|analyze",
+          "compute|analyze|instantiate",
+          "analyze|instantiate"
+        ],
+        "matched_failure_motifs": [
+          "compute|instantiate",
+          "check-constraint",
+          "apply-formula|substitute",
+          "substitute|conclude",
+          "conclude|compute|instantiate",
+          "apply-formula|substitute|conclude",
+          "substitute|conclude|compute"
+        ]
+      },
+      {
+        "trace_id": "352:4:5",
+        "question_id": "352",
+        "sample_id": "4",
+        "attempt_index": "5",
+        "predicted_answer": "11 + 11\\sqrt{5}",
+        "is_correct": false,
+        "tokenized_trace": "instantiate|compute|substitute|instantiate|analyze|apply-formula|substitute|conclude|compute|instantiate|compute",
+        "tokens": [
+          "instantiate",
+          "compute",
+          "substitute",
+          "instantiate",
+          "analyze",
+          "apply-formula",
+          "substitute",
+          "conclude",
+          "compute",
+          "instantiate",
+          "compute"
+        ],
+        "token_count": 11,
+        "reasoning_trace": "Let's define the geometric properties and set up the equations based on the given information.\n\n**1. Define Variables and Coordinates**\nLet the triangle $ABC$ be isosceles with $AB = AC$.\nLet $M$ be the midpoint of the base $BC$. Since $AM$ is an altitude, $AM \\perp BC$.\nWe are given:\n- Length of altitude $AM = 11$.\n- Point $D$ lies on $AM$ such that $AD = 10$.\n- Since $D$ is on $AM$, the length $DM = AM - AD = 11 - 10 = 1$.\n- Let $\\angle BAC = \\alpha$.\n- We are given $\\angle BDC = 3\\alpha$.\n\nLet $BM = MC = x$. Since $M$ is the midpoint, the total base $BC = 2x$.\nIn the right-angled triangle $AMB$, $\\angle AMB = 90^\\circ$.\nThe angle $\\angle BAM = \\frac{1}{2} \\angle BAC = \\frac{\\alpha}{2}$.\nUsing trigonometry in $\\triangle ABM$:\n$$ \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{BM}{AM} = \\frac{x}{11} $$\nSo, $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n\n**2. Analyze Triangle BDC**\nConsider the triangle $BDC$. Since $AM$ is the perpendicular bisector of $BC$, triangle $BDC$ is also isosceles with $DB = DC$.\nThe altitude from $D$ to $BC$ is $DM = 1$.\nThe angle $\\angle BDC = 3\\alpha$.\nSince $\\triangle BDC$ is isosceles, the altitude $DM$ bisects the angle $\\angle BDC$.\nTherefore, $\\angle BDM = \\frac{1}{2} \\angle BDC = \\frac{3\\alpha}{2}$.\n\nNow, look at the right-angled triangle $DMB$ (where $\\angle DMB = 90^\\circ$):\n$$ \\tan(\\angle BDM) = \\frac{BM}{DM} $$\nSubstitute the known values:\n$$ \\tan\\left(\\frac{3\\alpha}{2}\\right) = \\frac{x}{1} = x $$\n\n**3. Set up the Equation**\nWe have two expressions for $x$:\n1. $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$\n2. $x = \\tan\\left(\\frac{3\\alpha}{2}\\right)$\n\nEquating them:\n$$ \\tan\\left(\\frac{3\\alpha}{2}\\right) = 11 \\tan\\left(\\frac{\\alpha}{2}\\right) $$\n\nLet $\\theta = \\frac{\\alpha}{2}$. Then the equation becomes:\n$$ \\tan(3\\theta) = 11 \\tan(\\theta) $$\n\n**4. Solve for $\\tan(\\theta)$**\nUse the triple angle identity for tangent:\n$$ \\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta} $$\nSubstitute this into the equation:\n$$ \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta} = 11 \\tan\\theta $$\n\nSince $\\alpha$ is an angle of a triangle, $0 < \\alpha < 180^\\circ$, so $0 < \\theta < 90^\\circ$. Thus $\\tan\\theta \\neq 0$. We can divide both sides by $\\tan\\theta$:\n$$ \\frac{3 - \\tan^2\\theta}{1 - 3\\tan^2\\theta} = 11 $$\n\nLet $t = \\tan^2\\theta$.\n$$ \\frac{3 - t}{1 - 3t} = 11 $$\n$$ 3 - t = 11(1 - 3t) $$\n$$ 3 - t = 11 - 33t $$\n$$ 32t = 8 $$\n$$ t = \\frac{8}{32} = \\frac{1}{4} $$\n\nSo, $\\tan^2\\theta = \\frac{1}{4}$. Since $\\theta$ is acute, $\\tan\\theta = \\frac{1}{2}$.\n\n**5. Calculate the Dimensions of Triangle ABC**\nWe found $\\tan\\theta = \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{1}{2}$.\nRecall $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$:\n$$ x = 11 \\times \\frac{1}{2} = 5.5 $$\nSo, $BM = 5.5$.\nThe base $BC = 2x = 11$.\n\nNow we need the length of the equal sides $AB$.\nIn right $\\triangle ABM$:\n$$ AB = \\sqrt{AM^2 + BM^2} $$\n$$ AB = \\sqrt{11^2 + (5.5)^2} $$\n$$ AB = \\sqrt{121 + 30.25} = \\sqrt{151.25} $$\nAlternatively, using fractions: $BM = \\frac{11}{2}$.\n$$ AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = 11\\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2} $$\n\n**6. Calculate the Perimeter**\nThe perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\nSince $AB = AC$:\n$$ P = 2AB + BC $$\n$$ P = 2\\left(\\frac{11\\sqrt{5}}{2}\\right) + 11 $$\n$$ P = 11\\sqrt{5} + 11 $$\n$$ P = 11(\\sqrt{5} + 1) $$\n\nLet's double check the logic.\nIf $\\tan(\\alpha/2) = 0.5$, then $\\alpha/2 \\approx 26.56^\\circ$, so $\\alpha \\approx 53.13^\\circ$.\nThen $3\\alpha/2 \\approx 79.7^\\circ$.\n$\\tan(3\\alpha/2) = \\tan(3 \\times 26.56^\\circ) = \\tan(79.68^\\circ) \\approx 5.5$.\n$x = 11 \\times 0.5 = 5.5$.\nIn $\\triangle BDC$, $DM=1$, $BM=5.5$, so $\\tan(\\angle BDM) = 5.5/1 = 5.5$.\nMatches perfectly.\n\nThe perimeter is $11 + 11\\sqrt{5}$.",
+        "matched_success_motifs": [],
+        "matched_failure_motifs": [
+          "compute|instantiate",
+          "apply-formula|substitute",
+          "substitute|conclude",
+          "conclude|compute|instantiate",
+          "apply-formula|substitute|conclude",
+          "substitute|conclude|compute"
+        ]
+      }
+    ]
+  },
+  "all_traces": [
+    {
+      "trace_id": "352:0:0",
+      "question_id": "352",
+      "sample_id": "0",
+      "attempt_index": "0",
+      "predicted_answer": "11 + 11\\sqrt{5}",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|compute|instantiate|analyze|compute|instantiate|compute|substitute|apply-formula|instantiate|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "compute",
+        "substitute",
+        "apply-formula",
+        "instantiate",
+        "compute"
+      ],
+      "token_count": 11,
+      "reasoning_trace": "To find the perimeter of triangle $ABC$, we will proceed step by step, utilizing the properties of isosceles triangles and trigonometry.\n\n**Step 1: Define variables and coordinates**\nLet the altitude $AM$ lie on the y-axis. Since $AB = AC$, the triangle is symmetric with respect to $AM$.\nLet $M$ be the origin $(0,0)$.\nGiven $AM = 11$, the coordinates of $A$ are $(0, 11)$.\nSince $D$ lies on $AM$ and $AD = 10$, the distance from $A$ to $D$ is 10. Since $D$ is between $A$ and $M$ (as $10 < 11$), the y-coordinate of $D$ is $11 - 10 = 1$. So, $D = (0, 1)$.\nLet $BM = MC = x$. Since $M$ is the midpoint of $BC$ in an isosceles triangle, the coordinates of $B$ are $(-x, 0)$ and $C$ are $(x, 0)$.\n\n**Step 2: Express the angles in terms of $x$**\nLet $\\alpha = \\angle BAC$.\nSince $AM$ is the altitude to the base $BC$ in an isosceles triangle, it bisects $\\angle BAC$.\nTherefore, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\n\nIn the right-angled triangle $ABM$:\n$\\tan(\\angle BAM) = \\frac{BM}{AM} = \\frac{x}{11}$.\nSo, $\\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{x}{11}$.\n\nNow consider the angle $\\angle BDC$.\nIn the right-angled triangle $DBM$:\n$\\tan(\\angle BDM) = \\frac{BM}{DM} = \\frac{x}{1} = x$.\nNote that $\\angle BDC = 2 \\angle BDM$ because $DM$ bisects $\\angle BDC$ (by symmetry).\nLet $\\beta = \\angle BDC$. Then $\\angle BDM = \\frac{\\beta}{2}$.\nSo, $\\tan\\left(\\frac{\\beta}{2}\\right) = x$.\n\n**Step 3: Use the given angle relationship**\nThe problem states that $\\angle BDC = 3 \\angle BAC$.\nSubstituting our variables: $\\beta = 3\\alpha$.\nTherefore, $\\frac{\\beta}{2} = \\frac{3\\alpha}{2} = 3 \\left( \\frac{\\alpha}{2} \\right)$.\n\nLet $\\theta = \\frac{\\alpha}{2}$. Then $\\frac{\\beta}{2} = 3\\theta$.\nFrom Step 2, we have:\n1. $\\tan(\\theta) = \\frac{x}{11}$\n2. $\\tan(3\\theta) = x$\n\n**Step 4: Solve for $x$**\nSubstitute equation (1) into equation (2):\n$\\tan(3\\theta) = 11 \\tan(\\theta)$.\n\nRecall the triple angle identity for tangent:\n$\\tan(3\\theta) = \\frac{3\\tan(\\theta) - \\tan^3(\\theta)}{1 - 3\\tan^2(\\theta)}$.\n\nLet $t = \\tan(\\theta) = \\frac{x}{11}$.\nThe equation becomes:\n$\\frac{3t - t^3}{1 - 3t^2} = 11t$.\n\nSince $x > 0$, $t \\neq 0$. We can divide both sides by $t$:\n$\\frac{3 - t^2}{1 - 3t^2} = 11$.\n\nMultiply both sides by $(1 - 3t^2)$:\n$3 - t^2 = 11(1 - 3t^2)$\n$3 - t^2 = 11 - 33t^2$\n$32t^2 = 8$\n$t^2 = \\frac{8}{32} = \\frac{1}{4}$.\n\nSince $x > 0$, $t$ must be positive, so $t = \\frac{1}{2}$.\n\n**Step 5: Calculate the side lengths**\nWe know $t = \\frac{x}{11} = \\frac{1}{2}$.\nSo, $x = \\frac{11}{2} = 5.5$.\nThis is the length of $BM$ (and $MC$). The base $BC = 2x = 11$.\n\nNow find the length of the equal sides $AB$ (and $AC$).\nIn right triangle $ABM$:\n$AB = \\sqrt{AM^2 + BM^2} = \\sqrt{11^2 + (5.5)^2}$.\n$AB = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121 \\left(1 + \\frac{1}{4}\\right)} = 11 \\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2}$.\n\n**Step 6: Calculate the perimeter**\nThe perimeter $P$ of triangle $ABC$ is $AB + AC + BC$.\n$P = 2 \\times AB + BC$\n$P = 2 \\left( \\frac{11\\sqrt{5}}{2} \\right) + 11$\n$P = 11\\sqrt{5} + 11$\n$P = 11(\\sqrt{5} + 1)$.\n\nLet's double check the logic.\n$t = 0.5$.\n$\\tan(\\theta) = 0.5$.\n$\\tan(3\\theta) = \\frac{3(0.5) - 0.5^3}{1 - 3(0.5)^2} = \\frac{1.5 - 0.125}{1 - 0.75} = \\frac{1.375}{0.25} = 5.5$.\nFrom geometry, $\\tan(3\\theta) = x = 5.5$.\nMatches perfectly.\n\nThe perimeter is $11 + 11\\sqrt{5}$.",
+      "matched_success_motifs": [
+        "apply-formula|instantiate",
+        "apply-formula|instantiate|compute"
+      ],
+      "matched_failure_motifs": [
+        "compute|instantiate",
+        "analyze|compute|instantiate"
+      ]
+    },
+    {
+      "trace_id": "352:1:1",
+      "question_id": "352",
+      "sample_id": "1",
+      "attempt_index": "1",
+      "predicted_answer": "11(\\sqrt{5}+1)",
+      "is_correct": false,
+      "tokenized_trace": "compute|instantiate|compute|conclude|instantiate|compute|analyze|instantiate|analyze|apply-formula|substitute|compute|instantiate|compute|analyze|backtrack|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "conclude",
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "apply-formula",
+        "substitute",
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "backtrack",
+        "compute"
+      ],
+      "token_count": 17,
+      "reasoning_trace": "To find the perimeter of triangle $ABC$, we will proceed step by step using the given geometric properties and trigonometric relationships.\n\n**1. Analyze the Geometry and Given Values**\n*   Triangle $ABC$ is isosceles with $AB = AC$.\n*   $AM$ is the altitude to the base $BC$. Since the triangle is isosceles, $M$ is the midpoint of $BC$, and $AM \\perp BC$.\n*   The length of the altitude is $AM = 11$.\n*   Point $D$ lies on $AM$ such that $AD = 10$.\n*   Since $D$ is on $AM$, $DM = AM - AD = 11 - 10 = 1$.\n*   We are given the angle relationship: $\\angle BDC = 3\\angle BAC$.\n\n**2. Define Variables and Express Angles**\nLet $\\angle BAC = \\alpha$.\nSince $AM$ is the altitude and bisector of the vertex angle in an isosceles triangle:\n$$ \\angle BAM = \\angle CAM = \\frac{\\alpha}{2} $$\nSimilarly, since $DM \\perp BC$ and $M$ is the midpoint of $BC$, $DM$ is also an altitude for triangle $DBC$. Thus, $DM$ bisects $\\angle BDC$.\nLet $\\angle BDC = \\delta$. We are given $\\delta = 3\\alpha$.\nTherefore:\n$$ \\angle BDM = \\angle CDM = \\frac{\\delta}{2} = \\frac{3\\alpha}{2} $$\n\n**3. Relate Side Lengths using Trigonometry**\nLet $BM = x$. Then $BC = 2x$.\nIn the right-angled triangle $\\triangle ABM$:\n$$ \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{BM}{AM} = \\frac{x}{11} \\implies x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right) $$\n\nIn the right-angled triangle $\\triangle DBM$:\n$$ \\tan\\left(\\frac{3\\alpha}{2}\\right) = \\frac{BM}{DM} = \\frac{x}{1} = x $$\n\n**4. Set up the Equation**\nEquating the two expressions for $x$:\n$$ 11 \\tan\\left(\\frac{\\alpha}{2}\\right) = \\tan\\left(\\frac{3\\alpha}{2}\\right) $$\n\nLet $\\theta = \\frac{\\alpha}{2}$. Then the equation becomes:\n$$ 11 \\tan(\\theta) = \\tan(3\\theta) $$\n\n**5. Solve for $\\theta$**\nUse the triple angle identity for tangent: $\\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$.\nSubstitute this into the equation:\n$$ 11 \\tan\\theta = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta} $$\n\nSince $\\theta = \\alpha/2$ and $\\alpha$ is an angle of a triangle, $\\theta \\neq 0$, so $\\tan\\theta \\neq 0$. We can divide both sides by $\\tan\\theta$:\n$$ 11 = \\frac{3 - \\tan^2\\theta}{1 - 3\\tan^2\\theta} $$\n\nLet $u = \\tan^2\\theta$.\n$$ 11 = \\frac{3 - u}{1 - 3u} $$\nMultiply both sides by $(1 - 3u)$:\n$$ 11(1 - 3u) = 3 - u $$\n$$ 11 - 33u = 3 - u $$\n$$ 8 = 32u $$\n$$ u = \\frac{8}{32} = \\frac{1}{4} $$\n\nSo, $\\tan^2\\theta = \\frac{1}{4}$. Since $\\theta$ is acute (half of a triangle angle), $\\tan\\theta$ is positive:\n$$ \\tan\\theta = \\frac{1}{2} $$\n\n**6. Calculate the Side Lengths**\nWe need the perimeter of $\\triangle ABC$, which is $AB + AC + BC = 2AB + 2x$.\nFirst, find $x$ (which is $BM$):\n$$ x = 11 \\tan\\theta = 11 \\left(\\frac{1}{2}\\right) = 5.5 $$\nSo, $BC = 2x = 11$.\n\nNext, find $AB$. In right $\\triangle ABM$:\n$$ AB = \\sqrt{AM^2 + BM^2} = \\sqrt{11^2 + (5.5)^2} $$\n$$ AB = \\sqrt{121 + 30.25} = \\sqrt{151.25} $$\nAlternatively, using the ratio directly:\nSince $\\tan\\theta = 1/2$, we can imagine a right triangle with legs $1$ and $2$. The hypotenuse is $\\sqrt{1^2 + 2^2} = \\sqrt{5}$.\nThe ratio of hypotenuse to the leg adjacent to $\\theta$ (which corresponds to $AM$) is $\\sqrt{5}/2$.\nWait, let's re-verify the ratio.\n$\\tan\\theta = \\frac{\\text{opp}}{\\text{adj}} = \\frac{BM}{AM} = \\frac{x}{11} = \\frac{1}{2}$.\nSo $x = 5.5$.\nThe hypotenuse $AB = \\frac{AM}{\\cos\\theta}$.\nSince $\\tan\\theta = 1/2$, we have $\\cos\\theta = \\frac{2}{\\sqrt{1^2+2^2}} = \\frac{2}{\\sqrt{5}}$.\n$$ AB = \\frac{11}{2/\\sqrt{5}} = \\frac{11\\sqrt{5}}{2} = 5.5\\sqrt{5} $$\n\n**7. Calculate the Perimeter**\nPerimeter $P = 2AB + BC$.\n$$ P = 2(5.5\\sqrt{5}) + 11 $$\n$$ P = 11\\sqrt{5} + 11 $$\n$$ P = 11(\\sqrt{5} + 1) $$\n\nLet's double check the calculation.\n$x = 5.5$.\n$AB = \\sqrt{11^2 + 5.5^2} = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\n$151.25 = \\frac{605}{4}$.\n$\\sqrt{\\frac{605}{4}} = \\frac{\\sqrt{121 \\cdot 5}}{2} = \\frac{11\\sqrt{5}}{2} = 5.5\\sqrt{5}$.\n$2AB = 11\\sqrt{5}$.\n$BC = 2x = 11$.\nPerimeter $= 11\\sqrt{5} + 11$.\n\nThe value is approximately $11(2.236 + 1) = 11(3.236) \\approx 35.6$.\n\nThe steps are logical and the algebra is verified.",
+      "matched_success_motifs": [
+        "instantiate|compute|conclude",
+        "compute|conclude",
+        "analyze|instantiate|analyze",
+        "compute|analyze|instantiate",
+        "analyze|instantiate"
+      ],
+      "matched_failure_motifs": [
+        "compute|instantiate",
+        "apply-formula|substitute"
+      ]
+    },
+    {
+      "trace_id": "352:2:2",
+      "question_id": "352",
+      "sample_id": "2",
+      "attempt_index": "2",
+      "predicted_answer": "11(\\sqrt{5}+1)",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|compute|analyze|instantiate|compute|apply-formula|substitute|analyze|compute|instantiate|compute|substitute|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "apply-formula",
+        "substitute",
+        "analyze",
+        "compute",
+        "instantiate",
+        "compute",
+        "substitute",
+        "compute"
+      ],
+      "token_count": 13,
+      "reasoning_trace": "Let's define the geometric properties and set up the equations based on the given information.\n\n**1. Define Coordinates and Variables**\nLet $M$ be the origin $(0,0)$. Since $AM$ is the altitude to the base $BC$ in the isosceles triangle $ABC$, $M$ is the midpoint of $BC$.\nLet the length of the altitude $AM = h = 11$.\nLet $A$ be at $(0, 11)$.\nLet $D$ be a point on $AM$ such that $AD = 10$. Since $A$ is at $y=11$ and $D$ is on the segment $AM$, the y-coordinate of $D$ is $11 - 10 = 1$. So, $D = (0, 1)$.\nLet the length of the semi-base $BM = MC = x$. Then $B = (-x, 0)$ and $C = (x, 0)$.\nThe base of the triangle is $BC = 2x$.\nThe side lengths $AB$ and $AC$ are equal. By the Pythagorean theorem in $\\triangle ABM$:\n$AB = \\sqrt{AM^2 + BM^2} = \\sqrt{11^2 + x^2} = \\sqrt{121 + x^2}$.\n\n**2. Analyze the Angles**\nLet $\\angle BAC = \\alpha$.\nSince $\\triangle ABC$ is isosceles with $AB=AC$ and $AM \\perp BC$, $AM$ bisects $\\angle BAC$.\nTherefore, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\nLet $\\beta = \\frac{\\alpha}{2}$. So $\\angle BAC = 2\\beta$.\n\nNow consider $\\triangle BDC$. Since $D$ lies on the altitude $AM$ and $AB=AC$, $\\triangle BDC$ is also isosceles with $DB=DC$.\nThe altitude $DM$ bisects $\\angle BDC$.\nLet $\\angle BDC = \\gamma$. We are given $\\gamma = 3\\angle BAC = 3(2\\beta) = 6\\beta$.\nSo, $\\angle BDM = \\frac{\\gamma}{2} = 3\\beta$.\n\n**3. Relate Angles using Right Triangles**\nConsider the right-angled triangle $\\triangle ABM$:\n$\\tan(\\angle BAM) = \\frac{BM}{AM} \\implies \\tan(\\beta) = \\frac{x}{11}$.\n\nConsider the right-angled triangle $\\triangle DBM$:\n$\\tan(\\angle BDM) = \\frac{BM}{DM}$.\nWe know $AM = 11$ and $AD = 10$, so $DM = AM - AD = 11 - 10 = 1$.\nThus, $\\tan(3\\beta) = \\frac{x}{1} = x$.\n\n**4. Solve for $x$**\nWe have a system of two equations:\n1) $x = 11 \\tan(\\beta)$\n2) $x = \\tan(3\\beta)$\n\nEquating them:\n$\\tan(3\\beta) = 11 \\tan(\\beta)$\n\nRecall the triple angle formula for tangent:\n$\\tan(3\\beta) = \\frac{3\\tan(\\beta) - \\tan^3(\\beta)}{1 - 3\\tan^2(\\beta)}$\n\nSubstitute this into the equation:\n$\\frac{3\\tan(\\beta) - \\tan^3(\\beta)}{1 - 3\\tan^2(\\beta)} = 11 \\tan(\\beta)$\n\nSince $\\beta$ is an angle in a triangle (specifically half of the vertex angle), $\\tan(\\beta) \\neq 0$. We can divide both sides by $\\tan(\\beta)$:\n$\\frac{3 - \\tan^2(\\beta)}{1 - 3\\tan^2(\\beta)} = 11$\n\nLet $t = \\tan(\\beta)$. Then:\n$\\frac{3 - t^2}{1 - 3t^2} = 11$\n$3 - t^2 = 11(1 - 3t^2)$\n$3 - t^2 = 11 - 33t^2$\n$32t^2 = 8$\n$t^2 = \\frac{8}{32} = \\frac{1}{4}$\n\nSince $\\beta$ is acute, $t > 0$, so $t = \\frac{1}{2}$.\nThus, $\\tan(\\beta) = 0.5$.\n\n**5. Calculate Side Lengths**\nNow substitute $t$ back to find $x$:\n$x = 11t = 11 \\times 0.5 = 5.5$.\nSo, $BM = 5.5$.\nThe base $BC = 2x = 11$.\n\nNow calculate the leg length $AB$:\n$AB = \\sqrt{11^2 + x^2} = \\sqrt{121 + (5.5)^2}$\n$5.5 = \\frac{11}{2}$, so $(5.5)^2 = \\frac{121}{4} = 30.25$.\n$AB = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\nAlternatively, using fractions:\n$AB = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121(1 + \\frac{1}{4})} = \\sqrt{121 \\times \\frac{5}{4}} = 11 \\times \\frac{\\sqrt{5}}{2} = \\frac{11\\sqrt{5}}{2}$.\n\n**6. Calculate the Perimeter**\nThe perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\nSince $AB = AC$:\n$P = 2AB + BC$\n$P = 2\\left(\\frac{11\\sqrt{5}}{2}\\right) + 11$\n$P = 11\\sqrt{5} + 11$\n$P = 11(\\sqrt{5} + 1)$\n\nLet's double check the logic.\n$\\tan \\beta = 1/2$.\n$\\tan 3\\beta = \\frac{3(1/2) - (1/8)}{1 - 3(1/4)} = \\frac{12/8 - 1/8}{1 - 3/4} = \\frac{11/8}{1/4} = \\frac{11}{8} \\times 4 = \\frac{11}{2} = 5.5$.\n$x = 5.5$. Correct.\n$AB = \\sqrt{11^2 + 5.5^2} = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\n$151.25 = \\frac{605}{4}$.\n$\\sqrt{\\frac{605}{4}} = \\frac{\\sqrt{121 \\times 5}}{2} = \\frac{11\\sqrt{5}}{2}$.\nPerimeter $= 2 \\times \\frac{11\\sqrt{5}}{2} + 11 = 11\\sqrt{5} + 11$.\n\nThe value is $11(\\sqrt{5} + 1)$.",
+      "matched_success_motifs": [
+        "compute|analyze|instantiate",
+        "analyze|instantiate"
+      ],
+      "matched_failure_motifs": [
+        "compute|instantiate",
+        "apply-formula|substitute",
+        "analyze|compute|instantiate"
+      ]
+    },
+    {
+      "trace_id": "352:3:4",
+      "question_id": "352",
+      "sample_id": "3",
+      "attempt_index": "4",
+      "predicted_answer": "11\\sqrt{5} + 11",
+      "is_correct": true,
+      "tokenized_trace": "instantiate|compute|analyze|instantiate|analyze|compute|analyze|instantiate|compute|substitute|apply-formula|instantiate|compute|conclude|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "substitute",
+        "apply-formula",
+        "instantiate",
+        "compute",
+        "conclude",
+        "compute"
+      ],
+      "token_count": 15,
+      "reasoning_trace": "Let's define the geometry and variables based on the problem statement.\n\n1.  **Setup and Coordinates**:\n    *   Let $M$ be the origin $(0,0)$. Since $AM$ is an altitude in an isosceles triangle $ABC$ with $AB=AC$, $M$ is the midpoint of $BC$, and $AM \\perp BC$.\n    *   We are given $AM = 11$. So, point $A$ is at $(0, 11)$.\n    *   Point $D$ lies on $AM$ such that $AD = 10$. Since $A$ is at $y=11$ and $M$ is at $y=0$, the distance from $A$ to $D$ is $11 - y_D = 10$, which implies $y_D = 1$. So, $D$ is at $(0, 1)$.\n    *   Let the length of $BM$ be $x$. Since $M$ is the midpoint of $BC$, $MC = x$ and $BC = 2x$. The coordinates of $B$ are $(-x, 0)$ and $C$ are $(x, 0)$.\n\n2.  **Analyze Angles**:\n    *   Let $\\angle BAC = \\alpha$.\n    *   Since $\\triangle ABC$ is isosceles with altitude $AM$, $AM$ bisects $\\angle BAC$. Therefore, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\n    *   Similarly, $AM$ bisects $\\angle BDC$. Let $\\angle BDC = \\beta$. Then $\\angle BDM = \\angle CDM = \\frac{\\beta}{2}$.\n    *   The problem states $\\angle BDC = 3 \\angle BAC$, so $\\beta = 3\\alpha$.\n    *   Consequently, $\\angle BDM = \\frac{3\\alpha}{2} = 3 \\left(\\frac{\\alpha}{2}\\right)$.\n\n3.  **Relate Angles to Side Lengths using Trigonometry**:\n    *   Consider the right-angled triangle $\\triangle ABM$.\n        $\\tan(\\angle BAM) = \\frac{BM}{AM} = \\frac{x}{11}$.\n        Let $\\theta = \\frac{\\alpha}{2}$. Then $\\tan \\theta = \\frac{x}{11}$.\n    *   Consider the right-angled triangle $\\triangle DBM$.\n        $\\tan(\\angle BDM) = \\frac{BM}{DM}$.\n        We know $DM = AM - AD = 11 - 10 = 1$.\n        So, $\\tan(3\\theta) = \\frac{x}{1} = x$.\n\n4.  **Solve the Equation**:\n    We have a system of two equations:\n    1.  $x = 11 \\tan \\theta$\n    2.  $x = \\tan(3\\theta)$\n\n    Substitute (1) into (2):\n    $11 \\tan \\theta = \\tan(3\\theta)$\n\n    Recall the triple angle identity for tangent:\n    $\\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$\n\n    Let $t = \\tan \\theta$. The equation becomes:\n    $11t = \\frac{3t - t^3}{1 - 3t^2}$\n\n    Since $\\theta = \\alpha/2$ and $\\alpha$ is an angle of a triangle, $0 < \\alpha < 180^\\circ$, so $0 < \\theta < 90^\\circ$. Thus $t \\neq 0$. We can divide both sides by $t$:\n    $11 = \\frac{3 - t^2}{1 - 3t^2}$\n\n    Multiply both sides by $(1 - 3t^2)$:\n    $11(1 - 3t^2) = 3 - t^2$\n    $11 - 33t^2 = 3 - t^2$\n    $8 = 32t^2$\n    $t^2 = \\frac{8}{32} = \\frac{1}{4}$\n\n    Since $\\theta$ is acute, $t > 0$, so:\n    $t = \\frac{1}{2}$\n\n5.  **Calculate Side Lengths**:\n    *   We found $t = \\tan \\theta = \\frac{1}{2}$.\n    *   From $x = 11t$, we get $x = 11 \\times \\frac{1}{2} = 5.5$.\n    *   So, $BM = 5.5$ and $BC = 2x = 11$.\n    *   Now find the length of the equal sides $AB$ (and $AC$). In right $\\triangle ABM$:\n        $AB = \\sqrt{AM^2 + BM^2} = \\sqrt{11^2 + (5.5)^2}$\n        $AB = \\sqrt{121 + 30.25} = \\sqrt{151.25}$\n        Alternatively, using fractions: $BM = \\frac{11}{2}$.\n        $AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{11^2 \\left(1 + \\frac{1}{4}\\right)} = 11 \\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2}$.\n\n6.  **Calculate Perimeter**:\n    The perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\n    Since $AB = AC$:\n    $P = 2 \\times AB + BC$\n    $P = 2 \\left( \\frac{11\\sqrt{5}}{2} \\right) + 11$\n    $P = 11\\sqrt{5} + 11$\n    $P = 11(\\sqrt{5} + 1)$\n\n    Let's double check the calculation.\n    $x = 5.5$.\n    $AB = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\n    $151.25 = \\frac{605}{4}$.\n    $\\sqrt{\\frac{605}{4}} = \\frac{\\sqrt{121 \\times 5}}{2} = \\frac{11\\sqrt{5}}{2}$.\n    $2 \\times AB = 11\\sqrt{5}$.\n    $BC = 11$.\n    Perimeter = $11\\sqrt{5} + 11$.\n\n    The steps are logical and the arithmetic is consistent.",
+      "matched_success_motifs": [
+        "compute|conclude|compute",
+        "instantiate|compute|conclude",
+        "compute|conclude",
+        "analyze|instantiate|analyze",
+        "compute|analyze|instantiate",
+        "analyze|instantiate",
+        "apply-formula|instantiate",
+        "apply-formula|instantiate|compute"
+      ],
+      "matched_failure_motifs": []
+    },
+    {
+      "trace_id": "352:4:5",
+      "question_id": "352",
+      "sample_id": "4",
+      "attempt_index": "5",
+      "predicted_answer": "11 + 11\\sqrt{5}",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|compute|substitute|instantiate|analyze|apply-formula|substitute|conclude|compute|instantiate|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "substitute",
+        "instantiate",
+        "analyze",
+        "apply-formula",
+        "substitute",
+        "conclude",
+        "compute",
+        "instantiate",
+        "compute"
+      ],
+      "token_count": 11,
+      "reasoning_trace": "Let's define the geometric properties and set up the equations based on the given information.\n\n**1. Define Variables and Coordinates**\nLet the triangle $ABC$ be isosceles with $AB = AC$.\nLet $M$ be the midpoint of the base $BC$. Since $AM$ is an altitude, $AM \\perp BC$.\nWe are given:\n- Length of altitude $AM = 11$.\n- Point $D$ lies on $AM$ such that $AD = 10$.\n- Since $D$ is on $AM$, the length $DM = AM - AD = 11 - 10 = 1$.\n- Let $\\angle BAC = \\alpha$.\n- We are given $\\angle BDC = 3\\alpha$.\n\nLet $BM = MC = x$. Since $M$ is the midpoint, the total base $BC = 2x$.\nIn the right-angled triangle $AMB$, $\\angle AMB = 90^\\circ$.\nThe angle $\\angle BAM = \\frac{1}{2} \\angle BAC = \\frac{\\alpha}{2}$.\nUsing trigonometry in $\\triangle ABM$:\n$$ \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{BM}{AM} = \\frac{x}{11} $$\nSo, $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n\n**2. Analyze Triangle BDC**\nConsider the triangle $BDC$. Since $AM$ is the perpendicular bisector of $BC$, triangle $BDC$ is also isosceles with $DB = DC$.\nThe altitude from $D$ to $BC$ is $DM = 1$.\nThe angle $\\angle BDC = 3\\alpha$.\nSince $\\triangle BDC$ is isosceles, the altitude $DM$ bisects the angle $\\angle BDC$.\nTherefore, $\\angle BDM = \\frac{1}{2} \\angle BDC = \\frac{3\\alpha}{2}$.\n\nNow, look at the right-angled triangle $DMB$ (where $\\angle DMB = 90^\\circ$):\n$$ \\tan(\\angle BDM) = \\frac{BM}{DM} $$\nSubstitute the known values:\n$$ \\tan\\left(\\frac{3\\alpha}{2}\\right) = \\frac{x}{1} = x $$\n\n**3. Set up the Equation**\nWe have two expressions for $x$:\n1. $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$\n2. $x = \\tan\\left(\\frac{3\\alpha}{2}\\right)$\n\nEquating them:\n$$ \\tan\\left(\\frac{3\\alpha}{2}\\right) = 11 \\tan\\left(\\frac{\\alpha}{2}\\right) $$\n\nLet $\\theta = \\frac{\\alpha}{2}$. Then the equation becomes:\n$$ \\tan(3\\theta) = 11 \\tan(\\theta) $$\n\n**4. Solve for $\\tan(\\theta)$**\nUse the triple angle identity for tangent:\n$$ \\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta} $$\nSubstitute this into the equation:\n$$ \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta} = 11 \\tan\\theta $$\n\nSince $\\alpha$ is an angle of a triangle, $0 < \\alpha < 180^\\circ$, so $0 < \\theta < 90^\\circ$. Thus $\\tan\\theta \\neq 0$. We can divide both sides by $\\tan\\theta$:\n$$ \\frac{3 - \\tan^2\\theta}{1 - 3\\tan^2\\theta} = 11 $$\n\nLet $t = \\tan^2\\theta$.\n$$ \\frac{3 - t}{1 - 3t} = 11 $$\n$$ 3 - t = 11(1 - 3t) $$\n$$ 3 - t = 11 - 33t $$\n$$ 32t = 8 $$\n$$ t = \\frac{8}{32} = \\frac{1}{4} $$\n\nSo, $\\tan^2\\theta = \\frac{1}{4}$. Since $\\theta$ is acute, $\\tan\\theta = \\frac{1}{2}$.\n\n**5. Calculate the Dimensions of Triangle ABC**\nWe found $\\tan\\theta = \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{1}{2}$.\nRecall $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$:\n$$ x = 11 \\times \\frac{1}{2} = 5.5 $$\nSo, $BM = 5.5$.\nThe base $BC = 2x = 11$.\n\nNow we need the length of the equal sides $AB$.\nIn right $\\triangle ABM$:\n$$ AB = \\sqrt{AM^2 + BM^2} $$\n$$ AB = \\sqrt{11^2 + (5.5)^2} $$\n$$ AB = \\sqrt{121 + 30.25} = \\sqrt{151.25} $$\nAlternatively, using fractions: $BM = \\frac{11}{2}$.\n$$ AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = 11\\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2} $$\n\n**6. Calculate the Perimeter**\nThe perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\nSince $AB = AC$:\n$$ P = 2AB + BC $$\n$$ P = 2\\left(\\frac{11\\sqrt{5}}{2}\\right) + 11 $$\n$$ P = 11\\sqrt{5} + 11 $$\n$$ P = 11(\\sqrt{5} + 1) $$\n\nLet's double check the logic.\nIf $\\tan(\\alpha/2) = 0.5$, then $\\alpha/2 \\approx 26.56^\\circ$, so $\\alpha \\approx 53.13^\\circ$.\nThen $3\\alpha/2 \\approx 79.7^\\circ$.\n$\\tan(3\\alpha/2) = \\tan(3 \\times 26.56^\\circ) = \\tan(79.68^\\circ) \\approx 5.5$.\n$x = 11 \\times 0.5 = 5.5$.\nIn $\\triangle BDC$, $DM=1$, $BM=5.5$, so $\\tan(\\angle BDM) = 5.5/1 = 5.5$.\nMatches perfectly.\n\nThe perimeter is $11 + 11\\sqrt{5}$.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "compute|instantiate",
+        "apply-formula|substitute",
+        "substitute|conclude",
+        "conclude|compute|instantiate",
+        "apply-formula|substitute|conclude",
+        "substitute|conclude|compute"
+      ]
+    },
+    {
+      "trace_id": "352:5:6",
+      "question_id": "352",
+      "sample_id": "5",
+      "attempt_index": "6",
+      "predicted_answer": "11(\\sqrt{5}+1)",
+      "is_correct": false,
+      "tokenized_trace": "compute|analyze|instantiate|compute|analyze|instantiate|analyze|compute|analyze|instantiate|analyze|apply-formula|substitute|conclude|compute|instantiate|compute|analyze|check-constraint|compute",
+      "tokens": [
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "compute",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "apply-formula",
+        "substitute",
+        "conclude",
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "check-constraint",
+        "compute"
+      ],
+      "token_count": 20,
+      "reasoning_trace": "To find the perimeter of triangle $ABC$, we will proceed step by step, utilizing the properties of isosceles triangles and trigonometry.\n\n**Step 1: Analyze the geometry and given values.**\n*   Triangle $ABC$ is isosceles with $AB = AC$.\n*   $AM$ is the altitude to the base $BC$. Since the triangle is isosceles, $AM$ is also the median and the angle bisector of $\\angle BAC$.\n*   Let $M$ be the origin $(0,0)$ for simplicity, or simply work with lengths relative to $M$.\n*   Given $AM = 11$.\n*   Point $D$ lies on $AM$ such that $AD = 10$.\n*   Since $D$ is on the segment $AM$, the length $DM = AM - AD = 11 - 10 = 1$.\n*   Let $\\alpha = \\angle BAC$.\n*   Since $AM$ bisects $\\angle BAC$, we have $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\n*   Similarly, since $AM$ is the perpendicular bisector of $BC$, $BD = CD$ and $AM$ bisects $\\angle BDC$. Let $\\beta = \\angle BDC$. Then $\\angle BDM = \\angle CDM = \\frac{\\beta}{2}$.\n*   We are given $\\angle BDC = 3\\angle BAC$, so $\\beta = 3\\alpha$.\n*   Therefore, $\\angle BDM = \\frac{3\\alpha}{2}$.\n\n**Step 2: Establish a relationship between the angles using trigonometry.**\nConsider the right-angled triangle $ABM$ (since $AM \\perp BC$).\nLet $BM = x$.\nIn $\\triangle ABM$:\n$$ \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{BM}{AM} = \\frac{x}{11} $$\nSo, $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n\nNow consider the right-angled triangle $DBM$ (since $DM \\perp BC$).\nIn $\\triangle DBM$:\n$$ \\tan\\left(\\frac{\\beta}{2}\\right) = \\frac{BM}{DM} = \\frac{x}{1} $$\nSo, $x = 1 \\cdot \\tan\\left(\\frac{\\beta}{2}\\right) = \\tan\\left(\\frac{3\\alpha}{2}\\right)$.\n\n**Step 3: Solve for $\\alpha$.**\nEquating the two expressions for $x$:\n$$ 11 \\tan\\left(\\frac{\\alpha}{2}\\right) = \\tan\\left(\\frac{3\\alpha}{2}\\right) $$\n\nLet $\\theta = \\frac{\\alpha}{2}$. Then the equation becomes:\n$$ 11 \\tan(\\theta) = \\tan(3\\theta) $$\n\nUse the triple angle identity for tangent: $\\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$.\nSubstitute this into the equation:\n$$ 11 \\tan\\theta = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta} $$\n\nSince $\\alpha$ is an angle of a triangle, $\\alpha > 0$, so $\\theta > 0$ and $\\tan\\theta \\neq 0$. We can divide both sides by $\\tan\\theta$:\n$$ 11 = \\frac{3 - \\tan^2\\theta}{1 - 3\\tan^2\\theta} $$\n\nLet $u = \\tan^2\\theta$.\n$$ 11 = \\frac{3 - u}{1 - 3u} $$\nMultiply both sides by $(1 - 3u)$:\n$$ 11(1 - 3u) = 3 - u $$\n$$ 11 - 33u = 3 - u $$\n$$ 11 - 3 = 33u - u $$\n$$ 8 = 32u $$\n$$ u = \\frac{8}{32} = \\frac{1}{4} $$\n\nSo, $\\tan^2\\theta = \\frac{1}{4}$. Since $\\theta$ is acute (half of a triangle angle), $\\tan\\theta > 0$.\n$$ \\tan\\theta = \\frac{1}{2} $$\n\n**Step 4: Calculate the side lengths of triangle $ABC$.**\nWe know $\\theta = \\frac{\\alpha}{2}$, so $\\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{1}{2}$.\nRecall from Step 2 that $BM = x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n$$ BM = 11 \\cdot \\frac{1}{2} = 5.5 $$\n\nSince $M$ is the midpoint of $BC$, the base $BC = 2 \\cdot BM = 2 \\cdot 5.5 = 11$.\n\nNow we need the length of the equal sides $AB$ (and $AC$).\nIn right $\\triangle ABM$:\n$$ AB = \\sqrt{AM^2 + BM^2} $$\n$$ AB = \\sqrt{11^2 + (5.5)^2} $$\n$$ AB = \\sqrt{121 + 30.25} = \\sqrt{151.25} $$\nAlternatively, using fractions: $BM = \\frac{11}{2}$.\n$$ AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = 11\\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2} $$\n\nSo, $AB = AC = \\frac{11\\sqrt{5}}{2}$.\n\n**Step 5: Calculate the perimeter.**\nThe perimeter $P$ is $AB + AC + BC$.\n$$ P = \\frac{11\\sqrt{5}}{2} + \\frac{11\\sqrt{5}}{2} + 11 $$\n$$ P = 11\\sqrt{5} + 11 $$\n$$ P = 11(\\sqrt{5} + 1) $$\n\nLet's double check the calculation.\n$BM = 5.5$. $AM = 11$.\n$AB = \\sqrt{11^2 + 5.5^2} = 5.5 \\sqrt{2^2 + 1^2} = 5.5 \\sqrt{5} = \\frac{11\\sqrt{5}}{2}$. Correct.\n$BC = 11$. Correct.\nPerimeter = $11\\sqrt{5} + 11$.\n\nThe value is $11(\\sqrt{5} + 1)$.",
+      "matched_success_motifs": [
+        "analyze|instantiate|analyze",
+        "compute|analyze|instantiate",
+        "analyze|instantiate"
+      ],
+      "matched_failure_motifs": [
+        "compute|instantiate",
+        "check-constraint",
+        "apply-formula|substitute",
+        "substitute|conclude",
+        "conclude|compute|instantiate",
+        "apply-formula|substitute|conclude",
+        "substitute|conclude|compute"
+      ]
+    },
+    {
+      "trace_id": "352:6:7",
+      "question_id": "352",
+      "sample_id": "6",
+      "attempt_index": "7",
+      "predicted_answer": "11 + 11\\sqrt{5}",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|analyze|compute|instantiate|analyze|compute|instantiate|compute|analyze|conclude|compute|substitute|instantiate|compute|apply-formula|substitute|compute|instantiate|analyze|compute|check-constraint|analyze|compute",
+      "tokens": [
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "conclude",
+        "compute",
+        "substitute",
+        "instantiate",
+        "compute",
+        "apply-formula",
+        "substitute",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 23,
+      "reasoning_trace": "Let's define the coordinates and variables based on the problem statement.\n\n1.  **Setup and Coordinates**:\n    *   Let $M$ be the origin $(0,0)$. Since $AM$ is the altitude to the base $BC$ of the isosceles triangle $ABC$, $M$ is the midpoint of $BC$, and $AM \\perp BC$.\n    *   We are given $AM = 11$. So, the coordinates of $A$ are $(0, 11)$.\n    *   Point $D$ lies on $AM$ such that $AD = 10$. Since $A$ is at $y=11$ and $M$ is at $y=0$, the distance $DM = AM - AD = 11 - 10 = 1$. Thus, the coordinates of $D$ are $(0, 1)$.\n    *   Let the coordinates of $B$ be $(-x, 0)$ and $C$ be $(x, 0)$, where $x > 0$. The length of the base $BC$ is $2x$.\n    *   The length of the leg $AB$ can be found using the Pythagorean theorem in $\\triangle AMB$: $AB = \\sqrt{AM^2 + BM^2} = \\sqrt{11^2 + x^2} = \\sqrt{121 + x^2}$.\n\n2.  **Analyze the Angles**:\n    *   Let $\\alpha = \\angle BAC$.\n    *   Since $\\triangle ABC$ is isosceles with $AB=AC$, the altitude $AM$ bisects $\\angle BAC$. Therefore, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\n    *   Similarly, in $\\triangle DBC$, $DM$ is the altitude to the base $BC$. Thus, $DM$ bisects $\\angle BDC$.\n    *   We are given $\\angle BDC = 3\\angle BAC = 3\\alpha$.\n    *   Therefore, $\\angle BDM = \\angle CDM = \\frac{3\\alpha}{2}$.\n\n3.  **Relate Angles to Tangents**:\n    *   Consider the right-angled triangle $\\triangle AMB$. The angle $\\angle BAM = \\frac{\\alpha}{2}$.\n        $$ \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{BM}{AM} = \\frac{x}{11} $$\n    *   Consider the right-angled triangle $\\triangle DMB$. The angle $\\angle BDM = \\frac{3\\alpha}{2}$.\n        $$ \\tan\\left(\\frac{3\\alpha}{2}\\right) = \\frac{BM}{DM} = \\frac{x}{1} = x $$\n\n4.  **Solve for $x$**:\n    *   From the first equation, $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n    *   Substitute this into the second equation:\n        $$ 11 \\tan\\left(\\frac{\\alpha}{2}\\right) = \\tan\\left(3 \\cdot \\frac{\\alpha}{2}\\right) $$\n    *   Let $\\theta = \\frac{\\alpha}{2}$. Then $11 \\tan \\theta = \\tan(3\\theta)$.\n    *   Use the triple angle identity for tangent: $\\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$.\n    *   Substitute this into the equation:\n        $$ 11 \\tan \\theta = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta} $$\n    *   Since $\\theta = \\alpha/2$ and $\\alpha$ is an angle of a triangle, $\\theta \\neq 0$, so $\\tan \\theta \\neq 0$. We can divide both sides by $\\tan \\theta$:\n        $$ 11 = \\frac{3 - \\tan^2\\theta}{1 - 3\\tan^2\\theta} $$\n    *   Let $u = \\tan^2\\theta$. Then:\n        $$ 11 = \\frac{3 - u}{1 - 3u} $$\n    *   Multiply both sides by $(1 - 3u)$:\n        $$ 11(1 - 3u) = 3 - u $$\n        $$ 11 - 33u = 3 - u $$\n        $$ 8 = 32u $$\n        $$ u = \\frac{8}{32} = \\frac{1}{4} $$\n    *   So, $\\tan^2\\theta = \\frac{1}{4}$. Since $\\theta$ is acute, $\\tan\\theta = \\frac{1}{2}$.\n\n5.  **Calculate Side Lengths**:\n    *   Recall $x = 11 \\tan \\theta$.\n        $$ x = 11 \\cdot \\frac{1}{2} = 5.5 $$\n    *   The base $BC = 2x = 2(5.5) = 11$.\n    *   The leg $AB = \\sqrt{11^2 + x^2} = \\sqrt{121 + (5.5)^2}$.\n        $$ AB = \\sqrt{121 + 30.25} = \\sqrt{151.25} $$\n        Alternatively, using fractions: $x = \\frac{11}{2}$.\n        $$ AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = 11\\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2} $$\n\n6.  **Calculate Perimeter**:\n    *   The perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\n    *   Since $AB = AC$, $P = 2AB + BC$.\n    *   $P = 2\\left(\\frac{11\\sqrt{5}}{2}\\right) + 11 = 11\\sqrt{5} + 11 = 11(\\sqrt{5} + 1)$.\n\nLet's double check the calculation.\n$\\tan(\\alpha/2) = 1/2$.\n$\\alpha/2 \\approx 26.56^\\circ \\implies \\alpha \\approx 53.13^\\circ$.\n$3\\alpha/2 \\approx 79.7^\\circ$.\n$\\tan(3\\alpha/2) = \\tan(3 \\times 26.56) = \\tan(79.7) \\approx 5.5$.\n$x = 11 \\times 0.5 = 5.5$.\nMatches.\n\nPerimeter = $11 + 11\\sqrt{5}$.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "compute|instantiate",
+        "check-constraint",
+        "apply-formula|substitute",
+        "analyze|compute|instantiate"
+      ]
+    },
+    {
+      "trace_id": "352:7:8",
+      "question_id": "352",
+      "sample_id": "7",
+      "attempt_index": "8",
+      "predicted_answer": "11(\\sqrt{5}+1)",
+      "is_correct": false,
+      "tokenized_trace": "check-constraint|instantiate|compute|instantiate|analyze|apply-formula|substitute|conclude|compute|instantiate|analyze|compute|check-constraint|analyze|compute",
+      "tokens": [
+        "check-constraint",
+        "instantiate",
+        "compute",
+        "instantiate",
+        "analyze",
+        "apply-formula",
+        "substitute",
+        "conclude",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 15,
+      "reasoning_trace": "To find the perimeter of triangle $ABC$, we will proceed step by step, utilizing the properties of isosceles triangles, trigonometry, and the given angle condition.\n\n### Step 1: Analyze the Geometry and Define Variables\nLet the vertices of the triangle be $A$, $B$, and $C$.\nWe are given:\n- $\\triangle ABC$ is isosceles with $AB = AC$.\n- $AM$ is the altitude to the base $BC$, so $AM \\perp BC$ and $M$ is the midpoint of $BC$.\n- The length of the altitude $AM = 11$.\n- Point $D$ lies on $AM$ such that $AD = 10$.\n- Since $AM = 11$ and $AD = 10$, the length $DM = AM - AD = 11 - 10 = 1$.\n- Let $\\angle BAC = \\alpha$.\n- We are given $\\angle BDC = 3\\alpha$.\n\nSince $\\triangle ABC$ is isosceles with $AB=AC$ and $AM$ is the altitude, $AM$ is also the angle bisector of $\\angle BAC$.\nTherefore, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\nSimilarly, in $\\triangle DBC$, $DM$ is the altitude and bisector of $\\angle BDC$ (since $DB=DC$ by symmetry).\nTherefore, $\\angle BDM = \\angle CDM = \\frac{3\\alpha}{2}$.\n\n### Step 2: Relate the Angles using Trigonometry\nLet $BM = x$. Since $M$ is the midpoint of $BC$, $BC = 2x$.\nIn the right-angled triangle $\\triangle ABM$:\n$$ \\tan\\left(\\frac{\\alpha}{2}\\right) = \\frac{BM}{AM} = \\frac{x}{11} $$\nSo, $x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n\nIn the right-angled triangle $\\triangle DBM$:\n$$ \\tan\\left(\\frac{3\\alpha}{2}\\right) = \\frac{BM}{DM} = \\frac{x}{1} $$\nSo, $x = \\tan\\left(\\frac{3\\alpha}{2}\\right)$.\n\n### Step 3: Set up the Equation\nEquating the two expressions for $x$:\n$$ 11 \\tan\\left(\\frac{\\alpha}{2}\\right) = \\tan\\left(\\frac{3\\alpha}{2}\\right) $$\n\nLet $\\theta = \\frac{\\alpha}{2}$. Then the equation becomes:\n$$ 11 \\tan(\\theta) = \\tan(3\\theta) $$\n\nWe use the triple angle identity for tangent:\n$$ \\tan(3\\theta) = \\frac{3\\tan(\\theta) - \\tan^3(\\theta)}{1 - 3\\tan^2(\\theta)} $$\n\nSubstitute this into the equation:\n$$ 11 \\tan(\\theta) = \\frac{3\\tan(\\theta) - \\tan^3(\\theta)}{1 - 3\\tan^2(\\theta)} $$\n\nSince $\\alpha$ is an angle of a triangle, $0 < \\alpha < 180^\\circ$, so $0 < \\theta < 90^\\circ$. Thus $\\tan(\\theta) \\neq 0$. We can divide both sides by $\\tan(\\theta)$:\n$$ 11 = \\frac{3 - \\tan^2(\\theta)}{1 - 3\\tan^2(\\theta)} $$\n\nLet $u = \\tan^2(\\theta)$. Then:\n$$ 11 = \\frac{3 - u}{1 - 3u} $$\n$$ 11(1 - 3u) = 3 - u $$\n$$ 11 - 33u = 3 - u $$\n$$ 8 = 32u $$\n$$ u = \\frac{1}{4} $$\n\nSo, $\\tan^2(\\theta) = \\frac{1}{4}$. Since $\\theta$ is acute, $\\tan(\\theta) = \\frac{1}{2}$.\n\n### Step 4: Calculate the Side Lengths\nNow we can find the lengths of the sides of $\\triangle ABC$.\nRecall $x = BM = 11 \\tan(\\theta)$.\n$$ x = 11 \\cdot \\frac{1}{2} = 5.5 $$\nSo, the base $BC = 2x = 11$.\n\nNext, we find the length of the equal sides $AB$ (and $AC$).\nIn right $\\triangle ABM$:\n$$ AB = \\sqrt{AM^2 + BM^2} $$\n$$ AB = \\sqrt{11^2 + (5.5)^2} $$\n$$ AB = \\sqrt{121 + 30.25} = \\sqrt{151.25} $$\nAlternatively, using fractions: $BM = \\frac{11}{2}$.\n$$ AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = \\sqrt{121 \\cdot \\frac{5}{4}} = 11 \\cdot \\frac{\\sqrt{5}}{2} = \\frac{11\\sqrt{5}}{2} $$\n\n### Step 5: Calculate the Perimeter\nThe perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\nSince $AB = AC$:\n$$ P = 2 \\cdot AB + BC $$\n$$ P = 2 \\cdot \\left(\\frac{11\\sqrt{5}}{2}\\right) + 11 $$\n$$ P = 11\\sqrt{5} + 11 $$\n$$ P = 11(\\sqrt{5} + 1) $$\n\nLet's double check the calculation.\n$\\tan(\\theta) = 0.5$.\n$\\tan(3\\theta) = \\frac{3(0.5) - 0.5^3}{1 - 3(0.5)^2} = \\frac{1.5 - 0.125}{1 - 0.75} = \\frac{1.375}{0.25} = 5.5$.\n$11 \\tan(\\theta) = 11(0.5) = 5.5$.\nMatches.\n\n$BM = 5.5$.\n$BC = 11$.\n$AB = \\sqrt{11^2 + 5.5^2} = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\n$151.25 = \\frac{605}{4}$.\n$\\sqrt{\\frac{605}{4}} = \\frac{\\sqrt{121 \\cdot 5}}{2} = \\frac{11\\sqrt{5}}{2}$.\nPerimeter $= 2 \\cdot \\frac{11\\sqrt{5}}{2} + 11 = 11\\sqrt{5} + 11$.\n\nThe result is $11(\\sqrt{5} + 1)$.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "compute|instantiate",
+        "check-constraint",
+        "apply-formula|substitute",
+        "substitute|conclude",
+        "conclude|compute|instantiate",
+        "apply-formula|substitute|conclude",
+        "substitute|conclude|compute"
+      ]
+    },
+    {
+      "trace_id": "352:8:9",
+      "question_id": "352",
+      "sample_id": "8",
+      "attempt_index": "9",
+      "predicted_answer": "11(\\sqrt{5}+1)",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|compute|analyze|instantiate|compute|instantiate|apply-formula|substitute|compute|rewrite|conclude|compute|substitute|check-constraint|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "instantiate",
+        "apply-formula",
+        "substitute",
+        "compute",
+        "rewrite",
+        "conclude",
+        "compute",
+        "substitute",
+        "check-constraint",
+        "compute"
+      ],
+      "token_count": 15,
+      "reasoning_trace": "To find the perimeter of triangle $ABC$, we will proceed step by step using the given geometric properties and trigonometric relationships.\n\n### Step 1: Analyze the Geometry and Given Values\nLet $\\alpha = \\angle BAC$.\nSince triangle $ABC$ is isosceles with $AB = AC$ and $AM$ is the altitude to $BC$, $AM$ is also the angle bisector of $\\angle BAC$.\nTherefore, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\n\nWe are given:\n- $AM = 11$\n- $D$ lies on $AM$ such that $AD = 10$.\n- $\\angle BDC = 3\\angle BAC = 3\\alpha$.\n\nSince $AM$ is the altitude and the axis of symmetry for the isosceles triangle $ABC$, point $D$ also lies on the perpendicular bisector of $BC$. Thus, triangle $DBC$ is also isosceles with $DB = DC$.\nConsequently, the altitude $DM$ bisects the angle $\\angle BDC$.\nSo, $\\angle BDM = \\frac{1}{2} \\angle BDC = \\frac{3\\alpha}{2}$.\n\n### Step 2: Express Angles in Terms of $\\alpha$\nIn the right-angled triangle $AMB$:\nThe sum of angles is $180^\\circ$.\n$\\angle AMB = 90^\\circ$.\n$\\angle ABM = 90^\\circ - \\angle BAM = 90^\\circ - \\frac{\\alpha}{2}$.\n\nIn the right-angled triangle $DMB$:\n$\\angle DMB = 90^\\circ$.\n$\\angle BDM = \\frac{3\\alpha}{2}$.\nTherefore, $\\angle DBM = 90^\\circ - \\frac{3\\alpha}{2}$.\n\nNotice that $\\angle DBM$ is part of $\\angle ABM$. Specifically, $\\angle ABM = \\angle ABD + \\angle DBM$. However, a more direct relationship can be found by looking at the angles relative to the altitude $AM$.\nLet $\\theta = \\frac{\\alpha}{2}$.\nThen $\\angle BAM = \\theta$ and $\\angle BDM = 3\\theta$.\n\nIn $\\triangle ABM$:\n$\\tan(\\angle BAM) = \\frac{BM}{AM} \\implies \\tan(\\theta) = \\frac{BM}{11}$.\nSo, $BM = 11 \\tan(\\theta)$.\n\nIn $\\triangle DBM$:\n$\\tan(\\angle BDM) = \\frac{BM}{DM} \\implies \\tan(3\\theta) = \\frac{BM}{DM}$.\nSince $D$ is on $AM$ and $AD=10$, $DM = AM - AD = 11 - 10 = 1$.\nSo, $\\tan(3\\theta) = \\frac{BM}{1} = BM$.\n\n### Step 3: Set Up the Equation\nWe now have two expressions for $BM$:\n1. $BM = 11 \\tan(\\theta)$\n2. $BM = \\tan(3\\theta)$\n\nEquating them:\n$$ \\tan(3\\theta) = 11 \\tan(\\theta) $$\n\nLet $t = \\tan(\\theta)$. We use the triple angle identity for tangent:\n$$ \\tan(3\\theta) = \\frac{3\\tan(\\theta) - \\tan^3(\\theta)}{1 - 3\\tan^2(\\theta)} = \\frac{3t - t^3}{1 - 3t^2} $$\n\nSubstitute this into the equation:\n$$ \\frac{3t - t^3}{1 - 3t^2} = 11t $$\n\nSince $\\theta = \\frac{\\alpha}{2}$ and $\\alpha$ is an angle of a triangle, $0 < \\alpha < 180^\\circ$, so $0 < \\theta < 90^\\circ$. Thus $t = \\tan(\\theta) \\neq 0$. We can divide both sides by $t$:\n$$ \\frac{3 - t^2}{1 - 3t^2} = 11 $$\n\n### Step 4: Solve for $t$\nMultiply both sides by $(1 - 3t^2)$:\n$$ 3 - t^2 = 11(1 - 3t^2) $$\n$$ 3 - t^2 = 11 - 33t^2 $$\nRearrange terms to solve for $t^2$:\n$$ 33t^2 - t^2 = 11 - 3 $$\n$$ 32t^2 = 8 $$\n$$ t^2 = \\frac{8}{32} = \\frac{1}{4} $$\nSince $\\theta$ is acute, $t > 0$, so:\n$$ t = \\frac{1}{2} $$\n\n### Step 5: Calculate Side Lengths\nNow we can find the lengths of the sides of triangle $ABC$.\nFirst, find $BM$:\n$$ BM = 11t = 11 \\times \\frac{1}{2} = 5.5 $$\nSince $M$ is the midpoint of $BC$, the base $BC$ is:\n$$ BC = 2 \\times BM = 2 \\times 5.5 = 11 $$\n\nNext, find the length of the equal sides $AB$ (or $AC$).\nIn right $\\triangle ABM$:\n$$ AB = \\sqrt{AM^2 + BM^2} $$\n$$ AB = \\sqrt{11^2 + (5.5)^2} = \\sqrt{121 + 30.25} = \\sqrt{151.25} $$\nAlternatively, using fractions:\n$$ BM = \\frac{11}{2} $$\n$$ AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = \\sqrt{121 \\times \\frac{5}{4}} = 11 \\frac{\\sqrt{5}}{2} $$\n\n### Step 6: Calculate the Perimeter\nThe perimeter $P$ of triangle $ABC$ is:\n$$ P = AB + AC + BC = 2AB + BC $$\nSubstitute the values:\n$$ P = 2 \\left( \\frac{11\\sqrt{5}}{2} \\right) + 11 $$\n$$ P = 11\\sqrt{5} + 11 $$\n$$ P = 11(\\sqrt{5} + 1) $$\n\nLet's double check the calculation.\n$t = 0.5$.\n$\\tan(3\\theta) = \\frac{3(0.5) - 0.125}{1 - 3(0.25)} = \\frac{1.5 - 0.125}{1 - 0.75} = \\frac{1.375}{0.25} = 5.5$.\n$BM = 11 \\times 0.5 = 5.5$.\nMatches.\n$BC = 11$.\n$AB = \\sqrt{11^2 + 5.5^2} = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\n$151.25 = \\frac{605}{4}$.\n$\\sqrt{\\frac{605}{4}} = \\frac{\\sqrt{121 \\times 5}}{2} = \\frac{11\\sqrt{5}}{2}$.\nPerimeter $= 2 \\times \\frac{11\\sqrt{5}}{2} + 11 = 11\\sqrt{5} + 11$.\n\nThe result is $11(\\sqrt{5} + 1)$.",
+      "matched_success_motifs": [
+        "compute|analyze|instantiate",
+        "analyze|instantiate"
+      ],
+      "matched_failure_motifs": [
+        "compute|instantiate",
+        "check-constraint",
+        "apply-formula|substitute"
+      ]
+    },
+    {
+      "trace_id": "352:9:11",
+      "question_id": "352",
+      "sample_id": "9",
+      "attempt_index": "11",
+      "predicted_answer": "11\\sqrt{5} + 11",
+      "is_correct": true,
+      "tokenized_trace": "instantiate|compute|analyze|instantiate|analyze|apply-formula|substitute|compute|instantiate|compute|conclude|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "apply-formula",
+        "substitute",
+        "compute",
+        "instantiate",
+        "compute",
+        "conclude",
+        "compute"
+      ],
+      "token_count": 12,
+      "reasoning_trace": "Let's define the variables and set up the coordinate system based on the problem statement.\n\n1.  **Coordinate System Setup**:\n    Since $\\triangle ABC$ is isosceles with $AB = AC$ and $AM$ is the altitude to $BC$, $M$ is the midpoint of $BC$, and $AM \\perp BC$.\n    Let $M$ be the origin $(0,0)$.\n    Since $AM = 11$, point $A$ is at $(0, 11)$.\n    Point $D$ lies on $AM$ with $AD = 10$. Since $A$ is at $y=11$ and $D$ is between $A$ and $M$, the y-coordinate of $D$ is $11 - 10 = 1$. So, $D$ is at $(0, 1)$.\n    Let the length of $BM$ be $x$. Since $M$ is the midpoint, $C$ is at $(x, 0)$ and $B$ is at $(-x, 0)$.\n\n2.  **Analyze Angles**:\n    Let $\\angle BAC = \\alpha$.\n    Since $AM$ is the altitude and bisector of the vertex angle in an isosceles triangle, $\\angle BAM = \\angle CAM = \\frac{\\alpha}{2}$.\n    In right $\\triangle ABM$, $\\tan(\\frac{\\alpha}{2}) = \\frac{BM}{AM} = \\frac{x}{11}$.\n\n    Now consider $\\angle BDC$.\n    Similarly, $DM$ is the altitude for $\\triangle DBC$ (since $D$ lies on $AM$).\n    In right $\\triangle DBM$, $\\tan(\\angle BDM) = \\frac{BM}{DM}$.\n    The length $DM = AM - AD = 11 - 10 = 1$.\n    So, $\\tan(\\angle BDM) = \\frac{x}{1} = x$.\n    Since $\\triangle DBC$ is also isosceles with $DB=DC$, $\\angle BDC = 2 \\angle BDM$.\n    Let $\\angle BDC = \\beta$. Then $\\beta = 3\\alpha$ is given in the problem.\n    So, $\\angle BDM = \\frac{\\beta}{2} = \\frac{3\\alpha}{2}$.\n\n3.  **Relate the Tangents**:\n    We have two expressions involving $x$:\n    From $\\triangle ABM$: $\\frac{x}{11} = \\tan\\left(\\frac{\\alpha}{2}\\right) \\implies x = 11 \\tan\\left(\\frac{\\alpha}{2}\\right)$.\n    From $\\triangle DBM$: $x = \\tan\\left(\\frac{3\\alpha}{2}\\right)$.\n\n    Equating the expressions for $x$:\n    $$11 \\tan\\left(\\frac{\\alpha}{2}\\right) = \\tan\\left(\\frac{3\\alpha}{2}\\right)$$\n\n    Let $\\theta = \\frac{\\alpha}{2}$. Then the equation becomes:\n    $$11 \\tan(\\theta) = \\tan(3\\theta)$$\n\n4.  **Solve for $\\theta$**:\n    Use the triple angle identity for tangent: $\\tan(3\\theta) = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$.\n    Substitute this into the equation:\n    $$11 \\tan\\theta = \\frac{3\\tan\\theta - \\tan^3\\theta}{1 - 3\\tan^2\\theta}$$\n\n    Since $\\alpha$ is an angle of a triangle, $\\alpha > 0$, so $\\theta > 0$, which implies $\\tan\\theta \\neq 0$. We can divide both sides by $\\tan\\theta$:\n    $$11 = \\frac{3 - \\tan^2\\theta}{1 - 3\\tan^2\\theta}$$\n\n    Let $u = \\tan^2\\theta$.\n    $$11 = \\frac{3 - u}{1 - 3u}$$\n    Multiply both sides by $(1 - 3u)$:\n    $$11(1 - 3u) = 3 - u$$\n    $$11 - 33u = 3 - u$$\n    $$8 = 32u$$\n    $$u = \\frac{8}{32} = \\frac{1}{4}$$\n\n    So, $\\tan^2\\theta = \\frac{1}{4}$.\n    Since $\\theta$ is half an angle of a triangle, $\\theta$ is acute, so $\\tan\\theta > 0$.\n    $$\\tan\\theta = \\frac{1}{2}$$\n\n5.  **Calculate Side Lengths**:\n    Recall $x = 11 \\tan\\theta$.\n    $$x = 11 \\times \\frac{1}{2} = 5.5$$\n    So, $BM = 5.5$.\n    Since $M$ is the midpoint of $BC$, $BC = 2 \\times BM = 11$.\n\n    Now find the length of the equal sides $AB$ (and $AC$).\n    In right $\\triangle ABM$:\n    $$AB = \\sqrt{AM^2 + BM^2} = \\sqrt{11^2 + (5.5)^2}$$\n    $$AB = \\sqrt{121 + 30.25} = \\sqrt{151.25}$$\n    Alternatively, using fractions: $BM = \\frac{11}{2}$.\n    $$AB = \\sqrt{11^2 + \\left(\\frac{11}{2}\\right)^2} = \\sqrt{121 + \\frac{121}{4}} = \\sqrt{121\\left(1 + \\frac{1}{4}\\right)} = 11\\sqrt{\\frac{5}{4}} = \\frac{11\\sqrt{5}}{2}$$\n\n6.  **Calculate Perimeter**:\n    The perimeter $P$ of $\\triangle ABC$ is $AB + AC + BC$.\n    Since $AB = AC$:\n    $$P = 2AB + BC$$\n    $$P = 2\\left(\\frac{11\\sqrt{5}}{2}\\right) + 11$$\n    $$P = 11\\sqrt{5} + 11$$\n    $$P = 11(\\sqrt{5} + 1)$$\n\n    Let's double check the calculation.\n    $x = 5.5$.\n    $AB = \\sqrt{121 + 30.25} = \\sqrt{151.25}$.\n    $151.25 = \\frac{605}{4}$.\n    $\\sqrt{\\frac{605}{4}} = \\frac{\\sqrt{121 \\times 5}}{2} = \\frac{11\\sqrt{5}}{2}$.\n    $2AB = 11\\sqrt{5}$.\n    $BC = 11$.\n    Perimeter = $11\\sqrt{5} + 11$.\n\n    The value seems correct.",
+      "matched_success_motifs": [
+        "compute|conclude|compute",
+        "instantiate|compute|conclude",
+        "compute|conclude",
+        "analyze|instantiate|analyze",
+        "compute|analyze|instantiate",
+        "analyze|instantiate"
+      ],
+      "matched_failure_motifs": [
+        "compute|instantiate",
+        "apply-formula|substitute"
+      ]
+    }
+  ]
+}

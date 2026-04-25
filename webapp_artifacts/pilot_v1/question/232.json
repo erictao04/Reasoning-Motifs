@@ -1,0 +1,1361 @@
+{
+  "question_id": "232",
+  "question_text": "If $\\omega^{1997} = 1$ and $\\omega \\neq 1,$ then evaluate\n\\[\\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}.\\]",
+  "gold_answer": "\\frac{1997}{2}",
+  "benchmark_name": "math_500",
+  "pilot_question_uid": "math500_level35_random100_10samples:q232",
+  "total_traces": 10,
+  "success_count": 4,
+  "failure_count": 6,
+  "success_rate": 0.4,
+  "avg_token_count": 22.7,
+  "median_token_count": 21.0,
+  "distinct_predicted_answers": 2,
+  "tags": [
+    "mixed_outcomes",
+    "hard_question"
+  ],
+  "insights": [
+    "This question shows mixed outcomes: 4 successful traces versus 6 failures.",
+    "Successful traces tend to be longer than failed traces on this question.",
+    "The strongest local success motif is \"rewrite|analyze\", appearing more often in correct traces.",
+    "The strongest local failure motif is \"analyze|compute|analyze\", which clusters with incorrect attempts."
+  ],
+  "answer_distribution": [
+    {
+      "answer": "998.5",
+      "count": 6,
+      "share": 0.6
+    },
+    {
+      "answer": "\\frac{1997}{2}",
+      "count": 4,
+      "share": 0.4
+    }
+  ],
+  "local_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "rewrite|analyze",
+        "tokens": [
+          "rewrite",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 4,
+        "failure_count": 2,
+        "success_support": 1.0,
+        "failure_support": 0.3333333333333333,
+        "support_difference": 0.6666666666666667,
+        "lift": 2.999999991,
+        "log_odds_ratio": 2.785011242238338,
+        "q_value": 0.9230769230769231
+      },
+      {
+        "motif": "conclude|compute",
+        "tokens": [
+          "conclude",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 3,
+        "failure_count": 1,
+        "success_support": 0.75,
+        "failure_support": 0.16666666666666666,
+        "support_difference": 0.5833333333333334,
+        "lift": 4.499999973,
+        "log_odds_ratio": 2.1465808445174646,
+        "q_value": 1.0
+      },
+      {
+        "motif": "rewrite|analyze|check-constraint",
+        "tokens": [
+          "rewrite",
+          "analyze",
+          "check-constraint"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 3,
+        "failure_count": 1,
+        "success_support": 0.75,
+        "failure_support": 0.16666666666666666,
+        "support_difference": 0.5833333333333334,
+        "lift": 4.499999973,
+        "log_odds_ratio": 2.1465808445174646,
+        "q_value": 1.0
+      },
+      {
+        "motif": "count|analyze|conclude",
+        "tokens": [
+          "count",
+          "analyze",
+          "conclude"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.5,
+        "failure_support": 0.0,
+        "support_difference": 0.5,
+        "lift": 499999999.99999994,
+        "log_odds_ratio": 2.5649493574615367,
+        "q_value": 0.9230769230769231
+      },
+      {
+        "motif": "instantiate|compute|apply-formula",
+        "tokens": [
+          "instantiate",
+          "compute",
+          "apply-formula"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.5,
+        "failure_support": 0.0,
+        "support_difference": 0.5,
+        "lift": 499999999.99999994,
+        "log_odds_ratio": 2.5649493574615367,
+        "q_value": 0.9230769230769231
+      },
+      {
+        "motif": "compute|instantiate|count",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "count"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.5,
+        "failure_support": 0.0,
+        "support_difference": 0.5,
+        "lift": 499999999.99999994,
+        "log_odds_ratio": 2.5649493574615367,
+        "q_value": 0.9230769230769231
+      },
+      {
+        "motif": "instantiate|compute|rewrite",
+        "tokens": [
+          "instantiate",
+          "compute",
+          "rewrite"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.5,
+        "failure_support": 0.0,
+        "support_difference": 0.5,
+        "lift": 499999999.99999994,
+        "log_odds_ratio": 2.5649493574615367,
+        "q_value": 0.9230769230769231
+      },
+      {
+        "motif": "instantiate|count",
+        "tokens": [
+          "instantiate",
+          "count"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "success",
+        "success_count": 2,
+        "failure_count": 0,
+        "success_support": 0.5,
+        "failure_support": 0.0,
+        "support_difference": 0.5,
+        "lift": 499999999.99999994,
+        "log_odds_ratio": 2.5649493574615367,
+        "q_value": 0.9230769230769231
+      }
+    ],
+    "failure": [
+      {
+        "motif": "analyze|compute|analyze",
+        "tokens": [
+          "analyze",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 4,
+        "success_support": 0.0,
+        "failure_support": 0.6666666666666666,
+        "support_difference": -0.6666666666666666,
+        "lift": 0.0,
+        "log_odds_ratio": -2.7850112422383386,
+        "q_value": 0.9230769230769231
+      },
+      {
+        "motif": "check-constraint|analyze|compute",
+        "tokens": [
+          "check-constraint",
+          "analyze",
+          "compute"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 3,
+        "success_support": 0.0,
+        "failure_support": 0.5,
+        "support_difference": -0.5,
+        "lift": 0.0,
+        "log_odds_ratio": -2.1972245773362196,
+        "q_value": 1.0
+      },
+      {
+        "motif": "check-constraint|analyze",
+        "tokens": [
+          "check-constraint",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 3,
+        "success_support": 0.0,
+        "failure_support": 0.5,
+        "support_difference": -0.5,
+        "lift": 0.0,
+        "log_odds_ratio": -2.1972245773362196,
+        "q_value": 1.0
+      },
+      {
+        "motif": "count|compute",
+        "tokens": [
+          "count",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 2,
+        "failure_count": 5,
+        "success_support": 0.5,
+        "failure_support": 0.8333333333333334,
+        "support_difference": -0.33333333333333337,
+        "lift": 0.59999999928,
+        "log_odds_ratio": -1.2992829841302607,
+        "q_value": 1.0
+      },
+      {
+        "motif": "conclude|count|analyze",
+        "tokens": [
+          "conclude",
+          "count",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 2,
+        "success_support": 0.0,
+        "failure_support": 0.3333333333333333,
+        "support_difference": -0.3333333333333333,
+        "lift": 0.0,
+        "log_odds_ratio": -1.6094379124341005,
+        "q_value": 1.0
+      },
+      {
+        "motif": "compute|analyze|conclude",
+        "tokens": [
+          "compute",
+          "analyze",
+          "conclude"
+        ],
+        "length": 3,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 2,
+        "success_support": 0.0,
+        "failure_support": 0.3333333333333333,
+        "support_difference": -0.3333333333333333,
+        "lift": 0.0,
+        "log_odds_ratio": -1.6094379124341005,
+        "q_value": 1.0
+      },
+      {
+        "motif": "apply-formula|compute",
+        "tokens": [
+          "apply-formula",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 2,
+        "success_support": 0.0,
+        "failure_support": 0.3333333333333333,
+        "support_difference": -0.3333333333333333,
+        "lift": 0.0,
+        "log_odds_ratio": -1.6094379124341005,
+        "q_value": 1.0
+      },
+      {
+        "motif": "compare",
+        "tokens": [
+          "compare"
+        ],
+        "length": 1,
+        "scope": "question_local",
+        "direction": "failure",
+        "success_count": 0,
+        "failure_count": 2,
+        "success_support": 0.0,
+        "failure_support": 0.3333333333333333,
+        "support_difference": -0.3333333333333333,
+        "lift": 0.0,
+        "log_odds_ratio": -1.6094379124341005,
+        "q_value": 1.0
+      }
+    ]
+  },
+  "global_motifs": {
+    "available": true,
+    "reason": null,
+    "success": [
+      {
+        "motif": "case-split",
+        "tokens": [
+          "case-split"
+        ],
+        "length": 1,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 56,
+        "failure_count": 10,
+        "success_support": 0.2994652406417112,
+        "failure_support": 0.13333333333333333,
+        "support_difference": 0.16613190730837787,
+        "lift": 2.2459892879679146,
+        "log_odds_ratio": 0.9859086720123047,
+        "q_value": 0.12700879161005763
+      },
+      {
+        "motif": "analyze|compute",
+        "tokens": [
+          "analyze",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 139,
+        "failure_count": 47,
+        "success_support": 0.7433155080213903,
+        "failure_support": 0.6266666666666667,
+        "support_difference": 0.11664884135472364,
+        "lift": 1.1861417662264604,
+        "log_odds_ratio": 0.5456751795519921,
+        "q_value": 0.5170493423981184
+      },
+      {
+        "motif": "check-constraint|instantiate",
+        "tokens": [
+          "check-constraint",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 29,
+        "failure_count": 4,
+        "success_support": 0.15508021390374332,
+        "failure_support": 0.05333333333333334,
+        "support_difference": 0.10174688057040998,
+        "lift": 2.9077539561748007,
+        "log_odds_ratio": 1.0842557229521268,
+        "q_value": 0.2590575790198284
+      },
+      {
+        "motif": "conclude|analyze",
+        "tokens": [
+          "conclude",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 30,
+        "failure_count": 5,
+        "success_support": 0.16042780748663102,
+        "failure_support": 0.06666666666666667,
+        "support_difference": 0.09376114081996435,
+        "lift": 2.4064170762032093,
+        "log_odds_ratio": 0.9091658429274759,
+        "q_value": 0.44877234845590286
+      },
+      {
+        "motif": "check-constraint|compute|analyze",
+        "tokens": [
+          "check-constraint",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 19,
+        "failure_count": 1,
+        "success_support": 0.10160427807486631,
+        "failure_support": 0.013333333333333334,
+        "support_difference": 0.08827094474153298,
+        "lift": 7.620320284090952,
+        "log_odds_ratio": 1.7488127330546341,
+        "q_value": 0.24439853663472808
+      },
+      {
+        "motif": "analyze|compute|analyze",
+        "tokens": [
+          "analyze",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 61,
+        "failure_count": 18,
+        "success_support": 0.32620320855614976,
+        "failure_support": 0.24,
+        "support_difference": 0.08620320855614977,
+        "lift": 1.359180029987374,
+        "log_odds_ratio": 0.41280908236392305,
+        "q_value": 0.7598319082426742
+      },
+      {
+        "motif": "analyze|check-constraint",
+        "tokens": [
+          "analyze",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 48,
+        "failure_count": 13,
+        "success_support": 0.25668449197860965,
+        "failure_support": 0.17333333333333334,
+        "support_difference": 0.08335115864527631,
+        "lift": 1.4808720605638708,
+        "log_odds_ratio": 0.47597606797998926,
+        "q_value": 0.7598319082426742
+      },
+      {
+        "motif": "analyze|instantiate",
+        "tokens": [
+          "analyze",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "success",
+        "success_count": 107,
+        "failure_count": 37,
+        "success_support": 0.5721925133689839,
+        "failure_support": 0.49333333333333335,
+        "support_difference": 0.07885918003565057,
+        "lift": 1.1598496869104071,
+        "log_odds_ratio": 0.3155509714605732,
+        "q_value": 0.921353659271186
+      }
+    ],
+    "failure": [
+      {
+        "motif": "conclude|compute",
+        "tokens": [
+          "conclude",
+          "compute"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 36,
+        "failure_count": 34,
+        "success_support": 0.1925133689839572,
+        "failure_support": 0.4533333333333333,
+        "support_difference": -0.2608199643493761,
+        "lift": 0.4246618424102104,
+        "log_odds_ratio": -1.2385392611616395,
+        "q_value": 0.013014976654953778
+      },
+      {
+        "motif": "apply-formula",
+        "tokens": [
+          "apply-formula"
+        ],
+        "length": 1,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 80,
+        "failure_count": 46,
+        "success_support": 0.42780748663101603,
+        "failure_support": 0.6133333333333333,
+        "support_difference": -0.18552584670231725,
+        "lift": 0.697512205326365,
+        "log_odds_ratio": -0.7442957123907363,
+        "q_value": 0.17345516068302833
+      },
+      {
+        "motif": "compute|instantiate",
+        "tokens": [
+          "compute",
+          "instantiate"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 79,
+        "failure_count": 45,
+        "success_support": 0.42245989304812837,
+        "failure_support": 0.6,
+        "support_difference": -0.1775401069518716,
+        "lift": 0.7040998205733809,
+        "log_odds_ratio": -0.7109787936637668,
+        "q_value": 0.20978919397023355
+      },
+      {
+        "motif": "compute|check-constraint",
+        "tokens": [
+          "compute",
+          "check-constraint"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 46,
+        "failure_count": 31,
+        "success_support": 0.24598930481283424,
+        "failure_support": 0.41333333333333333,
+        "support_difference": -0.1673440285204991,
+        "lift": 0.5951354134299165,
+        "log_odds_ratio": -0.7673457611493745,
+        "q_value": 0.18673130699197357
+      },
+      {
+        "motif": "analyze|apply-formula",
+        "tokens": [
+          "analyze",
+          "apply-formula"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 15,
+        "failure_count": 18,
+        "success_support": 0.08021390374331551,
+        "failure_support": 0.24,
+        "support_difference": -0.1597860962566845,
+        "lift": 0.3342245975378788,
+        "log_odds_ratio": -1.2755429968271879,
+        "q_value": 0.048381983504224305
+      },
+      {
+        "motif": "conclude|compute|analyze",
+        "tokens": [
+          "conclude",
+          "compute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 7,
+        "failure_count": 14,
+        "success_support": 0.0374331550802139,
+        "failure_support": 0.18666666666666668,
+        "support_difference": -0.14923351158645276,
+        "lift": 0.2005347582839954,
+        "log_odds_ratio": -1.7359392318447275,
+        "q_value": 0.019239368993132517
+      },
+      {
+        "motif": "substitute|analyze",
+        "tokens": [
+          "substitute",
+          "analyze"
+        ],
+        "length": 2,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 5,
+        "failure_count": 13,
+        "success_support": 0.026737967914438502,
+        "failure_support": 0.17333333333333334,
+        "support_difference": -0.14659536541889484,
+        "lift": 0.1542575063087365,
+        "log_odds_ratio": -1.9695252094861488,
+        "q_value": 0.013014976654953778
+      },
+      {
+        "motif": "compute|substitute|analyze",
+        "tokens": [
+          "compute",
+          "substitute",
+          "analyze"
+        ],
+        "length": 3,
+        "scope": "corpus_global",
+        "direction": "failure",
+        "success_count": 2,
+        "failure_count": 10,
+        "success_support": 0.0106951871657754,
+        "failure_support": 0.13333333333333333,
+        "support_difference": -0.12263814616755793,
+        "lift": 0.08021390314171123,
+        "log_odds_ratio": -2.4760892646956063,
+        "q_value": 0.013014976654953778
+      }
+    ]
+  },
+  "representative_traces": {
+    "success": [
+      {
+        "trace_id": "232:7:25",
+        "question_id": "232",
+        "sample_id": "7",
+        "attempt_index": "25",
+        "predicted_answer": "\\frac{1997}{2}",
+        "is_correct": true,
+        "tokenized_trace": "compute|instantiate|compute|analyze|instantiate|compute|rewrite|analyze|check-constraint|compute|analyze|check-constraint|compute|backtrack|compute|instantiate|count|instantiate|analyze|count|compute|substitute|check-constraint|instantiate|compute|apply-formula|analyze|instantiate|compute|conclude|check-constraint",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "compute",
+          "analyze",
+          "instantiate",
+          "compute",
+          "rewrite",
+          "analyze",
+          "check-constraint",
+          "compute",
+          "analyze",
+          "check-constraint",
+          "compute",
+          "backtrack",
+          "compute",
+          "instantiate",
+          "count",
+          "instantiate",
+          "analyze",
+          "count",
+          "compute",
+          "substitute",
+          "check-constraint",
+          "instantiate",
+          "compute",
+          "apply-formula",
+          "analyze",
+          "instantiate",
+          "compute",
+          "conclude",
+          "check-constraint"
+        ],
+        "token_count": 31,
+        "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Analyze the properties of $\\omega$\nLet $n = 1997$. The given condition is $\\omega^n = 1$ with $\\omega \\neq 1$. This implies that $\\omega$ is a primitive $n$-th root of unity (or a power thereof, but since the sum runs through all powers $1$ to $n$, the specific order doesn't change the set of values $\\{\\omega, \\omega^2, \\dots, \\omega^n\\}$).\nThe set of values $\\{\\omega^k \\mid k = 1, 2, \\dots, n\\}$ is exactly the set of all $n$-th roots of unity. Let's denote the set of all $n$-th roots of unity as $\\{\\zeta_0, \\zeta_1, \\dots, \\zeta_{n-1}\\}$, where $\\zeta_k = e^{i \\frac{2\\pi k}{n}}$.\nSpecifically, $\\omega^n = 1$ implies $\\omega^k$ cycles through the roots. Since $n=1997$ is a prime number (though primality isn't strictly necessary for the algebraic manipulation, it ensures $\\omega$ generates all roots if it's primitive; even if not, the set $\\{\\omega, \\omega^2, \\dots, \\omega^n\\}$ contains each root of unity exactly once if $\\omega$ is a generator, or repeats if not. However, the problem statement usually implies $\\omega$ is a primitive root or the sum is over the distinct roots. Let's assume the standard interpretation where the terms cover the set of all $n$-th roots of unity exactly once. Note that $\\omega^n = 1$, so the last term is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$. The terms $\\omega^1, \\dots, \\omega^{n-1}$ are the non-1 roots.\n\nLet the set of indices be $k \\in \\{1, 2, \\dots, n\\}$. The sum is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}. \\]\n\n### Step 2: Pairing terms\nConsider the term for index $k$ and the term for index $n-k$.\nNote that $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\frac{1}{\\omega^k}$.\nLet's look at the sum of the $k$-th term and the $(n-k)$-th term.\nThe $k$-th term is $T_k = \\frac{1}{1 + \\omega^k}$.\nThe $(n-k)$-th term is $T_{n-k} = \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^{-k}}$.\n\nSimplify $T_{n-k}$:\n\\[ T_{n-k} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k}. \\]\n\nNow, add $T_k$ and $T_{n-k}$:\n\\[ T_k + T_{n-k} = \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1. \\]\nThis holds provided $1 + \\omega^k \\neq 0$. Since $\\omega^k = -1$ would imply $\\omega^{2k} = 1$. If $n=1997$ is odd, $-1$ is not an $n$-th root of unity (because $(-1)^n = -1 \\neq 1$). Thus, $1 + \\omega^k \\neq 0$ for any $k$.\n\n### Step 3: Grouping the sum\nThe sum runs from $k=1$ to $n$. We can pair the terms $k$ and $n-k$.\nThe indices are $\\{1, 2, \\dots, n\\}$.\n- For $k=1$, pair with $n-1$.\n- For $k=2$, pair with $n-2$.\n- ...\n- We need to check if any index is its own pair. This happens if $k = n-k$, which implies $2k = n$. Since $n = 1997$ is odd, there is no integer $k$ such that $2k = n$.\n- Also, consider the term where $k=n$. The pair would be $n-n=0$. But our sum starts at $k=1$.\nWait, let's re-evaluate the range. The sum is $k=1$ to $n$.\nThe set of exponents is $\\{1, 2, \\dots, n\\}$.\nSince $\\omega^n = 1$, the term for $k=n$ is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$.\nThe term for $k=0$ (if it existed) would be $\\frac{1}{1+\\omega^0} = \\frac{1}{2}$.\nNotice that $n \\equiv 0 \\pmod n$. So the term $k=n$ corresponds to the root $1$.\nThe other terms $k=1, \\dots, n-1$ correspond to the non-1 roots.\nLet's pair $k$ with $n-k$ for $k = 1, 2, \\dots, n-1$.\nSince $n$ is odd, the mapping $k \\to n-k$ is a permutation of $\\{1, 2, \\dots, n-1\\}$ with no fixed points (because $2k \\neq n$).\nThus, the set $\\{1, 2, \\dots, n-1\\}$ can be perfectly partitioned into $\\frac{n-1}{2}$ pairs of the form $\\{k, n-k\\}$.\nEach pair sums to 1.\nNumber of pairs = $\\frac{n-1}{2}$.\nSum of these pairs = $\\frac{n-1}{2} \\times 1 = \\frac{n-1}{2}$.\n\nNow add the remaining term, which is $k=n$:\n\\[ T_n = \\frac{1}{1 + \\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}. \\]\n\nTotal sum $S$:\n\\[ S = \\left( \\sum_{k=1}^{n-1} \\frac{1}{1+\\omega^k} \\right) + \\frac{1}{2} = \\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}. \\]\n\n### Step 4: Calculation\nSubstitute $n = 1997$:\n\\[ S = \\frac{1997}{2}. \\]\n\nLet's double check with a small odd $n$.\nLet $n=3$. Roots are $1, \\omega, \\omega^2$ where $\\omega^3=1, \\omega \\neq 1$.\nSum = $\\frac{1}{1+\\omega} + \\frac{1}{1+\\omega^2} + \\frac{1}{1+\\omega^3}$.\n$\\omega^3 = 1$.\nTerm 3: $\\frac{1}{1+1} = 0.5$.\nPair 1 and 2: $k=1, n-k=2$. Sum = 1.\nTotal = $1 + 0.5 = 1.5 = 3/2$.\nFormula gives $n/2 = 3/2$. Correct.\n\nLet $n=1$. Sum = $\\frac{1}{1+\\omega^1}$. But $\\omega^1=1$ and $\\omega \\neq 1$ is a contradiction. So $n>1$.\nThe problem states $n=1997$, which is valid.\n\nThe result is $\\frac{1997}{2}$.",
+        "matched_success_motifs": [
+          "rewrite|analyze",
+          "rewrite|analyze|check-constraint",
+          "instantiate|compute|apply-formula",
+          "compute|instantiate|count",
+          "instantiate|compute|rewrite",
+          "instantiate|count"
+        ],
+        "matched_failure_motifs": [
+          "count|compute"
+        ]
+      },
+      {
+        "trace_id": "232:4:18",
+        "question_id": "232",
+        "sample_id": "4",
+        "attempt_index": "18",
+        "predicted_answer": "\\frac{1997}{2}",
+        "is_correct": true,
+        "tokenized_trace": "compute|instantiate|compute|analyze|instantiate|compute|rewrite|analyze|check-constraint|compute|count|analyze|conclude|compute|instantiate|compute|backtrack|instantiate|compute|count|compute",
+        "tokens": [
+          "compute",
+          "instantiate",
+          "compute",
+          "analyze",
+          "instantiate",
+          "compute",
+          "rewrite",
+          "analyze",
+          "check-constraint",
+          "compute",
+          "count",
+          "analyze",
+          "conclude",
+          "compute",
+          "instantiate",
+          "compute",
+          "backtrack",
+          "instantiate",
+          "compute",
+          "count",
+          "compute"
+        ],
+        "token_count": 21,
+        "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Analyze the properties of $\\omega$\nThe condition $\\omega^{1997} = 1$ with $\\omega \\neq 1$ implies that $\\omega$ is a primitive $d$-th root of unity for some divisor $d$ of $1997$ where $d > 1$. Since $1997$ is a prime number (it is not divisible by 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47; $47^2 = 2209 > 1997$), the only divisors are 1 and 1997.\nTherefore, $\\omega$ must be a primitive $1997$-th root of unity.\nThe set of powers $\\{ \\omega^1, \\omega^2, \\dots, \\omega^{1997} \\}$ contains all the $1997$-th roots of unity exactly once. Note that $\\omega^{1997} = 1$.\n\n### Step 2: Group the terms\nLet $n = 1997$. The sum is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}. \\]\nWe can pair the terms $k$ and $n-k$. Note that as $k$ ranges from $1$ to $n-1$, the term $n-k$ also ranges from $n-1$ to $1$. The term for $k=n$ corresponds to $\\omega^n = 1$.\nLet's separate the last term ($k=n$) and pair the rest:\n\\[ S = \\frac{1}{1 + \\omega^n} + \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k}. \\]\nSince $\\omega^n = 1$, the first term is:\n\\[ \\frac{1}{1 + 1} = \\frac{1}{2}. \\]\nNow consider the sum for $k=1$ to $n-1$. We pair the term for $k$ with the term for $n-k$.\nLet $j = n-k$. Then $\\omega^j = \\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\frac{1}{\\omega^k}$.\nConsider the sum of a pair:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{-k}}. \\]\nSimplify the second fraction:\n\\[ \\frac{1}{1 + \\omega^{-k}} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k}. \\]\nAdding them together:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1. \\]\nThis holds for any $k$ such that $1 \\le k \\le n-1$ and $\\omega^k \\neq -1$. Since $n=1997$ is odd, $-1$ is not an $n$-th root of unity (because $(-1)^n = -1 \\neq 1$). Thus, the denominator is never zero.\n\n### Step 3: Calculate the total sum\nThe sum from $k=1$ to $n-1$ consists of $\\frac{n-1}{2}$ pairs.\nSince $n = 1997$, the number of pairs is $\\frac{1997 - 1}{2} = \\frac{1996}{2} = 998$.\nEach pair sums to $1$.\nSo,\n\\[ \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} = 998 \\times 1 = 998. \\]\nAdding the isolated term for $k=n$:\n\\[ S = 998 + \\frac{1}{2} = 998.5. \\]\nAlternatively, using fractions:\n\\[ S = 998 + \\frac{1}{2} = \\frac{1996}{2} + \\frac{1}{2} = \\frac{1997}{2}. \\]\n\n### Alternative General Approach\nConsider the polynomial $P(x) = x^n - 1 = \\prod_{k=0}^{n-1} (x - \\omega^k)$.\nThe roots are $1, \\omega, \\omega^2, \\dots, \\omega^{n-1}$.\nOur sum includes $\\omega^n = 1$ as well.\nLet's look at the function $f(x) = \\frac{1}{1+x}$. We are summing $f(\\omega^k)$ for $k=1, \\dots, n$.\nUsing the property that $\\sum_{k=0}^{n-1} \\frac{1}{1-\\omega^k} = \\frac{n-1}{2}$ is a known result for roots of unity, but our denominator is $1+\\omega^k$.\nLet's re-verify the pairing logic.\nThe set of values $\\{\\omega^1, \\omega^2, \\dots, \\omega^n\\}$ is exactly the set of all $n$-th roots of unity $\\{1, \\zeta, \\zeta^2, \\dots, \\zeta^{n-1}\\}$ where $\\zeta = \\omega$.\nSo the sum is $S = \\sum_{j=0}^{n-1} \\frac{1}{1+\\zeta^j}$.\nPair $j$ and $n-j$.\nFor $j=0$, term is $\\frac{1}{1+1} = 1/2$.\nFor $j \\in \\{1, \\dots, n-1\\}$, pair $j$ with $n-j$.\nSum of pair: $\\frac{1}{1+\\zeta^j} + \\frac{1}{1+\\zeta^{-j}} = 1$.\nNumber of pairs is $(n-1)/2$.\nTotal sum = $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\nHere $n = 1997$.\nSo $S = \\frac{1997}{2}$.",
+        "matched_success_motifs": [
+          "rewrite|analyze",
+          "conclude|compute",
+          "rewrite|analyze|check-constraint",
+          "count|analyze|conclude",
+          "instantiate|compute|rewrite"
+        ],
+        "matched_failure_motifs": [
+          "count|compute"
+        ]
+      },
+      {
+        "trace_id": "232:9:31",
+        "question_id": "232",
+        "sample_id": "9",
+        "attempt_index": "31",
+        "predicted_answer": "\\frac{1997}{2}",
+        "is_correct": true,
+        "tokenized_trace": "instantiate|compute|instantiate|analyze|compute|instantiate|rewrite|analyze|check-constraint|compute|instantiate|count|analyze|compute|instantiate|compute|case-split|compute|conclude|compute",
+        "tokens": [
+          "instantiate",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute",
+          "instantiate",
+          "rewrite",
+          "analyze",
+          "check-constraint",
+          "compute",
+          "instantiate",
+          "count",
+          "analyze",
+          "compute",
+          "instantiate",
+          "compute",
+          "case-split",
+          "compute",
+          "conclude",
+          "compute"
+        ],
+        "token_count": 20,
+        "reasoning_trace": "Let $n = 1997$. We are given that $\\omega^n = 1$ and $\\omega \\neq 1$. This implies that $\\omega$ is a primitive $d$-th root of unity for some divisor $d$ of $n$. Since $n = 1997$ is a prime number, the divisors of $n$ are $1$ and $1997$. Since $\\omega \\neq 1$, $\\omega$ must be a primitive $1997$-th root of unity.\n\nThe sum to evaluate is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k} \\]\nwhere $n = 1997$.\n\n**Step 1: Analyze the terms in the sum.**\nThe terms in the sum are of the form $a_k = \\frac{1}{1 + \\omega^k}$.\nThe exponents $k$ range from $1$ to $n$. Since $\\omega^n = 1$, the value $\\omega^n = \\omega^0 = 1$.\nHowever, the sum includes the term for $k=n$, which is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$.\nThe other terms correspond to $k = 1, 2, \\dots, n-1$. Since $n$ is prime, the set $\\{\\omega^1, \\omega^2, \\dots, \\omega^{n-1}\\}$ consists of all the non-real $n$-th roots of unity.\n\n**Step 2: Pair symmetric terms.**\nConsider the term corresponding to the exponent $n-k$.\nSince $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\omega^{-k}$.\nLet's look at the sum of the term for $k$ and the term for $n-k$:\n\\[ a_k + a_{n-k} = \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{-k}} \\]\nSimplify the second fraction:\n\\[ \\frac{1}{1 + \\omega^{-k}} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k} \\]\nNow add the two fractions:\n\\[ a_k + a_{n-k} = \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1 \\]\nThis holds for any $k$ such that $1 \\le k < n$ and $k \\neq n-k$.\n\n**Step 3: Check for self-paired terms.**\nWe need to check if there is any $k$ such that $k = n-k$.\n$2k = n \\implies k = n/2$.\nSince $n = 1997$ is an odd number, $n/2$ is not an integer. Thus, there are no terms where $k = n-k$ within the range $1, \\dots, n-1$.\nThe set of indices $\\{1, 2, \\dots, n-1\\}$ can be perfectly partitioned into pairs $(k, n-k)$.\nThe number of such indices is $n-1 = 1996$.\nThe number of pairs is $\\frac{1996}{2} = 998$.\nEach pair sums to $1$.\nSo, the sum of the first $n-1$ terms is:\n\\[ \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} = 998 \\times 1 = 998 \\]\n\n**Step 4: Add the last term.**\nThe original sum goes up to $k=n$.\nThe last term is:\n\\[ \\frac{1}{1 + \\omega^n} = \\frac{1}{1 + 1} = \\frac{1}{2} \\]\nSo the total sum $S$ is:\n\\[ S = \\left( \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} \\right) + \\frac{1}{1 + \\omega^n} \\]\n\\[ S = 998 + \\frac{1}{2} = 998.5 \\]\n\nAlternatively, using fractions:\n\\[ S = 998 + \\frac{1}{2} = \\frac{1996}{2} + \\frac{1}{2} = \\frac{1997}{2} \\]\n\nLet's double check the logic.\nThe roots are $\\omega^1, \\omega^2, \\dots, \\omega^{1996}, \\omega^{1997}$.\nNote that $\\omega^{1997} = 1$.\nThe set of values $\\{\\omega^1, \\dots, \\omega^{1996}\\}$ are the roots of $z^{1997}-1=0$ excluding $z=1$.\nThe sum is $\\sum_{k=1}^{1996} \\frac{1}{1+\\omega^k} + \\frac{1}{1+\\omega^{1997}}$.\nUsing the pairing argument for $k=1$ to $1996$:\nPairs are $(1, 1996), (2, 1995), \\dots, (998, 999)$.\nThere are 998 pairs. Each sums to 1.\nSum = 998.\nLast term: $\\frac{1}{1+\\omega^{1997}} = \\frac{1}{1+1} = 0.5$.\nTotal = $998.5$.\n\nIs there any edge case?\nWhat if $\\omega^k = -1$? Then the denominator is 0.\n$\\omega^k = -1 \\implies (\\omega^k)^2 = 1 \\implies \\omega^{2k} = 1$.\nSince the order of $\\omega$ is 1997 (prime), the only solution to $\\omega^m = 1$ is $m$ being a multiple of 1997.\nSo $2k$ must be a multiple of 1997. Since 1997 is prime and does not divide 2, 1997 must divide $k$.\nIn the range $1 \\le k \\le 1996$, there is no multiple of 1997.\nFor $k=1997$, $\\omega^{1997}=1 \\neq -1$.\nSo no denominator is zero. The sum is well-defined.\n\nThe calculation holds.\n$n = 1997$.\nSum = $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\n$S = \\frac{1997}{2}$.",
+        "matched_success_motifs": [
+          "rewrite|analyze",
+          "conclude|compute",
+          "rewrite|analyze|check-constraint",
+          "compute|instantiate|count",
+          "instantiate|count"
+        ],
+        "matched_failure_motifs": []
+      }
+    ],
+    "failure": [
+      {
+        "trace_id": "232:0:5",
+        "question_id": "232",
+        "sample_id": "0",
+        "attempt_index": "5",
+        "predicted_answer": "998.5",
+        "is_correct": false,
+        "tokenized_trace": "instantiate|check-constraint|compare|compute|instantiate|check-constraint|analyze|compute|analyze|instantiate|analyze|compute|instantiate|compute|conclude|count|analyze|compute|backtrack|instantiate|compute|count|compute|analyze|instantiate|analyze|compute|instantiate|analyze|compute|instantiate|compute",
+        "tokens": [
+          "instantiate",
+          "check-constraint",
+          "compare",
+          "compute",
+          "instantiate",
+          "check-constraint",
+          "analyze",
+          "compute",
+          "analyze",
+          "instantiate",
+          "analyze",
+          "compute",
+          "instantiate",
+          "compute",
+          "conclude",
+          "count",
+          "analyze",
+          "compute",
+          "backtrack",
+          "instantiate",
+          "compute",
+          "count",
+          "compute",
+          "analyze",
+          "instantiate",
+          "analyze",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute",
+          "instantiate",
+          "compute"
+        ],
+        "token_count": 32,
+        "reasoning_trace": "Let $n = 1997$. The given condition is $\\omega^n = 1$ with $\\omega \\neq 1$. This implies that $\\omega$ is a primitive $n$-th root of unity (or at least a non-trivial $n$-th root). The sum we need to evaluate is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k} \\]\n\n**Step 1: Analyze the terms in the sum.**\nThe terms are of the form $a_k = \\frac{1}{1 + \\omega^k}$ for $k = 1, 2, \\dots, n$.\nSince $\\omega^n = 1$, the powers $\\omega^1, \\omega^2, \\dots, \\omega^n$ represent the set of all $n$-th roots of unity. Note that $\\omega^n = 1$.\nThe set of values $\\{ \\omega^1, \\omega^2, \\dots, \\omega^n \\}$ is exactly the set of roots of the equation $z^n - 1 = 0$.\nHowever, we must check if any denominator is zero. The denominator is $1 + \\omega^k$. This is zero if $\\omega^k = -1$.\nSince $n = 1997$ is an odd number, $-1$ is not an $n$-th root of unity. (If $(-1)^n = 1$, then $(-1)^{\\text{odd}} = -1 \\neq 1$). Thus, $1 + \\omega^k \\neq 0$ for any $k$. The sum is well-defined.\n\n**Step 2: Pair the terms.**\nConsider the term corresponding to index $k$ and the term corresponding to index $n-k$.\nLet's look at the product of the roots or a specific symmetry.\nThe set of exponents is $\\{1, 2, \\dots, n\\}$.\nNotice that if $k$ runs from $1$ to $n-1$, then $n-k$ also runs from $1$ to $n-1$. The term for $k=n$ is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$.\nLet's pair $k$ and $n-k$ for $k = 1, 2, \\dots, \\frac{n-1}{2}$.\nConsider the sum of a pair:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}} \\]\nSince $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\frac{1}{\\omega^k}$.\nSo the second term is:\n\\[ \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k} \\]\nNow add the two terms:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1 \\]\nSo, each pair $(k, n-k)$ sums to 1.\n\n**Step 3: Count the pairs and the remaining term.**\nThe indices are $1, 2, \\dots, n$.\nThe term for $k=n$ is isolated because $n-n=0$, which is not in our range of exponents (the sum starts at $k=1$). Wait, the sum is up to $n$.\nThe set of indices is $\\{1, 2, \\dots, n\\}$.\nWe can split this set into:\n1. The single term $k=n$.\n2. The pairs $\\{k, n-k\\}$ where $k \\in \\{1, 2, \\dots, n-1\\}$.\nSince $n=1997$ is odd, $n-1 = 1996$ is even. The number of elements in $\\{1, \\dots, n-1\\}$ is $1996$.\nThese $1996$ elements form exactly $\\frac{1996}{2} = 998$ pairs.\nFor each pair, the sum is 1.\nSo the sum of the terms for $k=1$ to $n-1$ is $998 \\times 1 = 998$.\n\nNow add the last term ($k=n$):\n\\[ \\text{Term}_n = \\frac{1}{1 + \\omega^n} = \\frac{1}{1 + 1} = \\frac{1}{2} \\]\n\n**Step 4: Calculate the total sum.**\n\\[ S = (\\text{Sum of pairs}) + (\\text{Term}_n) = 998 + 0.5 = 998.5 \\]\nAlternatively, using fractions:\n\\[ S = 998 + \\frac{1}{2} = \\frac{1996}{2} + \\frac{1}{2} = \\frac{1997}{2} \\]\n\n**Alternative Method: Using Roots of Unity Properties**\nLet $P(z) = z^n - 1 = \\prod_{k=0}^{n-1} (z - \\omega^k)$.\nThe roots are $1, \\omega, \\omega^2, \\dots, \\omega^{n-1}$.\nOur sum involves $1, \\omega, \\dots, \\omega^{n-1}, \\omega^n=1$.\nActually, the set $\\{\\omega^1, \\dots, \\omega^n\\}$ is the same as $\\{1, \\omega, \\dots, \\omega^{n-1}\\}$.\nLet the roots be $r_0, r_1, \\dots, r_{n-1}$ where $r_k = \\omega^k$. One of them is $1$.\nWe want to compute $\\sum_{j=0}^{n-1} \\frac{1}{1+r_j}$.\nConsider the polynomial $Q(x) = x^n - 1$. Its roots are $r_j$.\nWe know that $\\sum_{j=0}^{n-1} \\frac{1}{x - r_j} = \\frac{P'(x)}{P(x)}$.\nLet $x = -1$. Then $\\sum_{j=0}^{n-1} \\frac{1}{-1 - r_j} = \\frac{P'(-1)}{P(-1)}$.\n$\\sum_{j=0}^{n-1} \\frac{-1}{1 + r_j} = \\frac{P'(-1)}{P(-1)}$.\nSo $\\sum_{j=0}^{n-1} \\frac{1}{1 + r_j} = - \\frac{P'(-1)}{P(-1)}$.\nCalculate $P(-1)$ and $P'(-1)$ for $P(x) = x^n - 1$ with $n=1997$ (odd).\n$P(-1) = (-1)^n - 1 = -1 - 1 = -2$.\n$P'(x) = n x^{n-1}$.\n$P'(-1) = n (-1)^{n-1}$. Since $n$ is odd, $n-1$ is even, so $(-1)^{n-1} = 1$.\n$P'(-1) = n$.\nThus, the sum is:\n\\[ - \\frac{n}{-2} = \\frac{n}{2} \\]\nHere $n = 1997$.\nSo the sum is $\\frac{1997}{2}$.\n\nBoth methods yield the same result.\n\nFinal calculation:\n$1997 / 2 = 998.5$.",
+        "matched_success_motifs": [],
+        "matched_failure_motifs": [
+          "analyze|compute|analyze",
+          "check-constraint|analyze|compute",
+          "check-constraint|analyze",
+          "count|compute",
+          "conclude|count|analyze",
+          "compare"
+        ]
+      },
+      {
+        "trace_id": "232:3:10",
+        "question_id": "232",
+        "sample_id": "3",
+        "attempt_index": "10",
+        "predicted_answer": "998.5",
+        "is_correct": false,
+        "tokenized_trace": "compute|analyze|instantiate|compute|instantiate|rewrite|analyze|check-constraint|compute|check-constraint|count|compute|count|analyze|compute|check-constraint|analyze|compute|analyze|count|compute",
+        "tokens": [
+          "compute",
+          "analyze",
+          "instantiate",
+          "compute",
+          "instantiate",
+          "rewrite",
+          "analyze",
+          "check-constraint",
+          "compute",
+          "check-constraint",
+          "count",
+          "compute",
+          "count",
+          "analyze",
+          "compute",
+          "check-constraint",
+          "analyze",
+          "compute",
+          "analyze",
+          "count",
+          "compute"
+        ],
+        "token_count": 21,
+        "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Identify the structure of the sum\nThe sum consists of terms of the form $\\frac{1}{1 + \\omega^k}$ for $k = 1, 2, \\dots, 1997$.\nLet $n = 1997$. The condition $\\omega^n = 1$ with $\\omega \\neq 1$ implies that $\\omega$ is a primitive $n$-th root of unity (or a power of one). The set of values $\\{\\omega^1, \\omega^2, \\dots, \\omega^n\\}$ contains all the $n$-th roots of unity exactly once. Note that $\\omega^n = 1$.\n\nSo the sum can be written as:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}. \\]\n\n### Step 2: Analyze the terms using symmetry\nConsider the term corresponding to index $k$ and the term corresponding to index $n-k$.\nSince $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\frac{1}{\\omega^k}$.\n\nLet's look at the sum of the $k$-th term and the $(n-k)$-th term:\n\\[ T_k = \\frac{1}{1 + \\omega^k}, \\quad T_{n-k} = \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^{-k}}. \\]\nSimplify $T_{n-k}$:\n\\[ T_{n-k} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k}. \\]\n\nNow, add $T_k$ and $T_{n-k}$:\n\\[ T_k + T_{n-k} = \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1. \\]\nThis holds provided $1 + \\omega^k \\neq 0$. Since $\\omega$ is an $n$-th root of unity, $1 + \\omega^k = 0$ implies $\\omega^k = -1$. This would mean $(-1)^n = (\\omega^k)^2 = 1$, so $n$ must be even. However, $n = 1997$ is odd. For an odd $n$, no power of $\\omega$ can be $-1$ because $(-1)^n = -1 \\neq 1$. Thus, the denominator is never zero, and the pairing is valid.\n\n### Step 3: Pair the terms in the sum\nThe indices run from $k = 1$ to $n = 1997$.\nWe can pair $k$ with $n-k$:\n- $k=1$ pairs with $k=1996$ ($1+1996=1997$)\n- $k=2$ pairs with $k=1995$\n- ...\n- $k=998$ pairs with $k=999$ ($998+999=1997$)\n\nThe index $k = n/2$ would be the unpaired middle term, but since $n=1997$ is odd, there is no integer $k$ such that $k = n-k$.\nThe only term left unpaired is the one where $k = n$, i.e., $k=1997$.\nLet's check the term for $k=n$:\n\\[ T_n = \\frac{1}{1 + \\omega^n} = \\frac{1}{1 + 1} = \\frac{1}{2}. \\]\n\nThe total number of terms is $n = 1997$.\nWe have formed pairs $(k, n-k)$ for $k = 1, 2, \\dots, \\frac{n-1}{2}$.\nThe number of such pairs is $\\frac{n-1}{2} = \\frac{1996}{2} = 998$.\nEach pair sums to $1$.\nSo the sum of these pairs is $998 \\times 1 = 998$.\n\nThe remaining term is $T_n = \\frac{1}{2}$.\n\n### Step 4: Calculate the total sum\n\\[ S = (\\text{Sum of pairs}) + T_n \\]\n\\[ S = 998 + \\frac{1}{2} = 998.5 \\]\n\nAlternatively, using the formula for the sum of reciprocals of $1+\\omega^k$:\nFor odd $n$, the sum is $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\nHere $n=1997$, so $S = \\frac{1997}{2} = 998.5$.\n\nLet's double check with a small odd number, say $n=3$.\nRoots: $1, \\omega, \\omega^2$. Sum: $\\frac{1}{1+\\omega} + \\frac{1}{1+\\omega^2} + \\frac{1}{1+1}$.\nPair $\\frac{1}{1+\\omega} + \\frac{1}{1+\\omega^2} = 1$.\nLast term $\\frac{1}{2}$.\nTotal $1.5 = 3/2$. Correct.\n\nThe calculation is:\nNumber of pairs = $(1997-1)/2 = 998$.\nSum of pairs = $998$.\nLast term ($k=1997$) = $1/2$.\nTotal = $998 + 0.5 = 998.5$.",
+        "matched_success_motifs": [
+          "rewrite|analyze",
+          "rewrite|analyze|check-constraint"
+        ],
+        "matched_failure_motifs": [
+          "analyze|compute|analyze",
+          "check-constraint|analyze|compute",
+          "check-constraint|analyze",
+          "count|compute"
+        ]
+      },
+      {
+        "trace_id": "232:5:19",
+        "question_id": "232",
+        "sample_id": "5",
+        "attempt_index": "19",
+        "predicted_answer": "998.5",
+        "is_correct": false,
+        "tokenized_trace": "compute|check-constraint|analyze|compute|instantiate|analyze|compute|analyze|check-constraint|compute|conclude|count|analyze|compute|instantiate|analyze|compute",
+        "tokens": [
+          "compute",
+          "check-constraint",
+          "analyze",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute",
+          "analyze",
+          "check-constraint",
+          "compute",
+          "conclude",
+          "count",
+          "analyze",
+          "compute",
+          "instantiate",
+          "analyze",
+          "compute"
+        ],
+        "token_count": 17,
+        "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Analyze the properties of $\\omega$\nThe condition $\\omega^{1997} = 1$ with $\\omega \\neq 1$ implies that $\\omega$ is a primitive $k$-th root of unity for some divisor $k$ of $1997$. Since $1997$ is a prime number (checking divisibility by primes up to $\\sqrt{1997} \\approx 44.7$: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43 are not factors), the divisors of $1997$ are $1$ and $1997$. Since $\\omega \\neq 1$, $\\omega$ must be a primitive $1997$-th root of unity.\nThus, the powers $\\omega^1, \\omega^2, \\dots, \\omega^{1996}$ are distinct and non-zero, and $\\omega^{1997} = 1$.\nThe set of exponents in the sum is $\\{1, 2, \\dots, 1997\\}$. Note that $\\omega^{1997} = \\omega^0 = 1$.\n\n### Step 2: Group the terms\nLet $n = 1997$. The sum is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}. \\]\nWe can split the term for $k=n$ (where $\\omega^n = 1$) from the rest:\n\\[ S = \\frac{1}{1 + 1} + \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} = \\frac{1}{2} + \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k}. \\]\nNow consider the sum $S' = \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k}$.\nSince $\\omega$ is a primitive $n$-th root of unity, the set $\\{\\omega^1, \\omega^2, \\dots, \\omega^{n-1}\\}$ is exactly the set of all non-1 roots of the polynomial $z^n - 1 = 0$.\nLet's pair the terms $k$ and $n-k$. Note that for $1 \\le k \\le n-1$, $n-k$ is also in the range $[1, n-1]$.\nConsider the term for index $k$ and the term for index $n-k$:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}}. \\]\nSince $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\omega^{-k} = \\frac{1}{\\omega^k}$.\nSo the second term becomes:\n\\[ \\frac{1}{1 + \\omega^{-k}} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{\\omega^k}{\\omega^k + 1}. \\]\nAdding the two terms:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1. \\]\nThis pairing works for all $k$ from $1$ to $n-1$.\nHowever, we must check if any term is paired with itself. This happens if $k = n-k$, which implies $2k = n$.\nHere $n = 1997$, which is an odd number. Therefore, there is no integer $k$ such that $2k = 1997$.\nThus, the indices $\\{1, 2, \\dots, n-1\\}$ can be perfectly partitioned into $(n-1)/2$ pairs of the form $(k, n-k)$.\n\n### Step 3: Calculate the sum\nThe number of terms in the sum $S'$ is $n-1 = 1996$.\nSince they form pairs summing to 1, and there are no unpaired middle terms:\n\\[ S' = \\frac{n-1}{2} \\times 1 = \\frac{1996}{2} = 998. \\]\nNow add the first term we separated out ($\\frac{1}{1+\\omega^n} = \\frac{1}{2}$):\n\\[ S = \\frac{1}{2} + S' = \\frac{1}{2} + 998 = 998.5. \\]\n\nAlternatively, using the general formula for $\\sum_{k=0}^{n-1} \\frac{1}{1+\\omega^k}$ where $\\omega$ is a primitive $n$-th root ($n$ odd):\nThe sum is $\\sum_{k=0}^{n-1} \\frac{1}{1+\\omega^k}$.\nPairs $(k, n-k)$ for $k=1, \\dots, n-1$ sum to 1. There are $(n-1)/2$ such pairs.\nThe term for $k=0$ is $\\frac{1}{1+1} = 1/2$.\nTotal sum = $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\nIn our problem, the sum runs from $k=1$ to $n$ (where $\\omega^n=1=\\omega^0$). This is exactly the set of all $n$-th roots of unity.\nSo the sum is $\\frac{n}{2} = \\frac{1997}{2} = 998.5$.\n\nLet's double check the indexing.\nThe problem asks for $\\sum_{k=1}^{1997} \\frac{1}{1+\\omega^k}$.\nThe set of values $\\{\\omega^1, \\omega^2, \\dots, \\omega^{1997}\\}$ is $\\{\\omega, \\omega^2, \\dots, \\omega^{1996}, 1\\}$.\nThis is exactly the set of all $1997$-th roots of unity.\nLet $R = \\{z \\mid z^{1997}=1\\}$. We are computing $\\sum_{z \\in R} \\frac{1}{1+z}$.\nAs derived above, for odd $n$, this sum equals $n/2$.\n$n = 1997$.\nSum $= 1997 / 2 = 998.5$.\n\n### Conclusion\nThe value of the sum is $998.5$.",
+        "matched_success_motifs": [],
+        "matched_failure_motifs": [
+          "analyze|compute|analyze",
+          "check-constraint|analyze|compute",
+          "check-constraint|analyze",
+          "conclude|count|analyze"
+        ]
+      }
+    ]
+  },
+  "all_traces": [
+    {
+      "trace_id": "232:0:5",
+      "question_id": "232",
+      "sample_id": "0",
+      "attempt_index": "5",
+      "predicted_answer": "998.5",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|check-constraint|compare|compute|instantiate|check-constraint|analyze|compute|analyze|instantiate|analyze|compute|instantiate|compute|conclude|count|analyze|compute|backtrack|instantiate|compute|count|compute|analyze|instantiate|analyze|compute|instantiate|analyze|compute|instantiate|compute",
+      "tokens": [
+        "instantiate",
+        "check-constraint",
+        "compare",
+        "compute",
+        "instantiate",
+        "check-constraint",
+        "analyze",
+        "compute",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "compute",
+        "conclude",
+        "count",
+        "analyze",
+        "compute",
+        "backtrack",
+        "instantiate",
+        "compute",
+        "count",
+        "compute",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "compute"
+      ],
+      "token_count": 32,
+      "reasoning_trace": "Let $n = 1997$. The given condition is $\\omega^n = 1$ with $\\omega \\neq 1$. This implies that $\\omega$ is a primitive $n$-th root of unity (or at least a non-trivial $n$-th root). The sum we need to evaluate is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k} \\]\n\n**Step 1: Analyze the terms in the sum.**\nThe terms are of the form $a_k = \\frac{1}{1 + \\omega^k}$ for $k = 1, 2, \\dots, n$.\nSince $\\omega^n = 1$, the powers $\\omega^1, \\omega^2, \\dots, \\omega^n$ represent the set of all $n$-th roots of unity. Note that $\\omega^n = 1$.\nThe set of values $\\{ \\omega^1, \\omega^2, \\dots, \\omega^n \\}$ is exactly the set of roots of the equation $z^n - 1 = 0$.\nHowever, we must check if any denominator is zero. The denominator is $1 + \\omega^k$. This is zero if $\\omega^k = -1$.\nSince $n = 1997$ is an odd number, $-1$ is not an $n$-th root of unity. (If $(-1)^n = 1$, then $(-1)^{\\text{odd}} = -1 \\neq 1$). Thus, $1 + \\omega^k \\neq 0$ for any $k$. The sum is well-defined.\n\n**Step 2: Pair the terms.**\nConsider the term corresponding to index $k$ and the term corresponding to index $n-k$.\nLet's look at the product of the roots or a specific symmetry.\nThe set of exponents is $\\{1, 2, \\dots, n\\}$.\nNotice that if $k$ runs from $1$ to $n-1$, then $n-k$ also runs from $1$ to $n-1$. The term for $k=n$ is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$.\nLet's pair $k$ and $n-k$ for $k = 1, 2, \\dots, \\frac{n-1}{2}$.\nConsider the sum of a pair:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}} \\]\nSince $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\frac{1}{\\omega^k}$.\nSo the second term is:\n\\[ \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k} \\]\nNow add the two terms:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1 \\]\nSo, each pair $(k, n-k)$ sums to 1.\n\n**Step 3: Count the pairs and the remaining term.**\nThe indices are $1, 2, \\dots, n$.\nThe term for $k=n$ is isolated because $n-n=0$, which is not in our range of exponents (the sum starts at $k=1$). Wait, the sum is up to $n$.\nThe set of indices is $\\{1, 2, \\dots, n\\}$.\nWe can split this set into:\n1. The single term $k=n$.\n2. The pairs $\\{k, n-k\\}$ where $k \\in \\{1, 2, \\dots, n-1\\}$.\nSince $n=1997$ is odd, $n-1 = 1996$ is even. The number of elements in $\\{1, \\dots, n-1\\}$ is $1996$.\nThese $1996$ elements form exactly $\\frac{1996}{2} = 998$ pairs.\nFor each pair, the sum is 1.\nSo the sum of the terms for $k=1$ to $n-1$ is $998 \\times 1 = 998$.\n\nNow add the last term ($k=n$):\n\\[ \\text{Term}_n = \\frac{1}{1 + \\omega^n} = \\frac{1}{1 + 1} = \\frac{1}{2} \\]\n\n**Step 4: Calculate the total sum.**\n\\[ S = (\\text{Sum of pairs}) + (\\text{Term}_n) = 998 + 0.5 = 998.5 \\]\nAlternatively, using fractions:\n\\[ S = 998 + \\frac{1}{2} = \\frac{1996}{2} + \\frac{1}{2} = \\frac{1997}{2} \\]\n\n**Alternative Method: Using Roots of Unity Properties**\nLet $P(z) = z^n - 1 = \\prod_{k=0}^{n-1} (z - \\omega^k)$.\nThe roots are $1, \\omega, \\omega^2, \\dots, \\omega^{n-1}$.\nOur sum involves $1, \\omega, \\dots, \\omega^{n-1}, \\omega^n=1$.\nActually, the set $\\{\\omega^1, \\dots, \\omega^n\\}$ is the same as $\\{1, \\omega, \\dots, \\omega^{n-1}\\}$.\nLet the roots be $r_0, r_1, \\dots, r_{n-1}$ where $r_k = \\omega^k$. One of them is $1$.\nWe want to compute $\\sum_{j=0}^{n-1} \\frac{1}{1+r_j}$.\nConsider the polynomial $Q(x) = x^n - 1$. Its roots are $r_j$.\nWe know that $\\sum_{j=0}^{n-1} \\frac{1}{x - r_j} = \\frac{P'(x)}{P(x)}$.\nLet $x = -1$. Then $\\sum_{j=0}^{n-1} \\frac{1}{-1 - r_j} = \\frac{P'(-1)}{P(-1)}$.\n$\\sum_{j=0}^{n-1} \\frac{-1}{1 + r_j} = \\frac{P'(-1)}{P(-1)}$.\nSo $\\sum_{j=0}^{n-1} \\frac{1}{1 + r_j} = - \\frac{P'(-1)}{P(-1)}$.\nCalculate $P(-1)$ and $P'(-1)$ for $P(x) = x^n - 1$ with $n=1997$ (odd).\n$P(-1) = (-1)^n - 1 = -1 - 1 = -2$.\n$P'(x) = n x^{n-1}$.\n$P'(-1) = n (-1)^{n-1}$. Since $n$ is odd, $n-1$ is even, so $(-1)^{n-1} = 1$.\n$P'(-1) = n$.\nThus, the sum is:\n\\[ - \\frac{n}{-2} = \\frac{n}{2} \\]\nHere $n = 1997$.\nSo the sum is $\\frac{1997}{2}$.\n\nBoth methods yield the same result.\n\nFinal calculation:\n$1997 / 2 = 998.5$.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "analyze|compute|analyze",
+        "check-constraint|analyze|compute",
+        "check-constraint|analyze",
+        "count|compute",
+        "conclude|count|analyze",
+        "compare"
+      ]
+    },
+    {
+      "trace_id": "232:1:7",
+      "question_id": "232",
+      "sample_id": "1",
+      "attempt_index": "7",
+      "predicted_answer": "998.5",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|compute|compare|compute|instantiate|compute|analyze|check-constraint|compute|analyze|conclude|instantiate|analyze|compute|count|compute|instantiate|analyze|compute|analyze|instantiate|compute|backtrack|instantiate|compute|analyze|instantiate|analyze|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "compare",
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "analyze",
+        "conclude",
+        "instantiate",
+        "analyze",
+        "compute",
+        "count",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "backtrack",
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 29,
+      "reasoning_trace": "Let $n = 1997$. We are given that $\\omega$ is a complex number such that $\\omega^n = 1$ and $\\omega \\neq 1$. This means $\\omega$ is a primitive $n$-th root of unity (or at least an $n$-th root of unity not equal to 1). The sum we need to evaluate is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k} \\]\nNote that the terms in the sum correspond to $k = 1, 2, \\dots, n$. Since $\\omega^n = 1$, the set of values $\\{\\omega^1, \\omega^2, \\dots, \\omega^n\\}$ is exactly the set of all $n$-th roots of unity. Specifically, $\\omega^n = 1$.\n\nLet's analyze the general term $\\frac{1}{1 + \\omega^k}$.\nConsider the sum of two specific terms in the sequence where the exponents sum to $n$. Let $j$ be an integer such that $1 \\le j \\le n-1$. Then consider the terms corresponding to $k=j$ and $k=n-j$.\nThe product of the bases is $\\omega^j \\cdot \\omega^{n-j} = \\omega^n = 1$.\nSo, $\\omega^{n-j} = \\omega^{-j} = \\frac{1}{\\omega^j}$.\n\nLet's look at the sum of the term for $k$ and the term for $n-k$:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{-k}} \\]\nSince $\\omega^{-k} = \\frac{1}{\\omega^k}$, the second term becomes:\n\\[ \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k} \\]\nAdding these two fractions:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1 \\]\nThis holds for any $k$ such that $1 \\le k \\le n-1$ and $\\omega^k \\neq -1$.\nSince $n = 1997$ is an odd number, $-1$ is not an $n$-th root of unity. (If $x^n = -1$, then $x^{2n} = 1$, so the order of $x$ divides $2n$ but not $n$. However, the roots we are considering satisfy $x^n=1$. The only real root is $1$, and since $n$ is odd, $-1$ is not among them). Thus, the denominator $1+\\omega^k$ is never zero.\n\nNow let's pair up the terms in the sum $S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}$.\nThe indices are $1, 2, \\dots, n$.\nWe can pair $k$ with $n-k$.\n- For $k=1$, pair with $n-1$. Sum is 1.\n- For $k=2$, pair with $n-2$. Sum is 1.\n- ...\n- For $k = \\frac{n-1}{2}$, pair with $n - \\frac{n-1}{2} = \\frac{n+1}{2}$. Sum is 1.\n\nSince $n = 1997$, the number of terms from $1$ to $n-1$ is $n-1 = 1996$, which is an even number. These terms form $\\frac{n-1}{2} = \\frac{1996}{2} = 998$ pairs, each summing to 1.\nThe remaining term is when $k=n$.\nFor $k=n$, $\\omega^n = 1$.\nThe term is $\\frac{1}{1 + \\omega^n} = \\frac{1}{1 + 1} = \\frac{1}{2}$.\n\nSo the total sum is:\n\\[ S = \\underbrace{1 + 1 + \\dots + 1}_{998 \\text{ times}} + \\frac{1}{2} \\]\n\\[ S = 998 + 0.5 = 998.5 \\]\n\nAlternatively, using the property of roots of unity more generally:\nThe sum is $\\sum_{k=1}^n \\frac{1}{1+\\omega^k}$.\nLet $f(x) = \\frac{1}{1+x}$. We are summing $f(\\omega^k)$.\nConsider the polynomial $P(z) = z^n - 1 = \\prod_{k=1}^n (z - \\omega^k)$.\nActually, a simpler algebraic manipulation exists.\nLet $S = \\sum_{k=1}^n \\frac{1}{1+\\omega^k}$.\nNote that $\\sum_{k=1}^n \\frac{1}{1+\\omega^k} + \\sum_{k=1}^n \\frac{1}{1+\\omega^{-k}} = \\sum_{k=1}^n 1 = n$.\nSince the set $\\{\\omega^1, \\dots, \\omega^n\\}$ is the same as $\\{\\omega^{-1}, \\dots, \\omega^{-n}\\}$ (because $\\omega^{-k} = \\omega^{n-k}$), the second sum is identical to the first sum $S$.\nThus, $2S = n$, which implies $S = \\frac{n}{2}$.\nWait, does this logic hold?\nThe set of values $\\{\\omega^1, \\omega^2, \\dots, \\omega^n\\}$ is exactly the set of all $n$-th roots of unity.\nThe set $\\{\\omega^{-1}, \\omega^{-2}, \\dots, \\omega^{-n}\\}$ is also exactly the set of all $n$-th roots of unity.\nTherefore, $\\sum_{k=1}^n \\frac{1}{1+\\omega^{-k}} = \\sum_{j=1}^n \\frac{1}{1+\\omega^j} = S$.\nSo, $S + S = \\sum_{k=1}^n \\left( \\frac{1}{1+\\omega^k} + \\frac{1}{1+\\omega^{-k}} \\right) = \\sum_{k=1}^n 1 = n$.\n$2S = n \\implies S = \\frac{n}{2}$.\nGiven $n = 1997$, $S = \\frac{1997}{2} = 998.5$.\n\nBoth methods yield the same result. The pairing method explicitly handled the $k=n$ term separately, while the symmetry argument treated the set of roots as a whole. Both are consistent.\n\nFinal calculation:\n$n = 1997$\n$S = \\frac{1997}{2} = 998.5$",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "analyze|compute|analyze",
+        "count|compute",
+        "compute|analyze|conclude",
+        "compare"
+      ]
+    },
+    {
+      "trace_id": "232:2:9",
+      "question_id": "232",
+      "sample_id": "2",
+      "attempt_index": "9",
+      "predicted_answer": "998.5",
+      "is_correct": false,
+      "tokenized_trace": "compute|instantiate|rewrite|analyze|count|compute|analyze|conclude|compute|analyze|apply-formula|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "rewrite",
+        "analyze",
+        "count",
+        "compute",
+        "analyze",
+        "conclude",
+        "compute",
+        "analyze",
+        "apply-formula",
+        "compute"
+      ],
+      "token_count": 12,
+      "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Analyze the properties of $\\omega$\nThe condition $\\omega^{1997} = 1$ with $\\omega \\neq 1$ implies that $\\omega$ is a primitive $d$-th root of unity for some divisor $d$ of $1997$ where $d > 1$. Since $1997$ is a prime number (it is not divisible by 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43; $43^2 = 1849$, $47^2 = 2209$), the only divisors are 1 and 1997.\nThus, $\\omega$ must be a primitive $1997$-th root of unity.\nThe set of exponents $\\{1, 2, \\dots, 1997\\}$ modulo $1997$ corresponds to the set $\\{1, 2, \\dots, 1996, 0\\}$. Note that $\\omega^{1997} = \\omega^0 = 1$.\nSo the sum can be rewritten by grouping the terms based on the powers of $\\omega$:\n\\[ S = \\sum_{k=1}^{1996} \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{1997}}. \\]\nSince $\\omega^{1997} = 1$, the last term is $\\frac{1}{1+1} = \\frac{1}{2}$.\nLet $n = 1997$. The sum becomes:\n\\[ S = \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} + \\frac{1}{2}. \\]\n\n### Step 2: Use the symmetry property of roots of unity\nConsider the sum $T = \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k}$.\nThe roots of the equation $z^n - 1 = 0$ are $1, \\omega, \\omega^2, \\dots, \\omega^{n-1}$.\nWe know that $\\omega^k$ runs through all the non-1 roots of unity as $k$ ranges from $1$ to $n-1$.\nNotice the symmetry between $\\omega^k$ and $\\omega^{n-k}$. Since $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^{-k} = \\frac{1}{\\omega^k}$.\nLet's pair the terms in the sum $T$:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{-k}}. \\]\nSimplify the second term:\n\\[ \\frac{1}{1 + \\omega^{-k}} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{\\omega^k}{\\omega^k + 1}. \\]\nAdding the two terms:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1. \\]\nSince $n = 1997$ is odd, the number of terms in the sum $T$ (from $k=1$ to $n-1$) is $n-1 = 1996$, which is an even number.\nWe can pair these $1996$ terms into $\\frac{1996}{2} = 998$ pairs.\nEach pair sums to $1$.\nTherefore:\n\\[ T = \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} = \\frac{n-1}{2} \\times 1 = \\frac{1996}{2} = 998. \\]\n\n### Step 3: Calculate the total sum\nRecall that the original sum $S$ includes the term for $k=n$ (which is $\\omega^{1997}=1$) separately or as part of the sequence.\nThe problem states the sum goes up to $\\omega^{1997}$.\n\\[ S = \\left( \\sum_{k=1}^{1996} \\frac{1}{1 + \\omega^k} \\right) + \\frac{1}{1 + \\omega^{1997}}. \\]\nSubstituting the values we found:\n\\[ S = 998 + \\frac{1}{1 + 1} = 998 + \\frac{1}{2} = 998.5. \\]\n\nAlternatively, using the general formula for $\\sum_{k=0}^{n-1} \\frac{1}{1+\\omega^k}$ where $\\omega = e^{i 2\\pi/n}$ and $n$ is odd:\nThe sum is $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\nHere $n=1997$, so the sum is $\\frac{1997}{2} = 998.5$.\n\nLet's double check the logic.\nThe sum is $S = \\sum_{k=1}^{1997} \\frac{1}{1+\\omega^k}$.\nThe terms are $a_1, a_2, \\dots, a_{1997}$.\n$a_{1997} = \\frac{1}{1+\\omega^{1997}} = \\frac{1}{1+1} = 0.5$.\nThe remaining terms $a_1, \\dots, a_{1996}$ correspond to $\\omega^1, \\dots, \\omega^{1996}$.\nSince $1997$ is prime, these are all distinct roots of $z^{1997}-1=0$ excluding $z=1$.\nPairing $k$ and $1997-k$:\n$a_k + a_{1997-k} = 1$.\nThere are $1996$ such terms, forming $998$ pairs.\nSum of these pairs = $998$.\nTotal sum = $998 + 0.5 = 998.5$.\n\nThe result is consistent.",
+      "matched_success_motifs": [
+        "rewrite|analyze",
+        "conclude|compute"
+      ],
+      "matched_failure_motifs": [
+        "count|compute",
+        "compute|analyze|conclude",
+        "apply-formula|compute"
+      ]
+    },
+    {
+      "trace_id": "232:3:10",
+      "question_id": "232",
+      "sample_id": "3",
+      "attempt_index": "10",
+      "predicted_answer": "998.5",
+      "is_correct": false,
+      "tokenized_trace": "compute|analyze|instantiate|compute|instantiate|rewrite|analyze|check-constraint|compute|check-constraint|count|compute|count|analyze|compute|check-constraint|analyze|compute|analyze|count|compute",
+      "tokens": [
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "instantiate",
+        "rewrite",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "check-constraint",
+        "count",
+        "compute",
+        "count",
+        "analyze",
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compute",
+        "analyze",
+        "count",
+        "compute"
+      ],
+      "token_count": 21,
+      "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Identify the structure of the sum\nThe sum consists of terms of the form $\\frac{1}{1 + \\omega^k}$ for $k = 1, 2, \\dots, 1997$.\nLet $n = 1997$. The condition $\\omega^n = 1$ with $\\omega \\neq 1$ implies that $\\omega$ is a primitive $n$-th root of unity (or a power of one). The set of values $\\{\\omega^1, \\omega^2, \\dots, \\omega^n\\}$ contains all the $n$-th roots of unity exactly once. Note that $\\omega^n = 1$.\n\nSo the sum can be written as:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}. \\]\n\n### Step 2: Analyze the terms using symmetry\nConsider the term corresponding to index $k$ and the term corresponding to index $n-k$.\nSince $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\frac{1}{\\omega^k}$.\n\nLet's look at the sum of the $k$-th term and the $(n-k)$-th term:\n\\[ T_k = \\frac{1}{1 + \\omega^k}, \\quad T_{n-k} = \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^{-k}}. \\]\nSimplify $T_{n-k}$:\n\\[ T_{n-k} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k}. \\]\n\nNow, add $T_k$ and $T_{n-k}$:\n\\[ T_k + T_{n-k} = \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1. \\]\nThis holds provided $1 + \\omega^k \\neq 0$. Since $\\omega$ is an $n$-th root of unity, $1 + \\omega^k = 0$ implies $\\omega^k = -1$. This would mean $(-1)^n = (\\omega^k)^2 = 1$, so $n$ must be even. However, $n = 1997$ is odd. For an odd $n$, no power of $\\omega$ can be $-1$ because $(-1)^n = -1 \\neq 1$. Thus, the denominator is never zero, and the pairing is valid.\n\n### Step 3: Pair the terms in the sum\nThe indices run from $k = 1$ to $n = 1997$.\nWe can pair $k$ with $n-k$:\n- $k=1$ pairs with $k=1996$ ($1+1996=1997$)\n- $k=2$ pairs with $k=1995$\n- ...\n- $k=998$ pairs with $k=999$ ($998+999=1997$)\n\nThe index $k = n/2$ would be the unpaired middle term, but since $n=1997$ is odd, there is no integer $k$ such that $k = n-k$.\nThe only term left unpaired is the one where $k = n$, i.e., $k=1997$.\nLet's check the term for $k=n$:\n\\[ T_n = \\frac{1}{1 + \\omega^n} = \\frac{1}{1 + 1} = \\frac{1}{2}. \\]\n\nThe total number of terms is $n = 1997$.\nWe have formed pairs $(k, n-k)$ for $k = 1, 2, \\dots, \\frac{n-1}{2}$.\nThe number of such pairs is $\\frac{n-1}{2} = \\frac{1996}{2} = 998$.\nEach pair sums to $1$.\nSo the sum of these pairs is $998 \\times 1 = 998$.\n\nThe remaining term is $T_n = \\frac{1}{2}$.\n\n### Step 4: Calculate the total sum\n\\[ S = (\\text{Sum of pairs}) + T_n \\]\n\\[ S = 998 + \\frac{1}{2} = 998.5 \\]\n\nAlternatively, using the formula for the sum of reciprocals of $1+\\omega^k$:\nFor odd $n$, the sum is $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\nHere $n=1997$, so $S = \\frac{1997}{2} = 998.5$.\n\nLet's double check with a small odd number, say $n=3$.\nRoots: $1, \\omega, \\omega^2$. Sum: $\\frac{1}{1+\\omega} + \\frac{1}{1+\\omega^2} + \\frac{1}{1+1}$.\nPair $\\frac{1}{1+\\omega} + \\frac{1}{1+\\omega^2} = 1$.\nLast term $\\frac{1}{2}$.\nTotal $1.5 = 3/2$. Correct.\n\nThe calculation is:\nNumber of pairs = $(1997-1)/2 = 998$.\nSum of pairs = $998$.\nLast term ($k=1997$) = $1/2$.\nTotal = $998 + 0.5 = 998.5$.",
+      "matched_success_motifs": [
+        "rewrite|analyze",
+        "rewrite|analyze|check-constraint"
+      ],
+      "matched_failure_motifs": [
+        "analyze|compute|analyze",
+        "check-constraint|analyze|compute",
+        "check-constraint|analyze",
+        "count|compute"
+      ]
+    },
+    {
+      "trace_id": "232:4:18",
+      "question_id": "232",
+      "sample_id": "4",
+      "attempt_index": "18",
+      "predicted_answer": "\\frac{1997}{2}",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|analyze|instantiate|compute|rewrite|analyze|check-constraint|compute|count|analyze|conclude|compute|instantiate|compute|backtrack|instantiate|compute|count|compute",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "rewrite",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "count",
+        "analyze",
+        "conclude",
+        "compute",
+        "instantiate",
+        "compute",
+        "backtrack",
+        "instantiate",
+        "compute",
+        "count",
+        "compute"
+      ],
+      "token_count": 21,
+      "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Analyze the properties of $\\omega$\nThe condition $\\omega^{1997} = 1$ with $\\omega \\neq 1$ implies that $\\omega$ is a primitive $d$-th root of unity for some divisor $d$ of $1997$ where $d > 1$. Since $1997$ is a prime number (it is not divisible by 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47; $47^2 = 2209 > 1997$), the only divisors are 1 and 1997.\nTherefore, $\\omega$ must be a primitive $1997$-th root of unity.\nThe set of powers $\\{ \\omega^1, \\omega^2, \\dots, \\omega^{1997} \\}$ contains all the $1997$-th roots of unity exactly once. Note that $\\omega^{1997} = 1$.\n\n### Step 2: Group the terms\nLet $n = 1997$. The sum is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}. \\]\nWe can pair the terms $k$ and $n-k$. Note that as $k$ ranges from $1$ to $n-1$, the term $n-k$ also ranges from $n-1$ to $1$. The term for $k=n$ corresponds to $\\omega^n = 1$.\nLet's separate the last term ($k=n$) and pair the rest:\n\\[ S = \\frac{1}{1 + \\omega^n} + \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k}. \\]\nSince $\\omega^n = 1$, the first term is:\n\\[ \\frac{1}{1 + 1} = \\frac{1}{2}. \\]\nNow consider the sum for $k=1$ to $n-1$. We pair the term for $k$ with the term for $n-k$.\nLet $j = n-k$. Then $\\omega^j = \\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\frac{1}{\\omega^k}$.\nConsider the sum of a pair:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{-k}}. \\]\nSimplify the second fraction:\n\\[ \\frac{1}{1 + \\omega^{-k}} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k}. \\]\nAdding them together:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1. \\]\nThis holds for any $k$ such that $1 \\le k \\le n-1$ and $\\omega^k \\neq -1$. Since $n=1997$ is odd, $-1$ is not an $n$-th root of unity (because $(-1)^n = -1 \\neq 1$). Thus, the denominator is never zero.\n\n### Step 3: Calculate the total sum\nThe sum from $k=1$ to $n-1$ consists of $\\frac{n-1}{2}$ pairs.\nSince $n = 1997$, the number of pairs is $\\frac{1997 - 1}{2} = \\frac{1996}{2} = 998$.\nEach pair sums to $1$.\nSo,\n\\[ \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} = 998 \\times 1 = 998. \\]\nAdding the isolated term for $k=n$:\n\\[ S = 998 + \\frac{1}{2} = 998.5. \\]\nAlternatively, using fractions:\n\\[ S = 998 + \\frac{1}{2} = \\frac{1996}{2} + \\frac{1}{2} = \\frac{1997}{2}. \\]\n\n### Alternative General Approach\nConsider the polynomial $P(x) = x^n - 1 = \\prod_{k=0}^{n-1} (x - \\omega^k)$.\nThe roots are $1, \\omega, \\omega^2, \\dots, \\omega^{n-1}$.\nOur sum includes $\\omega^n = 1$ as well.\nLet's look at the function $f(x) = \\frac{1}{1+x}$. We are summing $f(\\omega^k)$ for $k=1, \\dots, n$.\nUsing the property that $\\sum_{k=0}^{n-1} \\frac{1}{1-\\omega^k} = \\frac{n-1}{2}$ is a known result for roots of unity, but our denominator is $1+\\omega^k$.\nLet's re-verify the pairing logic.\nThe set of values $\\{\\omega^1, \\omega^2, \\dots, \\omega^n\\}$ is exactly the set of all $n$-th roots of unity $\\{1, \\zeta, \\zeta^2, \\dots, \\zeta^{n-1}\\}$ where $\\zeta = \\omega$.\nSo the sum is $S = \\sum_{j=0}^{n-1} \\frac{1}{1+\\zeta^j}$.\nPair $j$ and $n-j$.\nFor $j=0$, term is $\\frac{1}{1+1} = 1/2$.\nFor $j \\in \\{1, \\dots, n-1\\}$, pair $j$ with $n-j$.\nSum of pair: $\\frac{1}{1+\\zeta^j} + \\frac{1}{1+\\zeta^{-j}} = 1$.\nNumber of pairs is $(n-1)/2$.\nTotal sum = $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\nHere $n = 1997$.\nSo $S = \\frac{1997}{2}$.",
+      "matched_success_motifs": [
+        "rewrite|analyze",
+        "conclude|compute",
+        "rewrite|analyze|check-constraint",
+        "count|analyze|conclude",
+        "instantiate|compute|rewrite"
+      ],
+      "matched_failure_motifs": [
+        "count|compute"
+      ]
+    },
+    {
+      "trace_id": "232:5:19",
+      "question_id": "232",
+      "sample_id": "5",
+      "attempt_index": "19",
+      "predicted_answer": "998.5",
+      "is_correct": false,
+      "tokenized_trace": "compute|check-constraint|analyze|compute|instantiate|analyze|compute|analyze|check-constraint|compute|conclude|count|analyze|compute|instantiate|analyze|compute",
+      "tokens": [
+        "compute",
+        "check-constraint",
+        "analyze",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "conclude",
+        "count",
+        "analyze",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute"
+      ],
+      "token_count": 17,
+      "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Analyze the properties of $\\omega$\nThe condition $\\omega^{1997} = 1$ with $\\omega \\neq 1$ implies that $\\omega$ is a primitive $k$-th root of unity for some divisor $k$ of $1997$. Since $1997$ is a prime number (checking divisibility by primes up to $\\sqrt{1997} \\approx 44.7$: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43 are not factors), the divisors of $1997$ are $1$ and $1997$. Since $\\omega \\neq 1$, $\\omega$ must be a primitive $1997$-th root of unity.\nThus, the powers $\\omega^1, \\omega^2, \\dots, \\omega^{1996}$ are distinct and non-zero, and $\\omega^{1997} = 1$.\nThe set of exponents in the sum is $\\{1, 2, \\dots, 1997\\}$. Note that $\\omega^{1997} = \\omega^0 = 1$.\n\n### Step 2: Group the terms\nLet $n = 1997$. The sum is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}. \\]\nWe can split the term for $k=n$ (where $\\omega^n = 1$) from the rest:\n\\[ S = \\frac{1}{1 + 1} + \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} = \\frac{1}{2} + \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k}. \\]\nNow consider the sum $S' = \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k}$.\nSince $\\omega$ is a primitive $n$-th root of unity, the set $\\{\\omega^1, \\omega^2, \\dots, \\omega^{n-1}\\}$ is exactly the set of all non-1 roots of the polynomial $z^n - 1 = 0$.\nLet's pair the terms $k$ and $n-k$. Note that for $1 \\le k \\le n-1$, $n-k$ is also in the range $[1, n-1]$.\nConsider the term for index $k$ and the term for index $n-k$:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}}. \\]\nSince $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\omega^{-k} = \\frac{1}{\\omega^k}$.\nSo the second term becomes:\n\\[ \\frac{1}{1 + \\omega^{-k}} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{\\omega^k}{\\omega^k + 1}. \\]\nAdding the two terms:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1. \\]\nThis pairing works for all $k$ from $1$ to $n-1$.\nHowever, we must check if any term is paired with itself. This happens if $k = n-k$, which implies $2k = n$.\nHere $n = 1997$, which is an odd number. Therefore, there is no integer $k$ such that $2k = 1997$.\nThus, the indices $\\{1, 2, \\dots, n-1\\}$ can be perfectly partitioned into $(n-1)/2$ pairs of the form $(k, n-k)$.\n\n### Step 3: Calculate the sum\nThe number of terms in the sum $S'$ is $n-1 = 1996$.\nSince they form pairs summing to 1, and there are no unpaired middle terms:\n\\[ S' = \\frac{n-1}{2} \\times 1 = \\frac{1996}{2} = 998. \\]\nNow add the first term we separated out ($\\frac{1}{1+\\omega^n} = \\frac{1}{2}$):\n\\[ S = \\frac{1}{2} + S' = \\frac{1}{2} + 998 = 998.5. \\]\n\nAlternatively, using the general formula for $\\sum_{k=0}^{n-1} \\frac{1}{1+\\omega^k}$ where $\\omega$ is a primitive $n$-th root ($n$ odd):\nThe sum is $\\sum_{k=0}^{n-1} \\frac{1}{1+\\omega^k}$.\nPairs $(k, n-k)$ for $k=1, \\dots, n-1$ sum to 1. There are $(n-1)/2$ such pairs.\nThe term for $k=0$ is $\\frac{1}{1+1} = 1/2$.\nTotal sum = $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\nIn our problem, the sum runs from $k=1$ to $n$ (where $\\omega^n=1=\\omega^0$). This is exactly the set of all $n$-th roots of unity.\nSo the sum is $\\frac{n}{2} = \\frac{1997}{2} = 998.5$.\n\nLet's double check the indexing.\nThe problem asks for $\\sum_{k=1}^{1997} \\frac{1}{1+\\omega^k}$.\nThe set of values $\\{\\omega^1, \\omega^2, \\dots, \\omega^{1997}\\}$ is $\\{\\omega, \\omega^2, \\dots, \\omega^{1996}, 1\\}$.\nThis is exactly the set of all $1997$-th roots of unity.\nLet $R = \\{z \\mid z^{1997}=1\\}$. We are computing $\\sum_{z \\in R} \\frac{1}{1+z}$.\nAs derived above, for odd $n$, this sum equals $n/2$.\n$n = 1997$.\nSum $= 1997 / 2 = 998.5$.\n\n### Conclusion\nThe value of the sum is $998.5$.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "analyze|compute|analyze",
+        "check-constraint|analyze|compute",
+        "check-constraint|analyze",
+        "conclude|count|analyze"
+      ]
+    },
+    {
+      "trace_id": "232:6:24",
+      "question_id": "232",
+      "sample_id": "6",
+      "attempt_index": "24",
+      "predicted_answer": "998.5",
+      "is_correct": false,
+      "tokenized_trace": "instantiate|compute|instantiate|apply-formula|compute|instantiate|analyze|rewrite|compute|count|compute|substitute|analyze|count|compute|case-split|compute|conclude|analyze|check-constraint|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "instantiate",
+        "apply-formula",
+        "compute",
+        "instantiate",
+        "analyze",
+        "rewrite",
+        "compute",
+        "count",
+        "compute",
+        "substitute",
+        "analyze",
+        "count",
+        "compute",
+        "case-split",
+        "compute",
+        "conclude",
+        "analyze",
+        "check-constraint",
+        "compute"
+      ],
+      "token_count": 21,
+      "reasoning_trace": "Let $n = 1997$. We are given that $\\omega$ is a complex number such that $\\omega^n = 1$ and $\\omega \\neq 1$. This means $\\omega$ is a primitive $d$-th root of unity for some divisor $d$ of $n$ where $d > 1$. However, the sum involves terms up to $\\omega^n$. Let's analyze the structure of the sum.\n\nThe sum is given by:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k} \\]\nwhere $n = 1997$.\n\n**Step 1: Analyze the properties of $\\omega$ and the indices.**\nSince $\\omega^n = 1$, the powers of $\\omega$ repeat with a period of $n$. Specifically, $\\omega^{k+n} = \\omega^k$.\nThe set of values $\\{\\omega^1, \\omega^2, \\dots, \\omega^n\\}$ contains all the $n$-th roots of unity. Note that $\\omega^n = 1$.\nThe sum runs from $k=1$ to $n$. The term for $k=n$ is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$.\nThe terms for $k=1, \\dots, n-1$ correspond to the non-real $n$-th roots of unity (if $n>2$) or just $\\omega$ if $n=2$. Since $1997$ is a prime number, the roots $\\omega, \\omega^2, \\dots, \\omega^{1996}$ are all distinct and none of them equal 1.\n\n**Step 2: Use the symmetry property of the roots.**\nConsider the term corresponding to the index $n-k$.\nSince $\\omega^n = 1$, we have:\n\\[ \\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\frac{1}{\\omega^k} = \\frac{1}{\\omega^k} \\]\nLet's examine the sum of the term at index $k$ and the term at index $n-k$.\nFor $1 \\le k \\le n-1$:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\frac{1}{\\omega^k}} \\]\nSimplify the second fraction:\n\\[ \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k} \\]\nNow add them together:\n\\[ \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1 \\]\nSo, for every $k$ such that $1 \\le k \\le n-1$, the pair of terms $\\frac{1}{1 + \\omega^k}$ and $\\frac{1}{1 + \\omega^{n-k}}$ sums to 1.\n\n**Step 3: Group the terms in the sum.**\nThe total sum is $S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}$.\nWe can separate the last term ($k=n$) and pair the remaining terms from $k=1$ to $n-1$.\n\\[ S = \\left( \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} \\right) + \\frac{1}{1 + \\omega^n} \\]\nWe know $\\omega^n = 1$, so the last term is:\n\\[ \\frac{1}{1 + 1} = \\frac{1}{2} \\]\n\nNow consider the sum from $k=1$ to $n-1$. Since $n = 1997$ is an odd number, the number of terms in this range is $n-1 = 1996$, which is an even number.\nWe can pair $k$ with $n-k$.\nThe pairs are $(1, n-1), (2, n-2), \\dots, (\\frac{n-1}{2}, \\frac{n+1}{2})$.\nThe number of such pairs is $\\frac{n-1}{2}$.\nFor each pair, the sum is 1.\nTherefore:\n\\[ \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} = \\frac{n-1}{2} \\times 1 = \\frac{n-1}{2} \\]\n\n**Step 4: Calculate the final value.**\nSubstitute $n = 1997$:\n\\[ \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} = \\frac{1997 - 1}{2} = \\frac{1996}{2} = 998 \\]\nNow add the last term:\n\\[ S = 998 + \\frac{1}{2} = 998.5 \\]\n\nLet's double check the logic.\nDoes the pairing cover all terms?\nIndices: $1, 2, \\dots, 1996$.\nPairs: $(1, 1996), (2, 1995), \\dots, (998, 999)$.\nNumber of pairs = 998.\nSum of these pairs = 998.\nLast term ($k=1997$): $\\frac{1}{1+\\omega^{1997}} = \\frac{1}{1+1} = 0.5$.\nTotal sum = $998 + 0.5 = 998.5$.\n\nIs there any case where $\\omega^k = -1$?\nIf $\\omega^k = -1$, the term is undefined.\n$\\omega^k = -1$ implies $(\\omega^k)^2 = 1$, so $\\omega^{2k} = 1$.\nSince $\\omega$ is an $n$-th root of unity ($n=1997$), the order of $\\omega$ divides 1997. Since 1997 is prime, the order is either 1 or 1997.\nSince $\\omega \\neq 1$, the order is 1997.\nThus, $\\omega^m = 1$ if and only if $m$ is a multiple of 1997.\nFor $\\omega^k = -1$, we would need $2k$ to be a multiple of 1997. Since 1997 is odd, $k$ must be a multiple of 1997.\nIn the range $1 \\le k \\le 1997$, the only multiple of 1997 is $k=1997$.\nBut for $k=1997$, $\\omega^{1997} = 1 \\neq -1$.\nSo $\\omega^k$ is never $-1$ for any $k \\in \\{1, \\dots, 1997\\}$. The terms are well-defined.\n\nThe calculation holds.\nSum = $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\nWith $n=1997$, Sum = $1997/2 = 998.5$.",
+      "matched_success_motifs": [],
+      "matched_failure_motifs": [
+        "count|compute",
+        "apply-formula|compute"
+      ]
+    },
+    {
+      "trace_id": "232:7:25",
+      "question_id": "232",
+      "sample_id": "7",
+      "attempt_index": "25",
+      "predicted_answer": "\\frac{1997}{2}",
+      "is_correct": true,
+      "tokenized_trace": "compute|instantiate|compute|analyze|instantiate|compute|rewrite|analyze|check-constraint|compute|analyze|check-constraint|compute|backtrack|compute|instantiate|count|instantiate|analyze|count|compute|substitute|check-constraint|instantiate|compute|apply-formula|analyze|instantiate|compute|conclude|check-constraint",
+      "tokens": [
+        "compute",
+        "instantiate",
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "rewrite",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "backtrack",
+        "compute",
+        "instantiate",
+        "count",
+        "instantiate",
+        "analyze",
+        "count",
+        "compute",
+        "substitute",
+        "check-constraint",
+        "instantiate",
+        "compute",
+        "apply-formula",
+        "analyze",
+        "instantiate",
+        "compute",
+        "conclude",
+        "check-constraint"
+      ],
+      "token_count": 31,
+      "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Analyze the properties of $\\omega$\nLet $n = 1997$. The given condition is $\\omega^n = 1$ with $\\omega \\neq 1$. This implies that $\\omega$ is a primitive $n$-th root of unity (or a power thereof, but since the sum runs through all powers $1$ to $n$, the specific order doesn't change the set of values $\\{\\omega, \\omega^2, \\dots, \\omega^n\\}$).\nThe set of values $\\{\\omega^k \\mid k = 1, 2, \\dots, n\\}$ is exactly the set of all $n$-th roots of unity. Let's denote the set of all $n$-th roots of unity as $\\{\\zeta_0, \\zeta_1, \\dots, \\zeta_{n-1}\\}$, where $\\zeta_k = e^{i \\frac{2\\pi k}{n}}$.\nSpecifically, $\\omega^n = 1$ implies $\\omega^k$ cycles through the roots. Since $n=1997$ is a prime number (though primality isn't strictly necessary for the algebraic manipulation, it ensures $\\omega$ generates all roots if it's primitive; even if not, the set $\\{\\omega, \\omega^2, \\dots, \\omega^n\\}$ contains each root of unity exactly once if $\\omega$ is a generator, or repeats if not. However, the problem statement usually implies $\\omega$ is a primitive root or the sum is over the distinct roots. Let's assume the standard interpretation where the terms cover the set of all $n$-th roots of unity exactly once. Note that $\\omega^n = 1$, so the last term is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$. The terms $\\omega^1, \\dots, \\omega^{n-1}$ are the non-1 roots.\n\nLet the set of indices be $k \\in \\{1, 2, \\dots, n\\}$. The sum is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}. \\]\n\n### Step 2: Pairing terms\nConsider the term for index $k$ and the term for index $n-k$.\nNote that $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\frac{1}{\\omega^k}$.\nLet's look at the sum of the $k$-th term and the $(n-k)$-th term.\nThe $k$-th term is $T_k = \\frac{1}{1 + \\omega^k}$.\nThe $(n-k)$-th term is $T_{n-k} = \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^{-k}}$.\n\nSimplify $T_{n-k}$:\n\\[ T_{n-k} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k}. \\]\n\nNow, add $T_k$ and $T_{n-k}$:\n\\[ T_k + T_{n-k} = \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1. \\]\nThis holds provided $1 + \\omega^k \\neq 0$. Since $\\omega^k = -1$ would imply $\\omega^{2k} = 1$. If $n=1997$ is odd, $-1$ is not an $n$-th root of unity (because $(-1)^n = -1 \\neq 1$). Thus, $1 + \\omega^k \\neq 0$ for any $k$.\n\n### Step 3: Grouping the sum\nThe sum runs from $k=1$ to $n$. We can pair the terms $k$ and $n-k$.\nThe indices are $\\{1, 2, \\dots, n\\}$.\n- For $k=1$, pair with $n-1$.\n- For $k=2$, pair with $n-2$.\n- ...\n- We need to check if any index is its own pair. This happens if $k = n-k$, which implies $2k = n$. Since $n = 1997$ is odd, there is no integer $k$ such that $2k = n$.\n- Also, consider the term where $k=n$. The pair would be $n-n=0$. But our sum starts at $k=1$.\nWait, let's re-evaluate the range. The sum is $k=1$ to $n$.\nThe set of exponents is $\\{1, 2, \\dots, n\\}$.\nSince $\\omega^n = 1$, the term for $k=n$ is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$.\nThe term for $k=0$ (if it existed) would be $\\frac{1}{1+\\omega^0} = \\frac{1}{2}$.\nNotice that $n \\equiv 0 \\pmod n$. So the term $k=n$ corresponds to the root $1$.\nThe other terms $k=1, \\dots, n-1$ correspond to the non-1 roots.\nLet's pair $k$ with $n-k$ for $k = 1, 2, \\dots, n-1$.\nSince $n$ is odd, the mapping $k \\to n-k$ is a permutation of $\\{1, 2, \\dots, n-1\\}$ with no fixed points (because $2k \\neq n$).\nThus, the set $\\{1, 2, \\dots, n-1\\}$ can be perfectly partitioned into $\\frac{n-1}{2}$ pairs of the form $\\{k, n-k\\}$.\nEach pair sums to 1.\nNumber of pairs = $\\frac{n-1}{2}$.\nSum of these pairs = $\\frac{n-1}{2} \\times 1 = \\frac{n-1}{2}$.\n\nNow add the remaining term, which is $k=n$:\n\\[ T_n = \\frac{1}{1 + \\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}. \\]\n\nTotal sum $S$:\n\\[ S = \\left( \\sum_{k=1}^{n-1} \\frac{1}{1+\\omega^k} \\right) + \\frac{1}{2} = \\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}. \\]\n\n### Step 4: Calculation\nSubstitute $n = 1997$:\n\\[ S = \\frac{1997}{2}. \\]\n\nLet's double check with a small odd $n$.\nLet $n=3$. Roots are $1, \\omega, \\omega^2$ where $\\omega^3=1, \\omega \\neq 1$.\nSum = $\\frac{1}{1+\\omega} + \\frac{1}{1+\\omega^2} + \\frac{1}{1+\\omega^3}$.\n$\\omega^3 = 1$.\nTerm 3: $\\frac{1}{1+1} = 0.5$.\nPair 1 and 2: $k=1, n-k=2$. Sum = 1.\nTotal = $1 + 0.5 = 1.5 = 3/2$.\nFormula gives $n/2 = 3/2$. Correct.\n\nLet $n=1$. Sum = $\\frac{1}{1+\\omega^1}$. But $\\omega^1=1$ and $\\omega \\neq 1$ is a contradiction. So $n>1$.\nThe problem states $n=1997$, which is valid.\n\nThe result is $\\frac{1997}{2}$.",
+      "matched_success_motifs": [
+        "rewrite|analyze",
+        "rewrite|analyze|check-constraint",
+        "instantiate|compute|apply-formula",
+        "compute|instantiate|count",
+        "instantiate|compute|rewrite",
+        "instantiate|count"
+      ],
+      "matched_failure_motifs": [
+        "count|compute"
+      ]
+    },
+    {
+      "trace_id": "232:8:29",
+      "question_id": "232",
+      "sample_id": "8",
+      "attempt_index": "29",
+      "predicted_answer": "\\frac{1997}{2}",
+      "is_correct": true,
+      "tokenized_trace": "compute|analyze|instantiate|compute|apply-formula|analyze|rewrite|compute|instantiate|analyze|compute|instantiate|rewrite|analyze|compute|count|analyze|conclude|compute|apply-formula|analyze|instantiate|compute",
+      "tokens": [
+        "compute",
+        "analyze",
+        "instantiate",
+        "compute",
+        "apply-formula",
+        "analyze",
+        "rewrite",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "rewrite",
+        "analyze",
+        "compute",
+        "count",
+        "analyze",
+        "conclude",
+        "compute",
+        "apply-formula",
+        "analyze",
+        "instantiate",
+        "compute"
+      ],
+      "token_count": 23,
+      "reasoning_trace": "To evaluate the sum\n\\[ S = \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}}, \\]\nwhere $\\omega^{1997} = 1$ and $\\omega \\neq 1$, we proceed with the following steps:\n\n### Step 1: Analyze the properties of $\\omega$\nThe condition $\\omega^{1997} = 1$ with $\\omega \\neq 1$ implies that $\\omega$ is a primitive $n$-th root of unity, where $n$ is a divisor of $1997$. Since $1997$ is a prime number (it is not divisible by 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47; $47^2 = 2209 > 1997$), the only divisors are 1 and 1997. Since $\\omega \\neq 1$, $\\omega$ must be a primitive $1997$-th root of unity.\nThus, the powers $\\omega^1, \\omega^2, \\dots, \\omega^{1997}$ are distinct and represent all the $1997$-th roots of unity. Specifically, the set of exponents $\\{1, 2, \\dots, 1997\\}$ modulo $1997$ covers the complete set of residues $\\{1, 2, \\dots, 1996, 0\\}$. Note that $\\omega^{1997} = \\omega^0 = 1$.\n\nLet $n = 1997$. The sum can be rewritten by grouping the terms based on the exponents modulo $n$. The sum runs from $k=1$ to $n$.\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k}. \\]\nSince $\\omega^n = 1$, the term for $k=n$ is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$.\nThe terms for $k=1, 2, \\dots, n-1$ correspond to $\\frac{1}{1+\\omega^j}$ where $\\omega^j \\neq 1$.\n\n### Step 2: Use the symmetry of roots of unity\nConsider the polynomial $P(x) = x^n - 1$. Its roots are $1, \\omega, \\omega^2, \\dots, \\omega^{n-1}$.\nWe can factor $x^n - 1$ as:\n\\[ x^n - 1 = (x-1)(x^{n-1} + x^{n-2} + \\dots + x + 1). \\]\nThe roots of the second factor $Q(x) = x^{n-1} + x^{n-2} + \\dots + x + 1$ are exactly $\\omega, \\omega^2, \\dots, \\omega^{n-1}$.\nWe want to compute the sum $\\sum_{k=1}^{n-1} \\frac{1}{1+\\omega^k}$. Let's denote this partial sum as $S'$. Then the total sum is $S = S' + \\frac{1}{2}$.\n\nConsider the transformation $x \\to -x$. The roots of $Q(-x) = (-x)^{n-1} + \\dots + (-x) + 1$ are $-\\omega, -\\omega^2, \\dots, -\\omega^{n-1}$.\nAlternatively, let's pair the terms in the sum $S'$.\nFor any $k \\in \\{1, 2, \\dots, n-1\\}$, consider the term corresponding to $n-k$.\nSince $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^{-k} = \\frac{1}{\\omega^k}$.\nLet's look at the sum of the $k$-th term and the $(n-k)$-th term:\n\\[ \\frac{1}{1+\\omega^k} + \\frac{1}{1+\\omega^{n-k}} = \\frac{1}{1+\\omega^k} + \\frac{1}{1+\\omega^{-k}}. \\]\nSimplify the second term:\n\\[ \\frac{1}{1+\\omega^{-k}} = \\frac{1}{1+\\frac{1}{\\omega^k}} = \\frac{\\omega^k}{\\omega^k+1}. \\]\nAdding them together:\n\\[ \\frac{1}{1+\\omega^k} + \\frac{\\omega^k}{1+\\omega^k} = \\frac{1+\\omega^k}{1+\\omega^k} = 1. \\]\nThis pairing works for all $k$ such that $k \\neq n-k$.\nSince $n = 1997$ is an odd number, there is no integer $k$ such that $k = n-k$ (which would imply $2k=n$).\nTherefore, the indices $\\{1, 2, \\dots, n-1\\}$ can be perfectly partitioned into pairs $(k, n-k)$.\nThe number of such pairs is $\\frac{n-1}{2}$.\nEach pair sums to 1.\nSo,\n\\[ S' = \\sum_{k=1}^{n-1} \\frac{1}{1+\\omega^k} = \\frac{n-1}{2} \\times 1 = \\frac{n-1}{2}. \\]\n\n### Step 3: Calculate the total sum\nThe total sum $S$ includes the term for $k=n$ (which is $\\frac{1}{1+\\omega^n} = \\frac{1}{2}$) plus the sum $S'$.\n\\[ S = S' + \\frac{1}{2} = \\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}. \\]\nSubstituting $n = 1997$:\n\\[ S = \\frac{1997}{2}. \\]\n\n### Verification\nLet's double check with a small odd prime, say $n=3$.\nRoots are $1, \\omega, \\omega^2$ where $\\omega^3=1, \\omega \\neq 1$.\nSum is $\\frac{1}{1+\\omega} + \\frac{1}{1+\\omega^2} + \\frac{1}{1+\\omega^3}$.\nNote $\\omega^3=1$.\n$\\frac{1}{1+\\omega} + \\frac{1}{1+\\omega^2} + \\frac{1}{2}$.\nWe know $1+\\omega+\\omega^2=0 \\implies \\omega^2 = -1-\\omega$.\n$\\frac{1}{1+\\omega} + \\frac{1}{1+(-1-\\omega)} = \\frac{1}{1+\\omega} + \\frac{1}{-\\omega} = \\frac{1}{1+\\omega} - \\frac{1}{\\omega} = \\frac{\\omega - (1+\\omega)}{\\omega(1+\\omega)} = \\frac{-1}{\\omega+\\omega^2} = \\frac{-1}{-1} = 1$.\nTotal sum = $1 + 0.5 = 1.5 = 3/2$.\nFormula gives $n/2 = 3/2$. Matches.\n\nLet's try $n=5$.\nSum = $\\frac{5-1}{2} + \\frac{1}{2} = 2.5 = 5/2$.\nPairs: $(1, 4)$ and $(2, 3)$.\n$\\frac{1}{1+\\omega} + \\frac{1}{1+\\omega^4} = 1$.\n$\\frac{1}{1+\\omega^2} + \\frac{1}{1+\\omega^3} = 1$.\nSum of first 4 terms = 2.\nLast term ($k=5$) = $1/2$.\nTotal = 2.5. Matches.\n\nThe logic holds. The value is $\\frac{1997}{2}$.",
+      "matched_success_motifs": [
+        "rewrite|analyze",
+        "conclude|compute",
+        "count|analyze|conclude",
+        "instantiate|compute|apply-formula"
+      ],
+      "matched_failure_motifs": []
+    },
+    {
+      "trace_id": "232:9:31",
+      "question_id": "232",
+      "sample_id": "9",
+      "attempt_index": "31",
+      "predicted_answer": "\\frac{1997}{2}",
+      "is_correct": true,
+      "tokenized_trace": "instantiate|compute|instantiate|analyze|compute|instantiate|rewrite|analyze|check-constraint|compute|instantiate|count|analyze|compute|instantiate|compute|case-split|compute|conclude|compute",
+      "tokens": [
+        "instantiate",
+        "compute",
+        "instantiate",
+        "analyze",
+        "compute",
+        "instantiate",
+        "rewrite",
+        "analyze",
+        "check-constraint",
+        "compute",
+        "instantiate",
+        "count",
+        "analyze",
+        "compute",
+        "instantiate",
+        "compute",
+        "case-split",
+        "compute",
+        "conclude",
+        "compute"
+      ],
+      "token_count": 20,
+      "reasoning_trace": "Let $n = 1997$. We are given that $\\omega^n = 1$ and $\\omega \\neq 1$. This implies that $\\omega$ is a primitive $d$-th root of unity for some divisor $d$ of $n$. Since $n = 1997$ is a prime number, the divisors of $n$ are $1$ and $1997$. Since $\\omega \\neq 1$, $\\omega$ must be a primitive $1997$-th root of unity.\n\nThe sum to evaluate is:\n\\[ S = \\sum_{k=1}^{n} \\frac{1}{1 + \\omega^k} \\]\nwhere $n = 1997$.\n\n**Step 1: Analyze the terms in the sum.**\nThe terms in the sum are of the form $a_k = \\frac{1}{1 + \\omega^k}$.\nThe exponents $k$ range from $1$ to $n$. Since $\\omega^n = 1$, the value $\\omega^n = \\omega^0 = 1$.\nHowever, the sum includes the term for $k=n$, which is $\\frac{1}{1+\\omega^n} = \\frac{1}{1+1} = \\frac{1}{2}$.\nThe other terms correspond to $k = 1, 2, \\dots, n-1$. Since $n$ is prime, the set $\\{\\omega^1, \\omega^2, \\dots, \\omega^{n-1}\\}$ consists of all the non-real $n$-th roots of unity.\n\n**Step 2: Pair symmetric terms.**\nConsider the term corresponding to the exponent $n-k$.\nSince $\\omega^n = 1$, we have $\\omega^{n-k} = \\omega^n \\cdot \\omega^{-k} = 1 \\cdot \\omega^{-k} = \\omega^{-k}$.\nLet's look at the sum of the term for $k$ and the term for $n-k$:\n\\[ a_k + a_{n-k} = \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{n-k}} = \\frac{1}{1 + \\omega^k} + \\frac{1}{1 + \\omega^{-k}} \\]\nSimplify the second fraction:\n\\[ \\frac{1}{1 + \\omega^{-k}} = \\frac{1}{1 + \\frac{1}{\\omega^k}} = \\frac{1}{\\frac{\\omega^k + 1}{\\omega^k}} = \\frac{\\omega^k}{1 + \\omega^k} \\]\nNow add the two fractions:\n\\[ a_k + a_{n-k} = \\frac{1}{1 + \\omega^k} + \\frac{\\omega^k}{1 + \\omega^k} = \\frac{1 + \\omega^k}{1 + \\omega^k} = 1 \\]\nThis holds for any $k$ such that $1 \\le k < n$ and $k \\neq n-k$.\n\n**Step 3: Check for self-paired terms.**\nWe need to check if there is any $k$ such that $k = n-k$.\n$2k = n \\implies k = n/2$.\nSince $n = 1997$ is an odd number, $n/2$ is not an integer. Thus, there are no terms where $k = n-k$ within the range $1, \\dots, n-1$.\nThe set of indices $\\{1, 2, \\dots, n-1\\}$ can be perfectly partitioned into pairs $(k, n-k)$.\nThe number of such indices is $n-1 = 1996$.\nThe number of pairs is $\\frac{1996}{2} = 998$.\nEach pair sums to $1$.\nSo, the sum of the first $n-1$ terms is:\n\\[ \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} = 998 \\times 1 = 998 \\]\n\n**Step 4: Add the last term.**\nThe original sum goes up to $k=n$.\nThe last term is:\n\\[ \\frac{1}{1 + \\omega^n} = \\frac{1}{1 + 1} = \\frac{1}{2} \\]\nSo the total sum $S$ is:\n\\[ S = \\left( \\sum_{k=1}^{n-1} \\frac{1}{1 + \\omega^k} \\right) + \\frac{1}{1 + \\omega^n} \\]\n\\[ S = 998 + \\frac{1}{2} = 998.5 \\]\n\nAlternatively, using fractions:\n\\[ S = 998 + \\frac{1}{2} = \\frac{1996}{2} + \\frac{1}{2} = \\frac{1997}{2} \\]\n\nLet's double check the logic.\nThe roots are $\\omega^1, \\omega^2, \\dots, \\omega^{1996}, \\omega^{1997}$.\nNote that $\\omega^{1997} = 1$.\nThe set of values $\\{\\omega^1, \\dots, \\omega^{1996}\\}$ are the roots of $z^{1997}-1=0$ excluding $z=1$.\nThe sum is $\\sum_{k=1}^{1996} \\frac{1}{1+\\omega^k} + \\frac{1}{1+\\omega^{1997}}$.\nUsing the pairing argument for $k=1$ to $1996$:\nPairs are $(1, 1996), (2, 1995), \\dots, (998, 999)$.\nThere are 998 pairs. Each sums to 1.\nSum = 998.\nLast term: $\\frac{1}{1+\\omega^{1997}} = \\frac{1}{1+1} = 0.5$.\nTotal = $998.5$.\n\nIs there any edge case?\nWhat if $\\omega^k = -1$? Then the denominator is 0.\n$\\omega^k = -1 \\implies (\\omega^k)^2 = 1 \\implies \\omega^{2k} = 1$.\nSince the order of $\\omega$ is 1997 (prime), the only solution to $\\omega^m = 1$ is $m$ being a multiple of 1997.\nSo $2k$ must be a multiple of 1997. Since 1997 is prime and does not divide 2, 1997 must divide $k$.\nIn the range $1 \\le k \\le 1996$, there is no multiple of 1997.\nFor $k=1997$, $\\omega^{1997}=1 \\neq -1$.\nSo no denominator is zero. The sum is well-defined.\n\nThe calculation holds.\n$n = 1997$.\nSum = $\\frac{n-1}{2} + \\frac{1}{2} = \\frac{n}{2}$.\n$S = \\frac{1997}{2}$.",
+      "matched_success_motifs": [
+        "rewrite|analyze",
+        "conclude|compute",
+        "rewrite|analyze|check-constraint",
+        "compute|instantiate|count",
+        "instantiate|count"
+      ],
+      "matched_failure_motifs": []
+    }
+  ]
+}
