@@ -415,6 +415,31 @@ input {
   color: rgba(245, 241, 232, 0.74);
 }
 
+.story-grid,
+.use-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.story-card p:last-child,
+.use-card p {
+  margin: 0;
+  color: rgba(245, 241, 232, 0.8);
+}
+
+.use-card {
+  border-radius: 18px;
+  padding: 1rem;
+  background: rgba(13, 18, 28, 0.72);
+  border: 1px solid rgba(243, 201, 105, 0.12);
+}
+
+.use-card h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
 @media (max-width: 720px) {
   .app-frame {
     width: min(100vw - 1rem, 100%);

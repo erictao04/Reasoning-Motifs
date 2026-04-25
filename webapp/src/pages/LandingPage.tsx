@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import { getOverview } from "../lib/api";
+import { MotifList } from "../components/MotifList";
 
 export function LandingPage() {
   const overviewQuery = useQuery({
@@ -39,17 +41,65 @@ export function LandingPage() {
           <strong>{(overviewQuery.data.success_rate * 100).toFixed(1)}%</strong>
         </article>
       </div>
-      <div className="panel">
-        <h3>Story sections</h3>
-        <ul className="story-list">
-          {overviewQuery.data.story_sections.map((section) => (
-            <li key={section.id}>
-              <strong>{section.title}</strong>
-              <p>{section.body}</p>
-            </li>
-          ))}
-        </ul>
+      <div className="story-grid">
+        {overviewQuery.data.story_sections.map((section) => (
+          <article key={section.id} className="panel story-card">
+            <p className="eyebrow">{section.title}</p>
+            <p>{section.body}</p>
+          </article>
+        ))}
       </div>
+      <section className="panel">
+        <h3>Why this could matter</h3>
+        <div className="use-grid">
+          <article className="use-card">
+            <h4>Model debugging</h4>
+            <p>Motifs can expose recurring failure paths that raw accuracy hides.</p>
+          </article>
+          <article className="use-card">
+            <h4>Benchmark diagnosis</h4>
+            <p>Questions with mixed outcomes become visible as distinct reasoning regimes.</p>
+          </article>
+          <article className="use-card">
+            <h4>Intervention targeting</h4>
+            <p>Stable failure motifs suggest where prompting or training changes might bite.</p>
+          </article>
+          <article className="use-card">
+            <h4>Interpretability</h4>
+            <p>Reasoning structure becomes more legible than final answers alone.</p>
+          </article>
+        </div>
+      </section>
+      <div className="two-column">
+        <MotifList
+          title="Top corpus success motifs"
+          motifs={overviewQuery.data.top_success_motifs.slice(0, 6)}
+          tone="success"
+        />
+        <MotifList
+          title="Top corpus failure motifs"
+          motifs={overviewQuery.data.top_failure_motifs.slice(0, 6)}
+          tone="failure"
+        />
+      </div>
+      <section className="panel">
+        <h3>Featured case studies</h3>
+        <div className="card-grid">
+          {overviewQuery.data.featured_question_ids.map((questionId) => (
+            <article key={questionId} className="question-card panel">
+              <p className="eyebrow">Case study</p>
+              <h3>Question {questionId}</h3>
+              <p>
+                Jump directly into a question page where motif evidence and raw traces
+                can be inspected together.
+              </p>
+              <Link to={`/questions/${questionId}`} className="inline-link">
+                Open question
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
     </section>
   );
 }
