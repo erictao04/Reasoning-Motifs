@@ -44,8 +44,11 @@ class ReasoningResult:
     predicted_answer: str
     has_clear_answer: bool
     is_correct: bool
+    answer_source: str
+    answer_validation: str
     final_response_text: str
     reasoning_trace: str
+    temperature: float | None
     model: str
     prompt_tokens: int | None
     completion_tokens: int | None
@@ -68,8 +71,11 @@ class TrajectoryRecord:
     predicted_answer: str
     has_clear_answer: bool
     is_correct: bool
+    answer_source: str
+    answer_validation: str
     final_response_text: str
     reasoning_trace: str
+    temperature: float | None
     model: str
     prompt_tokens: int | None
     completion_tokens: int | None

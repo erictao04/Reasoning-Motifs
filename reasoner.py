@@ -2,13 +2,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
+from reasoning_trace_sampling.api_shim import TogetherFatalRequestError, TogetherRateLimitError
 from reasoning_trace_sampling import (
     APIShim,
     AdaptiveTraceCollector,
     BenchmarkItem,
     BenchmarkRegistry,
+    LLMAnswerVerifier,
     ProgressReporter,
     QuestionTraceAnalyzer,
     ReasoningTraceSampling,
@@ -45,13 +48,45 @@ def build_request_config(args: argparse.Namespace) -> RequestConfig:
     )
 
 
+def build_verifier_config(args: argparse.Namespace) -> RequestConfig:
+    return RequestConfig(
+        model=args.verifier_model or args.model,
+        api_base=args.api_base,
+        api_key_env=args.api_key_env,
+        system_prompt=(
+            "You extract and validate final answers from model responses. "
+            "Return strict JSON only. Do not solve problems from scratch."
+        ),
+        temperature=args.verifier_temperature,
+        top_p=1.0,
+        max_tokens=args.verifier_max_tokens,
+        enable_thinking=False,
+        timeout_seconds=args.verifier_timeout_seconds,
+    )
+
+
 def build_components(args: argparse.Namespace) -> tuple[BenchmarkRegistry, ReasoningTraceSampling, TraceCollector]:
     config = build_request_config(args)
     api_shim = APIShim(config=config, repo_root=ROOT)
+    answer_verifier = None
+    if args.llm_validate_answers:
+        verifier_api_shim = APIShim(config=build_verifier_config(args), repo_root=ROOT)
+        answer_verifier = LLMAnswerVerifier(api_shim=verifier_api_shim)
     registry = BenchmarkRegistry(repo_root=ROOT)
-    sampler = ReasoningTraceSampling(api_shim=api_shim)
+    sampler = ReasoningTraceSampling(api_shim=api_shim, answer_verifier=answer_verifier)
     collector = TraceCollector(sampler=sampler)
     return registry, sampler, collector
+
+
+def preflight_generator(sampler: ReasoningTraceSampling) -> None:
+    sampler.api_shim.ask_question("Reply exactly: FINAL: 0", temperature=0.0)
+
+
+def compact_together_error(message: str) -> str:
+    match = re.search(r'"message"\s*:\s*"([^"]+)"', message)
+    if match:
+        return match.group(1)
+    return re.sub(r"\s+", " ", message).strip()
 
 
 def add_shared_args(parser: argparse.ArgumentParser) -> None:
@@ -60,10 +95,41 @@ def add_shared_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--api-key-env", default=DEFAULT_API_KEY_ENV)
     parser.add_argument("--system-prompt", default=DEFAULT_SYSTEM_PROMPT)
     parser.add_argument("--temperature", type=float, default=0.2)
+    parser.add_argument(
+        "--temperature-schedule",
+        default=None,
+        help="Comma-separated per-attempt temperatures, e.g. 0.2,0.5,0.8. Overrides --temperature during collection.",
+    )
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--max-tokens", type=int, default=2048)
     parser.add_argument("--timeout-seconds", type=float, default=60.0)
     parser.add_argument("--enable-thinking", action="store_true")
+    parser.add_argument(
+        "--llm-validate-answers",
+        action="store_true",
+        help="Use an LLM verifier as a fallback when deterministic answer parsing fails.",
+    )
+    parser.add_argument("--verifier-model", default=None, help="Verifier model. Defaults to --model.")
+    parser.add_argument("--verifier-temperature", type=float, default=0.0)
+    parser.add_argument("--verifier-max-tokens", type=int, default=256)
+    parser.add_argument("--verifier-timeout-seconds", type=float, default=30.0)
+
+
+def parse_temperature_schedule(raw_value: str | None) -> list[float] | None:
+    if raw_value is None:
+        return None
+    values: list[float] = []
+    for part in raw_value.split(","):
+        stripped = part.strip()
+        if not stripped:
+            continue
+        value = float(stripped)
+        if value < 0:
+            raise ValueError("--temperature-schedule values must be non-negative")
+        values.append(value)
+    if not values:
+        raise ValueError("--temperature-schedule must contain at least one number")
+    return values
 
 
 def add_benchmark_args(parser: argparse.ArgumentParser) -> None:
@@ -183,6 +249,7 @@ def run_one(args: argparse.Namespace) -> None:
         items[args.question_index],
         samples_per_question=args.samples_per_question,
         max_attempts_per_question=args.max_attempts_per_question,
+        temperature_schedule=parse_temperature_schedule(args.temperature_schedule),
         progress_reporter=progress_reporter,
     )
     if progress_reporter is not None:
@@ -206,7 +273,7 @@ def run_one(args: argparse.Namespace) -> None:
 
 
 def run_many(args: argparse.Namespace) -> None:
-    registry, _sampler, collector = build_components(args)
+    registry, sampler, collector = build_components(args)
     benchmark_path = registry.resolve(
         benchmark_name=args.benchmark_name,
         benchmark_path=args.benchmark_path,
@@ -226,6 +293,9 @@ def run_many(args: argparse.Namespace) -> None:
     if args.limit is not None:
         items = items[: args.limit]
 
+    preflight_generator(sampler)
+
+    output_path = args.output.resolve()
     rows = collector.collect_many(
         items,
         samples_per_question=args.samples_per_question,
@@ -233,13 +303,15 @@ def run_many(args: argparse.Namespace) -> None:
         workers=args.workers,
         show_progress=args.show_progress,
         log_path=args.log_jsonl.resolve() if args.log_jsonl is not None else None,
+        temperature_schedule=parse_temperature_schedule(args.temperature_schedule),
+        stream_output_path=output_path,
     )
-    collector.save_csv(args.output.resolve(), rows)
+    collector.save_csv(output_path, rows)
 
     correct = sum(1 for row in rows if row.is_correct)
     accepted = len(rows)
     target = len(items) * args.samples_per_question
-    print(f"Saved {len(rows)} rows to {args.output.resolve()}")
+    print(f"Saved {len(rows)} rows to {output_path}")
     if args.log_jsonl is not None:
         print(f"Saved event log to {args.log_jsonl.resolve()}")
     print(f"Accuracy: {correct}/{len(rows)}" if rows else "Accuracy: n/a (no accepted trajectories)")
@@ -259,7 +331,7 @@ def run_adaptive_many(args: argparse.Namespace) -> None:
     if args.target_samples < args.scout_samples:
         raise ValueError("--target-samples must be >= --scout-samples")
 
-    registry, _sampler, collector = build_components(args)
+    registry, sampler, collector = build_components(args)
     adaptive_collector = AdaptiveTraceCollector(trace_collector=collector)
     benchmark_path = registry.resolve(
         benchmark_name=args.benchmark_name,
@@ -280,6 +352,15 @@ def run_adaptive_many(args: argparse.Namespace) -> None:
     if args.limit is not None:
         items = items[: args.limit]
 
+    preflight_generator(sampler)
+
+    output_path = args.output.resolve()
+    summary_output_path = (
+        args.summary_output.resolve()
+        if args.summary_output is not None
+        else output_path.with_name(f"{output_path.stem}_question_summary.csv")
+    )
+
     rows, summaries = adaptive_collector.collect_many(
         items,
         scout_samples=args.scout_samples,
@@ -289,14 +370,11 @@ def run_adaptive_many(args: argparse.Namespace) -> None:
         workers=args.workers,
         show_progress=args.show_progress,
         log_path=args.log_jsonl.resolve() if args.log_jsonl is not None else None,
+        temperature_schedule=parse_temperature_schedule(args.temperature_schedule),
+        stream_output_path=output_path,
+        summary_stream_output_path=summary_output_path,
     )
 
-    output_path = args.output.resolve()
-    summary_output_path = (
-        args.summary_output.resolve()
-        if args.summary_output is not None
-        else output_path.with_name(f"{output_path.stem}_question_summary.csv")
-    )
     collector.save_csv(output_path, rows)
     adaptive_collector.save_summary_csv(summary_output_path, summaries)
 
@@ -364,6 +442,10 @@ def main() -> None:
             run_stats(args)
             return
         raise ValueError(f"Unsupported command: {args.command}")
+    except TogetherFatalRequestError as exc:
+        raise SystemExit(f"Fatal Together API configuration error: {compact_together_error(str(exc))}") from exc
+    except TogetherRateLimitError as exc:
+        raise SystemExit(f"Together API rate limit persisted after retries: {compact_together_error(str(exc))}") from exc
     except Exception as exc:
         raise SystemExit(str(exc)) from exc
 

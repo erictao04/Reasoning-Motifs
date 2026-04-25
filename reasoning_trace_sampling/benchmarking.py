@@ -36,6 +36,36 @@ class BenchmarkRegistry:
                 description="Hard olympiad-style math. Good stress test for long reasoning traces.",
                 answer_format="boxed",
             ),
+            "amc12_validation": BenchmarkPreset(
+                name="amc12_validation",
+                path=repo_root / "data" / "benchmarks" / "amc12_validation.json",
+                description="AMC 12 validation questions. Useful bridge difficulty between MATH and AIME.",
+                answer_format="boxed",
+            ),
+            "amc12_aime_combined": BenchmarkPreset(
+                name="amc12_aime_combined",
+                path=repo_root / "data" / "benchmarks" / "amc12_aime_combined.json",
+                description="Combined AMC 12 and AIME pool for mixed-difficulty adaptive trace collection.",
+                answer_format="boxed",
+            ),
+            "aimo_math_level5": BenchmarkPreset(
+                name="aimo_math_level5",
+                path=repo_root / "data" / "benchmarks" / "aimo_math_level5.json",
+                description="AI-MO integer-answer MATH level 5 pool. Good for harder parseable math traces.",
+                answer_format="boxed",
+            ),
+            "aimo_aime_validation": BenchmarkPreset(
+                name="aimo_aime_validation",
+                path=repo_root / "data" / "benchmarks" / "aimo_aime_validation.json",
+                description="AI-MO AIME validation pool with AoPS-sourced solutions and integer answers.",
+                answer_format="boxed",
+            ),
+            "expanded_motif_pool": BenchmarkPreset(
+                name="expanded_motif_pool",
+                path=repo_root / "data" / "benchmarks" / "expanded_motif_pool.json",
+                description="Deduped local pool combining MATH-500, AI-MO MATH L5, AMC12, and AIME questions.",
+                answer_format="boxed",
+            ),
         }
 
     def list_presets(self) -> list[BenchmarkPreset]:
