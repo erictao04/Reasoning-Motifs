@@ -1,0 +1,88 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\tokenizer\\clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_gpt-oss-120b_0.csv",
+  "columns_used": {
+    "question": "question_id",
+    "correct": "is_correct",
+    "token": "tokenized_trace"
+  },
+  "n_rows": 2683,
+  "n_questions": 100,
+  "n_mixed_outcome_questions": 90,
+  "min_questions_threshold": 10,
+  "fdr_threshold": 0.1,
+  "lift_threshold": 1.5,
+  "bootstrap_samples": 10000,
+  "seed": 73,
+  "n_position_conditioned_features": 34,
+  "n_position_tokens_evaluated_for_lift": 13,
+  "n_tokens_ge_lift_threshold": 3,
+  "fraction_tokens_ge_lift_threshold": 0.23076923076923078,
+  "fraction_tokens_ge_lift_threshold_ci95_low": 0.0,
+  "fraction_tokens_ge_lift_threshold_ci95_high": 0.46153846153846156,
+  "paired_bootstrap_mean_excess_over_threshold": -0.1121048697528285,
+  "paired_bootstrap_mean_excess_ci95_low": -0.15574677317038635,
+  "paired_bootstrap_mean_excess_ci95_high": -0.06794056565580721,
+  "paired_bootstrap_p_excess_le_zero": 1.0,
+  "top_tokens_by_lift_ratio": [
+    {
+      "token": "analyze",
+      "collapsed_abs": 0.23153694179269627,
+      "max_position_abs": 0.36394196297431464,
+      "lift_ratio": 1.5718526821528358
+    },
+    {
+      "token": "case-split",
+      "collapsed_abs": 0.03910003654239896,
+      "max_position_abs": 0.05954168240845758,
+      "lift_ratio": 1.5228037534924626
+    },
+    {
+      "token": "backtrack",
+      "collapsed_abs": 0.045114443231148035,
+      "max_position_abs": 0.06866956841785218,
+      "lift_ratio": 1.5221193812814509
+    },
+    {
+      "token": "conclude",
+      "collapsed_abs": 0.2281375353947859,
+      "max_position_abs": 0.22889100133812523,
+      "lift_ratio": 1.0033026829278027
+    },
+    {
+      "token": "compare",
+      "collapsed_abs": 0.17161997486660793,
+      "max_position_abs": 0.14775264395720616,
+      "lift_ratio": 0.8609291783899123
+    },
+    {
+      "token": "instantiate",
+      "collapsed_abs": 0.25555970022991603,
+      "max_position_abs": 0.1917282424246036,
+      "lift_ratio": 0.7502287811893423
+    },
+    {
+      "token": "compute",
+      "collapsed_abs": 0.29283379795341813,
+      "max_position_abs": 0.21731945653375107,
+      "lift_ratio": 0.7421255949708396
+    },
+    {
+      "token": "simplify",
+      "collapsed_abs": 0.1572833702605995,
+      "max_position_abs": 0.11423119966057502,
+      "lift_ratio": 0.7262763982696184
+    },
+    {
+      "token": "derive-intermediate",
+      "collapsed_abs": 0.20480983688374196,
+      "max_position_abs": 0.14396534972212752,
+      "lift_ratio": 0.702922046678099
+    },
+    {
+      "token": "check-constraint",
+      "collapsed_abs": 0.09810621103487512,
+      "max_position_abs": 0.06796062599671897,
+      "lift_ratio": 0.6927250097606981
+    }
+  ]
+}

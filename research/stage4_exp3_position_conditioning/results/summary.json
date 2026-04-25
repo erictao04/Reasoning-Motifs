@@ -1,0 +1,40 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\tokenizer_v5\\results\\gpt-oss-tokenized-traces.csv",
+  "columns_used": {
+    "question": "question_id",
+    "correct": "is_correct",
+    "token": "tokenized_trace"
+  },
+  "n_rows": 732,
+  "n_questions": 30,
+  "n_mixed_outcome_questions": 24,
+  "min_questions_threshold": 10,
+  "fdr_threshold": 0.1,
+  "lift_threshold": 1.5,
+  "bootstrap_samples": 10000,
+  "seed": 73,
+  "n_position_conditioned_features": 2,
+  "n_position_tokens_evaluated_for_lift": 2,
+  "n_tokens_ge_lift_threshold": 1,
+  "fraction_tokens_ge_lift_threshold": 0.5,
+  "fraction_tokens_ge_lift_threshold_ci95_low": 0.0,
+  "fraction_tokens_ge_lift_threshold_ci95_high": 1.0,
+  "paired_bootstrap_mean_excess_over_threshold": 0.006834678424163063,
+  "paired_bootstrap_mean_excess_ci95_low": -0.2246530274962769,
+  "paired_bootstrap_mean_excess_ci95_high": 0.23832238434460304,
+  "paired_bootstrap_p_excess_le_zero": 0.2474,
+  "top_tokens_by_lift_ratio": [
+    {
+      "token": "analyze:setup",
+      "collapsed_abs": 0.00446897962083382,
+      "max_position_abs": 0.24502585377585376,
+      "lift_ratio": 54.82814301358057
+    },
+    {
+      "token": "conclude:final-answer",
+      "collapsed_abs": 0.4493060549925538,
+      "max_position_abs": 0.4493060549925538,
+      "lift_ratio": 1.0
+    }
+  ]
+}

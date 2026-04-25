@@ -1,0 +1,42 @@
+{
+  "n_permutations": 500,
+  "max_abs_mean_delta": {
+    "mean": 0.10154584033990798,
+    "p95": 0.16566298312492841,
+    "max": 0.23713418626462107
+  },
+  "most_frequent_top_tokens": [
+    [
+      "instantiate",
+      124
+    ],
+    [
+      "apply-formula",
+      78
+    ],
+    [
+      "analyze",
+      78
+    ],
+    [
+      "rewrite",
+      74
+    ],
+    [
+      "derive-intermediate",
+      44
+    ],
+    [
+      "simplify",
+      37
+    ],
+    [
+      "compute",
+      35
+    ],
+    [
+      "conclude",
+      30
+    ]
+  ]
+}

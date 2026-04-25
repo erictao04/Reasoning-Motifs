@@ -1,0 +1,2 @@
+token,question_presence,questions_used,mean_delta,median_delta,mean_question_baseline,median_question_baseline,ci95_low,ci95_high,sign_test_p,bh_q,sign_pos,sign_neg,sign_n_nonzero,avg_question_trace_len,length_control_residual
+conclude:final-answer,20,19,0.4493060549925538,0.4927536231884058,0.6594264643844355,0.8461538461538461,0.28474083760124946,0.615405179615706,0.004425048828125,0.00885009765625,16,3,19,9.518476040380236,-2.220446049250313e-16

@@ -1,0 +1,62 @@
+{
+  "n_permutations": 500,
+  "max_abs_mean_delta": {
+    "mean": 0.12465357598265948,
+    "p95": 0.20021711555435573,
+    "max": 0.2962820618391271
+  },
+  "most_frequent_top_tokens": [
+    [
+      "analyze",
+      127
+    ],
+    [
+      "backtrack",
+      122
+    ],
+    [
+      "compute\u6781",
+      71
+    ],
+    [
+      "case-split",
+      65
+    ],
+    [
+      "compare",
+      42
+    ],
+    [
+      "compute",
+      27
+    ],
+    [
+      "instantiate",
+      11
+    ],
+    [
+      "rewrite",
+      10
+    ],
+    [
+      "simplify",
+      8
+    ],
+    [
+      "apply-formula",
+      6
+    ],
+    [
+      "derive-intermediate",
+      4
+    ],
+    [
+      "conclude",
+      4
+    ],
+    [
+      "check-constraint",
+      3
+    ]
+  ]
+}

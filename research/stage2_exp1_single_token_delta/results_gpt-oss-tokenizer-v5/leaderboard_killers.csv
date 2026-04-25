@@ -1,0 +1,1 @@
+token,question_presence,questions_used,mean_delta,median_delta,mean_question_baseline,median_question_baseline,ci95_low,ci95_high,sign_test_p,bh_q,sign_pos,sign_neg,sign_n_nonzero,avg_question_trace_len,length_control_residual

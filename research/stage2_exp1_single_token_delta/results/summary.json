@@ -1,0 +1,30 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\tokenizer_v5\\results\\gpt-oss-tokenized-traces.csv",
+  "columns_used": {
+    "question": "question_id",
+    "correct": "is_correct",
+    "token": "tokenized_trace"
+  },
+  "n_rows": 732,
+  "n_questions": 30,
+  "n_mixed_outcome_questions": 24,
+  "mean_question_baseline_over_mixed": 0.6530819266148302,
+  "token_threshold_min_questions": 10,
+  "n_tokens_analyzed": 2,
+  "fdr_threshold": 0.1,
+  "n_lifesaver_tokens": 1,
+  "n_killer_tokens": 0,
+  "bootstrap_samples": 10000,
+  "permutations": 500,
+  "seed": 73,
+  "top_3_lifesavers": [
+    {
+      "token": "conclude:final-answer",
+      "mean_delta": 0.4493060549925538,
+      "ci95_low": 0.28500090806726963,
+      "ci95_high": 0.612302313755403,
+      "bh_q": 0.00885009765625
+    }
+  ],
+  "top_3_killers": []
+}

@@ -1,0 +1,64 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\research\\gpt_oss_subset_15q_all_traces_tokenized_gpt-oss-chunked_live_1.csv",
+  "columns_used": {
+    "question": "question_id",
+    "correct": "is_correct",
+    "token": "tokenized_trace"
+  },
+  "n_rows": 450,
+  "n_questions": 15,
+  "n_mixed_outcome_questions": 15,
+  "min_questions_threshold": 10,
+  "fdr_threshold": 0.1,
+  "lift_threshold": 1.5,
+  "bootstrap_samples": 10000,
+  "seed": 73,
+  "n_position_conditioned_features": 9,
+  "n_position_tokens_evaluated_for_lift": 6,
+  "n_tokens_ge_lift_threshold": 0,
+  "fraction_tokens_ge_lift_threshold": 0.0,
+  "fraction_tokens_ge_lift_threshold_ci95_low": 0.0,
+  "fraction_tokens_ge_lift_threshold_ci95_high": 0.0,
+  "paired_bootstrap_mean_excess_over_threshold": -0.25367553209806165,
+  "paired_bootstrap_mean_excess_ci95_low": -0.37192741104246907,
+  "paired_bootstrap_mean_excess_ci95_high": -0.12902176474615878,
+  "paired_bootstrap_p_excess_le_zero": 1.0,
+  "top_tokens_by_lift_ratio": [
+    {
+      "token": "action:analyze",
+      "collapsed_abs": 0.18671087408236442,
+      "max_position_abs": 0.27504714481384096,
+      "lift_ratio": 1.4731179754024848
+    },
+    {
+      "token": "action:conclude",
+      "collapsed_abs": 0.3531408008783575,
+      "max_position_abs": 0.34314717131951056,
+      "lift_ratio": 0.9717007223917767
+    },
+    {
+      "token": "noise:corrupted-span",
+      "collapsed_abs": 0.599481780699172,
+      "max_position_abs": 0.559177475928139,
+      "lift_ratio": 0.9327680905931348
+    },
+    {
+      "token": "action:instantiate",
+      "collapsed_abs": 0.23346952774268526,
+      "max_position_abs": 0.19638200718057847,
+      "lift_ratio": 0.8411462047287721
+    },
+    {
+      "token": "action:compute",
+      "collapsed_abs": 0.5614032551705186,
+      "max_position_abs": 0.37729776883285654,
+      "lift_ratio": 0.6720619543224015
+    },
+    {
+      "token": "action:apply-formula",
+      "collapsed_abs": 0.4097110445498751,
+      "max_position_abs": 0.242771164021164,
+      "lift_ratio": 0.5925423960388524
+    }
+  ]
+}

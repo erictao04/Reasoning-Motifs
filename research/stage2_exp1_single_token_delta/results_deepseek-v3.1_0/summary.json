@@ -1,0 +1,44 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\tokenizer\\clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_DeepSeek-V3.1_0.csv",
+  "columns_used": {
+    "question": "question_id",
+    "correct": "is_correct",
+    "token": "tokenized_trace"
+  },
+  "n_rows": 2339,
+  "n_questions": 96,
+  "n_mixed_outcome_questions": 73,
+  "mean_question_baseline_over_mixed": 0.5189675040276902,
+  "token_threshold_min_questions": 10,
+  "n_tokens_analyzed": 13,
+  "fdr_threshold": 0.1,
+  "n_lifesaver_tokens": 4,
+  "n_killer_tokens": 0,
+  "bootstrap_samples": 10000,
+  "permutations": 500,
+  "seed": 73,
+  "top_3_lifesavers": [
+    {
+      "token": "compute",
+      "mean_delta": 0.2723763536753733,
+      "ci95_low": 0.13216748483905347,
+      "ci95_high": 0.4088644842811509,
+      "bh_q": 0.004063165048137307
+    },
+    {
+      "token": "conclude",
+      "mean_delta": 0.2421777678314247,
+      "ci95_low": 0.1449769665728825,
+      "ci95_high": 0.3418868952005412,
+      "bh_q": 0.0164393910866103
+    },
+    {
+      "token": "derive-intermediate",
+      "mean_delta": 0.1473655447761028,
+      "ci95_low": 0.08123214804956722,
+      "ci95_high": 0.22096337182678352,
+      "bh_q": 0.0164393910866103
+    }
+  ],
+  "top_3_killers": []
+}

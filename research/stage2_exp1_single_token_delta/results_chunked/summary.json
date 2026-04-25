@@ -1,0 +1,52 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\research\\gpt_oss_subset_15q_all_traces_tokenized_gpt-oss-chunked_live_1.csv",
+  "columns_used": {
+    "question": "question_id",
+    "correct": "is_correct",
+    "token": "tokenized_trace"
+  },
+  "n_rows": 450,
+  "n_questions": 15,
+  "n_mixed_outcome_questions": 15,
+  "mean_question_baseline_over_mixed": 0.66,
+  "token_threshold_min_questions": 10,
+  "n_tokens_analyzed": 7,
+  "fdr_threshold": 0.1,
+  "n_lifesaver_tokens": 4,
+  "n_killer_tokens": 1,
+  "bootstrap_samples": 10000,
+  "permutations": 500,
+  "seed": 73,
+  "top_3_lifesavers": [
+    {
+      "token": "action:compute",
+      "mean_delta": 0.5614032551705186,
+      "ci95_low": 0.3535423431356935,
+      "ci95_high": 0.7551221001221001,
+      "bh_q": 0.025848388671875
+    },
+    {
+      "token": "action:apply-formula",
+      "mean_delta": 0.4097110445498751,
+      "ci95_low": 0.09668893457311749,
+      "ci95_high": 0.6676089309241483,
+      "bh_q": 0.0675048828125
+    },
+    {
+      "token": "action:conclude",
+      "mean_delta": 0.3531408008783575,
+      "ci95_low": 0.2057531457983947,
+      "ci95_high": 0.49886395655626425,
+      "bh_q": 0.052408854166666664
+    }
+  ],
+  "top_3_killers": [
+    {
+      "token": "noise:corrupted-span",
+      "mean_delta": -0.599481780699172,
+      "ci95_low": -0.7951717171717172,
+      "ci95_high": -0.3858389822737649,
+      "bh_q": 0.025848388671875
+    }
+  ]
+}

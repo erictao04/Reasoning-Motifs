@@ -1,0 +1,99 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\tokenizer\\clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_gpt-oss-120b_0.csv",
+  "n_rows": 2415,
+  "n_questions": 90,
+  "used_mixed_outcome_only": true,
+  "outer_groupkfold_splits": 5,
+  "inner_groupkfold_splits": 3,
+  "fold_details": [
+    {
+      "fold": 1,
+      "n_train": 1928,
+      "n_test": 487,
+      "m2_best_c": 10.0,
+      "m3_best_c": 10.0,
+      "m0_auc": 0.8318817405504713,
+      "m1_auc": 0.5207787568468683,
+      "m2_auc": 0.5881077127207159,
+      "m3_auc": 0.5301177151022352
+    },
+    {
+      "fold": 2,
+      "n_train": 1929,
+      "n_test": 486,
+      "m2_best_c": 1.0,
+      "m3_best_c": 10.0,
+      "m0_auc": 0.8758857709750567,
+      "m1_auc": 0.5107444019274376,
+      "m2_auc": 0.545014880952381,
+      "m3_auc": 0.5642715419501134
+    },
+    {
+      "fold": 3,
+      "n_train": 1945,
+      "n_test": 470,
+      "m2_best_c": 0.1,
+      "m3_best_c": 0.3,
+      "m0_auc": 0.8660406914263856,
+      "m1_auc": 0.47699495455456187,
+      "m2_auc": 0.4774685342707783,
+      "m3_auc": 0.5252181198885266
+    },
+    {
+      "fold": 4,
+      "n_train": 1929,
+      "n_test": 486,
+      "m2_best_c": 0.3,
+      "m3_best_c": 0.3,
+      "m0_auc": 0.8628546343478859,
+      "m1_auc": 0.47004544828536016,
+      "m2_auc": 0.452038286737364,
+      "m3_auc": 0.43190504062801266
+    },
+    {
+      "fold": 5,
+      "n_train": 1929,
+      "n_test": 486,
+      "m2_best_c": 10.0,
+      "m3_best_c": 0.3,
+      "m0_auc": 0.9183241534067726,
+      "m1_auc": 0.4505133958928329,
+      "m2_auc": 0.45976132190942465,
+      "m3_auc": 0.5033234734122127
+    }
+  ],
+  "models": {
+    "M0_oracle_question_baseline": {
+      "auc": 0.8813032558420253,
+      "balanced_accuracy": 0.807018729047444,
+      "ece_10bin": 3.608224830031759e-17
+    },
+    "M1_length_only": {
+      "auc": 0.42946052826503234,
+      "balanced_accuracy": 0.4467506734995089,
+      "ece_10bin": 0.06812313223859812
+    },
+    "M2_l1_tokens_plus_qid_fe": {
+      "auc": 0.4824286584328723,
+      "balanced_accuracy": 0.4914938109373028,
+      "ece_10bin": 0.1741119979468984
+    },
+    "M3_l1_tokens_bigrams_plus_qid_fe": {
+      "auc": 0.4888978886956331,
+      "balanced_accuracy": 0.49440899389323867,
+      "ece_10bin": 0.21941261578039806
+    },
+    "AUC_lift_vs_M0": {
+      "M1_minus_M0": -0.45184272757699295,
+      "M2_minus_M0": -0.398874597409153,
+      "M3_minus_M0": -0.3924053671463922
+    }
+  },
+  "sanity_checks": {
+    "m2_shuffled_label_auc": 0.49177226389109874
+  },
+  "selected_C": {
+    "M2_full_fit": 0.1,
+    "M3_full_fit": 0.3
+  }
+}

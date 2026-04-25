@@ -1,0 +1,198 @@
+model,feature_type,feature,coefficient,abs_coefficient
+M2_l1_tokens_plus_qid_fe,token,solve,1.5391799654347584,1.5391799654347584
+M2_l1_tokens_plus_qid_fe,token,count,-0.6330038954670468,0.6330038954670468
+M2_l1_tokens_plus_qid_fe,token,rationalize,0.5713650907508557,0.5713650907508557
+M2_l1_tokens_plus_qid_fe,token,determine-ratio,-0.5623367480850526,0.5623367480850526
+M2_l1_tokens_plus_qid_fe,token,conclude,0.5594709992741993,0.5594709992741993
+M2_l1_tokens_plus_qid_fe,token,approximate,-0.550043192693073,0.550043192693073
+M2_l1_tokens_plus_qid_fe,token,transform,0.5352208459438272,0.5352208459438272
+M2_l1_tokens_plus_qid_fe,qid,740,-0.4591535883217592,0.4591535883217592
+M2_l1_tokens_plus_qid_fe,token,backtrack,-0.45652408635404934,0.45652408635404934
+M2_l1_tokens_plus_qid_fe,qid,348,0.4334885341423829,0.4334885341423829
+M2_l1_tokens_plus_qid_fe,qid,92,-0.43251847132657667,0.43251847132657667
+M2_l1_tokens_plus_qid_fe,qid,445,-0.430267132927692,0.430267132927692
+M2_l1_tokens_plus_qid_fe,qid,956,-0.3350051594907758,0.3350051594907758
+M2_l1_tokens_plus_qid_fe,qid,1033,-0.3299982208782304,0.3299982208782304
+M2_l1_tokens_plus_qid_fe,qid,715,-0.3008212814535539,0.3008212814535539
+M2_l1_tokens_plus_qid_fe,token,isolate,0.2539656279255279,0.2539656279255279
+M2_l1_tokens_plus_qid_fe,qid,790,-0.2456350808011236,0.2456350808011236
+M2_l1_tokens_plus_qid_fe,token,derive-constraint,-0.24104152187979483,0.24104152187979483
+M2_l1_tokens_plus_qid_fe,qid,189,-0.22887595743925399,0.22887595743925399
+M2_l1_tokens_plus_qid_fe,token,infer,0.22856742813115202,0.22856742813115202
+M2_l1_tokens_plus_qid_fe,qid,214,-0.2280819350545568,0.2280819350545568
+M2_l1_tokens_plus_qid_fe,qid,150,-0.20892468066360856,0.20892468066360856
+M2_l1_tokens_plus_qid_fe,qid,52,0.16584040369314143,0.16584040369314143
+M2_l1_tokens_plus_qid_fe,qid,169,0.1644150121028445,0.1644150121028445
+M2_l1_tokens_plus_qid_fe,qid,1060,-0.16413263965065353,0.16413263965065353
+M2_l1_tokens_plus_qid_fe,token,solve-equation,-0.16001920695693114,0.16001920695693114
+M2_l1_tokens_plus_qid_fe,qid,944,-0.15714737125969847,0.15714737125969847
+M2_l1_tokens_plus_qid_fe,qid,615,0.15591536323750937,0.15591536323750937
+M2_l1_tokens_plus_qid_fe,token,guess,-0.15011607736804727,0.15011607736804727
+M2_l1_tokens_plus_qid_fe,qid,1201,-0.14508905263006971,0.14508905263006971
+M2_l1_tokens_plus_qid_fe,qid,899,-0.13816870086166097,0.13816870086166097
+M2_l1_tokens_plus_qid_fe,qid,468,0.13158435366972618,0.13158435366972618
+M2_l1_tokens_plus_qid_fe,qid,950,0.1271703619465661,0.1271703619465661
+M2_l1_tokens_plus_qid_fe,qid,270,0.09979092989241008,0.09979092989241008
+M2_l1_tokens_plus_qid_fe,qid,851,-0.09822584734340956,0.09822584734340956
+M2_l1_tokens_plus_qid_fe,qid,1095,0.0932897797088812,0.0932897797088812
+M2_l1_tokens_plus_qid_fe,qid,165,0.09162762928372431,0.09162762928372431
+M2_l1_tokens_plus_qid_fe,token,case-split,-0.08707129937002954,0.08707129937002954
+M2_l1_tokens_plus_qid_fe,token,check-constraint,-0.08133822078881717,0.08133822078881717
+M2_l1_tokens_plus_qid_fe,qid,834,-0.0788198458440846,0.0788198458440846
+M2_l1_tokens_plus_qid_fe,qid,185,0.06345081382245801,0.06345081382245801
+M2_l1_tokens_plus_qid_fe,qid,250,0.05241416856842739,0.05241416856842739
+M2_l1_tokens_plus_qid_fe,qid,195,0.05166929892968566,0.05166929892968566
+M2_l1_tokens_plus_qid_fe,token,state-relationship,-0.03878444733139449,0.03878444733139449
+M2_l1_tokens_plus_qid_fe,token,compare,-0.028570550638571248,0.028570550638571248
+M2_l1_tokens_plus_qid_fe,qid,167,0.027071019594963046,0.027071019594963046
+M2_l1_tokens_plus_qid_fe,token,simplify,0.025288564031397155,0.025288564031397155
+M2_l1_tokens_plus_qid_fe,token,normalize,-0.024736234463813917,0.024736234463813917
+M2_l1_tokens_plus_qid_fe,token,derive-intermediate,-0.022324090326522914,0.022324090326522914
+M2_l1_tokens_plus_qid_fe,token,rewrite,0.022152624264676814,0.022152624264676814
+M2_l1_tokens_plus_qid_fe,qid,983,0.021347064524122532,0.021347064524122532
+M2_l1_tokens_plus_qid_fe,token,instantiate,0.021153031636045892,0.021153031636045892
+M2_l1_tokens_plus_qid_fe,token,substitute,0.017311120560202835,0.017311120560202835
+M2_l1_tokens_plus_qid_fe,token,apply-identity,-0.016971094665360613,0.016971094665360613
+M2_l1_tokens_plus_qid_fe,token,check,-0.00933820435470868,0.00933820435470868
+M2_l1_tokens_plus_qid_fe,token,compute,0.0019806736335767267,0.0019806736335767267
+M3_l1_tokens_bigrams_plus_qid_fe,qid,189,-2.491418325616754,2.491418325616754
+M3_l1_tokens_bigrams_plus_qid_fe,token,solve,2.382009427146331,2.382009427146331
+M3_l1_tokens_bigrams_plus_qid_fe,qid,790,-2.225651114939851,2.225651114939851
+M3_l1_tokens_bigrams_plus_qid_fe,qid,740,-2.185832540132417,2.185832540132417
+M3_l1_tokens_bigrams_plus_qid_fe,qid,715,-2.1237485091385535,2.1237485091385535
+M3_l1_tokens_bigrams_plus_qid_fe,qid,956,-2.082704581925801,2.082704581925801
+M3_l1_tokens_bigrams_plus_qid_fe,qid,92,-2.0684550522424803,2.0684550522424803
+M3_l1_tokens_bigrams_plus_qid_fe,qid,445,-1.9985216074865095,1.9985216074865095
+M3_l1_tokens_bigrams_plus_qid_fe,qid,827,-1.8674127441818162,1.8674127441818162
+M3_l1_tokens_bigrams_plus_qid_fe,qid,1060,-1.844668449923002,1.844668449923002
+M3_l1_tokens_bigrams_plus_qid_fe,qid,1033,-1.757689625652999,1.757689625652999
+M3_l1_tokens_bigrams_plus_qid_fe,qid,150,-1.6007929580069715,1.6007929580069715
+M3_l1_tokens_bigrams_plus_qid_fe,qid,851,-1.5798438621687585,1.5798438621687585
+M3_l1_tokens_bigrams_plus_qid_fe,qid,944,-1.576507156098811,1.576507156098811
+M3_l1_tokens_bigrams_plus_qid_fe,qid,1201,-1.4745329368487774,1.4745329368487774
+M3_l1_tokens_bigrams_plus_qid_fe,qid,348,1.4101666777034954,1.4101666777034954
+M3_l1_tokens_bigrams_plus_qid_fe,qid,279,-1.377077809014137,1.377077809014137
+M3_l1_tokens_bigrams_plus_qid_fe,qid,468,1.3598889925383042,1.3598889925383042
+M3_l1_tokens_bigrams_plus_qid_fe,token,rationalize,1.3498783603743634,1.3498783603743634
+M3_l1_tokens_bigrams_plus_qid_fe,qid,214,-1.3062184060345066,1.3062184060345066
+M3_l1_tokens_bigrams_plus_qid_fe,token,rearrange compute,-1.2003368983591516,1.2003368983591516
+M3_l1_tokens_bigrams_plus_qid_fe,qid,899,-1.1869015706799955,1.1869015706799955
+M3_l1_tokens_bigrams_plus_qid_fe,qid,1095,1.1424663296378303,1.1424663296378303
+M3_l1_tokens_bigrams_plus_qid_fe,qid,844,-1.1099577056232552,1.1099577056232552
+M3_l1_tokens_bigrams_plus_qid_fe,token,infer,1.0734367255120838,1.0734367255120838
+M3_l1_tokens_bigrams_plus_qid_fe,qid,45,1.07113581306593,1.07113581306593
+M3_l1_tokens_bigrams_plus_qid_fe,qid,950,1.069561571797173,1.069561571797173
+M3_l1_tokens_bigrams_plus_qid_fe,token,normalize,-1.063089978319106,1.063089978319106
+M3_l1_tokens_bigrams_plus_qid_fe,qid,1142,-1.0553463227475166,1.0553463227475166
+M3_l1_tokens_bigrams_plus_qid_fe,qid,880,-0.9847486714602185,0.9847486714602185
+M3_l1_tokens_bigrams_plus_qid_fe,qid,52,0.9819671358728111,0.9819671358728111
+M3_l1_tokens_bigrams_plus_qid_fe,token,approximate,-0.9735362911083654,0.9735362911083654
+M3_l1_tokens_bigrams_plus_qid_fe,qid,250,0.95503783127897,0.95503783127897
+M3_l1_tokens_bigrams_plus_qid_fe,token,conclude,0.9502623385132524,0.9502623385132524
+M3_l1_tokens_bigrams_plus_qid_fe,token,analyze factor,-0.9210357693460518,0.9210357693460518
+M3_l1_tokens_bigrams_plus_qid_fe,qid,185,0.9011551316711024,0.9011551316711024
+M3_l1_tokens_bigrams_plus_qid_fe,qid,270,0.8978253538754609,0.8978253538754609
+M3_l1_tokens_bigrams_plus_qid_fe,qid,369,-0.8966153117843094,0.8966153117843094
+M3_l1_tokens_bigrams_plus_qid_fe,qid,447,0.8929268060742996,0.8929268060742996
+M3_l1_tokens_bigrams_plus_qid_fe,token,determine-ratio,-0.8870912439247431,0.8870912439247431
+M3_l1_tokens_bigrams_plus_qid_fe,token,transform,0.8813049899671187,0.8813049899671187
+M3_l1_tokens_bigrams_plus_qid_fe,qid,1121,-0.866309699873287,0.866309699873287
+M3_l1_tokens_bigrams_plus_qid_fe,qid,1139,-0.859113001955754,0.859113001955754
+M3_l1_tokens_bigrams_plus_qid_fe,qid,983,0.8521383835748921,0.8521383835748921
+M3_l1_tokens_bigrams_plus_qid_fe,qid,466,-0.824808988964304,0.824808988964304
+M3_l1_tokens_bigrams_plus_qid_fe,qid,615,0.8206453427865853,0.8206453427865853
+M3_l1_tokens_bigrams_plus_qid_fe,qid,167,0.8019812287415015,0.8019812287415015
+M3_l1_tokens_bigrams_plus_qid_fe,qid,609,0.797052334042665,0.797052334042665
+M3_l1_tokens_bigrams_plus_qid_fe,qid,195,0.7893994878076169,0.7893994878076169
+M3_l1_tokens_bigrams_plus_qid_fe,qid,169,0.7845474708219096,0.7845474708219096
+M3_l1_tokens_bigrams_plus_qid_fe,qid,1028,-0.7086770971171489,0.7086770971171489
+M3_l1_tokens_bigrams_plus_qid_fe,qid,485,-0.696370554529704,0.696370554529704
+M3_l1_tokens_bigrams_plus_qid_fe,qid,834,-0.68377302916394,0.68377302916394
+M3_l1_tokens_bigrams_plus_qid_fe,qid,876,-0.6673528810422857,0.6673528810422857
+M3_l1_tokens_bigrams_plus_qid_fe,qid,222,-0.6243045136408757,0.6243045136408757
+M3_l1_tokens_bigrams_plus_qid_fe,qid,226,0.5905921121349887,0.5905921121349887
+M3_l1_tokens_bigrams_plus_qid_fe,token,derive-intermediate conclude,-0.5751420696885762,0.5751420696885762
+M3_l1_tokens_bigrams_plus_qid_fe,token,simplify rewrite,-0.49850346601821216,0.49850346601821216
+M3_l1_tokens_bigrams_plus_qid_fe,token,backtrack,-0.4652020666464306,0.4652020666464306
+M3_l1_tokens_bigrams_plus_qid_fe,token,factor check-constraint,0.4551175333314379,0.4551175333314379
+M3_l1_tokens_bigrams_plus_qid_fe,token,enumerate filter,0.44183052757307684,0.44183052757307684
+M3_l1_tokens_bigrams_plus_qid_fe,qid,49,0.40839336590421393,0.40839336590421393
+M3_l1_tokens_bigrams_plus_qid_fe,qid,1312,-0.40085195720349726,0.40085195720349726
+M3_l1_tokens_bigrams_plus_qid_fe,token,rewrite analyze,0.383794198010692,0.383794198010692
+M3_l1_tokens_bigrams_plus_qid_fe,qid,923,-0.37734666201477696,0.37734666201477696
+M3_l1_tokens_bigrams_plus_qid_fe,qid,165,0.3702925016550957,0.3702925016550957
+M3_l1_tokens_bigrams_plus_qid_fe,token,analyze instantiate,0.35127064148768455,0.35127064148768455
+M3_l1_tokens_bigrams_plus_qid_fe,token,derive-intermediate compare,0.3505456224616884,0.3505456224616884
+M3_l1_tokens_bigrams_plus_qid_fe,token,simplify isolate,0.3282098030535216,0.3282098030535216
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute conclude,-0.3157626389893063,0.3157626389893063
+M3_l1_tokens_bigrams_plus_qid_fe,token,analyze rewrite,0.30591199330844493,0.30591199330844493
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute check-constraint,-0.2968722804612383,0.2968722804612383
+M3_l1_tokens_bigrams_plus_qid_fe,token,apply-formula derive-intermediate,-0.294833683357725,0.294833683357725
+M3_l1_tokens_bigrams_plus_qid_fe,token,instantiate derive-intermediate,-0.28852635438793023,0.28852635438793023
+M3_l1_tokens_bigrams_plus_qid_fe,token,derive-intermediate case-split,-0.26388347442333376,0.26388347442333376
+M3_l1_tokens_bigrams_plus_qid_fe,token,rewrite check-constraint,-0.2404841212693649,0.2404841212693649
+M3_l1_tokens_bigrams_plus_qid_fe,token,apply-formula compute,-0.23793106642258394,0.23793106642258394
+M3_l1_tokens_bigrams_plus_qid_fe,token,analyze apply-formula,0.233336988066831,0.233336988066831
+M3_l1_tokens_bigrams_plus_qid_fe,token,isolate,0.2324079453063285,0.2324079453063285
+M3_l1_tokens_bigrams_plus_qid_fe,token,rearrange factor,0.2316850075631306,0.2316850075631306
+M3_l1_tokens_bigrams_plus_qid_fe,token,analyze compute,0.22891576662775637,0.22891576662775637
+M3_l1_tokens_bigrams_plus_qid_fe,token,guess,-0.22869377631288496,0.22869377631288496
+M3_l1_tokens_bigrams_plus_qid_fe,qid,561,0.22475199585542496,0.22475199585542496
+M3_l1_tokens_bigrams_plus_qid_fe,qid,375,0.22204646117970914,0.22204646117970914
+M3_l1_tokens_bigrams_plus_qid_fe,qid,252,0.21180550434528408,0.21180550434528408
+M3_l1_tokens_bigrams_plus_qid_fe,token,apply-formula,0.19730994730585916,0.19730994730585916
+M3_l1_tokens_bigrams_plus_qid_fe,token,simplify simplify,-0.18740325067943356,0.18740325067943356
+M3_l1_tokens_bigrams_plus_qid_fe,token,substitute substitute,-0.1820046827216254,0.1820046827216254
+M3_l1_tokens_bigrams_plus_qid_fe,token,apply-formula simplify,0.1782503135353421,0.1782503135353421
+M3_l1_tokens_bigrams_plus_qid_fe,token,find-common-denominator,0.17574879255280884,0.17574879255280884
+M3_l1_tokens_bigrams_plus_qid_fe,token,derive-intermediate compute,0.1734953410220763,0.1734953410220763
+M3_l1_tokens_bigrams_plus_qid_fe,token,apply-formula apply-formula,-0.17275784583953885,0.17275784583953885
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute check,-0.16813640786795758,0.16813640786795758
+M3_l1_tokens_bigrams_plus_qid_fe,token,define,-0.16487403668441314,0.16487403668441314
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute,0.15500946454898204,0.15500946454898204
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute compute,-0.14190795351290716,0.14190795351290716
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute simplify,-0.1414492366399864,0.1414492366399864
+M3_l1_tokens_bigrams_plus_qid_fe,token,case-split instantiate,0.13788478074293212,0.13788478074293212
+M3_l1_tokens_bigrams_plus_qid_fe,token,apply-formula solve-for,-0.1359576978220987,0.1359576978220987
+M3_l1_tokens_bigrams_plus_qid_fe,token,extract,0.1355019504129087,0.1355019504129087
+M3_l1_tokens_bigrams_plus_qid_fe,token,case-split,-0.12452344854183951,0.12452344854183951
+M3_l1_tokens_bigrams_plus_qid_fe,token,square,0.11248453829522215,0.11248453829522215
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute solve-equation,-0.10974615679277215,0.10974615679277215
+M3_l1_tokens_bigrams_plus_qid_fe,token,analyze check-constraint,0.10674359060776004,0.10674359060776004
+M3_l1_tokens_bigrams_plus_qid_fe,token,analyze,-0.10251374730985058,0.10251374730985058
+M3_l1_tokens_bigrams_plus_qid_fe,token,state-relationship,-0.09805188722611169,0.09805188722611169
+M3_l1_tokens_bigrams_plus_qid_fe,token,compare derive-intermediate,-0.09731937486630572,0.09731937486630572
+M3_l1_tokens_bigrams_plus_qid_fe,token,instantiate simplify,0.0957674878430189,0.0957674878430189
+M3_l1_tokens_bigrams_plus_qid_fe,token,derive-intermediate derive-intermediate,0.09282448960722027,0.09282448960722027
+M3_l1_tokens_bigrams_plus_qid_fe,token,analyze define,0.08556913626949669,0.08556913626949669
+M3_l1_tokens_bigrams_plus_qid_fe,token,simplify,0.07429646171555214,0.07429646171555214
+M3_l1_tokens_bigrams_plus_qid_fe,token,derive-constraint,-0.06929738317479045,0.06929738317479045
+M3_l1_tokens_bigrams_plus_qid_fe,token,combine,0.06794434170923862,0.06794434170923862
+M3_l1_tokens_bigrams_plus_qid_fe,token,apply-theorem,0.05103810098155609,0.05103810098155609
+M3_l1_tokens_bigrams_plus_qid_fe,token,compare,-0.049461237974129886,0.049461237974129886
+M3_l1_tokens_bigrams_plus_qid_fe,token,instantiate apply-formula,-0.04895348929922774,0.04895348929922774
+M3_l1_tokens_bigrams_plus_qid_fe,token,instantiate,-0.04165370492714801,0.04165370492714801
+M3_l1_tokens_bigrams_plus_qid_fe,token,case-split derive-intermediate,-0.04075208204860138,0.04075208204860138
+M3_l1_tokens_bigrams_plus_qid_fe,token,substitute simplify,0.040196742414015225,0.040196742414015225
+M3_l1_tokens_bigrams_plus_qid_fe,token,apply-formula instantiate,0.03656993509200502,0.03656993509200502
+M3_l1_tokens_bigrams_plus_qid_fe,token,isolate simplify,0.035645723152030385,0.035645723152030385
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute case-split,0.03507701317562236,0.03507701317562236
+M3_l1_tokens_bigrams_plus_qid_fe,token,substitute compute,0.03184545726526736,0.03184545726526736
+M3_l1_tokens_bigrams_plus_qid_fe,token,simplify conclude,0.028534268680104658,0.028534268680104658
+M3_l1_tokens_bigrams_plus_qid_fe,qid,946,0.025925842920010655,0.025925842920010655
+M3_l1_tokens_bigrams_plus_qid_fe,token,factor factor,0.02585589873373975,0.02585589873373975
+M3_l1_tokens_bigrams_plus_qid_fe,token,derive,0.023910925801576298,0.023910925801576298
+M3_l1_tokens_bigrams_plus_qid_fe,token,case-split check-constraint,-0.021991290568984845,0.021991290568984845
+M3_l1_tokens_bigrams_plus_qid_fe,token,check-constraint compute,-0.019452615437740895,0.019452615437740895
+M3_l1_tokens_bigrams_plus_qid_fe,token,rewrite apply-formula,0.019317515456540826,0.019317515456540826
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute instantiate,-0.018971098815954247,0.018971098815954247
+M3_l1_tokens_bigrams_plus_qid_fe,qid,291,0.018026944209941425,0.018026944209941425
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute apply-formula,0.01409544174332998,0.01409544174332998
+M3_l1_tokens_bigrams_plus_qid_fe,token,check-constraint check-constraint,-0.013201246889541971,0.013201246889541971
+M3_l1_tokens_bigrams_plus_qid_fe,token,analyze analyze,0.01122330888692391,0.01122330888692391
+M3_l1_tokens_bigrams_plus_qid_fe,token,derive-intermediate simplify,-0.01042481829444313,0.01042481829444313
+M3_l1_tokens_bigrams_plus_qid_fe,token,rewrite,0.008407792651900288,0.008407792651900288
+M3_l1_tokens_bigrams_plus_qid_fe,token,derive-intermediate,-0.006898050815892258,0.006898050815892258
+M3_l1_tokens_bigrams_plus_qid_fe,token,compute compare,-0.005955846601668131,0.005955846601668131
+M3_l1_tokens_bigrams_plus_qid_fe,token,check-constraint,-0.005425397995094338,0.005425397995094338
+M3_l1_tokens_bigrams_plus_qid_fe,token,combine-like-terms,0.0007896370996549523,0.0007896370996549523

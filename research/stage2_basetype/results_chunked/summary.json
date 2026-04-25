@@ -1,0 +1,22 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\research\\gpt_oss_subset_15q_all_traces_tokenized_gpt-oss-chunked_live_1.csv",
+  "columns_used": {
+    "question": "question_id",
+    "correct": "is_correct",
+    "token": "tokenized_trace"
+  },
+  "n_rows": 240,
+  "n_questions": 8,
+  "n_mixed_outcome_questions": 8,
+  "mean_question_baseline_over_mixed": 0.8458333333333333,
+  "token_threshold_min_questions": 10,
+  "n_tokens_analyzed": 0,
+  "fdr_threshold": 0.1,
+  "n_lifesaver_tokens": 0,
+  "n_killer_tokens": 0,
+  "bootstrap_samples": 10000,
+  "permutations": 500,
+  "seed": 73,
+  "top_3_lifesavers": [],
+  "top_3_killers": []
+}

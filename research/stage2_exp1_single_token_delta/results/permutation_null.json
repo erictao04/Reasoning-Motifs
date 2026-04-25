@@ -1,0 +1,18 @@
+{
+  "n_permutations": 500,
+  "max_abs_mean_delta": {
+    "mean": 0.061221729696944394,
+    "p95": 0.13221597213764733,
+    "max": 0.2602250622471211
+  },
+  "most_frequent_top_tokens": [
+    [
+      "analyze:setup",
+      261
+    ],
+    [
+      "conclude:final-answer",
+      239
+    ]
+  ]
+}

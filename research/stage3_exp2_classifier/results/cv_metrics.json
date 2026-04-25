@@ -1,0 +1,99 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\tokenizer_v5\\results\\gpt-oss-tokenized-traces.csv",
+  "n_rows": 597,
+  "n_questions": 24,
+  "used_mixed_outcome_only": true,
+  "outer_groupkfold_splits": 5,
+  "inner_groupkfold_splits": 3,
+  "fold_details": [
+    {
+      "fold": 1,
+      "n_train": 489,
+      "n_test": 108,
+      "m2_best_c": 0.3,
+      "m3_best_c": 0.3,
+      "m0_auc": 0.8602969166349448,
+      "m1_auc": 0.26037304910544345,
+      "m2_auc": 0.3540159878188047,
+      "m3_auc": 0.3540159878188047
+    },
+    {
+      "fold": 2,
+      "n_train": 471,
+      "n_test": 126,
+      "m2_best_c": 3.0,
+      "m3_best_c": 10.0,
+      "m0_auc": 0.6939636977627691,
+      "m1_auc": 0.379273955255382,
+      "m2_auc": 0.7403967918953145,
+      "m3_auc": 0.7454622203461376
+    },
+    {
+      "fold": 3,
+      "n_train": 471,
+      "n_test": 126,
+      "m2_best_c": 10.0,
+      "m3_best_c": 10.0,
+      "m0_auc": 0.8173185941043084,
+      "m1_auc": 0.4044784580498866,
+      "m2_auc": 0.5498866213151927,
+      "m3_auc": 0.6356292517006803
+    },
+    {
+      "fold": 4,
+      "n_train": 473,
+      "n_test": 124,
+      "m2_best_c": 1.0,
+      "m3_best_c": 10.0,
+      "m0_auc": 0.9333890746934226,
+      "m1_auc": 0.3563266443701227,
+      "m2_auc": 0.9345039018952063,
+      "m3_auc": 0.9453734671125976
+    },
+    {
+      "fold": 5,
+      "n_train": 484,
+      "n_test": 113,
+      "m2_best_c": 3.0,
+      "m3_best_c": 10.0,
+      "m0_auc": 0.8910907859078592,
+      "m1_auc": 0.46663279132791324,
+      "m2_auc": 0.5037262872628726,
+      "m3_auc": 0.5486111111111112
+    }
+  ],
+  "models": {
+    "M0_oracle_question_baseline": {
+      "auc": 0.8723285610540512,
+      "balanced_accuracy": 0.7890795206971677,
+      "ece_10bin": 6.797094061984836e-17
+    },
+    "M1_length_only": {
+      "auc": 0.40187649133727565,
+      "balanced_accuracy": 0.5,
+      "ece_10bin": 0.09384265293137449
+    },
+    "M2_l1_tokens_plus_qid_fe": {
+      "auc": 0.659041394335512,
+      "balanced_accuracy": 0.5918145035792095,
+      "ece_10bin": 0.18533545577898475
+    },
+    "M3_l1_tokens_bigrams_plus_qid_fe": {
+      "auc": 0.7217942732648616,
+      "balanced_accuracy": 0.6660636476812947,
+      "ece_10bin": 0.1678701611205066
+    },
+    "AUC_lift_vs_M0": {
+      "M1_minus_M0": -0.47045206971677556,
+      "M2_minus_M0": -0.2132871667185392,
+      "M3_minus_M0": -0.15053428778918965
+    }
+  },
+  "sanity_checks": {
+    "m2_shuffled_label_auc": 0.5084033613445379
+  },
+  "selected_C": {
+    "M2_full_fit": 0.3,
+    "M3_full_fit": 0.03
+  }
+}

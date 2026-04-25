@@ -1,0 +1,35 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\research\\stage2_basetype\\results_gpt-oss-tokenizer-v5\\per_question_token_deltas.csv",
+  "n_questions": 24,
+  "n_tokens": 8,
+  "seed": 73,
+  "umap_neighbors": 15,
+  "umap_min_dist": 0.1,
+  "hdbscan_min_cluster_size": 8,
+  "hdbscan_min_samples": 4,
+  "n_clusters_excluding_noise": 0,
+  "cluster_sizes": {
+    "-1": 24
+  },
+  "stability": {
+    "n_resamples_requested": 10,
+    "n_resamples_valid": 10,
+    "ari_mean": 0.9,
+    "ari_median": 1.0,
+    "ari_min": 0.0,
+    "ari_max": 1.0,
+    "ari_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "stability_passes_ari_0_4": true
+}

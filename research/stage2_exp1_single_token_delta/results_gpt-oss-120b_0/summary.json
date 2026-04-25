@@ -1,0 +1,44 @@
+{
+  "input_csv": "C:\\Users\\erict\\Programming\\School\\CPSC 440\\Reasoning-Motifs\\tokenizer\\clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_gpt-oss-120b_0.csv",
+  "columns_used": {
+    "question": "question_id",
+    "correct": "is_correct",
+    "token": "tokenized_trace"
+  },
+  "n_rows": 2683,
+  "n_questions": 100,
+  "n_mixed_outcome_questions": 90,
+  "mean_question_baseline_over_mixed": 0.4964745345072682,
+  "token_threshold_min_questions": 10,
+  "n_tokens_analyzed": 13,
+  "fdr_threshold": 0.1,
+  "n_lifesaver_tokens": 8,
+  "n_killer_tokens": 0,
+  "bootstrap_samples": 10000,
+  "permutations": 500,
+  "seed": 73,
+  "top_3_lifesavers": [
+    {
+      "token": "compute",
+      "mean_delta": 0.29283379795341813,
+      "ci95_low": 0.2108063990431295,
+      "ci95_high": 0.3757230868604966,
+      "bh_q": 2.4145170359884714e-05
+    },
+    {
+      "token": "instantiate",
+      "mean_delta": 0.25555970022991603,
+      "ci95_low": 0.17658787835894244,
+      "ci95_high": 0.3385912185879811,
+      "bh_q": 0.00019298278009805532
+    },
+    {
+      "token": "apply-formula",
+      "mean_delta": 0.23431538010070657,
+      "ci95_low": 0.13983491536433093,
+      "ci95_high": 0.32867250160317013,
+      "bh_q": 0.0012213690268211507
+    }
+  ],
+  "top_3_killers": []
+}

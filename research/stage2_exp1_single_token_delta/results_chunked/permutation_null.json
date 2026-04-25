@@ -1,0 +1,38 @@
+{
+  "n_permutations": 500,
+  "max_abs_mean_delta": {
+    "mean": 0.08614816195178332,
+    "p95": 0.1417482863613865,
+    "max": 0.19983513571617842
+  },
+  "most_frequent_top_tokens": [
+    [
+      "action:simplify",
+      120
+    ],
+    [
+      "action:analyze",
+      86
+    ],
+    [
+      "action:instantiate",
+      85
+    ],
+    [
+      "action:conclude",
+      61
+    ],
+    [
+      "action:apply-formula",
+      58
+    ],
+    [
+      "action:compute",
+      51
+    ],
+    [
+      "noise:corrupted-span",
+      39
+    ]
+  ]
+}
