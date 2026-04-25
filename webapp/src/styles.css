@@ -1,0 +1,167 @@
+:root {
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: #f5f1e8;
+  background:
+    radial-gradient(circle at top left, rgba(220, 112, 48, 0.18), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(57, 141, 181, 0.18), transparent 24%),
+    linear-gradient(180deg, #171513 0%, #111827 100%);
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+a {
+  color: #f3c969;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-frame {
+  width: min(1180px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0 4rem;
+}
+
+.topbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0 2rem;
+}
+
+.topbar h1,
+.hero h2,
+.section-header h2,
+.panel h2,
+.panel h3 {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+.topnav {
+  display: flex;
+  gap: 1rem;
+}
+
+.topnav a {
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  color: rgba(245, 241, 232, 0.85);
+}
+
+.topnav a.active {
+  border-bottom-color: #f3c969;
+  color: #fff7d7;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: #f3c969;
+}
+
+.hero,
+.panel {
+  border: 1px solid rgba(243, 201, 105, 0.18);
+  background: rgba(17, 24, 39, 0.62);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 1.25rem;
+}
+
+.lede {
+  max-width: 60ch;
+  color: rgba(245, 241, 232, 0.82);
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.metric-card {
+  border-radius: 18px;
+  padding: 1rem;
+  background: rgba(34, 45, 66, 0.72);
+  border: 1px solid rgba(125, 211, 252, 0.14);
+}
+
+.metric-card span {
+  display: block;
+  color: rgba(245, 241, 232, 0.7);
+  font-size: 0.9rem;
+}
+
+.metric-card strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.question-card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.question-meta {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(245, 241, 232, 0.65);
+  font-size: 0.85rem;
+}
+
+.inline-link {
+  display: inline-flex;
+  margin-top: 0.75rem;
+}
+
+.stack-lg {
+  display: grid;
+  gap: 1rem;
+}
+
+.story-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 720px) {
+  .app-frame {
+    width: min(100vw - 1rem, 100%);
+  }
+
+  .topbar {
+    align-items: start;
+    flex-direction: column;
+  }
+}
