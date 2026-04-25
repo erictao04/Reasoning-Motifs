@@ -1,0 +1,625 @@
+{
+  "config": {
+    "experiment": 3,
+    "description": "Cross-tokenization robustness on matched overlap between user-provided gpt-oss tokenized traces and DeepSeek tokenization.",
+    "min_support": 12,
+    "prefix_fraction": 1.0,
+    "motif_len_range": [
+      1,
+      3
+    ]
+  },
+  "inputs": {
+    "gpt_oss_input": "gpt-oss-tokenized-traces.csv",
+    "deepseek_input": "clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_DeepSeek-V3.1_0.csv"
+  },
+  "datasets": {
+    "shared_trace_count": 674,
+    "shared_question_count": 30,
+    "gpt_oss_shared_mixed_question_count": 17,
+    "deepseek_shared_mixed_question_count": 17,
+    "gpt_oss_unmatched_trace_count": 58,
+    "deepseek_unmatched_trace_count": 1665
+  },
+  "cross_model_results": [
+    {
+      "experiment_name": "train_gpt_oss_subset_test_deepseek_subset",
+      "prefix_fraction": 1.0,
+      "motif_len_range": [
+        1,
+        3
+      ],
+      "min_support": 12,
+      "selected_feature_count": 340,
+      "motif": {
+        "n": 674,
+        "accuracy": 0.3486646884272997,
+        "balanced_accuracy": 0.5,
+        "auc": 0.5,
+        "tp": 0,
+        "tn": 235,
+        "fp": 0,
+        "fn": 439,
+        "mixed_question_count": 17,
+        "question_local_auc_mean": 0.5,
+        "question_local_auc_ge_0_5_rate": 1.0,
+        "question_local_auc_ge_0_6_rate": 0.0
+      },
+      "length_only": {
+        "n": 674,
+        "accuracy": 0.6231454005934718,
+        "balanced_accuracy": 0.48923569039887554,
+        "auc": 0.46669413076140165,
+        "tp": 409,
+        "tn": 11,
+        "fp": 224,
+        "fn": 30,
+        "mixed_question_count": 17,
+        "question_local_auc_mean": 0.5897431093943074,
+        "question_local_auc_ge_0_5_rate": 0.47058823529411764,
+        "question_local_auc_ge_0_6_rate": 0.4117647058823529
+      }
+    },
+    {
+      "experiment_name": "train_deepseek_subset_test_gpt_oss_subset",
+      "prefix_fraction": 1.0,
+      "motif_len_range": [
+        1,
+        3
+      ],
+      "min_support": 12,
+      "selected_feature_count": 211,
+      "motif": {
+        "n": 674,
+        "accuracy": 0.6513353115727003,
+        "balanced_accuracy": 0.5,
+        "auc": 0.5,
+        "tp": 439,
+        "tn": 0,
+        "fp": 235,
+        "fn": 0,
+        "mixed_question_count": 17,
+        "question_local_auc_mean": 0.5,
+        "question_local_auc_ge_0_5_rate": 1.0,
+        "question_local_auc_ge_0_6_rate": 0.0
+      },
+      "length_only": {
+        "n": 674,
+        "accuracy": 0.658753709198813,
+        "balanced_accuracy": 0.5136044201037173,
+        "auc": 0.39331168516454224,
+        "tp": 436,
+        "tn": 8,
+        "fp": 227,
+        "fn": 3,
+        "mixed_question_count": 17,
+        "question_local_auc_mean": 0.5821694025410247,
+        "question_local_auc_ge_0_5_rate": 0.6470588235294118,
+        "question_local_auc_ge_0_6_rate": 0.5294117647058824
+      }
+    }
+  ],
+  "motif_tables": {
+    "gpt_oss_subset": {
+      "success": [
+        {
+          "motif": "rewrite:common-denominator",
+          "weight": 3.407147022164778,
+          "support": 49
+        },
+        {
+          "motif": "simplify:intermediate-result conclude:final-answer",
+          "weight": 2.8816616269668645,
+          "support": 30
+        },
+        {
+          "motif": "rewrite:equation",
+          "weight": 2.775724797205737,
+          "support": 53
+        },
+        {
+          "motif": "compute:sum",
+          "weight": 2.7725885009262496,
+          "support": 27
+        },
+        {
+          "motif": "apply-formula:slope",
+          "weight": 2.7338024764770057,
+          "support": 26
+        },
+        {
+          "motif": "compute:sum conclude:final-answer",
+          "weight": 2.7338024764770057,
+          "support": 26
+        },
+        {
+          "motif": "compute:x-intercept",
+          "weight": 2.7338024764770057,
+          "support": 26
+        },
+        {
+          "motif": "compute:y-intercept",
+          "weight": 2.7338024764770057,
+          "support": 26
+        },
+        {
+          "motif": "simplify:intermediate-result",
+          "weight": 2.732117117209655,
+          "support": 51
+        },
+        {
+          "motif": "analyze:setup instantiate:variable",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "apply-formula:slope compute:sum",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "apply-formula:slope compute:sum conclude:final-answer",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "compute:constant-addition",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "compute:fraction-elimination",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "compute:sum-computation",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "compute:y-intercept rewrite:equation",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "instantiate:equation-setup",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "instantiate:equation-setup compute:fraction-elimination",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "rewrite:variable-isolation",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "simplify:expansion",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "compare:exponent",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "rewrite:common-denominator compute:sum-computation",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "analyze:setup instantiate:variable instantiate:variable",
+          "weight": 2.608799194896465,
+          "support": 23
+        },
+        {
+          "motif": "apply-formula:power-rule",
+          "weight": 2.608799194896465,
+          "support": 23
+        },
+        {
+          "motif": "compare:numerator-equation",
+          "weight": 2.608799194896465,
+          "support": 23
+        }
+      ],
+      "failure": [
+        {
+          "motif": "apply-formula:probability",
+          "weight": -4.035503629850743,
+          "support": 26
+        },
+        {
+          "motif": "check-constraint:different",
+          "weight": -3.9930126994522546,
+          "support": 25
+        },
+        {
+          "motif": "check-constraint:different instantiate:digit-choice",
+          "weight": -3.9930126994522546,
+          "support": 25
+        },
+        {
+          "motif": "compute:product compute:intermediate-result",
+          "weight": -3.9930126994522546,
+          "support": 25
+        },
+        {
+          "motif": "instantiate:digit-choice",
+          "weight": -3.9930126994522546,
+          "support": 25
+        },
+        {
+          "motif": "instantiate:letter-choice",
+          "weight": -3.9930126994522546,
+          "support": 25
+        },
+        {
+          "motif": "check-constraint:different instantiate:letter-choice",
+          "weight": -3.9490638454729408,
+          "support": 24
+        },
+        {
+          "motif": "compute:favorable-outcomes",
+          "weight": -3.9490638454729408,
+          "support": 24
+        },
+        {
+          "motif": "compute:total-outcomes",
+          "weight": -3.9490638454729408,
+          "support": 24
+        },
+        {
+          "motif": "check-constraint:different instantiate:digit-choice compute:product",
+          "weight": -3.903535960315521,
+          "support": 23
+        },
+        {
+          "motif": "instantiate:digit-choice compute:product",
+          "weight": -3.903535960315521,
+          "support": 23
+        },
+        {
+          "motif": "instantiate:variable-definition",
+          "weight": -3.903535960315521,
+          "support": 23
+        },
+        {
+          "motif": "analyze:setup compute:total-outcomes",
+          "weight": -3.8562924970188464,
+          "support": 22
+        },
+        {
+          "motif": "instantiate:sequence",
+          "weight": -3.8562924970188464,
+          "support": 22
+        },
+        {
+          "motif": "apply-formula:inclusion-exclusion",
+          "weight": -3.8071787218157316,
+          "support": 21
+        },
+        {
+          "motif": "rewrite:simplified-equation",
+          "weight": -3.8071787218157316,
+          "support": 21
+        },
+        {
+          "motif": "compute:total-at-least-one",
+          "weight": -3.756018327142427,
+          "support": 20
+        },
+        {
+          "motif": "check-constraint:different instantiate:letter-choice compute:product",
+          "weight": -3.702609217686043,
+          "support": 19
+        },
+        {
+          "motif": "instantiate:letter-choice compute:product",
+          "weight": -3.702609217686043,
+          "support": 19
+        },
+        {
+          "motif": "apply-formula:probability conclude:final-answer",
+          "weight": -3.6467182146785566,
+          "support": 18
+        },
+        {
+          "motif": "instantiate:digit-choice compute:product compute:intermediate-result",
+          "weight": -3.6467182146785566,
+          "support": 18
+        },
+        {
+          "motif": "apply-formula:inclusion-exclusion compute:intermediate-result",
+          "weight": -3.588074327078816,
+          "support": 17
+        },
+        {
+          "motif": "compute:favorable-outcomes apply-formula:probability",
+          "weight": -3.588074327078816,
+          "support": 17
+        },
+        {
+          "motif": "compute:intermediate-result rewrite:simplified-equation",
+          "weight": -3.588074327078816,
+          "support": 17
+        },
+        {
+          "motif": "compute:total-at-least-one apply-formula:inclusion-exclusion",
+          "weight": -3.588074327078816,
+          "support": 17
+        }
+      ]
+    },
+    "deepseek_subset": {
+      "success": [
+        {
+          "motif": "conclude compute conclude",
+          "weight": 2.7338024764770057,
+          "support": 26
+        },
+        {
+          "motif": "instantiate substitute",
+          "weight": 2.7338024764770057,
+          "support": 26
+        },
+        {
+          "motif": "instantiate substitute compute",
+          "weight": 2.7338024764770057,
+          "support": 26
+        },
+        {
+          "motif": "substitute compute",
+          "weight": 2.7338024764770057,
+          "support": 26
+        },
+        {
+          "motif": "isolate",
+          "weight": 2.693649602719547,
+          "support": 25
+        },
+        {
+          "motif": "analyze instantiate substitute",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "compute conclude instantiate",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "conclude instantiate",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "conclude instantiate compute",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "equate",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "equate solve",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "equate solve conclude",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "solve",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "solve conclude",
+          "weight": 2.6520221502167165,
+          "support": 24
+        },
+        {
+          "motif": "apply-formula equate",
+          "weight": 2.608799194896465,
+          "support": 23
+        },
+        {
+          "motif": "apply-formula equate solve",
+          "weight": 2.608799194896465,
+          "support": 23
+        },
+        {
+          "motif": "substitute compute simplify",
+          "weight": 2.5638443705531575,
+          "support": 22
+        },
+        {
+          "motif": "compute conclude apply-formula",
+          "weight": 2.517003121459002,
+          "support": 21
+        },
+        {
+          "motif": "conclude apply-formula rewrite",
+          "weight": 2.517003121459002,
+          "support": 21
+        },
+        {
+          "motif": "simplify isolate",
+          "weight": 2.517003121459002,
+          "support": 21
+        },
+        {
+          "motif": "derive-intermediate apply-formula rewrite",
+          "weight": 2.363265256325806,
+          "support": 18
+        },
+        {
+          "motif": "rewrite conclude compute",
+          "weight": 2.363265256325806,
+          "support": 18
+        },
+        {
+          "motif": "conclude compute",
+          "weight": 2.283985567153348,
+          "support": 34
+        },
+        {
+          "motif": "apply-formula simplify isolate",
+          "weight": 2.184331148870092,
+          "support": 15
+        },
+        {
+          "motif": "isolate compute",
+          "weight": 2.184331148870092,
+          "support": 15
+        }
+      ],
+      "failure": [
+        {
+          "motif": "combine",
+          "weight": -3.9490638454729408,
+          "support": 24
+        },
+        {
+          "motif": "compute combine",
+          "weight": -3.9490638454729408,
+          "support": 24
+        },
+        {
+          "motif": "define-variables",
+          "weight": -3.903535960315521,
+          "support": 23
+        },
+        {
+          "motif": "instantiate compute combine",
+          "weight": -3.903535960315521,
+          "support": 23
+        },
+        {
+          "motif": "define-variables state-givens",
+          "weight": -3.8562924970188464,
+          "support": 22
+        },
+        {
+          "motif": "state-givens",
+          "weight": -3.8562924970188464,
+          "support": 22
+        },
+        {
+          "motif": "simplify solve-equation",
+          "weight": -3.8071787218157316,
+          "support": 21
+        },
+        {
+          "motif": "solve-equation",
+          "weight": -3.8071787218157316,
+          "support": 21
+        },
+        {
+          "motif": "substitute-values",
+          "weight": -3.8071787218157316,
+          "support": 21
+        },
+        {
+          "motif": "substitute-values simplify",
+          "weight": -3.8071787218157316,
+          "support": 21
+        },
+        {
+          "motif": "analyze instantiate instantiate",
+          "weight": -3.588074327078816,
+          "support": 17
+        },
+        {
+          "motif": "check-consistency",
+          "weight": -3.3921471208770404,
+          "support": 14
+        },
+        {
+          "motif": "solve-equation check-consistency",
+          "weight": -3.3921471208770404,
+          "support": 14
+        },
+        {
+          "motif": "simplify simplify solve-equation",
+          "weight": -3.318659860935608,
+          "support": 13
+        },
+        {
+          "motif": "substitute-values simplify simplify",
+          "weight": -3.318659860935608,
+          "support": 13
+        },
+        {
+          "motif": "apply-formula substitute-values",
+          "weight": -3.2400776096939072,
+          "support": 12
+        },
+        {
+          "motif": "apply-formula substitute-values simplify",
+          "weight": -3.2400776096939072,
+          "support": 12
+        },
+        {
+          "motif": "combine compute",
+          "weight": -3.2400776096939072,
+          "support": 12
+        },
+        {
+          "motif": "combine conclude",
+          "weight": -3.2400776096939072,
+          "support": 12
+        },
+        {
+          "motif": "compute combine compute",
+          "weight": -3.2400776096939072,
+          "support": 12
+        },
+        {
+          "motif": "compute combine conclude",
+          "weight": -3.2400776096939072,
+          "support": 12
+        },
+        {
+          "motif": "apply-formula derive-intermediate derive-intermediate",
+          "weight": -2.5446553357990362,
+          "support": 13
+        },
+        {
+          "motif": "derive-intermediate derive-intermediate analyze",
+          "weight": -2.4601582793000527,
+          "support": 12
+        },
+        {
+          "motif": "instantiate analyze apply-formula",
+          "weight": -2.1369097984944263,
+          "support": 14
+        },
+        {
+          "motif": "derive-intermediate derive-intermediate derive-intermediate",
+          "weight": -2.0680647591969885,
+          "support": 18
+        }
+      ]
+    }
+  },
+  "motif_stability": {
+    "left_name": "gpt_oss_subset",
+    "right_name": "deepseek_subset",
+    "shared_feature_count": 0,
+    "sign_agreement_rate": 0.0,
+    "shared_success_success_count": 0,
+    "shared_failure_failure_count": 0,
+    "top_same_sign_rows": []
+  }
+}

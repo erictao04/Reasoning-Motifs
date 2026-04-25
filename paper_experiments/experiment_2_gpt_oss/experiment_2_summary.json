@@ -1,0 +1,796 @@
+{
+  "config": {
+    "input_path": "gpt-oss-tokenized-traces.csv",
+    "folds": 5,
+    "seed": 73,
+    "min_support": 12,
+    "prefix_fractions": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "motif_len_range": [
+      1,
+      3
+    ],
+    "experiment_family": "experiment_2_early_prefix_prediction"
+  },
+  "dataset": {
+    "name": "gpt_oss_tokenized_traces",
+    "row_count": 732,
+    "question_count": 30,
+    "mixed_question_count": 24,
+    "mixed_row_count": 597
+  },
+  "prefix_results": {
+    "gpt_oss_prefix_0.25": {
+      "experiment_name": "motif_1to3_prefix",
+      "prefix_fraction": 0.25,
+      "motif_len_range": [
+        1,
+        3
+      ],
+      "min_support": 12,
+      "folds": [
+        {
+          "fold_index": 0,
+          "test_question_count": 6,
+          "test_trace_count": 144,
+          "motif": {
+            "n": 144,
+            "accuracy": 0.6736111111111112,
+            "balanced_accuracy": 0.6672494172494172,
+            "auc": 0.666083916083916,
+            "tp": 58,
+            "tn": 39,
+            "fp": 27,
+            "fn": 20,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.4980769230769231,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.0
+          },
+          "length_only": {
+            "n": 144,
+            "accuracy": 0.5902777777777778,
+            "balanced_accuracy": 0.5553613053613053,
+            "auc": 0.607031857031857,
+            "tp": 76,
+            "tn": 9,
+            "fp": 57,
+            "fn": 2,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.6675393234216763,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "selected_feature_count": 62
+        },
+        {
+          "fold_index": 1,
+          "test_question_count": 6,
+          "test_trace_count": 155,
+          "motif": {
+            "n": 155,
+            "accuracy": 0.4967741935483871,
+            "balanced_accuracy": 0.4340185676392573,
+            "auc": 0.4413129973474801,
+            "tp": 65,
+            "tn": 12,
+            "fp": 27,
+            "fn": 51,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.49794137022397894,
+            "question_local_auc_ge_0_5_rate": 0.8333333333333334,
+            "question_local_auc_ge_0_6_rate": 0.0
+          },
+          "length_only": {
+            "n": 155,
+            "accuracy": 0.8129032258064516,
+            "balanced_accuracy": 0.6707559681697612,
+            "auc": 0.5401193633952255,
+            "tp": 111,
+            "tn": 15,
+            "fp": 24,
+            "fn": 5,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.736228487695879,
+            "question_local_auc_ge_0_5_rate": 1.0,
+            "question_local_auc_ge_0_6_rate": 0.6666666666666666
+          },
+          "selected_feature_count": 60
+        },
+        {
+          "fold_index": 2,
+          "test_question_count": 6,
+          "test_trace_count": 152,
+          "motif": {
+            "n": 152,
+            "accuracy": 0.8618421052631579,
+            "balanced_accuracy": 0.8520905923344948,
+            "auc": 0.8161149825783972,
+            "tp": 80,
+            "tn": 51,
+            "fp": 19,
+            "fn": 2,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.4756944444444444,
+            "question_local_auc_ge_0_5_rate": 0.3333333333333333,
+            "question_local_auc_ge_0_6_rate": 0.0
+          },
+          "length_only": {
+            "n": 152,
+            "accuracy": 0.5657894736842105,
+            "balanced_accuracy": 0.5296167247386759,
+            "auc": 0.21994773519163763,
+            "tp": 81,
+            "tn": 5,
+            "fp": 65,
+            "fn": 1,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.5339209401709402,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "selected_feature_count": 56
+        },
+        {
+          "fold_index": 3,
+          "test_question_count": 6,
+          "test_trace_count": 124,
+          "motif": {
+            "n": 124,
+            "accuracy": 0.46774193548387094,
+            "balanced_accuracy": 0.40559440559440557,
+            "auc": 0.39760239760239763,
+            "tp": 9,
+            "tn": 49,
+            "fp": 42,
+            "fn": 24,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.4690489130434783,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.16666666666666666
+          },
+          "length_only": {
+            "n": 124,
+            "accuracy": 0.3225806451612903,
+            "balanced_accuracy": 0.5288045288045288,
+            "auc": 0.6085581085581085,
+            "tp": 32,
+            "tn": 8,
+            "fp": 83,
+            "fn": 1,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.5359299516908212,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.6666666666666666
+          },
+          "selected_feature_count": 57
+        },
+        {
+          "fold_index": 4,
+          "test_question_count": 6,
+          "test_trace_count": 157,
+          "motif": {
+            "n": 157,
+            "accuracy": 0.535031847133758,
+            "balanced_accuracy": 0.42920168067226894,
+            "auc": 0.4317226890756303,
+            "tp": 79,
+            "tn": 5,
+            "fp": 12,
+            "fn": 61,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.4884615384615385,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.0
+          },
+          "length_only": {
+            "n": 157,
+            "accuracy": 0.9490445859872612,
+            "balanced_accuracy": 0.790546218487395,
+            "auc": 0.7151260504201681,
+            "tp": 139,
+            "tn": 10,
+            "fp": 7,
+            "fn": 1,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.8905555555555557,
+            "question_local_auc_ge_0_5_rate": 0.8333333333333334,
+            "question_local_auc_ge_0_6_rate": 0.8333333333333334
+          },
+          "selected_feature_count": 51
+        }
+      ],
+      "aggregate": {
+        "motif_accuracy": 0.607000238508057,
+        "motif_balanced_accuracy": 0.5576309326979688,
+        "motif_auc": 0.5505673965375643,
+        "motif_question_local_auc_mean": 0.48584463785007265,
+        "length_accuracy": 0.6481191416833982,
+        "length_balanced_accuracy": 0.6150169491123332,
+        "length_auc": 0.5381566229193994,
+        "length_question_local_auc_mean": 0.6728348517069744,
+        "avg_selected_feature_count": 57.2
+      }
+    },
+    "gpt_oss_prefix_0.50": {
+      "experiment_name": "motif_1to3_prefix",
+      "prefix_fraction": 0.5,
+      "motif_len_range": [
+        1,
+        3
+      ],
+      "min_support": 12,
+      "folds": [
+        {
+          "fold_index": 0,
+          "test_question_count": 6,
+          "test_trace_count": 144,
+          "motif": {
+            "n": 144,
+            "accuracy": 0.4930555555555556,
+            "balanced_accuracy": 0.5308857808857809,
+            "auc": 0.7141608391608392,
+            "tp": 6,
+            "tn": 65,
+            "fp": 1,
+            "fn": 72,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.6565233785822021,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.6666666666666666
+          },
+          "length_only": {
+            "n": 144,
+            "accuracy": 0.5902777777777778,
+            "balanced_accuracy": 0.5553613053613053,
+            "auc": 0.6161616161616161,
+            "tp": 76,
+            "tn": 9,
+            "fp": 57,
+            "fn": 2,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.6641779788838612,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "selected_feature_count": 157
+        },
+        {
+          "fold_index": 1,
+          "test_question_count": 6,
+          "test_trace_count": 155,
+          "motif": {
+            "n": 155,
+            "accuracy": 0.32903225806451614,
+            "balanced_accuracy": 0.517683465959328,
+            "auc": 0.46220159151193635,
+            "tp": 16,
+            "tn": 35,
+            "fp": 4,
+            "fn": 100,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.5046011355793965,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "length_only": {
+            "n": 155,
+            "accuracy": 0.8129032258064516,
+            "balanced_accuracy": 0.6707559681697612,
+            "auc": 0.5212201591511937,
+            "tp": 111,
+            "tn": 15,
+            "fp": 24,
+            "fn": 5,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.7492701742701743,
+            "question_local_auc_ge_0_5_rate": 1.0,
+            "question_local_auc_ge_0_6_rate": 0.6666666666666666
+          },
+          "selected_feature_count": 147
+        },
+        {
+          "fold_index": 2,
+          "test_question_count": 6,
+          "test_trace_count": 152,
+          "motif": {
+            "n": 152,
+            "accuracy": 0.5263157894736842,
+            "balanced_accuracy": 0.5442508710801394,
+            "auc": 0.6200348432055749,
+            "tp": 26,
+            "tn": 54,
+            "fp": 16,
+            "fn": 56,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.47048611111111116,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.0
+          },
+          "length_only": {
+            "n": 152,
+            "accuracy": 0.5657894736842105,
+            "balanced_accuracy": 0.5296167247386759,
+            "auc": 0.1720383275261324,
+            "tp": 81,
+            "tn": 5,
+            "fp": 65,
+            "fn": 1,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.5520833333333334,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "selected_feature_count": 139
+        },
+        {
+          "fold_index": 3,
+          "test_question_count": 6,
+          "test_trace_count": 124,
+          "motif": {
+            "n": 124,
+            "accuracy": 0.9193548387096774,
+            "balanced_accuracy": 0.8581418581418582,
+            "auc": 0.8443223443223443,
+            "tp": 24,
+            "tn": 90,
+            "fp": 1,
+            "fn": 9,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.553731884057971,
+            "question_local_auc_ge_0_5_rate": 0.8333333333333334,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "length_only": {
+            "n": 124,
+            "accuracy": 0.3225806451612903,
+            "balanced_accuracy": 0.5288045288045288,
+            "auc": 0.6133866133866134,
+            "tp": 32,
+            "tn": 8,
+            "fp": 83,
+            "fn": 1,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.535552536231884,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.5
+          },
+          "selected_feature_count": 136
+        },
+        {
+          "fold_index": 4,
+          "test_question_count": 6,
+          "test_trace_count": 157,
+          "motif": {
+            "n": 157,
+            "accuracy": 0.4140127388535032,
+            "balanced_accuracy": 0.5163865546218488,
+            "auc": 0.49789915966386555,
+            "tp": 54,
+            "tn": 11,
+            "fp": 6,
+            "fn": 86,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.5570797720797721,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.5
+          },
+          "length_only": {
+            "n": 157,
+            "accuracy": 0.9490445859872612,
+            "balanced_accuracy": 0.790546218487395,
+            "auc": 0.7065126050420169,
+            "tp": 139,
+            "tn": 10,
+            "fp": 7,
+            "fn": 1,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.8955555555555555,
+            "question_local_auc_ge_0_5_rate": 1.0,
+            "question_local_auc_ge_0_6_rate": 0.8333333333333334
+          },
+          "selected_feature_count": 132
+        }
+      ],
+      "aggregate": {
+        "motif_accuracy": 0.5363542361313873,
+        "motif_balanced_accuracy": 0.593469706137791,
+        "motif_auc": 0.627723755572912,
+        "motif_question_local_auc_mean": 0.5484844562820905,
+        "length_accuracy": 0.6481191416833982,
+        "length_balanced_accuracy": 0.6150169491123332,
+        "length_auc": 0.5258638642535145,
+        "length_question_local_auc_mean": 0.6793279156549616,
+        "avg_selected_feature_count": 142.2
+      }
+    },
+    "gpt_oss_prefix_0.75": {
+      "experiment_name": "motif_1to3_prefix",
+      "prefix_fraction": 0.75,
+      "motif_len_range": [
+        1,
+        3
+      ],
+      "min_support": 12,
+      "folds": [
+        {
+          "fold_index": 0,
+          "test_question_count": 6,
+          "test_trace_count": 144,
+          "motif": {
+            "n": 144,
+            "accuracy": 0.4791666666666667,
+            "balanced_accuracy": 0.5192307692307693,
+            "auc": 0.6282051282051282,
+            "tp": 3,
+            "tn": 66,
+            "fp": 0,
+            "fn": 75,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.4585595776772247,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "length_only": {
+            "n": 144,
+            "accuracy": 0.5902777777777778,
+            "balanced_accuracy": 0.5553613053613053,
+            "auc": 0.6132478632478633,
+            "tp": 76,
+            "tn": 9,
+            "fp": 57,
+            "fn": 2,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.6668408388996624,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "selected_feature_count": 235
+        },
+        {
+          "fold_index": 1,
+          "test_question_count": 6,
+          "test_trace_count": 155,
+          "motif": {
+            "n": 155,
+            "accuracy": 0.3225806451612903,
+            "balanced_accuracy": 0.5474137931034483,
+            "auc": 0.5152519893899205,
+            "tp": 11,
+            "tn": 39,
+            "fp": 0,
+            "fn": 105,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.5386228747098313,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.16666666666666666
+          },
+          "length_only": {
+            "n": 155,
+            "accuracy": 0.8129032258064516,
+            "balanced_accuracy": 0.6707559681697612,
+            "auc": 0.5242042440318302,
+            "tp": 111,
+            "tn": 15,
+            "fp": 24,
+            "fn": 5,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.7510504773004772,
+            "question_local_auc_ge_0_5_rate": 1.0,
+            "question_local_auc_ge_0_6_rate": 0.6666666666666666
+          },
+          "selected_feature_count": 221
+        },
+        {
+          "fold_index": 2,
+          "test_question_count": 6,
+          "test_trace_count": 152,
+          "motif": {
+            "n": 152,
+            "accuracy": 0.5526315789473685,
+            "balanced_accuracy": 0.572822299651568,
+            "auc": 0.7442508710801393,
+            "tp": 26,
+            "tn": 58,
+            "fp": 12,
+            "fn": 56,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.37847222222222227,
+            "question_local_auc_ge_0_5_rate": 0.3333333333333333,
+            "question_local_auc_ge_0_6_rate": 0.0
+          },
+          "length_only": {
+            "n": 152,
+            "accuracy": 0.5657894736842105,
+            "balanced_accuracy": 0.5296167247386759,
+            "auc": 0.15601045296167249,
+            "tp": 81,
+            "tn": 5,
+            "fp": 65,
+            "fn": 1,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.5850694444444445,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "selected_feature_count": 209
+        },
+        {
+          "fold_index": 3,
+          "test_question_count": 6,
+          "test_trace_count": 124,
+          "motif": {
+            "n": 124,
+            "accuracy": 0.8225806451612904,
+            "balanced_accuracy": 0.8308358308358308,
+            "auc": 0.9180819180819181,
+            "tp": 28,
+            "tn": 74,
+            "fp": 17,
+            "fn": 5,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.7790609903381642,
+            "question_local_auc_ge_0_5_rate": 1.0,
+            "question_local_auc_ge_0_6_rate": 0.6666666666666666
+          },
+          "length_only": {
+            "n": 124,
+            "accuracy": 0.3225806451612903,
+            "balanced_accuracy": 0.5288045288045288,
+            "auc": 0.6123876123876124,
+            "tp": 32,
+            "tn": 8,
+            "fp": 83,
+            "fn": 1,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.5337409420289855,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.5
+          },
+          "selected_feature_count": 213
+        },
+        {
+          "fold_index": 4,
+          "test_question_count": 6,
+          "test_trace_count": 157,
+          "motif": {
+            "n": 157,
+            "accuracy": 0.4968152866242038,
+            "balanced_accuracy": 0.5369747899159664,
+            "auc": 0.5451680672268907,
+            "tp": 68,
+            "tn": 10,
+            "fp": 7,
+            "fn": 72,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.6169622507122507,
+            "question_local_auc_ge_0_5_rate": 0.8333333333333334,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "length_only": {
+            "n": 157,
+            "accuracy": 0.9490445859872612,
+            "balanced_accuracy": 0.790546218487395,
+            "auc": 0.7054621848739496,
+            "tp": 139,
+            "tn": 10,
+            "fp": 7,
+            "fn": 1,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.8990277777777779,
+            "question_local_auc_ge_0_5_rate": 1.0,
+            "question_local_auc_ge_0_6_rate": 0.8333333333333334
+          },
+          "selected_feature_count": 199
+        }
+      ],
+      "aggregate": {
+        "motif_accuracy": 0.534754964512164,
+        "motif_balanced_accuracy": 0.6014554965475165,
+        "motif_auc": 0.6701915947967994,
+        "motif_question_local_auc_mean": 0.5543355831319386,
+        "length_accuracy": 0.6481191416833982,
+        "length_balanced_accuracy": 0.6150169491123332,
+        "length_auc": 0.5222624715005856,
+        "length_question_local_auc_mean": 0.6871458960902694,
+        "avg_selected_feature_count": 215.4
+      }
+    },
+    "gpt_oss_prefix_1.00": {
+      "experiment_name": "motif_1to3_prefix",
+      "prefix_fraction": 1.0,
+      "motif_len_range": [
+        1,
+        3
+      ],
+      "min_support": 12,
+      "folds": [
+        {
+          "fold_index": 0,
+          "test_question_count": 6,
+          "test_trace_count": 144,
+          "motif": {
+            "n": 144,
+            "accuracy": 0.4861111111111111,
+            "balanced_accuracy": 0.5244755244755245,
+            "auc": 0.3821872571872572,
+            "tp": 5,
+            "tn": 65,
+            "fp": 1,
+            "fn": 73,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.49789915966386555,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "length_only": {
+            "n": 144,
+            "accuracy": 0.5902777777777778,
+            "balanced_accuracy": 0.5553613053613053,
+            "auc": 0.6093628593628594,
+            "tp": 76,
+            "tn": 9,
+            "fp": 57,
+            "fn": 2,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.6669808949220714,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "selected_feature_count": 306
+        },
+        {
+          "fold_index": 1,
+          "test_question_count": 6,
+          "test_trace_count": 155,
+          "motif": {
+            "n": 155,
+            "accuracy": 0.3225806451612903,
+            "balanced_accuracy": 0.5474137931034483,
+            "auc": 0.5860963748894783,
+            "tp": 11,
+            "tn": 39,
+            "fp": 0,
+            "fn": 105,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.7079054761663457,
+            "question_local_auc_ge_0_5_rate": 0.8333333333333334,
+            "question_local_auc_ge_0_6_rate": 0.5
+          },
+          "length_only": {
+            "n": 155,
+            "accuracy": 0.8129032258064516,
+            "balanced_accuracy": 0.6707559681697612,
+            "auc": 0.5188992042440318,
+            "tp": 111,
+            "tn": 15,
+            "fp": 24,
+            "fn": 5,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.7507162282162282,
+            "question_local_auc_ge_0_5_rate": 1.0,
+            "question_local_auc_ge_0_6_rate": 0.6666666666666666
+          },
+          "selected_feature_count": 285
+        },
+        {
+          "fold_index": 2,
+          "test_question_count": 6,
+          "test_trace_count": 152,
+          "motif": {
+            "n": 152,
+            "accuracy": 0.48026315789473684,
+            "balanced_accuracy": 0.5078397212543554,
+            "auc": 0.40905923344947737,
+            "tp": 13,
+            "tn": 60,
+            "fp": 10,
+            "fn": 69,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.49826388888888884,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "length_only": {
+            "n": 152,
+            "accuracy": 0.4144736842105263,
+            "balanced_accuracy": 0.39146341463414636,
+            "auc": 0.15060975609756097,
+            "tp": 56,
+            "tn": 7,
+            "fp": 63,
+            "fn": 26,
+            "mixed_question_count": 3,
+            "question_local_auc_mean": 0.5798611111111112,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.3333333333333333
+          },
+          "selected_feature_count": 264
+        },
+        {
+          "fold_index": 3,
+          "test_question_count": 6,
+          "test_trace_count": 124,
+          "motif": {
+            "n": 124,
+            "accuracy": 0.9435483870967742,
+            "balanced_accuracy": 0.8939393939393939,
+            "auc": 0.9022644022644023,
+            "tp": 26,
+            "tn": 91,
+            "fp": 0,
+            "fn": 7,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.8009510869565218,
+            "question_local_auc_ge_0_5_rate": 0.8333333333333334,
+            "question_local_auc_ge_0_6_rate": 0.8333333333333334
+          },
+          "length_only": {
+            "n": 124,
+            "accuracy": 0.3225806451612903,
+            "balanced_accuracy": 0.5288045288045288,
+            "auc": 0.6053946053946054,
+            "tp": 32,
+            "tn": 8,
+            "fp": 83,
+            "fn": 1,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.5233242753623188,
+            "question_local_auc_ge_0_5_rate": 0.6666666666666666,
+            "question_local_auc_ge_0_6_rate": 0.5
+          },
+          "selected_feature_count": 276
+        },
+        {
+          "fold_index": 4,
+          "test_question_count": 6,
+          "test_trace_count": 157,
+          "motif": {
+            "n": 157,
+            "accuracy": 0.45222929936305734,
+            "balanced_accuracy": 0.6153361344537815,
+            "auc": 0.594327731092437,
+            "tp": 57,
+            "tn": 14,
+            "fp": 3,
+            "fn": 83,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.6324287749287749,
+            "question_local_auc_ge_0_5_rate": 0.8333333333333334,
+            "question_local_auc_ge_0_6_rate": 0.6666666666666666
+          },
+          "length_only": {
+            "n": 157,
+            "accuracy": 0.9490445859872612,
+            "balanced_accuracy": 0.790546218487395,
+            "auc": 0.7029411764705882,
+            "tp": 139,
+            "tn": 10,
+            "fp": 7,
+            "fn": 1,
+            "mixed_question_count": 6,
+            "question_local_auc_mean": 0.8970833333333333,
+            "question_local_auc_ge_0_5_rate": 1.0,
+            "question_local_auc_ge_0_6_rate": 0.8333333333333334
+          },
+          "selected_feature_count": 250
+        }
+      ],
+      "aggregate": {
+        "motif_accuracy": 0.536946520125394,
+        "motif_balanced_accuracy": 0.6178009134453007,
+        "motif_auc": 0.5747869997766104,
+        "motif_question_local_auc_mean": 0.6274896773208793,
+        "length_accuracy": 0.6178559837886615,
+        "length_balanced_accuracy": 0.5873862870914273,
+        "length_auc": 0.5174415203139292,
+        "length_question_local_auc_mean": 0.6835931685890125,
+        "avg_selected_feature_count": 276.2
+      }
+    }
+  }
+}

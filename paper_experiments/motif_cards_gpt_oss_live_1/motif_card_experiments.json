@@ -1,0 +1,51 @@
+{
+  "predictive": {
+    "motif_accuracy": 0.3688888888888889,
+    "motif_balanced_accuracy": 0.5320344235891944,
+    "motif_auc": 0.7619041692197099,
+    "motif_question_local_auc_mean": 0.7970123168745211,
+    "length_accuracy": 0.788888888888889,
+    "length_balanced_accuracy": 0.7481524733995881,
+    "length_auc": 0.7020220185031336,
+    "length_question_local_auc_mean": 0.7836106901887835,
+    "avg_selected_feature_count": 315.2
+  },
+  "coverage": {
+    "covered_trace_count": 450,
+    "covered_trace_rate": 1.0,
+    "covered_question_count": 15,
+    "covered_question_rate": 1.0
+  },
+  "compression": [
+    {
+      "top_k": 5,
+      "motif_auc": 0.4707075705096487,
+      "motif_question_local_auc": 0.5138087065064753,
+      "avg_feature_count": 5.0
+    },
+    {
+      "top_k": 10,
+      "motif_auc": 0.44763064743272557,
+      "motif_question_local_auc": 0.49073178342955215,
+      "avg_feature_count": 10.0
+    },
+    {
+      "top_k": 20,
+      "motif_auc": 0.5336351689205767,
+      "motif_question_local_auc": 0.5825016339181316,
+      "avg_feature_count": 20.0
+    },
+    {
+      "top_k": 40,
+      "motif_auc": 0.6666547097370099,
+      "motif_question_local_auc": 0.7155648251113655,
+      "avg_feature_count": 40.0
+    }
+  ],
+  "length_matched": {
+    "max_length_gap": 1,
+    "matched_pair_count": 76,
+    "motif_pair_accuracy": 0.4473684210526316,
+    "length_pair_accuracy": 0.5197368421052632
+  }
+}

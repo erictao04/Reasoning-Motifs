@@ -1,0 +1,35 @@
+{
+  "trace_count": 450,
+  "question_count": 15,
+  "question_trace_counts": {
+    "45": 30,
+    "49": 30,
+    "52": 30,
+    "68": 30,
+    "92": 30,
+    "114": 30,
+    "120": 30,
+    "150": 30,
+    "165": 30,
+    "167": 30,
+    "169": 30,
+    "172": 30,
+    "183": 30,
+    "185": 30,
+    "189": 30
+  },
+  "success_count": 297,
+  "failure_count": 153,
+  "avg_token_count": 11.955555555555556,
+  "median_token_count": 12.0,
+  "max_token_count": 36,
+  "rows_with_noise": 97,
+  "rows_with_noise_rate": 0.21555555555555556,
+  "unique_token_count": 248,
+  "token_type_counts": {
+    "action": 3111,
+    "milestone": 1426,
+    "strategy": 722,
+    "noise": 121
+  }
+}

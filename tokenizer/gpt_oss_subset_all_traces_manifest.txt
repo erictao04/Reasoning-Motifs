@@ -1,0 +1,4 @@
+rows=732
+questions=30
+min_traces=6
+max_traces=30
