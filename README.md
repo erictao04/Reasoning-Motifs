@@ -40,6 +40,8 @@ For a deeper walkthrough of the trajectory-sampling module, see
 - `reasoning_trace_sampling`: modular trace collection package
 - `reasoning_motifs_web`: shared export and API payload models for the webapp
 - `motif_mining/v3`: canonical global motif mining toolkit for the webapp path
+- `webapp_api`: thin read-only API over precomputed web artifacts
+- `webapp`: React/Vite SPA for explorer and research storytelling
 - `scripts`: dataset prep and analysis helpers
 - `experiments`: lightweight experiment notes
 
@@ -103,4 +105,45 @@ A small local smoke test is available without API credentials:
 
 ```bash
 python3 -m unittest tests/test_trajectory_sampling_smoke.py
+```
+
+## Webapp Demo
+
+The webapp uses a curated pilot set backed by precomputed artifacts in
+[`webapp_artifacts/pilot_v1`](./webapp_artifacts/pilot_v1).
+
+Regenerate the demo artifacts:
+
+```bash
+python3 scripts/export_webapp_data.py
+```
+
+Start the local API:
+
+```bash
+python3 -m uvicorn webapp_api.app:app --reload
+```
+
+Start the SPA:
+
+```bash
+cd webapp
+npm install
+npm run dev
+```
+
+Useful local checks:
+
+```bash
+python3 -m unittest \
+  tests/test_webapp_models.py \
+  tests/test_webapp_export.py \
+  tests/test_webapp_api.py \
+  tests/test_webapp_integration_smoke.py
+```
+
+```bash
+cd webapp
+npm test
+npm run build
 ```
