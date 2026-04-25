@@ -7,6 +7,14 @@ correct and incorrect answers.
 The current primary workflow is built around [reasoner.py](./reasoner.py) and
 the [`reasoning_trace_sampling`](./reasoning_trace_sampling) package.
 
+For the researcher-facing webapp path, the canonical downstream analysis stack
+is:
+
+1. curated pilot/tokenized trace export
+2. corpus-global motif mining through `motif_mining/v3`
+3. read-only web artifacts served by a thin local API
+4. SPA-based exploration and storytelling
+
 ## Main Workflow
 
 1. Load benchmark questions from `data/benchmarks`.
@@ -30,6 +38,8 @@ For a deeper walkthrough of the trajectory-sampling module, see
 - `data/benchmarks`: local benchmark datasets
 - `data/traces`: collected trajectory CSVs and event logs
 - `reasoning_trace_sampling`: modular trace collection package
+- `reasoning_motifs_web`: shared export and API payload models for the webapp
+- `motif_mining/v3`: canonical global motif mining toolkit for the webapp path
 - `scripts`: dataset prep and analysis helpers
 - `experiments`: lightweight experiment notes
 
