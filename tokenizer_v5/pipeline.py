@@ -9,7 +9,9 @@ from pathlib import Path
 from ._common import (
     ensure_dir,
     file_sha256,
+    fmt_duration,
     git_short_sha,
+    log,
     run_id,
     safe_model_suffix,
     write_json,
@@ -39,6 +41,11 @@ def main() -> None:
     )
     parser.add_argument("--skip-audit", action="store_true")
     parser.add_argument("--skip-tokenize", action="store_true")
+    parser.add_argument(
+        "--no-prefilter",
+        action="store_true",
+        help="Disable the mixed-outcome prefilter in audit (default: on).",
+    )
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parents[1]
@@ -63,7 +70,21 @@ def main() -> None:
     audit_seconds = None
     tokenize_seconds = None
 
+    log("pipeline", f"run_id={rid}  results={results_dir}")
+    log(
+        "pipeline",
+        f"input={args.input.resolve()}  judge={args.judge_model}  "
+        f"tokenizer={args.tokenizer_model}",
+    )
+    log(
+        "pipeline",
+        f"workers={args.max_workers}  threshold={args.confidence_threshold}  "
+        f"max_questions={args.max_questions}  "
+        f"skip_audit={args.skip_audit}  skip_tokenize={args.skip_tokenize}",
+    )
+
     if not args.skip_audit:
+        log("pipeline", "stage  audit START")
         t0 = time.time()
         audit_result = run_audit(
             input_csv=args.input.resolve(),
@@ -75,13 +96,17 @@ def main() -> None:
             confidence_threshold=args.confidence_threshold,
             max_workers=args.max_workers,
             max_questions=args.max_questions,
+            prefilter_mixed_outcome=not args.no_prefilter,
         )
         audit_seconds = round(time.time() - t0, 2)
+        log("pipeline", f"stage  audit FINISH in {fmt_duration(audit_seconds)}")
         tokenize_input = audited_csv
     else:
+        log("pipeline", "stage  audit SKIP")
         tokenize_input = args.input.resolve()
 
     if not args.skip_tokenize:
+        log("pipeline", "stage  tokenize START")
         t1 = time.time()
         tokenize_result = run_tokenize(
             input_csv=tokenize_input,
@@ -94,6 +119,9 @@ def main() -> None:
             max_questions=args.max_questions if args.skip_audit else None,
         )
         tokenize_seconds = round(time.time() - t1, 2)
+        log("pipeline", f"stage  tokenize FINISH in {fmt_duration(tokenize_seconds)}")
+    else:
+        log("pipeline", "stage  tokenize SKIP")
 
     manifest = {
         "run_id": rid,
@@ -111,20 +139,24 @@ def main() -> None:
         "tokenize_summary": tokenize_result,
     }
     write_json(results_dir / "manifest.json", manifest)
-    print(f"\n[pipeline] DONE  run_id={rid}")
-    print(f"  results: {results_dir}")
+    log("pipeline", f"DONE   run_id={rid}")
     if audit_result:
-        print(
-            f"  audit:    drop={audit_result['n_drop']}  "
+        log(
+            "pipeline",
+            f"audit  drop={audit_result['n_drop']}  "
             f"relabel={audit_result['n_relabel']}  "
-            f"low_conf={audit_result['n_low_confidence']}"
+            f"low_conf={audit_result['n_low_confidence']}  "
+            f"cache=h{audit_result['cache_hits']}/m{audit_result['cache_misses']}",
         )
     if tokenize_result:
-        print(
-            f"  tokenize: rows={tokenize_result['n_output_rows']}/"
+        log(
+            "pipeline",
+            f"tokn   rows={tokenize_result['n_output_rows']}/"
             f"{tokenize_result['n_input_rows']}  "
-            f"|M|={tokenize_result['n_mixed_outcome_questions']}"
+            f"|M|={tokenize_result['n_mixed_outcome_questions']}  "
+            f"cache=h{tokenize_result['cache_hits']}/m{tokenize_result['cache_misses']}",
         )
+    log("pipeline", f"manifest {results_dir / 'manifest.json'}")
 
 
 if __name__ == "__main__":
