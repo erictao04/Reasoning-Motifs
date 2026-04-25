@@ -41,10 +41,23 @@ PROMPT_INSTRUCTION_PLACEHOLDER = (
     """
 You are a reasoning-trace canonicalizer.
 
-Your job is to tokenize ONE free-form math reasoning trace into a sequence of canonical reasoning-action tokens using the provided tokenization guide.
+Your job is to tokenize ONE free-form math reasoning trace into a sequence of qualified reasoning-action tokens using the provided tokenization guide.
 
-You must follow the guide exactly.
-Do not invent new token meanings.
+Each output token MUST have the form  basetype:qualifier
+- basetype  is a token from the guide's final vocabulary (e.g. analyze, compute, rewrite)
+- qualifier  is a short hyphenated noun phrase (1-3 words) naming the mathematical object,
+  concept, or sub-goal being operated on (e.g. constraint, modular-inverse, sum-formula,
+  parity-argument, base-case, variable-substitution)
+
+The qualifier makes two traces with the same step type distinguishable when they operate on
+different mathematical content.  Choose qualifiers from this suggested list when they fit,
+and coin new ones (hyphenated, lowercase) when they don't:
+  setup, constraint, formula, equation, expression, variable, value, bound, parity,
+  modular, geometric, algebraic, combinatorial, proof, case, identity, sum, product,
+  sequence, recurrence, inequality, probability, counting, substitution, factorization,
+  simplification, intermediate-result, final-answer
+
+You must follow the guide exactly for the basetype.
 Do not use answer correctness when assigning tokens.
 Tokenize by reasoning FUNCTION, not wording.
 
@@ -52,37 +65,49 @@ Instructions:
 1. Read the tokenization guide carefully.
 2. Read the question and the trace.
 3. Segment the trace into reasoning spans according to the guide.
-4. Map each span to a token from the guide's final vocabulary.
-5. Preserve order.
-6. If one sentence performs multiple reasoning functions, emit multiple tokens.
-7. Ignore filler, hedging, politeness, and stylistic language unless it changes reasoning function.
-8. Use the ambiguity rules when a span could fit multiple tokens.
-9. Use the closest existing token rather than inventing a new one.
+4. Map each span to a basetype from the guide's final vocabulary.
+5. Choose a qualifier that describes the mathematical content of that span.
+6. Emit basetype:qualifier for each span, preserving order.
+7. If one sentence performs multiple reasoning functions, emit multiple tokens.
+8. Ignore filler, hedging, politeness, and stylistic language unless it changes reasoning function.
+9. Use the ambiguity rules when a span could fit multiple basetypes.
+10. Use the closest existing basetype rather than inventing a new one; qualifiers may be new.
 
 return tokenized sequence as
-{"tokenized_trace": "token1 token2 token3 ..."}
+{"tokenized_trace": "basetype1:qualifier1 basetype2:qualifier2 ..."}
 """
 )
 
 METADATA_INSTRUCTION_PLACEHOLDER = """
-You are designing a tokenization guide for canonicalizing free-form math reasoning traces into discrete reasoning-action tokens.
+You are designing a tokenization guide for canonicalizing free-form math reasoning traces into
+discrete qualified reasoning-action tokens of the form  basetype:qualifier.
 
-Your goal is to create a stable, reusable, label-blind tokenization policy that will later be used to tokenize individual traces one at a time.
+Your goal is to create a stable, reusable, label-blind tokenization policy that will later be
+used to tokenize individual traces one at a time.
 
 This is NOT the final tokenization step.
 Do NOT tokenize the traces yet unless needed for brief examples.
 Instead, infer the metadata and rules needed for later tokenization.
 
-Objectives:
-1. Create a shared canonical token vocabulary for math reasoning traces.
-2. Define each token by reasoning FUNCTION, not wording.
-3. Make the vocabulary compact, reusable, and robust across many questions.
-4. Ensure the policy is label-blind: correctness must never affect token assignment.
-5. Anticipate ambiguities and define tie-breaking rules.
+## Token format
 
-You should assume that later, another prompt will tokenize traces individually using only the metadata you produce here.
+Every emitted token must be  basetype:qualifier  where:
+- basetype  is drawn from the fixed base vocabulary below (do not invent new basetypes).
+- qualifier  is a short hyphenated noun phrase (1-3 words, lowercase) identifying the
+  mathematical object, concept, or sub-goal being acted on in that span.
 
-Base vocabulary candidate:
+Two traces that perform the same reasoning function on different mathematical content must
+produce different tokens (e.g. analyze:parity vs analyze:geometric-construction).
+
+Qualifiers should be specific enough to distinguish traces but general enough to recur across
+questions of the same type.  Suggested qualifier pool (extend if needed):
+  setup, constraint, formula, equation, expression, variable, value, bound, parity,
+  modular, geometric, algebraic, combinatorial, proof, case, identity, sum, product,
+  sequence, recurrence, inequality, probability, counting, substitution, factorization,
+  simplification, intermediate-result, final-answer
+
+## Fixed base vocabulary
+
 - analyze
 - instantiate
 - compute
@@ -97,21 +122,29 @@ Base vocabulary candidate:
 - compare
 - derive-intermediate
 
-Tasks:
-A. Review the candidate vocabulary and decide:
-   - which tokens should remain as-is
-   - which should be merged
-   - which need sharper definitions
-   - whether any additional tokens are absolutely necessary
+## Objectives
+1. Keep the base vocabulary fixed and compact.
+2. Define each basetype by reasoning FUNCTION, not wording.
+3. Define qualifier selection rules that are consistent across traces.
+4. Ensure the policy is label-blind: correctness must never affect token assignment.
+5. Anticipate ambiguities and define tie-breaking rules.
 
-B. For each token in the final vocabulary, provide:
-   - token name
+You should assume that later, another prompt will tokenize traces individually using only the
+metadata you produce here.
+
+Tasks:
+A. For each basetype in the fixed vocabulary, provide:
    - one-sentence definition
    - inclusion criteria
    - exclusion criteria
-   - 2-4 short example text spans that should map to this token
+   - 2-4 short example text spans with their expected  basetype:qualifier  output
 
-C. Provide ambiguity-resolution rules for confusing pairs such as:
+B. Provide qualifier selection rules:
+   - how to choose a qualifier for this question's domain
+   - when to coin a new qualifier vs reuse a suggested one
+   - how to normalize near-synonyms (e.g. "mod" → modular, "eq" → equation)
+
+C. Provide ambiguity-resolution rules for confusing basetype pairs such as:
    - compute vs apply-formula
    - rewrite vs simplify
    - analyze vs derive-intermediate
@@ -128,7 +161,7 @@ D. Provide segmentation rules:
 
 E. Provide normalization rules:
    - tokenization should depend on reasoning function, not wording
-   - equivalent actions across traces should map to the same token
+   - equivalent actions across traces should map to the same  basetype:qualifier
    - correctness must not affect token choice
 
 F. Provide a required JSON schema for downstream per-trace tokenization.
@@ -143,8 +176,11 @@ Return JSON only with this schema:
       "definition": "string",
       "include_when": ["string"],
       "exclude_when": ["string"],
-      "examples": ["string"]
+      "examples": ["string (show as basetype:qualifier)"]
     }
+  ],
+  "qualifier_rules": [
+    "string"
   ],
   "ambiguity_rules": [
     {
@@ -162,11 +198,11 @@ Return JSON only with this schema:
   "required_output_schema": {
     "trace_id": "string",
     "question_id": "string",
-    "tokens": ["string"],
+    "tokens": ["string (basetype:qualifier)"],
     "alignment": [
       {
         "text_span": "string",
-        "token": "string"
+        "token": "string (basetype:qualifier)"
       }
     ]
   },
@@ -723,15 +759,38 @@ def _extract_tokenized_from_dict(data: dict[str, Any]) -> str | None:
             for step in steps:
                 if not isinstance(step, dict):
                     continue
-                for token_key in ("token", "canonical_token", "label"):
-                    if token_key in step:
-                        t = _normalize(step.get(token_key))
-                        if t:
-                            tokens.append(t)
-                        break
+                t = _assemble_qualified_token(step)
+                if t:
+                    tokens.append(t)
             if tokens:
                 return " ".join(tokens)
     return None
+
+
+def _assemble_qualified_token(step: dict[str, Any]) -> str:
+    """Build a basetype:qualifier string from a step dict.
+
+    Handles models that return the token as a single "token" key already in
+    basetype:qualifier form, or as separate "basetype"/"qualifier" keys, or
+    as a plain token with no qualifier.
+    """
+    # Already combined.
+    for key in ("token", "canonical_token", "label"):
+        if key in step:
+            t = _normalize(step[key])
+            if t:
+                qualifier = _normalize(step.get("qualifier", ""))
+                if qualifier and ":" not in t:
+                    return f"{t}:{qualifier}"
+                return t
+    # Separate basetype + qualifier keys.
+    basetype = _normalize(step.get("basetype", step.get("base_type", step.get("type", ""))))
+    qualifier = _normalize(step.get("qualifier", step.get("subject", step.get("content", ""))))
+    if basetype and qualifier:
+        return f"{basetype}:{qualifier}"
+    if basetype:
+        return basetype
+    return ""
 
 
 def _stringify_token_sequence(value: Any) -> str | None:
@@ -745,12 +804,9 @@ def _stringify_token_sequence(value: Any) -> str | None:
                 if token:
                     tokens.append(token)
             elif isinstance(item, dict):
-                for key in ("token", "canonical_token", "label", "name"):
-                    if key in item:
-                        token = _normalize(item.get(key))
-                        if token:
-                            tokens.append(token)
-                        break
+                t = _assemble_qualified_token(item)
+                if t:
+                    tokens.append(t)
         return " ".join(tokens)
     return None
 
