@@ -128,6 +128,41 @@ input {
   gap: 1rem;
 }
 
+.explorer-controls {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.control-group {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.control-group span {
+  color: rgba(245, 241, 232, 0.72);
+  font-size: 0.88rem;
+}
+
+.control-group input,
+.control-group select {
+  border: 1px solid rgba(243, 201, 105, 0.2);
+  border-radius: 14px;
+  background: rgba(13, 18, 28, 0.9);
+  color: #f5f1e8;
+  padding: 0.75rem 0.9rem;
+}
+
+.toggle-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 14px;
+  border: 1px solid rgba(125, 211, 252, 0.14);
+  padding: 0.85rem 0.95rem;
+  background: rgba(34, 45, 66, 0.72);
+}
+
 .question-card h3 {
   margin-top: 0.5rem;
   font-size: 1.1rem;
@@ -145,6 +180,61 @@ input {
   margin-top: 0.75rem;
 }
 
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.75rem 0;
+}
+
+.tag {
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(243, 201, 105, 0.12);
+  color: #ffe8a0;
+}
+
+.tag.mixed_outcomes {
+  background: rgba(125, 211, 252, 0.14);
+  color: #a7e6ff;
+}
+
+.tag.low_evidence {
+  background: rgba(255, 244, 214, 0.12);
+  color: #f7ddb0;
+}
+
+.tag.high_diversity,
+.tag.hard_question {
+  background: rgba(255, 120, 80, 0.14);
+  color: #ffb9a0;
+}
+
+.question-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem 1rem;
+  margin: 0;
+}
+
+.question-stats dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(245, 241, 232, 0.6);
+}
+
+.question-stats dd {
+  margin: 0.15rem 0 0;
+}
+
+.question-card.is-low-evidence {
+  border-color: rgba(247, 221, 176, 0.3);
+}
+
 .stack-lg {
   display: grid;
   gap: 1rem;
@@ -153,6 +243,11 @@ input {
 .story-list {
   margin: 0;
   padding-left: 1.2rem;
+}
+
+.results-copy {
+  margin: 0;
+  color: rgba(245, 241, 232, 0.74);
 }
 
 @media (max-width: 720px) {
