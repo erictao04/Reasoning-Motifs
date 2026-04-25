@@ -3,20 +3,24 @@
 This document defines the canonical payloads for the researcher-facing webapp.
 It is the source of truth for the export script, local API, and SPA.
 
-## Curated Pilot Inputs
+## Default Inputs
 
-The app path uses these repo-local pilot fixtures:
+The app path currently defaults to the expanded corpus:
 
 - tokenized traces:
-  - `tokenizer_local/v2/tokenized_pilot_traces.csv`
+  - `tokenizer/clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_gpt-oss-120b_0.csv`
 - raw reasoning traces:
-  - `tokenizer_local/question_independent_incorrect_see_correctness/pilot_traces.csv`
+  - `tokenizer/expanded_pool_s100_seed73_qwen25_7b_hot30.csv`
+
+For smaller tests and local fixtures, the older pilot bundle is still available:
+
+- `tokenizer_local/v2/tokenized_pilot_traces.csv`
+- `tokenizer_local/question_independent_incorrect_see_correctness/pilot_traces.csv`
 
 These fixtures provide:
 
-- 22 questions
-- shared token vocabulary across questions
 - raw question text, gold answers, predicted answers, and reasoning traces
+- a tokenized trace view suitable for question pages and motif matching
 
 For corpus-global motifs, the webapp path treats `motif_mining/v3` as the
 canonical mining implementation.

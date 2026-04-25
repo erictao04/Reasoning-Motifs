@@ -10,7 +10,7 @@ the [`reasoning_trace_sampling`](./reasoning_trace_sampling) package.
 For the researcher-facing webapp path, the canonical downstream analysis stack
 is:
 
-1. curated pilot/tokenized trace export
+1. tokenized trace export from the current working corpus
 2. corpus-global motif mining through `motif_mining/v3`
 3. read-only web artifacts served by a thin local API
 4. SPA-based exploration and storytelling
@@ -109,8 +109,18 @@ python3 -m unittest tests/test_trajectory_sampling_smoke.py
 
 ## Webapp Demo
 
-The webapp uses a curated pilot set backed by precomputed artifacts in
-[`webapp_artifacts/pilot_v1`](./webapp_artifacts/pilot_v1).
+The webapp currently targets the expanded tokenized corpus by default:
+
+- tokenized traces:
+  - [`tokenizer/clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_gpt-oss-120b_0.csv`](./tokenizer/clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_gpt-oss-120b_0.csv)
+- raw traces:
+  - [`tokenizer/expanded_pool_s100_seed73_qwen25_7b_hot30.csv`](./tokenizer/expanded_pool_s100_seed73_qwen25_7b_hot30.csv)
+- precomputed global motifs:
+  - [`motif_mining/v3/results/clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_gpt-oss-120b_0/skipgrams_all.csv`](./motif_mining/v3/results/clean_expanded_pool_s100_seed73_qwen25_7b_hot30_tokenized_gpt-oss-120b_0/skipgrams_all.csv)
+
+Generated web artifacts default to `webapp_artifacts/expanded_v1`. If that
+directory has not been generated yet, the API falls back to the committed pilot
+artifacts in [`webapp_artifacts/pilot_v1`](./webapp_artifacts/pilot_v1).
 
 Regenerate the demo artifacts:
 

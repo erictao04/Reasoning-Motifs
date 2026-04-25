@@ -162,6 +162,72 @@ class WebappExportTests(unittest.TestCase):
             self.assertFalse(q2["local_motifs"]["available"])
             self.assertIn("low_evidence", q2["tags"])
 
+    def test_export_accepts_minimal_clean_expanded_shape(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            tokenized_csv = tmp / "tokenized.csv"
+            raw_csv = tmp / "raw.csv"
+            outdir = tmp / "artifacts"
+
+            with tokenized_csv.open("w", newline="", encoding="utf-8") as handle:
+                writer = csv.DictWriter(
+                    handle,
+                    fieldnames=[
+                        "question_id",
+                        "sample_id",
+                        "gold_answer",
+                        "predicted_answer",
+                        "is_correct",
+                        "tokenized_trace",
+                    ],
+                )
+                writer.writeheader()
+                writer.writerow(
+                    {
+                        "question_id": "45",
+                        "sample_id": "0",
+                        "gold_answer": "2",
+                        "predicted_answer": "2",
+                        "is_correct": "True",
+                        "tokenized_trace": "analyze compute conclude",
+                    }
+                )
+
+            raw_rows = [
+                {
+                    "question_id": "45",
+                    "sample_id": "0",
+                    "attempt_index": "0",
+                    "question": "Expanded question",
+                    "gold_answer": "2",
+                    "predicted_answer": "2",
+                    "has_clear_answer": "True",
+                    "is_correct": "True",
+                    "final_response_text": "final",
+                    "reasoning_trace": "raw expanded trace",
+                    "model": "demo",
+                    "prompt_tokens": "0",
+                    "completion_tokens": "0",
+                    "reasoning_tokens": "0",
+                    "finish_reason": "stop",
+                    "request_id": "r-1",
+                    "error": "",
+                    "pilot_question_uid": "",
+                    "benchmark_name": "expanded",
+                    "source_run": "demo",
+                    "source_file": "demo.csv",
+                    "source_question_id": "45",
+                    "pilot_question_index": "0",
+                }
+            ]
+            self._write_rows(raw_csv, RAW_FIELDNAMES, raw_rows)
+
+            export_webapp_data(outdir, tokenized_csv=tokenized_csv, raw_csv=raw_csv, global_motifs_csv=None)
+            question = json.loads((outdir / "question" / "45.json").read_text(encoding="utf-8"))
+            self.assertEqual(question["question_text"], "Expanded question")
+            self.assertEqual(question["all_traces"][0]["tokenized_trace"], "analyze compute conclude")
+            self.assertEqual(question["all_traces"][0]["attempt_index"], "0")
+
 
 if __name__ == "__main__":
     unittest.main()

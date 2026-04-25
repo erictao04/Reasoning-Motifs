@@ -11,6 +11,7 @@ if str(REPO_ROOT) not in sys.path:
 
 from reasoning_motifs_web.exporter import export_webapp_data
 from reasoning_motifs_web.fixtures import (
+    DEFAULT_GLOBAL_MOTIFS_CSV,
     DEFAULT_RAW_TRACE_CSV,
     DEFAULT_TOKENIZED_TRACE_CSV,
     DEFAULT_WEBAPP_ARTIFACT_DIR,
@@ -19,7 +20,7 @@ from reasoning_motifs_web.fixtures import (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Export curated pilot traces into webapp-ready JSON artifacts."
+        description="Export tokenized traces into webapp-ready JSON artifacts."
     )
     parser.add_argument(
         "--output-dir",
@@ -39,6 +40,12 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_RAW_TRACE_CSV,
         help=f"Raw trace CSV (default: {DEFAULT_RAW_TRACE_CSV}).",
     )
+    parser.add_argument(
+        "--global-motifs-csv",
+        type=Path,
+        default=DEFAULT_GLOBAL_MOTIFS_CSV,
+        help=f"Optional precomputed motif CSV (default: {DEFAULT_GLOBAL_MOTIFS_CSV}).",
+    )
     return parser.parse_args()
 
 
@@ -48,6 +55,7 @@ def main() -> None:
         args.output_dir,
         tokenized_csv=args.tokenized_csv,
         raw_csv=args.raw_csv,
+        global_motifs_csv=args.global_motifs_csv,
     )
     for label, path in outputs.items():
         print(f"{label}: {path}")

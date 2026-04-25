@@ -8,7 +8,11 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
-from .fixtures import DEFAULT_RAW_TRACE_CSV, DEFAULT_TOKENIZED_TRACE_CSV
+from .fixtures import (
+    DEFAULT_GLOBAL_MOTIFS_CSV,
+    DEFAULT_RAW_TRACE_CSV,
+    DEFAULT_TOKENIZED_TRACE_CSV,
+)
 from .models import (
     AnswerDistributionRow,
     CorpusOverview,
@@ -59,7 +63,13 @@ def _parse_bool(value: str) -> bool:
 
 
 def _parse_tokens(value: str) -> tuple[str, ...]:
-    return tuple(token.strip() for token in value.split("|") if token.strip())
+    if "|" in value:
+        parts = value.split("|")
+    elif " > " in value:
+        parts = value.split(" > ")
+    else:
+        parts = value.split()
+    return tuple(token.strip() for token in parts if token.strip())
 
 
 def load_joined_traces(
@@ -77,23 +87,38 @@ def load_joined_traces(
 
     joined: list[JoinedTrace] = []
     for row in tokenized_rows:
-        key = (row["question_id"], row["sample_id"], row["attempt_index"])
+        attempt_index = row.get("attempt_index")
+        if attempt_index is None and raw_lookup:
+            matching_keys = [
+                key
+                for key in raw_lookup
+                if key[0] == row["question_id"] and key[1] == row["sample_id"]
+            ]
+            if len(matching_keys) == 1:
+                attempt_index = matching_keys[0][2]
+        attempt_index = attempt_index or "0"
+
+        key = (row["question_id"], row["sample_id"], attempt_index)
         raw = raw_lookup.get(key)
         if raw is None:
             continue
 
-        tokenized_trace = row["reasoning_trace"]
+        tokenized_trace = row.get("reasoning_trace") or row.get("tokenized_trace") or ""
         joined.append(
             JoinedTrace(
                 question_id=row["question_id"],
                 sample_id=row["sample_id"],
-                attempt_index=row["attempt_index"],
-                question_text=row["question"],
-                gold_answer=row["gold_answer"],
-                predicted_answer=row["predicted_answer"],
+                attempt_index=attempt_index,
+                question_text=row.get("question") or raw.get("question") or "",
+                gold_answer=row.get("gold_answer") or raw.get("gold_answer") or "",
+                predicted_answer=row.get("predicted_answer") or raw.get("predicted_answer") or "",
                 is_correct=_parse_bool(row["is_correct"]),
-                benchmark_name=row["benchmark_name"],
-                pilot_question_uid=row["pilot_question_uid"],
+                benchmark_name=row.get("benchmark_name") or raw.get("benchmark_name") or "expanded_pool",
+                pilot_question_uid=(
+                    row.get("pilot_question_uid")
+                    or raw.get("pilot_question_uid")
+                    or f"{row['question_id']}:{row['sample_id']}"
+                ),
                 tokenized_trace=tokenized_trace,
                 tokens=_parse_tokens(tokenized_trace),
                 reasoning_trace=raw["reasoning_trace"],
@@ -173,6 +198,35 @@ def _split_motifs(rows: list[MotifRow], *, top_k: int) -> tuple[list[MotifRow], 
         key=lambda row: (row.support_difference, -abs(row.log_odds_ratio), -row.failure_support),
     )
     return success[:top_k], failure[:top_k]
+
+
+def _load_precomputed_motif_rows(path: Path, *, scope: str) -> list[MotifRow]:
+    rows = _read_csv(path)
+    motifs: list[MotifRow] = []
+    for entry in rows:
+        support_difference = float(entry["support_difference"])
+        motifs.append(
+            MotifRow(
+                motif=entry["motif"],
+                tokens=entry["motif"].split("|"),
+                length=int(entry["length"]),
+                scope=scope,
+                direction="success" if support_difference >= 0 else "failure",
+                success_count=int(entry["success_count"]),
+                failure_count=int(entry["failure_count"]),
+                success_support=float(entry["success_support"]),
+                failure_support=float(entry["failure_support"]),
+                support_difference=support_difference,
+                lift=float(entry["lift"]),
+                log_odds_ratio=float(entry["log_odds_ratio"]),
+                q_value=(
+                    None
+                    if entry.get("q_value") in {None, "", "nan"}
+                    else float(entry["q_value"])
+                ),
+            )
+        )
+    return motifs
 
 
 def _build_trace_summary(
@@ -441,20 +495,27 @@ def export_webapp_data(
     *,
     tokenized_csv: Path = DEFAULT_TOKENIZED_TRACE_CSV,
     raw_csv: Path = DEFAULT_RAW_TRACE_CSV,
+    global_motifs_csv: Path | None = DEFAULT_GLOBAL_MOTIFS_CSV,
 ) -> dict[str, Path]:
     traces = load_joined_traces(tokenized_csv=tokenized_csv, raw_csv=raw_csv)
     by_question: dict[str, list[JoinedTrace]] = defaultdict(list)
     for trace in traces:
         by_question[trace.question_id].append(trace)
 
-    corpus_rows = _mine_motif_rows(
-        [trace.tokens for trace in traces if trace.is_correct],
-        [trace.tokens for trace in traces if not trace.is_correct],
-        min_len=1,
-        max_len=3,
-        min_support_count=3,
-        scope="corpus_global",
-    )
+    if global_motifs_csv is not None and Path(global_motifs_csv).exists():
+        corpus_rows = _load_precomputed_motif_rows(
+            Path(global_motifs_csv),
+            scope="corpus_global",
+        )
+    else:
+        corpus_rows = _mine_motif_rows(
+            [trace.tokens for trace in traces if trace.is_correct],
+            [trace.tokens for trace in traces if not trace.is_correct],
+            min_len=1,
+            max_len=3,
+            min_support_count=3,
+            scope="corpus_global",
+        )
     corpus_success, corpus_failure = _split_motifs(corpus_rows, top_k=12)
 
     summaries: list[QuestionSummary] = []
