@@ -74,7 +74,7 @@ def parse_args() -> argparse.Namespace:
         "--min-support",
         type=int,
         default=12,
-        help="Minimum training support for motifs used as Bernoulli features (default: 12).",
+        help="Minimum training support for motifs used as logistic-regression features (default: 12).",
     )
     parser.add_argument(
         "--prefix-fractions",
@@ -274,42 +274,59 @@ def summarize_predictions(scores: list[float], labels: list[bool]) -> dict[str, 
     }
 
 
-def train_length_threshold(lengths: list[int], labels: list[bool]) -> float:
-    candidates = sorted(set(lengths))
-    if not candidates:
-        return 0.0
-
-    best_threshold = float(candidates[0])
-    best_bal_acc = -1.0
-    thresholds = [candidates[0] - 0.5]
-    thresholds.extend((a + b) / 2.0 for a, b in zip(candidates, candidates[1:]))
-    thresholds.append(candidates[-1] + 0.5)
-
-    for threshold in thresholds:
-        scores = [1.0 if length >= threshold else 0.0 for length in lengths]
-        metrics = summarize_predictions(scores, labels)
-        bal_acc = float(metrics["balanced_accuracy"])
-        if bal_acc > best_bal_acc:
-            best_bal_acc = bal_acc
-            best_threshold = threshold
-    return best_threshold
-
-
-def length_baseline_scores(
-    train_rows: list[TraceRow],
-    test_rows: list[TraceRow],
+def train_scalar_logistic_regression(
+    values: list[float],
+    labels: list[bool],
     *,
-    prefix_fraction: float,
-) -> tuple[list[float], list[float]]:
-    train_lengths = [len(truncate_tokens(row.tokens, prefix_fraction)) for row in train_rows]
-    train_labels = [row.is_correct for row in train_rows]
-    threshold = train_length_threshold(train_lengths, train_labels)
-    raw_scores = [float(len(truncate_tokens(row.tokens, prefix_fraction))) for row in test_rows]
-    thresholded_scores = [
-        1.0 if len(truncate_tokens(row.tokens, prefix_fraction)) >= threshold else 0.0
-        for row in test_rows
-    ]
-    return raw_scores, thresholded_scores
+    epochs: int = 400,
+    learning_rate: float = 0.3,
+    l2: float = 1e-3,
+) -> dict[str, float]:
+    if not values or len(values) != len(labels):
+        raise ValueError("Values and labels must be non-empty and aligned.")
+
+    mean_value = sum(values) / len(values)
+    variance = sum((value - mean_value) ** 2 for value in values) / len(values)
+    std_value = math.sqrt(max(variance, 0.0))
+    scale = std_value if std_value > 1e-9 else 1.0
+
+    weight = 0.0
+    bias = 0.0
+    n = len(values)
+
+    standardized = [(value - mean_value) / scale for value in values]
+    targets = [1.0 if label else 0.0 for label in labels]
+
+    for _ in range(epochs):
+        bias_grad = 0.0
+        weight_grad = 0.0
+        for x, y in zip(standardized, targets):
+            prob = sigmoid(bias + weight * x)
+            error = prob - y
+            bias_grad += error
+            weight_grad += error * x
+
+        bias -= learning_rate * (bias_grad / n)
+        weight -= learning_rate * ((weight_grad / n) + l2 * weight)
+
+    return {
+        "bias": bias,
+        "weight": weight,
+        "mean": mean_value,
+        "scale": scale,
+    }
+
+
+def score_scalar_logistic_regression(
+    values: list[float],
+    *,
+    model: dict[str, float],
+) -> list[float]:
+    scores: list[float] = []
+    for value in values:
+        x = (value - model["mean"]) / model["scale"]
+        scores.append(sigmoid(model["bias"] + model["weight"] * x))
+    return scores
 
 
 def summarize_length_baseline(
@@ -317,27 +334,36 @@ def summarize_length_baseline(
     test_rows: list[TraceRow],
     *,
     prefix_fraction: float,
+    length_fn: Callable[[TraceRow], int] | None = None,
 ) -> dict[str, float | int]:
-    raw_scores, thresholded_scores = length_baseline_scores(
-        train_rows,
-        test_rows,
-        prefix_fraction=prefix_fraction,
-    )
+    if length_fn is None:
+        def length_fn(row: TraceRow) -> int:
+            return len(truncate_tokens(row.tokens, prefix_fraction))
+
+    train_lengths = [float(length_fn(row)) for row in train_rows]
+    train_labels = [row.is_correct for row in train_rows]
+    model = train_scalar_logistic_regression(train_lengths, train_labels)
+    test_lengths = [float(length_fn(row)) for row in test_rows]
+    raw_scores = score_scalar_logistic_regression(test_lengths, model=model)
     labels = [row.is_correct for row in test_rows]
     question_ids = [row.question_id for row in test_rows]
 
-    threshold_metrics = summarize_predictions(thresholded_scores, labels)
-    threshold_metrics["auc"] = roc_auc(list(zip(raw_scores, labels)))
-    threshold_metrics.update(question_local_auc_summary(question_ids, raw_scores, labels))
-    return threshold_metrics
+    metrics = summarize_predictions(raw_scores, labels)
+    metrics["auc"] = roc_auc(list(zip(raw_scores, labels)))
+    metrics.update(question_local_auc_summary(question_ids, raw_scores, labels))
+    metrics["weight"] = model["weight"]
+    metrics["bias"] = model["bias"]
+    return metrics
 
 
-def train_bernoulli_nb(
+def train_sparse_logistic_regression(
     rows: list[TraceRow],
     feature_sets: list[set[str]],
     *,
     min_support: int,
-    alpha: float = 1.0,
+    epochs: int = 300,
+    learning_rate: float = 0.4,
+    l2: float = 1e-3,
 ) -> tuple[float, dict[str, float], dict[str, int]]:
     if len(rows) != len(feature_sets):
         raise ValueError("Rows and feature_sets must be aligned.")
@@ -345,57 +371,65 @@ def train_bernoulli_nb(
     pos_total = sum(1 for row in rows if row.is_correct)
     neg_total = len(rows) - pos_total
     if pos_total == 0 or neg_total == 0:
-        raise ValueError("Bernoulli NB requires both positive and negative examples.")
+        raise ValueError("Logistic regression requires both positive and negative examples.")
 
-    pos_counts: Counter[str] = Counter()
-    neg_counts: Counter[str] = Counter()
     total_counts: Counter[str] = Counter()
 
-    for row, features in zip(rows, feature_sets):
-        if row.is_correct:
-            pos_counts.update(features)
-        else:
-            neg_counts.update(features)
+    for features in feature_sets:
         total_counts.update(features)
 
-    selected = {feature for feature, count in total_counts.items() if count >= min_support}
-    prior_logit = math.log((pos_total + alpha) / (neg_total + alpha))
-    constant = prior_logit
-    deltas: dict[str, float] = {}
+    selected_features = sorted(
+        feature for feature, count in total_counts.items() if count >= min_support
+    )
+    weights = {feature: 0.0 for feature in selected_features}
+    bias = 0.0
+    targets = [1.0 if row.is_correct else 0.0 for row in rows]
+    n = len(rows)
 
-    for feature in sorted(selected):
-        p_pos = (pos_counts[feature] + alpha) / (pos_total + 2.0 * alpha)
-        p_neg = (neg_counts[feature] + alpha) / (neg_total + 2.0 * alpha)
+    filtered_feature_sets = [
+        {feature for feature in features if feature in weights}
+        for features in feature_sets
+    ]
 
-        constant += math.log(1.0 - p_pos + EPSILON) - math.log(1.0 - p_neg + EPSILON)
-        deltas[feature] = (
-            math.log(p_pos + EPSILON)
-            - math.log(1.0 - p_pos + EPSILON)
-            - math.log(p_neg + EPSILON)
-            + math.log(1.0 - p_neg + EPSILON)
-        )
+    for _ in range(epochs):
+        bias_grad = 0.0
+        weight_grads: Counter[str] = Counter()
+        for target, features in zip(targets, filtered_feature_sets):
+            logit = bias
+            for feature in features:
+                logit += weights[feature]
+            prob = sigmoid(logit)
+            error = prob - target
+            bias_grad += error
+            for feature in features:
+                weight_grads[feature] += error
+
+        bias -= learning_rate * (bias_grad / n)
+        for feature in selected_features:
+            grad = (weight_grads[feature] / n) + (l2 * weights[feature])
+            weights[feature] -= learning_rate * grad
 
     metadata = {
-        "selected_feature_count": len(selected),
+        "selected_feature_count": len(selected_features),
         "train_positive_count": pos_total,
         "train_negative_count": neg_total,
     }
-    return constant, deltas, metadata
+    return bias, weights, metadata
 
 
-def score_bernoulli_nb(
+def score_sparse_logistic_regression(
     feature_sets: list[set[str]],
     *,
-    constant: float,
-    deltas: dict[str, float],
+    bias: float,
+    weights: dict[str, float],
 ) -> list[float]:
     scores: list[float] = []
     for features in feature_sets:
-        logit = constant
+        logit = bias
         for feature in features:
-            delta = deltas.get(feature)
-            if delta is not None:
-                logit += delta
+            weight = weights.get(feature)
+            if weight is not None:
+                logit += weight
         scores.append(sigmoid(logit))
     return scores
 
@@ -414,6 +448,7 @@ def run_question_holdout_experiment(
     min_len: int,
     max_len: int,
     experiment_name: str,
+    baseline_length_fn: Callable[[TraceRow], int] | None = None,
 ) -> dict[str, object]:
     test_folds = build_question_folds(rows, folds, seed)
     fold_results: list[dict[str, object]] = []
@@ -435,12 +470,12 @@ def run_question_holdout_experiment(
             max_len=max_len,
         )
 
-        constant, deltas, metadata = train_bernoulli_nb(
+        bias, weights, metadata = train_sparse_logistic_regression(
             train_rows,
             train_features,
             min_support=min_support,
         )
-        test_scores = score_bernoulli_nb(test_features, constant=constant, deltas=deltas)
+        test_scores = score_sparse_logistic_regression(test_features, bias=bias, weights=weights)
         labels = [row.is_correct for row in test_rows]
         question_ids = [row.question_id for row in test_rows]
 
@@ -450,6 +485,7 @@ def run_question_holdout_experiment(
             train_rows,
             test_rows,
             prefix_fraction=prefix_fraction,
+            length_fn=baseline_length_fn,
         )
 
         fold_results.append(
@@ -512,12 +548,12 @@ def run_cross_model_transfer(
         min_len=min_len,
         max_len=max_len,
     )
-    constant, deltas, metadata = train_bernoulli_nb(
+    bias, weights, metadata = train_sparse_logistic_regression(
         source_rows,
         source_features,
         min_support=min_support,
     )
-    motif_scores = score_bernoulli_nb(target_features, constant=constant, deltas=deltas)
+    motif_scores = score_sparse_logistic_regression(target_features, bias=bias, weights=weights)
     labels = [row.is_correct for row in target_rows]
     question_ids = [row.question_id for row in target_rows]
     motif_metrics = summarize_predictions(motif_scores, labels)
@@ -554,7 +590,7 @@ def top_weighted_features(
         min_len=min_len,
         max_len=max_len,
     )
-    _, deltas, _ = train_bernoulli_nb(rows, feature_sets, min_support=min_support)
+    _, weights, _ = train_sparse_logistic_regression(rows, feature_sets, min_support=min_support)
 
     support_counter: Counter[str] = Counter()
     for features in feature_sets:
@@ -567,7 +603,7 @@ def top_weighted_features(
                 "weight": weight,
                 "support": support_counter[feature],
             }
-            for feature, weight in deltas.items()
+            for feature, weight in weights.items()
         ),
         key=lambda item: abs(float(item["weight"])),
         reverse=True,
@@ -591,8 +627,8 @@ def full_weight_table(
         min_len=min_len,
         max_len=max_len,
     )
-    _, deltas, _ = train_bernoulli_nb(rows, feature_sets, min_support=min_support)
-    return deltas
+    _, weights, _ = train_sparse_logistic_regression(rows, feature_sets, min_support=min_support)
+    return weights
 
 
 def shared_motif_stability(

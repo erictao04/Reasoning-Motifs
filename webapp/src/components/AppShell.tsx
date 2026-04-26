@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import type { PropsWithChildren } from "react";
 
 export function AppShell({ children }: PropsWithChildren) {
+  const navClassName = ({ isActive }: { isActive: boolean }) => (isActive ? "active" : undefined);
+
   return (
     <div className="app-frame">
       <header className="topbar">
@@ -13,7 +15,12 @@ export function AppShell({ children }: PropsWithChildren) {
           </p>
         </div>
         <nav className="topnav" aria-label="Primary">
-          <NavLink to="/">Questions</NavLink>
+          <NavLink to="/" className={navClassName} end>
+            Questions
+          </NavLink>
+          <NavLink to="/pipeline" className={navClassName}>
+            Pipeline
+          </NavLink>
         </nav>
       </header>
       <main>{children}</main>
