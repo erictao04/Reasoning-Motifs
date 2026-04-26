@@ -111,7 +111,8 @@ select {
 .metric-card,
 .use-card,
 .motif-card,
-.example-card {
+.example-card,
+.pipeline-figure-shell {
   background: #ffffff;
   border: 1px solid #ececec;
   border-radius: 12px;
@@ -352,6 +353,43 @@ select {
 
 .story-list li + li {
   margin-top: 0.45rem;
+}
+
+.pipeline-figure-shell {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.pipeline-figure {
+  display: block;
+  width: 100%;
+  min-width: 860px;
+  height: auto;
+}
+
+.pipeline-figure__title {
+  fill: #1f1f1f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.pipeline-figure__line {
+  fill: #5e6572;
+  font-size: 13px;
+}
+
+.pipeline-figure__arrow {
+  fill: none;
+  stroke: #596273;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pipeline-figure__note {
+  fill: #7d8593;
+  font-size: 12px;
 }
 
 @media (max-width: 720px) {
